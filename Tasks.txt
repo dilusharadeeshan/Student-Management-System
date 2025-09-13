@@ -17,8 +17,10 @@ completed ->
 
 ++++++++++++
 
-TG/2023/1781
+TG/2023/1748
 completed ->
+
+create user,dean,student,lecturer,technical officer,admin tables.
 
 
 
