@@ -1,0 +1,48 @@
+CREATE DATABASE IF NOT EXISTS Faculty_Of_Technology;
+
+USE Faculty_Of_Technology;
+
+CREATE TABLE User (
+	user_id INT AUTO_INCREMENT PRIMARY KEY,
+	name VARCHAR(100) NOT NULL,
+	email VARCHAR(100) UNIQUE NOT NULL,
+	password VARCHAR(200) NOT NULL,
+	role ENUM('admin','dean','lecturer','technical_officer','student') NOT NULL,
+	status BOOLEAN DEFAULT TRUE,
+	date_of_birth DATE NOT NULL,
+	street VARCHAR(100) NOT NULL,
+	city VARCHAR(100) NOT NULL,
+	postal_code VARCHAR(100) NOT NULL,
+	country VARCHAR(50) DEFAULT 'Sri Lanka',
+	contact_no VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE Admin (
+    admin_id INT PRIMARY KEY,
+    FOREIGN KEY (admin_id) REFERENCES User(user_id) ON DELETE CASCADE
+);
+
+CREATE TABLE Dean (
+	dean_id INT PRIMARY KEY,
+	FOREIGN KEY(dean_id) REFERENCES User(user_id) ON DELETE CASCADE 
+);
+
+CREATE TABLE Lecturer (
+    lecturer_id INT PRIMARY KEY,
+    department VARCHAR(100),
+    FOREIGN KEY (lecturer_id) REFERENCES User(user_id) ON DELETE CASCADE
+);
+
+CREATE TABLE TechnicalOfficer (
+	technical_officer_id INT PRIMARY KEY,
+	FOREIGN KEY(technical_officer_id) REFERENCES User(user_id) ON DELETE CASCADE
+);
+
+CREATE TABLE Student (
+	reg_no VARCHAR(20) PRIMARY KEY,
+	user_id INT UNIQUE NOT NULL,
+	batch VARCHAR(50), 
+	student_type ENUM('proper', 'repeat', 'suspended') DEFAULT 'proper',
+	medical_submitted BOOLEAN DEFAULT FALSE,
+	FOREIGN KEY(user_id) REFERENCES User(user_id) ON DELETE CASCADE
+);
