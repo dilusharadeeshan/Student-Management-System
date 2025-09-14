@@ -1,3 +1,7 @@
 CREATE user 'admin'@'localhost' IDENTIFIED BY 'admin1';
 GRANT ALL PRIVILEGES ON *.* TO 'admin'@'localhost' WITH GRANT OPTION;
 FLUSH PRIVILEGES;
+
+CREATE user 'dean'@'localhost' IDENTIFIED BY 'dean';
+GRANT ALL PRIVILEGES ON Faculty_Of_Technology.* TO 'dean'@'localhost';
+FLUSH PRIVILEGES;
