@@ -1,0 +1,32 @@
+CREATE TABLE course(
+   Course_id INT PRIMARY KEY,
+   Course_name VARCHAR(100),
+   Type VARCHAR(20),
+   Credit INT,
+   lecturer_id INT,
+   FOREIGN KEY (lecturer_id) REFERENCES Lecturer(lecturer_id) ON DELETE CASCADE
+);
+
+
+CREATE TABLE Attendence(
+     attendence_id INT PRIMARY KEY,
+     reg_no VARCHAR(20),
+     Course_id  INT,
+     date DATE,
+     status ENUM('Present','Absent'),
+     FOREIGN KEY(reg_no) REFERENCES student(reg_no) ON DELETE CASCADE,
+     FOREIGN KEY(Course_id) REFERENCES course(Course_id) ON DELETE CASCADE
+
+);
+
+
+CREATE TABLE marks(
+    mark_id INT PRIMARY KEY,
+    reg_no VARCHAR(20),
+    Course_id  INT,
+    Mark_type VARCHAR(20),
+    mark_value INT,
+    FOREIGN KEY(reg_no) REFERENCES student(reg_no) ON DELETE CASCADE,
+    FOREIGN KEY(Course_id) REFERENCES course(Course_id) ON DELETE CASCADE
+
+);
