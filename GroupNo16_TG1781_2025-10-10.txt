@@ -1,0 +1,22 @@
+CREATE TABLE course (
+    Course_code VARCHAR(20) PRIMARY KEY,
+    Course_name VARCHAR(100),
+    Type VARCHAR(50),
+    Credits INT,
+    Lecturer_in_charge INT,
+    FOREIGN KEY (Lecturer_in_charge) REFERENCES lecturer(Lecturer_id)
+);
+
+
+
+CREATE TABLE marks (
+    Mark_id INT AUTO_INCREMENT PRIMARY KEY,
+    Reg_no CHAR(20),
+    Course_code VARCHAR(20),
+    Marks_type VARCHAR(50) CHECK 
+        (Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Assesment', 
+                        'Mid_practical', 'Mid_theory', 'End_practical', 'End_theory')),
+    Marks_value DECIMAL(5,2) CHECK (Marks_value BETWEEN 0 AND 100),
+    FOREIGN KEY (Reg_no) REFERENCES student(Reg_no),
+    FOREIGN KEY (Course_code) REFERENCES course(Course_code)
+);
