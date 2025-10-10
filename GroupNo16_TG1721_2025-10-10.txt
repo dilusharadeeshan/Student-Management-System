@@ -1,0 +1,26 @@
+CREATE TABLE MEDICAL_RECORD (
+    Medical_id INT AUTO_INCREMENT  PRIMARY KEY,
+    Reg_no CHAR(20),
+    Course_code VARCHAR(20),
+    Date_submitted DATE,
+    Reason VARCHAR(255),
+    Approved BOOLEAN,
+    FOREIGN KEY (Course_code) REFERENCES COURSE(Course_code),
+    FOREIGN KEY (Reg_no) REFERENCES STUDENT(Reg_no)
+);
+
+
+
+CREATE TABLE ATTENDANCE (
+    attendance_id INT PRIMARY KEY AUTO_INCREMENT,
+    reg_no CHAR(20),
+    course_code VARCHAR(20),
+    session_date DATE,
+    session_type VARCHAR(10) CHECK (session_type IN ('Theory', 'Practical')),
+    session_hours DECIMAL(2,1) NOT NULL,
+    status VARCHAR(10) CHECK (status IN ('Present', 'Absent', 'Medical')),
+    FOREIGN KEY (reg_no) REFERENCES STUDENT(reg_no),
+    FOREIGN KEY (course_code) REFERENCES COURSE(course_code)
+);
+
+
