@@ -1,0 +1,50 @@
+-- Drop privious database
+DROP DATABASE IF EXISTS Faculty_Of_Technology;
+
+-- Create database and use it
+CREATE DATABASE IF NOT EXISTS Faculty_Of_Technology;
+
+USE Faculty_Of_Technology;
+
+
+-- Create user table and subtables of it
+CREATE TABLE user (
+    User_id INT AUTO_INCREMENT PRIMARY KEY,
+    Name VARCHAR(100) NOT NULL,
+    date_of_birth DATE,
+    Street VARCHAR(100),
+    City VARCHAR(100),
+    Postal_code CHAR(50),
+    Email VARCHAR(100) UNIQUE,
+    Role VARCHAR(50),
+    Password VARCHAR(100)
+);
+
+CREATE TABLE admin(
+    Admin_id INT PRIMARY KEY,
+    FOREIGN KEY(Admin_id) REFERENCES user(User_id) ON DELETE CASCADE
+);
+
+CREATE TABLE dean (
+    Dean_id INT PRIMARY KEY,
+    FOREIGN KEY(Dean_id) REFERENCES user(User_id) ON DELETE CASCADE
+);
+
+CREATE TABLE student (
+    Reg_no CHAR(20) PRIMARY KEY,
+    User_id INT,
+    Batch VARCHAR(20),
+    Student_type VARCHAR(50),
+    FOREIGN KEY (User_id) REFERENCES USER(User_id) ON DELETE CASCADE
+);
+
+CREATE TABLE technical_officer (
+    To_id INT PRIMARY KEY,
+    FOREIGN KEY (To_id) REFERENCES USER(User_id) ON DELETE CASCADE
+);
+
+CREATE TABLE lecturer (
+    Lecturer_id INT PRIMARY KEY,
+    Department VARCHAR(100),
+    FOREIGN KEY (Lecturer_id) REFERENCES USER(User_id) ON DELETE CASCADE
+);
