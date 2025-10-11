@@ -1,4 +1,4 @@
-CREATE TABLE attendence (
+CREATE TABLE attendance (
     Attendance_id INT PRIMARY KEY AUTO_INCREMENT,
     Reg_no CHAR(20),
     Course_code VARCHAR(20),
