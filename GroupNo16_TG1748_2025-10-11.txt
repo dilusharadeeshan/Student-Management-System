@@ -1,5 +1,5 @@
 -- create enrolls_in table for relationship between student and course
-CREATE TABLE enrolls_in (
+CREATE TABLE enroll_in (
     Reg_no CHAR(20),
     Course_code VARCHAR(20),
     PRIMARY KEY (Reg_no,Course_code),
