@@ -1,0 +1,8 @@
+-- create enrolls_in table for relationship between student and course
+CREATE TABLE enrolls_in (
+    Reg_no CHAR(20),
+    Course_code VARCHAR(20),
+    PRIMARY KEY (Reg_no,Course_code),
+    FOREIGN KEY(Reg_no) REFERENCES student(Reg_no) ON DELETE CASCADE,
+    FOREIGN KEY(Course_code) REFERENCES course(Course_code) ON DELETE CASCADE
+);
