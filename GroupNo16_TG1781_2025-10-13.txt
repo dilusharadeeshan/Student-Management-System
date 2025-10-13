@@ -1,3 +1,10 @@
 CREATE TABLE department (
     Dep_id  CHAR(5) PRIMARY KEY,
 	Dep_name VARCHAR(50));
+
+
+INSERT INTO department VALUES (
+    ('D1',"Information Communication Technology"),
+	('D2',"Engineering Technology"),
+	('D3',"Bio System Technology"),
+	('D4',"Multidisciplinary"));    
