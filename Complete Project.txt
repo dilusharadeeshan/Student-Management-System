@@ -119,6 +119,13 @@ CREATE TABLE enroll_in (
     FOREIGN KEY(Reg_no) REFERENCES student(Reg_no) ON DELETE CASCADE,
     FOREIGN KEY(Course_code) REFERENCES course(Course_code) ON DELETE CASCADE
 );
+
+
+INSERT INTO department VALUES (
+    ('D1',"Information Communication Technology"),
+	('D2',"Engineering Technology"),
+	('D3',"Bio System Technology"),
+	('D4',"Multidisciplinary"));    
   
  
 
