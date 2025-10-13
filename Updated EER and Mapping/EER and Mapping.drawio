@@ -135,8 +135,8 @@
         <mxCell id="tfkz4dR5mb1-5xd3kp_V-33" value="&lt;u&gt;Phone_no&lt;/u&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="180" y="390" width="85" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="tfkz4dR5mb1-5xd3kp_V-34" value="USER_CONTAC_NUMBERS" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
-          <mxGeometry x="156" y="360" width="60" height="30" as="geometry" />
+        <mxCell id="tfkz4dR5mb1-5xd3kp_V-34" value="USER_CONTACT_NUMBER" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" parent="1" vertex="1">
+          <mxGeometry x="158" y="360" width="60" height="30" as="geometry" />
         </mxCell>
         <mxCell id="tfkz4dR5mb1-5xd3kp_V-35" value="&lt;u&gt;Course_code&lt;/u&gt;" style="rounded=0;whiteSpace=wrap;html=1;" parent="1" vertex="1">
           <mxGeometry x="100" y="635" width="80" height="40" as="geometry" />
