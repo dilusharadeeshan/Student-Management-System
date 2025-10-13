@@ -22,7 +22,7 @@ CREATE TABLE user (
 
 
 CREATE TABLE department (
-    Dep_id  CHAR(5) PRIMARY KEY,
+    Department_id  CHAR(5) PRIMARY KEY,
 	Dep_name VARCHAR(50));
     
 
