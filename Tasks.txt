@@ -24,4 +24,11 @@ completed ->
 create user,dean,student,lecturer,technical officer,admin tables.
 create enroll in table for m-n relationship between course and student
 
+++++++++++++
+
+TG/2023/1781
+completed ->
+
+Create department table and Insert the data
+
 
