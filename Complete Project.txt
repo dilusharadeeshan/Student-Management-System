@@ -10,8 +10,8 @@ USE Faculty_Of_Technology;
 -- Create user table and subtables of it
 CREATE TABLE user (
     User_id INT AUTO_INCREMENT PRIMARY KEY,
-    Fname VARCHAR(50) NOT NULL,
-    Lname VARCHAR(50) NOT NULL,
+    F_name VARCHAR(50) NOT NULL,
+    L_name VARCHAR(50) NOT NULL,
     date_of_birth DATE,
     Street VARCHAR(100),
     City VARCHAR(100),
@@ -21,6 +21,13 @@ CREATE TABLE user (
     Password VARCHAR(100)
 );
 
+
+-- create contac numbers table
+CREATE TABLE user_contact_number (
+	User_id INT,
+	Phone_no VARCHAR(50),
+	FOREIGN KEY(User_id) REFERENCES user(User_id)
+);
 
 CREATE TABLE department (
     Department_id  CHAR(5) PRIMARY KEY,
