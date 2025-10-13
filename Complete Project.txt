@@ -41,6 +41,8 @@ CREATE TABLE student (
     User_id INT,
     Batch VARCHAR(20),
     Student_type VARCHAR(50),
+    Dep_id  CHAR(5),
+	FOREIGN KEY (Dep_id) REFERENCES department(Department_id),
     FOREIGN KEY (User_id) REFERENCES USER(User_id) ON DELETE CASCADE
 );
 
@@ -51,7 +53,8 @@ CREATE TABLE technical_officer (
 
 CREATE TABLE lecturer (
     Lecturer_id INT PRIMARY KEY,
-    Department VARCHAR(100),
+    Dep_id  CHAR(5),
+    FOREIGN KEY (Dep_id) REFERENCES department(Department_id),
     FOREIGN KEY (Lecturer_id) REFERENCES USER(User_id) ON DELETE CASCADE
 );
 
@@ -62,6 +65,8 @@ CREATE TABLE course (
     Type VARCHAR(50),
     Credits INT,
     Lecturer_in_charge INT,
+    Dep_id  CHAR(5),
+	FOREIGN KEY (Dep_id) REFERENCES department(Department_id),
     FOREIGN KEY (Lecturer_in_charge) REFERENCES lecturer(Lecturer_id)
 );
 
