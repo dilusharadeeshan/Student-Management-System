@@ -10,7 +10,8 @@ USE Faculty_Of_Technology;
 -- Create user table and subtables of it
 CREATE TABLE user (
     User_id INT AUTO_INCREMENT PRIMARY KEY,
-    Name VARCHAR(100) NOT NULL,
+    Fname VARCHAR(50) NOT NULL,
+    Lname VARCHAR(50) NOT NULL,
     date_of_birth DATE,
     Street VARCHAR(100),
     City VARCHAR(100),
