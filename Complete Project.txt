@@ -20,6 +20,12 @@ CREATE TABLE user (
     Password VARCHAR(100)
 );
 
+
+CREATE TABLE department (
+    Dep_id  CHAR(5) PRIMARY KEY,
+	Dep_name VARCHAR(50));
+    
+
 CREATE TABLE admin(
     Admin_id INT PRIMARY KEY,
     FOREIGN KEY(Admin_id) REFERENCES user(User_id) ON DELETE CASCADE
