@@ -23,6 +23,8 @@ completed ->
 
 create user,dean,student,lecturer,technical officer,admin tables.
 create enroll in table for m-n relationship between course and student
+create user contac phone numbers
+data insert to user and subtables of it
 
 ++++++++++++
 
