@@ -1,5 +1,17 @@
+-- modify user table
+
 ALTER TABLE user
 CHANGE COLUMN Name F_name VARCHAR(50) NOT NULL;
 
 ALTER TABLE user
 ADD COLUMN L_name VARCHAR(50) NOT NULL AFTER F_name;
+
+
+
+-- create contac numbers table
+
+CREATE TABLE user_contact_number (
+	User_id INT,
+	Phone_no VARCHAR(50),
+	FOREIGN KEY(User_id) REFERENCES user(User_id)
+);
