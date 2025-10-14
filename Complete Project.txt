@@ -137,7 +137,7 @@ INSERT INTO department VALUES
   
 
   -- data insert to course table
-INSERT INTO COURSE VALUES
+INSERT INTO COURSE (Course_code,Course_name,Type,Credits,Lecturer_in_charge,Dep_id) VALUES
 ('ENG1222', 'English II', 'Theory', 2, 8,'D4'),
 ('ICT1212', 'Database Management Systems', 'Theory', 2, 3,'D1'),
 ('ICT1222', 'Database Management Systems Practicum', 'Practical', 2, 3,'D1'),
