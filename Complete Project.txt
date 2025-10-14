@@ -136,16 +136,7 @@ INSERT INTO department VALUES
 	('D4',"Multidisciplinary");    
   
 
-  -- data insert to course table
-INSERT INTO COURSE (Course_code,Course_name,Type,Credits,Lecturer_in_charge,Dep_id) VALUES
-('ENG1222', 'English II', 'Theory', 2, 8,'D4'),
-('ICT1212', 'Database Management Systems', 'Theory', 2, 3,'D1'),
-('ICT1222', 'Database Management Systems Practicum', 'Practical', 2, 3,'D1'),
-('ICT1233', 'Server-Side Web Development', 'Theory/Practical', 3, 4,'D1'),
-('ICT1242', 'Computer Architecture', 'Theory', 2, 5,'D1'),
-('ICT1253', 'Computer Networks', 'Theory/Practical', 3, 7,'D1'),
-('TCS1212', 'Fundamentals of Management', 'Theory', 2, 9,'D4'),
-('TMS1233', 'Discrete Mathematics', 'Theory', 3, 6,'D2');
+
 
 
  
@@ -267,6 +258,17 @@ INSERT INTO LECTURER (Lecturer_id, Dep_id) VALUES
 (7, 'D1'),
 (8, 'D4'),
 (9, 'D4');
+
+  -- data insert to course table
+INSERT INTO COURSE (Course_code,Course_name,Type,Credits,Lecturer_in_charge,Dep_id) VALUES
+('ENG1222', 'English II', 'Theory', 2, 8,'D4'),
+('ICT1212', 'Database Management Systems', 'Theory', 2, 3,'D1'),
+('ICT1222', 'Database Management Systems Practicum', 'Practical', 2, 3,'D1'),
+('ICT1233', 'Server-Side Web Development', 'Theory/Practical', 3, 4,'D1'),
+('ICT1242', 'Computer Architecture', 'Theory', 2, 5,'D1'),
+('ICT1253', 'Computer Networks', 'Theory/Practical', 3, 7,'D1'),
+('TCS1212', 'Fundamentals of Management', 'Theory', 2, 9,'D4'),
+('TMS1233', 'Discrete Mathematics', 'Theory', 3, 6,'D2');
 
 INSERT INTO TECHNICAL_OFFICER (TO_id) VALUES
 (10), (11), (12), (13), (14), (15), (16);
