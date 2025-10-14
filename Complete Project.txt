@@ -129,7 +129,7 @@ CREATE TABLE enroll_in (
 
 
 -- data insert to department table
-INSERT INTO department VALUES (
+INSERT INTO department VALUES 
     ('D1',"Information Communication Technology"),
 	('D2',"Engineering Technology"),
 	('D3',"Bio System Technology"),
