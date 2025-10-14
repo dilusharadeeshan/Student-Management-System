@@ -137,15 +137,15 @@ INSERT INTO department VALUES
   
 
   -- data insert to course table
-  INSERT INTO COURSE VALUES
-('ENG1222', 'English II', 'Theory', 2, 8),
-('ICT1212', 'Database Management Systems', 'Theory', 2, 3),
-('ICT1222', 'Database Management Systems Practicum', 'Practical', 2, 3),
-('ICT1233', 'Server-Side Web Development', 'Theory/Practical', 3, 4),
-('ICT1242', 'Computer Architecture', 'Theory', 2, 5),
-('ICT1253', 'Computer Networks', 'Theory/Practical', 3, 7),
-('TCS1212', 'Fundamentals of Management', 'Theory', 2, 9),
-('TMS1233', 'Discrete Mathematics', 'Theory', 3, 6);
+INSERT INTO COURSE VALUES
+('ENG1222', 'English II', 'Theory', 2, 8,'D4'),
+('ICT1212', 'Database Management Systems', 'Theory', 2, 3,'D1'),
+('ICT1222', 'Database Management Systems Practicum', 'Practical', 2, 3,'D1'),
+('ICT1233', 'Server-Side Web Development', 'Theory/Practical', 3, 4,'D1'),
+('ICT1242', 'Computer Architecture', 'Theory', 2, 5,'D1'),
+('ICT1253', 'Computer Networks', 'Theory/Practical', 3, 7,'D1'),
+('TCS1212', 'Fundamentals of Management', 'Theory', 2, 9,'D4'),
+('TMS1233', 'Discrete Mathematics', 'Theory', 3, 6,'D2');
 
 
  
