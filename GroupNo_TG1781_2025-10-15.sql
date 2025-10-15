@@ -1,4 +1,4 @@
---from TG/2023/011 to TG/2023/015 
+-- from TG/2023/011 to TG/2023/015 
 
 INSERT INTO enroll_in (Reg_no, Course_code) VALUES
 
