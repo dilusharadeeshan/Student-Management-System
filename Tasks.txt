@@ -6,7 +6,10 @@ Overall Project Tasks
 
 TG/2023/1781
 completed ->
+create course,marks table
 Create department table and Insert the data
+insert the data to attendence data (week 11 to 15)
+insert the data to enroll_in table
 
 
 ++++++++++++
