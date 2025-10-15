@@ -6,6 +6,7 @@ Overall Project Tasks
 
 TG/2023/1781
 completed ->
+Create department table and Insert the data
 
 
 ++++++++++++
@@ -28,11 +29,8 @@ data insert to user and subtables of it.
 data insert to 6 to 10th week for attendance table.
 insert data to enroll in table(001-005 amd repeaters)
 
-++++++++++++
+ 
 
-TG/2023/1781
-completed ->
-
-Create department table and Insert the data
+ 
 
 
