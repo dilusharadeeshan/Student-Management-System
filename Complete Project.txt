@@ -2918,6 +2918,62 @@ INSERT INTO enroll_in (Reg_no, Course_code) VALUES
 ('TG/2023/005', 'TMS1233');
 
 
+
+-- from 06 to 10
+
+INSERT INTO ENROLL_IN (Reg_no, Course_code) VALUES
+
+-- TG/2023/006 enrolls in all courses
+('TG/2023/006', 'ENG1222'),
+('TG/2023/006', 'ICT1212'),
+('TG/2023/006', 'ICT1222'),
+('TG/2023/006', 'ICT1233'),
+('TG/2023/006', 'ICT1242'),
+('TG/2023/006', 'ICT1253'),
+('TG/2023/006', 'TCS1212'),
+('TG/2023/006', 'TMS1233'),
+
+-- TG/2023/007 enrolls in all courses
+('TG/2023/007', 'ENG1222'),
+('TG/2023/007', 'ICT1212'),
+('TG/2023/007', 'ICT1222'),
+('TG/2023/007', 'ICT1233'),
+('TG/2023/007', 'ICT1242'),
+('TG/2023/007', 'ICT1253'),
+('TG/2023/007', 'TCS1212'),
+('TG/2023/007', 'TMS1233'),
+
+-- TG/2023/008 enrolls in all courses
+('TG/2023/008', 'ENG1222'),
+('TG/2023/008', 'ICT1212'),
+('TG/2023/008', 'ICT1222'),
+('TG/2023/008', 'ICT1233'),
+('TG/2023/008', 'ICT1242'),
+('TG/2023/008', 'ICT1253'),
+('TG/2023/008', 'TCS1212'),
+('TG/2023/008', 'TMS1233'),
+
+-- TG/2023/009 enrolls in all courses
+('TG/2023/009', 'ENG1222'),
+('TG/2023/009', 'ICT1212'),
+('TG/2023/009', 'ICT1222'),
+('TG/2023/009', 'ICT1233'),
+('TG/2023/009', 'ICT1242'),
+('TG/2023/009', 'ICT1253'),
+('TG/2023/009', 'TCS1212'),
+('TG/2023/009', 'TMS1233'),
+
+-- TG/2023/010 enrolls in all courses
+('TG/2023/010', 'ENG1222'),
+('TG/2023/010', 'ICT1212'),
+('TG/2023/010', 'ICT1222'),
+('TG/2023/010', 'ICT1233'),
+('TG/2023/010', 'ICT1242'),
+('TG/2023/010', 'ICT1253'),
+('TG/2023/010', 'TCS1212'),
+('TG/2023/010', 'TMS1233');
+
+
 -- from 011 to 015 
 
 INSERT INTO enroll_in (Reg_no, Course_code) VALUES
