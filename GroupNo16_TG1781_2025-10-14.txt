@@ -167,13 +167,10 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/012', 'TCS1212', '2025-10-17', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/013', 'TCS1212', '2025-10-17', 'Theory', 2.0, 'Present'),
 ('TG/2023/014', 'TCS1212', '2025-10-17', 'Theory', 2.0, 'Present'),
-('TG/2023/015', 'TCS1212', '2025-10-17', 'Theory', 2.0, 'Present'),
+('TG/2023/015', 'TCS1212', '2025-10-17', 'Theory', 2.0, 'Present');
 
 
 
-
-
--- Week 12: 
  
 INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session_hours, status) VALUES
 
@@ -346,7 +343,6 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 
 
 
--- Week 13:  
  
 INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session_hours, status) VALUES
 
@@ -519,9 +515,6 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 
 
 
-
-
--- Week 14: 
  
 INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session_hours, status) VALUES
 
