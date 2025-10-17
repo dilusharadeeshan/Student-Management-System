@@ -1832,16 +1832,16 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 -- Week 6: September 8-12, 2025
 -- Monday (ICT1233 - Theory)
 ('TG/2023/001', 'ICT1233', '2025-09-08', 'Theory', 2.0, 'Present'),
-('TG/2023/002', 'ICT1233', '2025-09-08', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 8)
-('TG/2023/003', 'ICT1233', '2025-09-08', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/002', 'ICT1233', '2025-09-08', 'Theory', 2.0, 'Medical'),  
+('TG/2023/003', 'ICT1233', '2025-09-08', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/004', 'ICT1233', '2025-09-08', 'Theory', 2.0, 'Present'),
 ('TG/2023/005', 'ICT1233', '2025-09-08', 'Theory', 2.0, 'Present'),
 ('TG/2023/006', 'ICT1233', '2025-09-08', 'Theory', 2.0, 'Present'),
 ('TG/2023/007', 'ICT1233', '2025-09-08', 'Theory', 2.0, 'Present'),
 ('TG/2023/008', 'ICT1233', '2025-09-08', 'Theory', 2.0, 'Present'),
 ('TG/2023/009', 'ICT1233', '2025-09-08', 'Theory', 2.0, 'Present'),
-('TG/2023/010', 'ICT1233', '2025-09-08', 'Theory', 2.0, 'Absent'),  -- Low attendance
-('TG/2023/011', 'ICT1233', '2025-09-08', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 8)
+('TG/2023/010', 'ICT1233', '2025-09-08', 'Theory', 2.0, 'Absent'),  
+('TG/2023/011', 'ICT1233', '2025-09-08', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/012', 'ICT1233', '2025-09-08', 'Theory', 2.0, 'Present'),
 ('TG/2023/013', 'ICT1233', '2025-09-08', 'Theory', 2.0, 'Present'),
 ('TG/2023/014', 'ICT1233', '2025-09-08', 'Theory', 2.0, 'Present'),
@@ -1849,17 +1849,17 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 
 -- Monday (ICT1233 - Practical)
 ('TG/2023/001', 'ICT1233', '2025-09-08', 'Practical', 2.0, 'Present'),
-('TG/2023/002', 'ICT1233', '2025-09-08', 'Practical', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 8)
+('TG/2023/002', 'ICT1233', '2025-09-08', 'Practical', 2.0, 'Medical'),  
 ('TG/2023/003', 'ICT1233', '2025-09-08', 'Practical', 2.0, 'Present'),
 ('TG/2023/004', 'ICT1233', '2025-09-08', 'Practical', 2.0, 'Present'),
 ('TG/2023/005', 'ICT1233', '2025-09-08', 'Practical', 2.0, 'Present'),
-('TG/2023/006', 'ICT1233', '2025-09-08', 'Practical', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/006', 'ICT1233', '2025-09-08', 'Practical', 2.0, 'Absent'),  
 ('TG/2023/007', 'ICT1233', '2025-09-08', 'Practical', 2.0, 'Present'),
 ('TG/2023/008', 'ICT1233', '2025-09-08', 'Practical', 2.0, 'Present'),
 ('TG/2023/009', 'ICT1233', '2025-09-08', 'Practical', 2.0, 'Present'),
 ('TG/2023/010', 'ICT1233', '2025-09-08', 'Practical', 2.0, 'Present'),
-('TG/2023/011', 'ICT1233', '2025-09-08', 'Practical', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 8)
-('TG/2023/012', 'ICT1233', '2025-09-08', 'Practical', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/011', 'ICT1233', '2025-09-08', 'Practical', 2.0, 'Medical'),  
+('TG/2023/012', 'ICT1233', '2025-09-08', 'Practical', 2.0, 'Absent'),  
 ('TG/2023/013', 'ICT1233', '2025-09-08', 'Practical', 2.0, 'Present'),
 ('TG/2023/014', 'ICT1233', '2025-09-08', 'Practical', 2.0, 'Present'),
 ('TG/2023/015', 'ICT1233', '2025-09-08', 'Practical', 2.0, 'Present'),
@@ -1870,30 +1870,30 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/003', 'ICT1242', '2025-09-09', 'Theory', 2.0, 'Present'),
 ('TG/2023/004', 'ICT1242', '2025-09-09', 'Theory', 2.0, 'Present'),
 ('TG/2023/005', 'ICT1242', '2025-09-09', 'Theory', 2.0, 'Present'),
-('TG/2023/006', 'ICT1242', '2025-09-09', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/006', 'ICT1242', '2025-09-09', 'Theory', 2.0, 'Absent'), 
 ('TG/2023/007', 'ICT1242', '2025-09-09', 'Theory', 2.0, 'Present'),
-('TG/2023/008', 'ICT1242', '2025-09-09', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 9)
-('TG/2023/009', 'ICT1242', '2025-09-09', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 9)
+('TG/2023/008', 'ICT1242', '2025-09-09', 'Theory', 2.0, 'Medical'),  
+('TG/2023/009', 'ICT1242', '2025-09-09', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/010', 'ICT1242', '2025-09-09', 'Theory', 2.0, 'Present'),
 ('TG/2023/011', 'ICT1242', '2025-09-09', 'Theory', 2.0, 'Present'),
 ('TG/2023/012', 'ICT1242', '2025-09-09', 'Theory', 2.0, 'Present'),
-('TG/2023/013', 'ICT1242', '2025-09-09', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/013', 'ICT1242', '2025-09-09', 'Theory', 2.0, 'Absent'), 
 ('TG/2023/014', 'ICT1242', '2025-09-09', 'Theory', 2.0, 'Present'),
 ('TG/2023/015', 'ICT1242', '2025-09-09', 'Theory', 2.0, 'Present'),
 
 -- Tuesday (ICT1253 - Theory)
 ('TG/2023/001', 'ICT1253', '2025-09-09', 'Theory', 2.0, 'Present'),
 ('TG/2023/002', 'ICT1253', '2025-09-09', 'Theory', 2.0, 'Present'),
-('TG/2023/003', 'ICT1253', '2025-09-09', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/003', 'ICT1253', '2025-09-09', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/004', 'ICT1253', '2025-09-09', 'Theory', 2.0, 'Present'),
 ('TG/2023/005', 'ICT1253', '2025-09-09', 'Theory', 2.0, 'Present'),
 ('TG/2023/006', 'ICT1253', '2025-09-09', 'Theory', 2.0, 'Present'),
 ('TG/2023/007', 'ICT1253', '2025-09-09', 'Theory', 2.0, 'Present'),
-('TG/2023/008', 'ICT1253', '2025-09-09', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 9)
-('TG/2023/009', 'ICT1253', '2025-09-09', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 9)
+('TG/2023/008', 'ICT1253', '2025-09-09', 'Theory', 2.0, 'Medical'),  
+('TG/2023/009', 'ICT1253', '2025-09-09', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/010', 'ICT1253', '2025-09-09', 'Theory', 2.0, 'Present'),
 ('TG/2023/011', 'ICT1253', '2025-09-09', 'Theory', 2.0, 'Present'),
-('TG/2023/012', 'ICT1253', '2025-09-09', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/012', 'ICT1253', '2025-09-09', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/013', 'ICT1253', '2025-09-09', 'Theory', 2.0, 'Present'),
 ('TG/2023/014', 'ICT1253', '2025-09-09', 'Theory', 2.0, 'Present'),
 ('TG/2023/015', 'ICT1253', '2025-09-09', 'Theory', 2.0, 'Present'),
@@ -1904,14 +1904,14 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/003', 'ICT1253', '2025-09-09', 'Practical', 2.0, 'Present'),
 ('TG/2023/004', 'ICT1253', '2025-09-09', 'Practical', 2.0, 'Present'),
 ('TG/2023/005', 'ICT1253', '2025-09-09', 'Practical', 2.0, 'Present'),
-('TG/2023/006', 'ICT1253', '2025-09-09', 'Practical', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/006', 'ICT1253', '2025-09-09', 'Practical', 2.0, 'Absent'), 
 ('TG/2023/007', 'ICT1253', '2025-09-09', 'Practical', 2.0, 'Present'),
-('TG/2023/008', 'ICT1253', '2025-09-09', 'Practical', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 9)
-('TG/2023/009', 'ICT1253', '2025-09-09', 'Practical', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 9)
+('TG/2023/008', 'ICT1253', '2025-09-09', 'Practical', 2.0, 'Medical'), 
+('TG/2023/009', 'ICT1253', '2025-09-09', 'Practical', 2.0, 'Medical'), 
 ('TG/2023/010', 'ICT1253', '2025-09-09', 'Practical', 2.0, 'Present'),
 ('TG/2023/011', 'ICT1253', '2025-09-09', 'Practical', 2.0, 'Present'),
 ('TG/2023/012', 'ICT1253', '2025-09-09', 'Practical', 2.0, 'Present'),
-('TG/2023/013', 'ICT1253', '2025-09-09', 'Practical', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/013', 'ICT1253', '2025-09-09', 'Practical', 2.0, 'Absent'),  
 ('TG/2023/014', 'ICT1253', '2025-09-09', 'Practical', 2.0, 'Present'),
 ('TG/2023/015', 'ICT1253', '2025-09-09', 'Practical', 2.0, 'Present'),
 
@@ -1921,13 +1921,13 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/003', 'TMS1233', '2025-09-10', 'Theory', 3.0, 'Present'),
 ('TG/2023/004', 'TMS1233', '2025-09-10', 'Theory', 3.0, 'Present'),
 ('TG/2023/005', 'TMS1233', '2025-09-10', 'Theory', 3.0, 'Present'),
-('TG/2023/006', 'TMS1233', '2025-09-10', 'Theory', 3.0, 'Absent'),  -- Low attendance
+('TG/2023/006', 'TMS1233', '2025-09-10', 'Theory', 3.0, 'Absent'),  
 ('TG/2023/007', 'TMS1233', '2025-09-10', 'Theory', 3.0, 'Present'),
-('TG/2023/008', 'TMS1233', '2025-09-10', 'Theory', 3.0, 'Medical'),  -- Medical student (all sessions on Sept 10)
+('TG/2023/008', 'TMS1233', '2025-09-10', 'Theory', 3.0, 'Medical'), 
 ('TG/2023/009', 'TMS1233', '2025-09-10', 'Theory', 3.0, 'Present'),
 ('TG/2023/010', 'TMS1233', '2025-09-10', 'Theory', 3.0, 'Present'),
 ('TG/2023/011', 'TMS1233', '2025-09-10', 'Theory', 3.0, 'Present'),
-('TG/2023/012', 'TMS1233', '2025-09-10', 'Theory', 3.0, 'Absent'),  -- Low attendance
+('TG/2023/012', 'TMS1233', '2025-09-10', 'Theory', 3.0, 'Absent'), 
 ('TG/2023/013', 'TMS1233', '2025-09-10', 'Theory', 3.0, 'Present'),
 ('TG/2023/014', 'TMS1233', '2025-09-10', 'Theory', 3.0, 'Present'),
 ('TG/2023/015', 'TMS1233', '2025-09-10', 'Theory', 3.0, 'Present'),
@@ -1938,14 +1938,14 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/003', 'ICT1212', '2025-09-11', 'Theory', 2.0, 'Present'),
 ('TG/2023/004', 'ICT1212', '2025-09-11', 'Theory', 2.0, 'Present'),
 ('TG/2023/005', 'ICT1212', '2025-09-11', 'Theory', 2.0, 'Present'),
-('TG/2023/006', 'ICT1212', '2025-09-11', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/006', 'ICT1212', '2025-09-11', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/007', 'ICT1212', '2025-09-11', 'Theory', 2.0, 'Present'),
 ('TG/2023/008', 'ICT1212', '2025-09-11', 'Theory', 2.0, 'Present'),
-('TG/2023/009', 'ICT1212', '2025-09-11', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 11)
+('TG/2023/009', 'ICT1212', '2025-09-11', 'Theory', 2.0, 'Medical'), 
 ('TG/2023/010', 'ICT1212', '2025-09-11', 'Theory', 2.0, 'Present'),
-('TG/2023/011', 'ICT1212', '2025-09-11', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 11)
+('TG/2023/011', 'ICT1212', '2025-09-11', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/012', 'ICT1212', '2025-09-11', 'Theory', 2.0, 'Present'),
-('TG/2023/013', 'ICT1212', '2025-09-11', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/013', 'ICT1212', '2025-09-11', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/014', 'ICT1212', '2025-09-11', 'Theory', 2.0, 'Present'),
 ('TG/2023/015', 'ICT1212', '2025-09-11', 'Theory', 2.0, 'Present'),
 
@@ -1955,13 +1955,13 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/003', 'ICT1222', '2025-09-11', 'Practical', 4.0, 'Present'),
 ('TG/2023/004', 'ICT1222', '2025-09-11', 'Practical', 4.0, 'Present'),
 ('TG/2023/005', 'ICT1222', '2025-09-11', 'Practical', 4.0, 'Present'),
-('TG/2023/006', 'ICT1222', '2025-09-11', 'Practical', 4.0, 'Absent'),  -- Low attendance
+('TG/2023/006', 'ICT1222', '2025-09-11', 'Practical', 4.0, 'Absent'),  
 ('TG/2023/007', 'ICT1222', '2025-09-11', 'Practical', 4.0, 'Present'),
 ('TG/2023/008', 'ICT1222', '2025-09-11', 'Practical', 4.0, 'Present'),
-('TG/2023/009', 'ICT1222', '2025-09-11', 'Practical', 4.0, 'Medical'),  -- Medical student (all sessions on Sept 11)
+('TG/2023/009', 'ICT1222', '2025-09-11', 'Practical', 4.0, 'Medical'),  
 ('TG/2023/010', 'ICT1222', '2025-09-11', 'Practical', 4.0, 'Present'),
-('TG/2023/011', 'ICT1222', '2025-09-11', 'Practical', 4.0, 'Medical'),  -- Medical student (all sessions on Sept 11)
-('TG/2023/012', 'ICT1222', '2025-09-11', 'Practical', 4.0, 'Absent'),  -- Low attendance
+('TG/2023/011', 'ICT1222', '2025-09-11', 'Practical', 4.0, 'Medical'),  
+('TG/2023/012', 'ICT1222', '2025-09-11', 'Practical', 4.0, 'Absent'),  
 ('TG/2023/013', 'ICT1222', '2025-09-11', 'Practical', 4.0, 'Present'),
 ('TG/2023/014', 'ICT1222', '2025-09-11', 'Practical', 4.0, 'Present'),
 ('TG/2023/015', 'ICT1222', '2025-09-11', 'Practical', 4.0, 'Present'),
@@ -1972,13 +1972,13 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/003', 'ENG1222', '2025-09-12', 'Theory', 2.0, 'Present'),
 ('TG/2023/004', 'ENG1222', '2025-09-12', 'Theory', 2.0, 'Present'),
 ('TG/2023/005', 'ENG1222', '2025-09-12', 'Theory', 2.0, 'Present'),
-('TG/2023/006', 'ENG1222', '2025-09-12', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/006', 'ENG1222', '2025-09-12', 'Theory', 2.0, 'Absent'), 
 ('TG/2023/007', 'ENG1222', '2025-09-12', 'Theory', 2.0, 'Present'),
-('TG/2023/008', 'ENG1222', '2025-09-12', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 12)
-('TG/2023/009', 'ENG1222', '2025-09-12', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 12)
+('TG/2023/008', 'ENG1222', '2025-09-12', 'Theory', 2.0, 'Medical'),  
+('TG/2023/009', 'ENG1222', '2025-09-12', 'Theory', 2.0, 'Medical'), 
 ('TG/2023/010', 'ENG1222', '2025-09-12', 'Theory', 2.0, 'Present'),
 ('TG/2023/011', 'ENG1222', '2025-09-12', 'Theory', 2.0, 'Present'),
-('TG/2023/012', 'ENG1222', '2025-09-12', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/012', 'ENG1222', '2025-09-12', 'Theory', 2.0, 'Absent'), 
 ('TG/2023/013', 'ENG1222', '2025-09-12', 'Theory', 2.0, 'Present'),
 ('TG/2023/014', 'ENG1222', '2025-09-12', 'Theory', 2.0, 'Present'),
 ('TG/2023/015', 'ENG1222', '2025-09-12', 'Theory', 2.0, 'Present'),
@@ -1989,13 +1989,13 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/003', 'TCS1212', '2025-09-12', 'Theory', 2.0, 'Present'),
 ('TG/2023/004', 'TCS1212', '2025-09-12', 'Theory', 2.0, 'Present'),
 ('TG/2023/005', 'TCS1212', '2025-09-12', 'Theory', 2.0, 'Present'),
-('TG/2023/006', 'TCS1212', '2025-09-12', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/006', 'TCS1212', '2025-09-12', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/007', 'TCS1212', '2025-09-12', 'Theory', 2.0, 'Present'),
-('TG/2023/008', 'TCS1212', '2025-09-12', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 12)
-('TG/2023/009', 'TCS1212', '2025-09-12', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 12)
+('TG/2023/008', 'TCS1212', '2025-09-12', 'Theory', 2.0, 'Medical'), 
+('TG/2023/009', 'TCS1212', '2025-09-12', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/010', 'TCS1212', '2025-09-12', 'Theory', 2.0, 'Present'),
 ('TG/2023/011', 'TCS1212', '2025-09-12', 'Theory', 2.0, 'Present'),
-('TG/2023/012', 'TCS1212', '2025-09-12', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/012', 'TCS1212', '2025-09-12', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/013', 'TCS1212', '2025-09-12', 'Theory', 2.0, 'Present'),
 ('TG/2023/014', 'TCS1212', '2025-09-12', 'Theory', 2.0, 'Present'),
 ('TG/2023/015', 'TCS1212', '2025-09-12', 'Theory', 2.0, 'Present'),
@@ -2008,15 +2008,15 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 -- Monday (ICT1233 - Theory)
 ('TG/2023/001', 'ICT1233', '2025-09-15', 'Theory', 2.0, 'Present'),
 ('TG/2023/002', 'ICT1233', '2025-09-15', 'Theory', 2.0, 'Present'),
-('TG/2023/003', 'ICT1233', '2025-09-15', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/003', 'ICT1233', '2025-09-15', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/004', 'ICT1233', '2025-09-15', 'Theory', 2.0, 'Present'),
 ('TG/2023/005', 'ICT1233', '2025-09-15', 'Theory', 2.0, 'Present'),
 ('TG/2023/006', 'ICT1233', '2025-09-15', 'Theory', 2.0, 'Present'),
 ('TG/2023/007', 'ICT1233', '2025-09-15', 'Theory', 2.0, 'Present'),
 ('TG/2023/008', 'ICT1233', '2025-09-15', 'Theory', 2.0, 'Present'),
-('TG/2023/009', 'ICT1233', '2025-09-15', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 15)
-('TG/2023/010', 'ICT1233', '2025-09-15', 'Theory', 2.0, 'Absent'),  -- Low attendance
-('TG/2023/011', 'ICT1233', '2025-09-15', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 15)
+('TG/2023/009', 'ICT1233', '2025-09-15', 'Theory', 2.0, 'Medical'), 
+('TG/2023/010', 'ICT1233', '2025-09-15', 'Theory', 2.0, 'Absent'),  
+('TG/2023/011', 'ICT1233', '2025-09-15', 'Theory', 2.0, 'Medical'), 
 ('TG/2023/012', 'ICT1233', '2025-09-15', 'Theory', 2.0, 'Present'),
 ('TG/2023/013', 'ICT1233', '2025-09-15', 'Theory', 2.0, 'Present'),
 ('TG/2023/014', 'ICT1233', '2025-09-15', 'Theory', 2.0, 'Present'),
@@ -2028,13 +2028,13 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/003', 'ICT1233', '2025-09-15', 'Practical', 2.0, 'Present'),
 ('TG/2023/004', 'ICT1233', '2025-09-15', 'Practical', 2.0, 'Present'),
 ('TG/2023/005', 'ICT1233', '2025-09-15', 'Practical', 2.0, 'Present'),
-('TG/2023/006', 'ICT1233', '2025-09-15', 'Practical', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/006', 'ICT1233', '2025-09-15', 'Practical', 2.0, 'Absent'), 
 ('TG/2023/007', 'ICT1233', '2025-09-15', 'Practical', 2.0, 'Present'),
 ('TG/2023/008', 'ICT1233', '2025-09-15', 'Practical', 2.0, 'Present'),
-('TG/2023/009', 'ICT1233', '2025-09-15', 'Practical', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 15)
+('TG/2023/009', 'ICT1233', '2025-09-15', 'Practical', 2.0, 'Medical'),  
 ('TG/2023/010', 'ICT1233', '2025-09-15', 'Practical', 2.0, 'Present'),
-('TG/2023/011', 'ICT1233', '2025-09-15', 'Practical', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 15)
-('TG/2023/012', 'ICT1233', '2025-09-15', 'Practical', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/011', 'ICT1233', '2025-09-15', 'Practical', 2.0, 'Medical'),  
+('TG/2023/012', 'ICT1233', '2025-09-15', 'Practical', 2.0, 'Absent'), 
 ('TG/2023/013', 'ICT1233', '2025-09-15', 'Practical', 2.0, 'Present'),
 ('TG/2023/014', 'ICT1233', '2025-09-15', 'Practical', 2.0, 'Present'),
 ('TG/2023/015', 'ICT1233', '2025-09-15', 'Practical', 2.0, 'Present'),
@@ -2045,30 +2045,30 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/003', 'ICT1242', '2025-09-16', 'Theory', 2.0, 'Present'),
 ('TG/2023/004', 'ICT1242', '2025-09-16', 'Theory', 2.0, 'Present'),
 ('TG/2023/005', 'ICT1242', '2025-09-16', 'Theory', 2.0, 'Present'),
-('TG/2023/006', 'ICT1242', '2025-09-16', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/006', 'ICT1242', '2025-09-16', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/007', 'ICT1242', '2025-09-16', 'Theory', 2.0, 'Present'),
-('TG/2023/008', 'ICT1242', '2025-09-16', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 16)
-('TG/2023/009', 'ICT1242', '2025-09-16', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 16)
+('TG/2023/008', 'ICT1242', '2025-09-16', 'Theory', 2.0, 'Medical'),  
+('TG/2023/009', 'ICT1242', '2025-09-16', 'Theory', 2.0, 'Medical'), 
 ('TG/2023/010', 'ICT1242', '2025-09-16', 'Theory', 2.0, 'Present'),
-('TG/2023/011', 'ICT1242', '2025-09-16', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 16)
+('TG/2023/011', 'ICT1242', '2025-09-16', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/012', 'ICT1242', '2025-09-16', 'Theory', 2.0, 'Present'),
-('TG/2023/013', 'ICT1242', '2025-09-16', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/013', 'ICT1242', '2025-09-16', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/014', 'ICT1242', '2025-09-16', 'Theory', 2.0, 'Present'),
 ('TG/2023/015', 'ICT1242', '2025-09-16', 'Theory', 2.0, 'Present'),
 
 -- Tuesday (ICT1253 - Theory)
 ('TG/2023/001', 'ICT1253', '2025-09-16', 'Theory', 2.0, 'Present'),
 ('TG/2023/002', 'ICT1253', '2025-09-16', 'Theory', 2.0, 'Present'),
-('TG/2023/003', 'ICT1253', '2025-09-16', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/003', 'ICT1253', '2025-09-16', 'Theory', 2.0, 'Absent'), 
 ('TG/2023/004', 'ICT1253', '2025-09-16', 'Theory', 2.0, 'Present'),
 ('TG/2023/005', 'ICT1253', '2025-09-16', 'Theory', 2.0, 'Present'),
 ('TG/2023/006', 'ICT1253', '2025-09-16', 'Theory', 2.0, 'Present'),
 ('TG/2023/007', 'ICT1253', '2025-09-16', 'Theory', 2.0, 'Present'),
-('TG/2023/008', 'ICT1253', '2025-09-16', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 16)
-('TG/2023/009', 'ICT1253', '2025-09-16', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 16)
+('TG/2023/008', 'ICT1253', '2025-09-16', 'Theory', 2.0, 'Medical'),  
+('TG/2023/009', 'ICT1253', '2025-09-16', 'Theory', 2.0, 'Medical'), 
 ('TG/2023/010', 'ICT1253', '2025-09-16', 'Theory', 2.0, 'Present'),
-('TG/2023/011', 'ICT1253', '2025-09-16', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 16)
-('TG/2023/012', 'ICT1253', '2025-09-16', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/011', 'ICT1253', '2025-09-16', 'Theory', 2.0, 'Medical'),  
+('TG/2023/012', 'ICT1253', '2025-09-16', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/013', 'ICT1253', '2025-09-16', 'Theory', 2.0, 'Present'),
 ('TG/2023/014', 'ICT1253', '2025-09-16', 'Theory', 2.0, 'Present'),
 ('TG/2023/015', 'ICT1253', '2025-09-16', 'Theory', 2.0, 'Present'),
@@ -2079,14 +2079,14 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/003', 'ICT1253', '2025-09-16', 'Practical', 2.0, 'Present'),
 ('TG/2023/004', 'ICT1253', '2025-09-16', 'Practical', 2.0, 'Present'),
 ('TG/2023/005', 'ICT1253', '2025-09-16', 'Practical', 2.0, 'Present'),
-('TG/2023/006', 'ICT1253', '2025-09-16', 'Practical', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/006', 'ICT1253', '2025-09-16', 'Practical', 2.0, 'Absent'), 
 ('TG/2023/007', 'ICT1253', '2025-09-16', 'Practical', 2.0, 'Present'),
-('TG/2023/008', 'ICT1253', '2025-09-16', 'Practical', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 16)
-('TG/2023/009', 'ICT1253', '2025-09-16', 'Practical', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 16)
+('TG/2023/008', 'ICT1253', '2025-09-16', 'Practical', 2.0, 'Medical'), 
+('TG/2023/009', 'ICT1253', '2025-09-16', 'Practical', 2.0, 'Medical'), 
 ('TG/2023/010', 'ICT1253', '2025-09-16', 'Practical', 2.0, 'Present'),
-('TG/2023/011', 'ICT1253', '2025-09-16', 'Practical', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 16)
+('TG/2023/011', 'ICT1253', '2025-09-16', 'Practical', 2.0, 'Medical'),  
 ('TG/2023/012', 'ICT1253', '2025-09-16', 'Practical', 2.0, 'Present'),
-('TG/2023/013', 'ICT1253', '2025-09-16', 'Practical', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/013', 'ICT1253', '2025-09-16', 'Practical', 2.0, 'Absent'),  
 ('TG/2023/014', 'ICT1253', '2025-09-16', 'Practical', 2.0, 'Present'),
 ('TG/2023/015', 'ICT1253', '2025-09-16', 'Practical', 2.0, 'Present'),
 
@@ -2096,13 +2096,13 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/003', 'TMS1233', '2025-09-17', 'Theory', 3.0, 'Present'),
 ('TG/2023/004', 'TMS1233', '2025-09-17', 'Theory', 3.0, 'Present'),
 ('TG/2023/005', 'TMS1233', '2025-09-17', 'Theory', 3.0, 'Present'),
-('TG/2023/006', 'TMS1233', '2025-09-17', 'Theory', 3.0, 'Absent'),  -- Low attendance
+('TG/2023/006', 'TMS1233', '2025-09-17', 'Theory', 3.0, 'Absent'), 
 ('TG/2023/007', 'TMS1233', '2025-09-17', 'Theory', 3.0, 'Present'),
-('TG/2023/008', 'TMS1233', '2025-09-17', 'Theory', 3.0, 'Medical'),  -- Medical student (all sessions on Sept 17)
+('TG/2023/008', 'TMS1233', '2025-09-17', 'Theory', 3.0, 'Medical'),  
 ('TG/2023/009', 'TMS1233', '2025-09-17', 'Theory', 3.0, 'Present'),
 ('TG/2023/010', 'TMS1233', '2025-09-17', 'Theory', 3.0, 'Present'),
 ('TG/2023/011', 'TMS1233', '2025-09-17', 'Theory', 3.0, 'Present'),
-('TG/2023/012', 'TMS1233', '2025-09-17', 'Theory', 3.0, 'Absent'),  -- Low attendance
+('TG/2023/012', 'TMS1233', '2025-09-17', 'Theory', 3.0, 'Absent'),  
 ('TG/2023/013', 'TMS1233', '2025-09-17', 'Theory', 3.0, 'Present'),
 ('TG/2023/014', 'TMS1233', '2025-09-17', 'Theory', 3.0, 'Present'),
 ('TG/2023/015', 'TMS1233', '2025-09-17', 'Theory', 3.0, 'Present'),
@@ -2113,14 +2113,14 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/003', 'ICT1212', '2025-09-18', 'Theory', 2.0, 'Present'),
 ('TG/2023/004', 'ICT1212', '2025-09-18', 'Theory', 2.0, 'Present'),
 ('TG/2023/005', 'ICT1212', '2025-09-18', 'Theory', 2.0, 'Present'),
-('TG/2023/006', 'ICT1212', '2025-09-18', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/006', 'ICT1212', '2025-09-18', 'Theory', 2.0, 'Absent'), 
 ('TG/2023/007', 'ICT1212', '2025-09-18', 'Theory', 2.0, 'Present'),
 ('TG/2023/008', 'ICT1212', '2025-09-18', 'Theory', 2.0, 'Present'),
-('TG/2023/009', 'ICT1212', '2025-09-18', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 18)
+('TG/2023/009', 'ICT1212', '2025-09-18', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/010', 'ICT1212', '2025-09-18', 'Theory', 2.0, 'Present'),
-('TG/2023/011', 'ICT1212', '2025-09-18', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 18)
+('TG/2023/011', 'ICT1212', '2025-09-18', 'Theory', 2.0, 'Medical'), 
 ('TG/2023/012', 'ICT1212', '2025-09-18', 'Theory', 2.0, 'Present'),
-('TG/2023/013', 'ICT1212', '2025-09-18', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/013', 'ICT1212', '2025-09-18', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/014', 'ICT1212', '2025-09-18', 'Theory', 2.0, 'Present'),
 ('TG/2023/015', 'ICT1212', '2025-09-18', 'Theory', 2.0, 'Present'),
 
@@ -2130,13 +2130,13 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/003', 'ICT1222', '2025-09-18', 'Practical', 4.0, 'Present'),
 ('TG/2023/004', 'ICT1222', '2025-09-18', 'Practical', 4.0, 'Present'),
 ('TG/2023/005', 'ICT1222', '2025-09-18', 'Practical', 4.0, 'Present'),
-('TG/2023/006', 'ICT1222', '2025-09-18', 'Practical', 4.0, 'Absent'),  -- Low attendance
+('TG/2023/006', 'ICT1222', '2025-09-18', 'Practical', 4.0, 'Absent'),  
 ('TG/2023/007', 'ICT1222', '2025-09-18', 'Practical', 4.0, 'Present'),
 ('TG/2023/008', 'ICT1222', '2025-09-18', 'Practical', 4.0, 'Present'),
-('TG/2023/009', 'ICT1222', '2025-09-18', 'Practical', 4.0, 'Medical'),  -- Medical student (all sessions on Sept 18)
+('TG/2023/009', 'ICT1222', '2025-09-18', 'Practical', 4.0, 'Medical'),  
 ('TG/2023/010', 'ICT1222', '2025-09-18', 'Practical', 4.0, 'Present'),
-('TG/2023/011', 'ICT1222', '2025-09-18', 'Practical', 4.0, 'Medical'),  -- Medical student (all sessions on Sept 18)
-('TG/2023/012', 'ICT1222', '2025-09-18', 'Practical', 4.0, 'Absent'),  -- Low attendance
+('TG/2023/011', 'ICT1222', '2025-09-18', 'Practical', 4.0, 'Medical'),  
+('TG/2023/012', 'ICT1222', '2025-09-18', 'Practical', 4.0, 'Absent'), 
 ('TG/2023/013', 'ICT1222', '2025-09-18', 'Practical', 4.0, 'Present'),
 ('TG/2023/014', 'ICT1222', '2025-09-18', 'Practical', 4.0, 'Present'),
 ('TG/2023/015', 'ICT1222', '2025-09-18', 'Practical', 4.0, 'Present'),
@@ -2147,13 +2147,13 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/003', 'ENG1222', '2025-09-19', 'Theory', 2.0, 'Present'),
 ('TG/2023/004', 'ENG1222', '2025-09-19', 'Theory', 2.0, 'Present'),
 ('TG/2023/005', 'ENG1222', '2025-09-19', 'Theory', 2.0, 'Present'),
-('TG/2023/006', 'ENG1222', '2025-09-19', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/006', 'ENG1222', '2025-09-19', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/007', 'ENG1222', '2025-09-19', 'Theory', 2.0, 'Present'),
-('TG/2023/008', 'ENG1222', '2025-09-19', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 19)
-('TG/2023/009', 'ENG1222', '2025-09-19', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 19)
+('TG/2023/008', 'ENG1222', '2025-09-19', 'Theory', 2.0, 'Medical'),  
+('TG/2023/009', 'ENG1222', '2025-09-19', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/010', 'ENG1222', '2025-09-19', 'Theory', 2.0, 'Present'),
 ('TG/2023/011', 'ENG1222', '2025-09-19', 'Theory', 2.0, 'Present'),
-('TG/2023/012', 'ENG1222', '2025-09-19', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/012', 'ENG1222', '2025-09-19', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/013', 'ENG1222', '2025-09-19', 'Theory', 2.0, 'Present'),
 ('TG/2023/014', 'ENG1222', '2025-09-19', 'Theory', 2.0, 'Present'),
 ('TG/2023/015', 'ENG1222', '2025-09-19', 'Theory', 2.0, 'Present'),
@@ -2164,13 +2164,13 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/003', 'TCS1212', '2025-09-19', 'Theory', 2.0, 'Present'),
 ('TG/2023/004', 'TCS1212', '2025-09-19', 'Theory', 2.0, 'Present'),
 ('TG/2023/005', 'TCS1212', '2025-09-19', 'Theory', 2.0, 'Present'),
-('TG/2023/006', 'TCS1212', '2025-09-19', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/006', 'TCS1212', '2025-09-19', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/007', 'TCS1212', '2025-09-19', 'Theory', 2.0, 'Present'),
-('TG/2023/008', 'TCS1212', '2025-09-19', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 19)
-('TG/2023/009', 'TCS1212', '2025-09-19', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 19)
+('TG/2023/008', 'TCS1212', '2025-09-19', 'Theory', 2.0, 'Medical'),  
+('TG/2023/009', 'TCS1212', '2025-09-19', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/010', 'TCS1212', '2025-09-19', 'Theory', 2.0, 'Present'),
 ('TG/2023/011', 'TCS1212', '2025-09-19', 'Theory', 2.0, 'Present'),
-('TG/2023/012', 'TCS1212', '2025-09-19', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/012', 'TCS1212', '2025-09-19', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/013', 'TCS1212', '2025-09-19', 'Theory', 2.0, 'Present'),
 ('TG/2023/014', 'TCS1212', '2025-09-19', 'Theory', 2.0, 'Present'),
 ('TG/2023/015', 'TCS1212', '2025-09-19', 'Theory', 2.0, 'Present'),
@@ -2180,16 +2180,16 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 -- Week 8: September 22-26, 2025
 -- Monday (ICT1233 - Theory)
 ('TG/2023/001', 'ICT1233', '2025-09-22', 'Theory', 2.0, 'Present'),
-('TG/2023/002', 'ICT1233', '2025-09-22', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 22)
-('TG/2023/003', 'ICT1233', '2025-09-22', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/002', 'ICT1233', '2025-09-22', 'Theory', 2.0, 'Medical'),  
+('TG/2023/003', 'ICT1233', '2025-09-22', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/004', 'ICT1233', '2025-09-22', 'Theory', 2.0, 'Present'),
 ('TG/2023/005', 'ICT1233', '2025-09-22', 'Theory', 2.0, 'Present'),
 ('TG/2023/006', 'ICT1233', '2025-09-22', 'Theory', 2.0, 'Present'),
 ('TG/2023/007', 'ICT1233', '2025-09-22', 'Theory', 2.0, 'Present'),
 ('TG/2023/008', 'ICT1233', '2025-09-22', 'Theory', 2.0, 'Present'),
 ('TG/2023/009', 'ICT1233', '2025-09-22', 'Theory', 2.0, 'Present'),
-('TG/2023/010', 'ICT1233', '2025-09-22', 'Theory', 2.0, 'Absent'),  -- Low attendance
-('TG/2023/011', 'ICT1233', '2025-09-22', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 22)
+('TG/2023/010', 'ICT1233', '2025-09-22', 'Theory', 2.0, 'Absent'),  
+('TG/2023/011', 'ICT1233', '2025-09-22', 'Theory', 2.0, 'Medical'), 
 ('TG/2023/012', 'ICT1233', '2025-09-22', 'Theory', 2.0, 'Present'),
 ('TG/2023/013', 'ICT1233', '2025-09-22', 'Theory', 2.0, 'Present'),
 ('TG/2023/014', 'ICT1233', '2025-09-22', 'Theory', 2.0, 'Present'),
@@ -2197,17 +2197,17 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 
 -- Monday (ICT1233 - Practical)
 ('TG/2023/001', 'ICT1233', '2025-09-22', 'Practical', 2.0, 'Present'),
-('TG/2023/002', 'ICT1233', '2025-09-22', 'Practical', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 22)
+('TG/2023/002', 'ICT1233', '2025-09-22', 'Practical', 2.0, 'Medical'),  
 ('TG/2023/003', 'ICT1233', '2025-09-22', 'Practical', 2.0, 'Present'),
 ('TG/2023/004', 'ICT1233', '2025-09-22', 'Practical', 2.0, 'Present'),
 ('TG/2023/005', 'ICT1233', '2025-09-22', 'Practical', 2.0, 'Present'),
-('TG/2023/006', 'ICT1233', '2025-09-22', 'Practical', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/006', 'ICT1233', '2025-09-22', 'Practical', 2.0, 'Absent'), 
 ('TG/2023/007', 'ICT1233', '2025-09-22', 'Practical', 2.0, 'Present'),
 ('TG/2023/008', 'ICT1233', '2025-09-22', 'Practical', 2.0, 'Present'),
 ('TG/2023/009', 'ICT1233', '2025-09-22', 'Practical', 2.0, 'Present'),
 ('TG/2023/010', 'ICT1233', '2025-09-22', 'Practical', 2.0, 'Present'),
-('TG/2023/011', 'ICT1233', '2025-09-22', 'Practical', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 22)
-('TG/2023/012', 'ICT1233', '2025-09-22', 'Practical', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/011', 'ICT1233', '2025-09-22', 'Practical', 2.0, 'Medical'),  
+('TG/2023/012', 'ICT1233', '2025-09-22', 'Practical', 2.0, 'Absent'),  
 ('TG/2023/013', 'ICT1233', '2025-09-22', 'Practical', 2.0, 'Present'),
 ('TG/2023/014', 'ICT1233', '2025-09-22', 'Practical', 2.0, 'Present'),
 ('TG/2023/015', 'ICT1233', '2025-09-22', 'Practical', 2.0, 'Present'),
@@ -2218,30 +2218,30 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/003', 'ICT1242', '2025-09-23', 'Theory', 2.0, 'Present'),
 ('TG/2023/004', 'ICT1242', '2025-09-23', 'Theory', 2.0, 'Present'),
 ('TG/2023/005', 'ICT1242', '2025-09-23', 'Theory', 2.0, 'Present'),
-('TG/2023/006', 'ICT1242', '2025-09-23', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/006', 'ICT1242', '2025-09-23', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/007', 'ICT1242', '2025-09-23', 'Theory', 2.0, 'Present'),
-('TG/2023/008', 'ICT1242', '2025-09-23', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 23)
-('TG/2023/009', 'ICT1242', '2025-09-23', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 23)
+('TG/2023/008', 'ICT1242', '2025-09-23', 'Theory', 2.0, 'Medical'),  
+('TG/2023/009', 'ICT1242', '2025-09-23', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/010', 'ICT1242', '2025-09-23', 'Theory', 2.0, 'Present'),
-('TG/2023/011', 'ICT1242', '2025-09-23', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 23)
+('TG/2023/011', 'ICT1242', '2025-09-23', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/012', 'ICT1242', '2025-09-23', 'Theory', 2.0, 'Present'),
-('TG/2023/013', 'ICT1242', '2025-09-23', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/013', 'ICT1242', '2025-09-23', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/014', 'ICT1242', '2025-09-23', 'Theory', 2.0, 'Present'),
 ('TG/2023/015', 'ICT1242', '2025-09-23', 'Theory', 2.0, 'Present'),
 
 -- Tuesday (ICT1253 - Theory)
 ('TG/2023/001', 'ICT1253', '2025-09-23', 'Theory', 2.0, 'Present'),
 ('TG/2023/002', 'ICT1253', '2025-09-23', 'Theory', 2.0, 'Present'),
-('TG/2023/003', 'ICT1253', '2025-09-23', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/003', 'ICT1253', '2025-09-23', 'Theory', 2.0, 'Absent'), 
 ('TG/2023/004', 'ICT1253', '2025-09-23', 'Theory', 2.0, 'Present'),
 ('TG/2023/005', 'ICT1253', '2025-09-23', 'Theory', 2.0, 'Present'),
 ('TG/2023/006', 'ICT1253', '2025-09-23', 'Theory', 2.0, 'Present'),
 ('TG/2023/007', 'ICT1253', '2025-09-23', 'Theory', 2.0, 'Present'),
-('TG/2023/008', 'ICT1253', '2025-09-23', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 23)
-('TG/2023/009', 'ICT1253', '2025-09-23', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 23)
+('TG/2023/008', 'ICT1253', '2025-09-23', 'Theory', 2.0, 'Medical'),  
+('TG/2023/009', 'ICT1253', '2025-09-23', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/010', 'ICT1253', '2025-09-23', 'Theory', 2.0, 'Present'),
-('TG/2023/011', 'ICT1253', '2025-09-23', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 23)
-('TG/2023/012', 'ICT1253', '2025-09-23', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/011', 'ICT1253', '2025-09-23', 'Theory', 2.0, 'Medical'),  
+('TG/2023/012', 'ICT1253', '2025-09-23', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/013', 'ICT1253', '2025-09-23', 'Theory', 2.0, 'Present'),
 ('TG/2023/014', 'ICT1253', '2025-09-23', 'Theory', 2.0, 'Present'),
 ('TG/2023/015', 'ICT1253', '2025-09-23', 'Theory', 2.0, 'Present'),
@@ -2252,14 +2252,14 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/003', 'ICT1253', '2025-09-23', 'Practical', 2.0, 'Present'),
 ('TG/2023/004', 'ICT1253', '2025-09-23', 'Practical', 2.0, 'Present'),
 ('TG/2023/005', 'ICT1253', '2025-09-23', 'Practical', 2.0, 'Present'),
-('TG/2023/006', 'ICT1253', '2025-09-23', 'Practical', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/006', 'ICT1253', '2025-09-23', 'Practical', 2.0, 'Absent'),  
 ('TG/2023/007', 'ICT1253', '2025-09-23', 'Practical', 2.0, 'Present'),
-('TG/2023/008', 'ICT1253', '2025-09-23', 'Practical', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 23)
-('TG/2023/009', 'ICT1253', '2025-09-23', 'Practical', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 23)
+('TG/2023/008', 'ICT1253', '2025-09-23', 'Practical', 2.0, 'Medical'),  
+('TG/2023/009', 'ICT1253', '2025-09-23', 'Practical', 2.0, 'Medical'),  
 ('TG/2023/010', 'ICT1253', '2025-09-23', 'Practical', 2.0, 'Present'),
-('TG/2023/011', 'ICT1253', '2025-09-23', 'Practical', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 23)
+('TG/2023/011', 'ICT1253', '2025-09-23', 'Practical', 2.0, 'Medical'),  
 ('TG/2023/012', 'ICT1253', '2025-09-23', 'Practical', 2.0, 'Present'),
-('TG/2023/013', 'ICT1253', '2025-09-23', 'Practical', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/013', 'ICT1253', '2025-09-23', 'Practical', 2.0, 'Absent'),  
 ('TG/2023/014', 'ICT1253', '2025-09-23', 'Practical', 2.0, 'Present'),
 ('TG/2023/015', 'ICT1253', '2025-09-23', 'Practical', 2.0, 'Present'),
 
@@ -2269,13 +2269,13 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/003', 'TMS1233', '2025-09-24', 'Theory', 3.0, 'Present'),
 ('TG/2023/004', 'TMS1233', '2025-09-24', 'Theory', 3.0, 'Present'),
 ('TG/2023/005', 'TMS1233', '2025-09-24', 'Theory', 3.0, 'Present'),
-('TG/2023/006', 'TMS1233', '2025-09-24', 'Theory', 3.0, 'Absent'),  -- Low attendance
+('TG/2023/006', 'TMS1233', '2025-09-24', 'Theory', 3.0, 'Absent'),  
 ('TG/2023/007', 'TMS1233', '2025-09-24', 'Theory', 3.0, 'Present'),
-('TG/2023/008', 'TMS1233', '2025-09-24', 'Theory', 3.0, 'Medical'),  -- Medical student (all sessions on Sept 24)
+('TG/2023/008', 'TMS1233', '2025-09-24', 'Theory', 3.0, 'Medical'),  
 ('TG/2023/009', 'TMS1233', '2025-09-24', 'Theory', 3.0, 'Present'),
 ('TG/2023/010', 'TMS1233', '2025-09-24', 'Theory', 3.0, 'Present'),
 ('TG/2023/011', 'TMS1233', '2025-09-24', 'Theory', 3.0, 'Present'),
-('TG/2023/012', 'TMS1233', '2025-09-24', 'Theory', 3.0, 'Absent'),  -- Low attendance
+('TG/2023/012', 'TMS1233', '2025-09-24', 'Theory', 3.0, 'Absent'),  
 ('TG/2023/013', 'TMS1233', '2025-09-24', 'Theory', 3.0, 'Present'),
 ('TG/2023/014', 'TMS1233', '2025-09-24', 'Theory', 3.0, 'Present'),
 ('TG/2023/015', 'TMS1233', '2025-09-24', 'Theory', 3.0, 'Present'),
@@ -2286,14 +2286,14 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/003', 'ICT1212', '2025-09-25', 'Theory', 2.0, 'Present'),
 ('TG/2023/004', 'ICT1212', '2025-09-25', 'Theory', 2.0, 'Present'),
 ('TG/2023/005', 'ICT1212', '2025-09-25', 'Theory', 2.0, 'Present'),
-('TG/2023/006', 'ICT1212', '2025-09-25', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/006', 'ICT1212', '2025-09-25', 'Theory', 2.0, 'Absent'), 
 ('TG/2023/007', 'ICT1212', '2025-09-25', 'Theory', 2.0, 'Present'),
 ('TG/2023/008', 'ICT1212', '2025-09-25', 'Theory', 2.0, 'Present'),
-('TG/2023/009', 'ICT1212', '2025-09-25', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 25)
+('TG/2023/009', 'ICT1212', '2025-09-25', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/010', 'ICT1212', '2025-09-25', 'Theory', 2.0, 'Present'),
-('TG/2023/011', 'ICT1212', '2025-09-25', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 25)
+('TG/2023/011', 'ICT1212', '2025-09-25', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/012', 'ICT1212', '2025-09-25', 'Theory', 2.0, 'Present'),
-('TG/2023/013', 'ICT1212', '2025-09-25', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/013', 'ICT1212', '2025-09-25', 'Theory', 2.0, 'Absent'), 
 ('TG/2023/014', 'ICT1212', '2025-09-25', 'Theory', 2.0, 'Present'),
 ('TG/2023/015', 'ICT1212', '2025-09-25', 'Theory', 2.0, 'Present'),
 
@@ -2303,13 +2303,13 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/003', 'ICT1222', '2025-09-25', 'Practical', 4.0, 'Present'),
 ('TG/2023/004', 'ICT1222', '2025-09-25', 'Practical', 4.0, 'Present'),
 ('TG/2023/005', 'ICT1222', '2025-09-25', 'Practical', 4.0, 'Present'),
-('TG/2023/006', 'ICT1222', '2025-09-25', 'Practical', 4.0, 'Absent'),  -- Low attendance
+('TG/2023/006', 'ICT1222', '2025-09-25', 'Practical', 4.0, 'Absent'),  
 ('TG/2023/007', 'ICT1222', '2025-09-25', 'Practical', 4.0, 'Present'),
 ('TG/2023/008', 'ICT1222', '2025-09-25', 'Practical', 4.0, 'Present'),
-('TG/2023/009', 'ICT1222', '2025-09-25', 'Practical', 4.0, 'Medical'),  -- Medical student (all sessions on Sept 25)
+('TG/2023/009', 'ICT1222', '2025-09-25', 'Practical', 4.0, 'Medical'),  
 ('TG/2023/010', 'ICT1222', '2025-09-25', 'Practical', 4.0, 'Present'),
-('TG/2023/011', 'ICT1222', '2025-09-25', 'Practical', 4.0, 'Medical'),  -- Medical student (all sessions on Sept 25)
-('TG/2023/012', 'ICT1222', '2025-09-25', 'Practical', 4.0, 'Absent'),  -- Low attendance
+('TG/2023/011', 'ICT1222', '2025-09-25', 'Practical', 4.0, 'Medical'),  
+('TG/2023/012', 'ICT1222', '2025-09-25', 'Practical', 4.0, 'Absent'), 
 ('TG/2023/013', 'ICT1222', '2025-09-25', 'Practical', 4.0, 'Present'),
 ('TG/2023/014', 'ICT1222', '2025-09-25', 'Practical', 4.0, 'Present'),
 ('TG/2023/015', 'ICT1222', '2025-09-25', 'Practical', 4.0, 'Present'),
@@ -2320,13 +2320,13 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/003', 'ENG1222', '2025-09-26', 'Theory', 2.0, 'Present'),
 ('TG/2023/004', 'ENG1222', '2025-09-26', 'Theory', 2.0, 'Present'),
 ('TG/2023/005', 'ENG1222', '2025-09-26', 'Theory', 2.0, 'Present'),
-('TG/2023/006', 'ENG1222', '2025-09-26', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/006', 'ENG1222', '2025-09-26', 'Theory', 2.0, 'Absent'), 
 ('TG/2023/007', 'ENG1222', '2025-09-26', 'Theory', 2.0, 'Present'),
-('TG/2023/008', 'ENG1222', '2025-09-26', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 26)
-('TG/2023/009', 'ENG1222', '2025-09-26', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 26)
+('TG/2023/008', 'ENG1222', '2025-09-26', 'Theory', 2.0, 'Medical'), 
+('TG/2023/009', 'ENG1222', '2025-09-26', 'Theory', 2.0, 'Medical'), 
 ('TG/2023/010', 'ENG1222', '2025-09-26', 'Theory', 2.0, 'Present'),
 ('TG/2023/011', 'ENG1222', '2025-09-26', 'Theory', 2.0, 'Present'),
-('TG/2023/012', 'ENG1222', '2025-09-26', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/012', 'ENG1222', '2025-09-26', 'Theory', 2.0, 'Absent'), 
 ('TG/2023/013', 'ENG1222', '2025-09-26', 'Theory', 2.0, 'Present'),
 ('TG/2023/014', 'ENG1222', '2025-09-26', 'Theory', 2.0, 'Present'),
 ('TG/2023/015', 'ENG1222', '2025-09-26', 'Theory', 2.0, 'Present'),
@@ -2337,13 +2337,13 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/003', 'TCS1212', '2025-09-26', 'Theory', 2.0, 'Present'),
 ('TG/2023/004', 'TCS1212', '2025-09-26', 'Theory', 2.0, 'Present'),
 ('TG/2023/005', 'TCS1212', '2025-09-26', 'Theory', 2.0, 'Present'),
-('TG/2023/006', 'TCS1212', '2025-09-26', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/006', 'TCS1212', '2025-09-26', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/007', 'TCS1212', '2025-09-26', 'Theory', 2.0, 'Present'),
-('TG/2023/008', 'TCS1212', '2025-09-26', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 26)
-('TG/2023/009', 'TCS1212', '2025-09-26', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 26)
+('TG/2023/008', 'TCS1212', '2025-09-26', 'Theory', 2.0, 'Medical'), 
+('TG/2023/009', 'TCS1212', '2025-09-26', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/010', 'TCS1212', '2025-09-26', 'Theory', 2.0, 'Present'),
 ('TG/2023/011', 'TCS1212', '2025-09-26', 'Theory', 2.0, 'Present'),
-('TG/2023/012', 'TCS1212', '2025-09-26', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/012', 'TCS1212', '2025-09-26', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/013', 'TCS1212', '2025-09-26', 'Theory', 2.0, 'Present'),
 ('TG/2023/014', 'TCS1212', '2025-09-26', 'Theory', 2.0, 'Present'),
 ('TG/2023/015', 'TCS1212', '2025-09-26', 'Theory', 2.0, 'Present'),
@@ -2352,15 +2352,15 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 -- Monday (ICT1233 - Theory)
 ('TG/2023/001', 'ICT1233', '2025-09-29', 'Theory', 2.0, 'Present'),
 ('TG/2023/002', 'ICT1233', '2025-09-29', 'Theory', 2.0, 'Present'),
-('TG/2023/003', 'ICT1233', '2025-09-29', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/003', 'ICT1233', '2025-09-29', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/004', 'ICT1233', '2025-09-29', 'Theory', 2.0, 'Present'),
 ('TG/2023/005', 'ICT1233', '2025-09-29', 'Theory', 2.0, 'Present'),
 ('TG/2023/006', 'ICT1233', '2025-09-29', 'Theory', 2.0, 'Present'),
 ('TG/2023/007', 'ICT1233', '2025-09-29', 'Theory', 2.0, 'Present'),
 ('TG/2023/008', 'ICT1233', '2025-09-29', 'Theory', 2.0, 'Present'),
-('TG/2023/009', 'ICT1233', '2025-09-29', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 29)
-('TG/2023/010', 'ICT1233', '2025-09-29', 'Theory', 2.0, 'Absent'),  -- Low attendance
-('TG/2023/011', 'ICT1233', '2025-09-29', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 29)
+('TG/2023/009', 'ICT1233', '2025-09-29', 'Theory', 2.0, 'Medical'),  
+('TG/2023/010', 'ICT1233', '2025-09-29', 'Theory', 2.0, 'Absent'),  
+('TG/2023/011', 'ICT1233', '2025-09-29', 'Theory', 2.0, 'Medical'), 
 ('TG/2023/012', 'ICT1233', '2025-09-29', 'Theory', 2.0, 'Present'),
 ('TG/2023/013', 'ICT1233', '2025-09-29', 'Theory', 2.0, 'Present'),
 ('TG/2023/014', 'ICT1233', '2025-09-29', 'Theory', 2.0, 'Present'),
@@ -2372,13 +2372,13 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/003', 'ICT1233', '2025-09-29', 'Practical', 2.0, 'Present'),
 ('TG/2023/004', 'ICT1233', '2025-09-29', 'Practical', 2.0, 'Present'),
 ('TG/2023/005', 'ICT1233', '2025-09-29', 'Practical', 2.0, 'Present'),
-('TG/2023/006', 'ICT1233', '2025-09-29', 'Practical', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/006', 'ICT1233', '2025-09-29', 'Practical', 2.0, 'Absent'), 
 ('TG/2023/007', 'ICT1233', '2025-09-29', 'Practical', 2.0, 'Present'),
 ('TG/2023/008', 'ICT1233', '2025-09-29', 'Practical', 2.0, 'Present'),
-('TG/2023/009', 'ICT1233', '2025-09-29', 'Practical', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 29)
+('TG/2023/009', 'ICT1233', '2025-09-29', 'Practical', 2.0, 'Medical'),  
 ('TG/2023/010', 'ICT1233', '2025-09-29', 'Practical', 2.0, 'Present'),
-('TG/2023/011', 'ICT1233', '2025-09-29', 'Practical', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 29)
-('TG/2023/012', 'ICT1233', '2025-09-29', 'Practical', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/011', 'ICT1233', '2025-09-29', 'Practical', 2.0, 'Medical'),  
+('TG/2023/012', 'ICT1233', '2025-09-29', 'Practical', 2.0, 'Absent'),  
 ('TG/2023/013', 'ICT1233', '2025-09-29', 'Practical', 2.0, 'Present'),
 ('TG/2023/014', 'ICT1233', '2025-09-29', 'Practical', 2.0, 'Present'),
 ('TG/2023/015', 'ICT1233', '2025-09-29', 'Practical', 2.0, 'Present'),
@@ -2389,30 +2389,30 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/003', 'ICT1242', '2025-09-30', 'Theory', 2.0, 'Present'),
 ('TG/2023/004', 'ICT1242', '2025-09-30', 'Theory', 2.0, 'Present'),
 ('TG/2023/005', 'ICT1242', '2025-09-30', 'Theory', 2.0, 'Present'),
-('TG/2023/006', 'ICT1242', '2025-09-30', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/006', 'ICT1242', '2025-09-30', 'Theory', 2.0, 'Absent'), 
 ('TG/2023/007', 'ICT1242', '2025-09-30', 'Theory', 2.0, 'Present'),
-('TG/2023/008', 'ICT1242', '2025-09-30', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 30)
-('TG/2023/009', 'ICT1242', '2025-09-30', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 30)
+('TG/2023/008', 'ICT1242', '2025-09-30', 'Theory', 2.0, 'Medical'),  
+('TG/2023/009', 'ICT1242', '2025-09-30', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/010', 'ICT1242', '2025-09-30', 'Theory', 2.0, 'Present'),
-('TG/2023/011', 'ICT1242', '2025-09-30', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 30)
+('TG/2023/011', 'ICT1242', '2025-09-30', 'Theory', 2.0, 'Medical'), 
 ('TG/2023/012', 'ICT1242', '2025-09-30', 'Theory', 2.0, 'Present'),
-('TG/2023/013', 'ICT1242', '2025-09-30', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/013', 'ICT1242', '2025-09-30', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/014', 'ICT1242', '2025-09-30', 'Theory', 2.0, 'Present'),
 ('TG/2023/015', 'ICT1242', '2025-09-30', 'Theory', 2.0, 'Present'),
 
 -- Tuesday (ICT1253 - Theory)
 ('TG/2023/001', 'ICT1253', '2025-09-30', 'Theory', 2.0, 'Present'),
 ('TG/2023/002', 'ICT1253', '2025-09-30', 'Theory', 2.0, 'Present'),
-('TG/2023/003', 'ICT1253', '2025-09-30', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/003', 'ICT1253', '2025-09-30', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/004', 'ICT1253', '2025-09-30', 'Theory', 2.0, 'Present'),
 ('TG/2023/005', 'ICT1253', '2025-09-30', 'Theory', 2.0, 'Present'),
 ('TG/2023/006', 'ICT1253', '2025-09-30', 'Theory', 2.0, 'Present'),
 ('TG/2023/007', 'ICT1253', '2025-09-30', 'Theory', 2.0, 'Present'),
-('TG/2023/008', 'ICT1253', '2025-09-30', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 30)
-('TG/2023/009', 'ICT1253', '2025-09-30', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 30)
+('TG/2023/008', 'ICT1253', '2025-09-30', 'Theory', 2.0, 'Medical'),  
+('TG/2023/009', 'ICT1253', '2025-09-30', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/010', 'ICT1253', '2025-09-30', 'Theory', 2.0, 'Present'),
-('TG/2023/011', 'ICT1253', '2025-09-30', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 30)
-('TG/2023/012', 'ICT1253', '2025-09-30', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/011', 'ICT1253', '2025-09-30', 'Theory', 2.0, 'Medical'), 
+('TG/2023/012', 'ICT1253', '2025-09-30', 'Theory', 2.0, 'Absent'), 
 ('TG/2023/013', 'ICT1253', '2025-09-30', 'Theory', 2.0, 'Present'),
 ('TG/2023/014', 'ICT1253', '2025-09-30', 'Theory', 2.0, 'Present'),
 ('TG/2023/015', 'ICT1253', '2025-09-30', 'Theory', 2.0, 'Present'),
@@ -2423,14 +2423,14 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/003', 'ICT1253', '2025-09-30', 'Practical', 2.0, 'Present'),
 ('TG/2023/004', 'ICT1253', '2025-09-30', 'Practical', 2.0, 'Present'),
 ('TG/2023/005', 'ICT1253', '2025-09-30', 'Practical', 2.0, 'Present'),
-('TG/2023/006', 'ICT1253', '2025-09-30', 'Practical', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/006', 'ICT1253', '2025-09-30', 'Practical', 2.0, 'Absent'),  
 ('TG/2023/007', 'ICT1253', '2025-09-30', 'Practical', 2.0, 'Present'),
-('TG/2023/008', 'ICT1253', '2025-09-30', 'Practical', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 30)
-('TG/2023/009', 'ICT1253', '2025-09-30', 'Practical', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 30)
+('TG/2023/008', 'ICT1253', '2025-09-30', 'Practical', 2.0, 'Medical'),  
+('TG/2023/009', 'ICT1253', '2025-09-30', 'Practical', 2.0, 'Medical'),  
 ('TG/2023/010', 'ICT1253', '2025-09-30', 'Practical', 2.0, 'Present'),
-('TG/2023/011', 'ICT1253', '2025-09-30', 'Practical', 2.0, 'Medical'),  -- Medical student (all sessions on Sept 30)
+('TG/2023/011', 'ICT1253', '2025-09-30', 'Practical', 2.0, 'Medical'),  
 ('TG/2023/012', 'ICT1253', '2025-09-30', 'Practical', 2.0, 'Present'),
-('TG/2023/013', 'ICT1253', '2025-09-30', 'Practical', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/013', 'ICT1253', '2025-09-30', 'Practical', 2.0, 'Absent'),  
 ('TG/2023/014', 'ICT1253', '2025-09-30', 'Practical', 2.0, 'Present'),
 ('TG/2023/015', 'ICT1253', '2025-09-30', 'Practical', 2.0, 'Present'),
 
@@ -2440,13 +2440,13 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/003', 'TMS1233', '2025-10-01', 'Theory', 3.0, 'Present'),
 ('TG/2023/004', 'TMS1233', '2025-10-01', 'Theory', 3.0, 'Present'),
 ('TG/2023/005', 'TMS1233', '2025-10-01', 'Theory', 3.0, 'Present'),
-('TG/2023/006', 'TMS1233', '2025-10-01', 'Theory', 3.0, 'Absent'),  -- Low attendance
+('TG/2023/006', 'TMS1233', '2025-10-01', 'Theory', 3.0, 'Absent'),  
 ('TG/2023/007', 'TMS1233', '2025-10-01', 'Theory', 3.0, 'Present'),
-('TG/2023/008', 'TMS1233', '2025-10-01', 'Theory', 3.0, 'Medical'),  -- Medical student (all sessions on Oct 1)
+('TG/2023/008', 'TMS1233', '2025-10-01', 'Theory', 3.0, 'Medical'), 
 ('TG/2023/009', 'TMS1233', '2025-10-01', 'Theory', 3.0, 'Present'),
 ('TG/2023/010', 'TMS1233', '2025-10-01', 'Theory', 3.0, 'Present'),
 ('TG/2023/011', 'TMS1233', '2025-10-01', 'Theory', 3.0, 'Present'),
-('TG/2023/012', 'TMS1233', '2025-10-01', 'Theory', 3.0, 'Absent'),  -- Low attendance
+('TG/2023/012', 'TMS1233', '2025-10-01', 'Theory', 3.0, 'Absent'),  
 ('TG/2023/013', 'TMS1233', '2025-10-01', 'Theory', 3.0, 'Present'),
 ('TG/2023/014', 'TMS1233', '2025-10-01', 'Theory', 3.0, 'Present'),
 ('TG/2023/015', 'TMS1233', '2025-10-01', 'Theory', 3.0, 'Present'),
@@ -2457,14 +2457,14 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/003', 'ICT1212', '2025-10-02', 'Theory', 2.0, 'Present'),
 ('TG/2023/004', 'ICT1212', '2025-10-02', 'Theory', 2.0, 'Present'),
 ('TG/2023/005', 'ICT1212', '2025-10-02', 'Theory', 2.0, 'Present'),
-('TG/2023/006', 'ICT1212', '2025-10-02', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/006', 'ICT1212', '2025-10-02', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/007', 'ICT1212', '2025-10-02', 'Theory', 2.0, 'Present'),
 ('TG/2023/008', 'ICT1212', '2025-10-02', 'Theory', 2.0, 'Present'),
-('TG/2023/009', 'ICT1212', '2025-10-02', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Oct 2)
+('TG/2023/009', 'ICT1212', '2025-10-02', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/010', 'ICT1212', '2025-10-02', 'Theory', 2.0, 'Present'),
-('TG/2023/011', 'ICT1212', '2025-10-02', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Oct 2)
+('TG/2023/011', 'ICT1212', '2025-10-02', 'Theory', 2.0, 'Medical'), 
 ('TG/2023/012', 'ICT1212', '2025-10-02', 'Theory', 2.0, 'Present'),
-('TG/2023/013', 'ICT1212', '2025-10-02', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/013', 'ICT1212', '2025-10-02', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/014', 'ICT1212', '2025-10-02', 'Theory', 2.0, 'Present'),
 ('TG/2023/015', 'ICT1212', '2025-10-02', 'Theory', 2.0, 'Present'),
 
@@ -2474,13 +2474,13 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/003', 'ICT1222', '2025-10-02', 'Practical', 4.0, 'Present'),
 ('TG/2023/004', 'ICT1222', '2025-10-02', 'Practical', 4.0, 'Present'),
 ('TG/2023/005', 'ICT1222', '2025-10-02', 'Practical', 4.0, 'Present'),
-('TG/2023/006', 'ICT1222', '2025-10-02', 'Practical', 4.0, 'Absent'),  -- Low attendance
+('TG/2023/006', 'ICT1222', '2025-10-02', 'Practical', 4.0, 'Absent'),  
 ('TG/2023/007', 'ICT1222', '2025-10-02', 'Practical', 4.0, 'Present'),
 ('TG/2023/008', 'ICT1222', '2025-10-02', 'Practical', 4.0, 'Present'),
-('TG/2023/009', 'ICT1222', '2025-10-02', 'Practical', 4.0, 'Medical'),  -- Medical student (all sessions on Oct 2)
+('TG/2023/009', 'ICT1222', '2025-10-02', 'Practical', 4.0, 'Medical'),  
 ('TG/2023/010', 'ICT1222', '2025-10-02', 'Practical', 4.0, 'Present'),
-('TG/2023/011', 'ICT1222', '2025-10-02', 'Practical', 4.0, 'Medical'),  -- Medical student (all sessions on Oct 2)
-('TG/2023/012', 'ICT1222', '2025-10-02', 'Practical', 4.0, 'Absent'),  -- Low attendance
+('TG/2023/011', 'ICT1222', '2025-10-02', 'Practical', 4.0, 'Medical'),  
+('TG/2023/012', 'ICT1222', '2025-10-02', 'Practical', 4.0, 'Absent'),  
 ('TG/2023/013', 'ICT1222', '2025-10-02', 'Practical', 4.0, 'Present'),
 ('TG/2023/014', 'ICT1222', '2025-10-02', 'Practical', 4.0, 'Present'),
 ('TG/2023/015', 'ICT1222', '2025-10-02', 'Practical', 4.0, 'Present'),
@@ -2491,13 +2491,13 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/003', 'ENG1222', '2025-10-03', 'Theory', 2.0, 'Present'),
 ('TG/2023/004', 'ENG1222', '2025-10-03', 'Theory', 2.0, 'Present'),
 ('TG/2023/005', 'ENG1222', '2025-10-03', 'Theory', 2.0, 'Present'),
-('TG/2023/006', 'ENG1222', '2025-10-03', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/006', 'ENG1222', '2025-10-03', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/007', 'ENG1222', '2025-10-03', 'Theory', 2.0, 'Present'),
-('TG/2023/008', 'ENG1222', '2025-10-03', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Oct 3)
-('TG/2023/009', 'ENG1222', '2025-10-03', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Oct 3)
+('TG/2023/008', 'ENG1222', '2025-10-03', 'Theory', 2.0, 'Medical'),  
+('TG/2023/009', 'ENG1222', '2025-10-03', 'Theory', 2.0, 'Medical'), 
 ('TG/2023/010', 'ENG1222', '2025-10-03', 'Theory', 2.0, 'Present'),
 ('TG/2023/011', 'ENG1222', '2025-10-03', 'Theory', 2.0, 'Present'),
-('TG/2023/012', 'ENG1222', '2025-10-03', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/012', 'ENG1222', '2025-10-03', 'Theory', 2.0, 'Absent'), 
 ('TG/2023/013', 'ENG1222', '2025-10-03', 'Theory', 2.0, 'Present'),
 ('TG/2023/014', 'ENG1222', '2025-10-03', 'Theory', 2.0, 'Present'),
 ('TG/2023/015', 'ENG1222', '2025-10-03', 'Theory', 2.0, 'Present'),
@@ -2508,13 +2508,13 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/003', 'TCS1212', '2025-10-03', 'Theory', 2.0, 'Present'),
 ('TG/2023/004', 'TCS1212', '2025-10-03', 'Theory', 2.0, 'Present'),
 ('TG/2023/005', 'TCS1212', '2025-10-03', 'Theory', 2.0, 'Present'),
-('TG/2023/006', 'TCS1212', '2025-10-03', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/006', 'TCS1212', '2025-10-03', 'Theory', 2.0, 'Absent'), 
 ('TG/2023/007', 'TCS1212', '2025-10-03', 'Theory', 2.0, 'Present'),
-('TG/2023/008', 'TCS1212', '2025-10-03', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Oct 3)
-('TG/2023/009', 'TCS1212', '2025-10-03', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Oct 3)
+('TG/2023/008', 'TCS1212', '2025-10-03', 'Theory', 2.0, 'Medical'),  
+('TG/2023/009', 'TCS1212', '2025-10-03', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/010', 'TCS1212', '2025-10-03', 'Theory', 2.0, 'Present'),
 ('TG/2023/011', 'TCS1212', '2025-10-03', 'Theory', 2.0, 'Present'),
-('TG/2023/012', 'TCS1212', '2025-10-03', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/012', 'TCS1212', '2025-10-03', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/013', 'TCS1212', '2025-10-03', 'Theory', 2.0, 'Present'),
 ('TG/2023/014', 'TCS1212', '2025-10-03', 'Theory', 2.0, 'Present'),
 ('TG/2023/015', 'TCS1212', '2025-10-03', 'Theory', 2.0, 'Present'),
@@ -2524,16 +2524,16 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 -- Week 10: October 6-10, 2025
 -- Monday (ICT1233 - Theory)
 ('TG/2023/001', 'ICT1233', '2025-10-06', 'Theory', 2.0, 'Present'),
-('TG/2023/002', 'ICT1233', '2025-10-06', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Oct 6)
-('TG/2023/003', 'ICT1233', '2025-10-06', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/002', 'ICT1233', '2025-10-06', 'Theory', 2.0, 'Medical'), 
+('TG/2023/003', 'ICT1233', '2025-10-06', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/004', 'ICT1233', '2025-10-06', 'Theory', 2.0, 'Present'),
 ('TG/2023/005', 'ICT1233', '2025-10-06', 'Theory', 2.0, 'Present'),
 ('TG/2023/006', 'ICT1233', '2025-10-06', 'Theory', 2.0, 'Present'),
 ('TG/2023/007', 'ICT1233', '2025-10-06', 'Theory', 2.0, 'Present'),
 ('TG/2023/008', 'ICT1233', '2025-10-06', 'Theory', 2.0, 'Present'),
 ('TG/2023/009', 'ICT1233', '2025-10-06', 'Theory', 2.0, 'Present'),
-('TG/2023/010', 'ICT1233', '2025-10-06', 'Theory', 2.0, 'Absent'),  -- Low attendance
-('TG/2023/011', 'ICT1233', '2025-10-06', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Oct 6)
+('TG/2023/010', 'ICT1233', '2025-10-06', 'Theory', 2.0, 'Absent'),  
+('TG/2023/011', 'ICT1233', '2025-10-06', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/012', 'ICT1233', '2025-10-06', 'Theory', 2.0, 'Present'),
 ('TG/2023/013', 'ICT1233', '2025-10-06', 'Theory', 2.0, 'Present'),
 ('TG/2023/014', 'ICT1233', '2025-10-06', 'Theory', 2.0, 'Present'),
@@ -2541,17 +2541,17 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 
 -- Monday (ICT1233 - Practical)
 ('TG/2023/001', 'ICT1233', '2025-10-06', 'Practical', 2.0, 'Present'),
-('TG/2023/002', 'ICT1233', '2025-10-06', 'Practical', 2.0, 'Medical'),  -- Medical student (all sessions on Oct 6)
+('TG/2023/002', 'ICT1233', '2025-10-06', 'Practical', 2.0, 'Medical'),  
 ('TG/2023/003', 'ICT1233', '2025-10-06', 'Practical', 2.0, 'Present'),
 ('TG/2023/004', 'ICT1233', '2025-10-06', 'Practical', 2.0, 'Present'),
 ('TG/2023/005', 'ICT1233', '2025-10-06', 'Practical', 2.0, 'Present'),
-('TG/2023/006', 'ICT1233', '2025-10-06', 'Practical', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/006', 'ICT1233', '2025-10-06', 'Practical', 2.0, 'Absent'),  
 ('TG/2023/007', 'ICT1233', '2025-10-06', 'Practical', 2.0, 'Present'),
 ('TG/2023/008', 'ICT1233', '2025-10-06', 'Practical', 2.0, 'Present'),
 ('TG/2023/009', 'ICT1233', '2025-10-06', 'Practical', 2.0, 'Present'),
 ('TG/2023/010', 'ICT1233', '2025-10-06', 'Practical', 2.0, 'Present'),
-('TG/2023/011', 'ICT1233', '2025-10-06', 'Practical', 2.0, 'Medical'),  -- Medical student (all sessions on Oct 6)
-('TG/2023/012', 'ICT1233', '2025-10-06', 'Practical', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/011', 'ICT1233', '2025-10-06', 'Practical', 2.0, 'Medical'),  
+('TG/2023/012', 'ICT1233', '2025-10-06', 'Practical', 2.0, 'Absent'), 
 ('TG/2023/013', 'ICT1233', '2025-10-06', 'Practical', 2.0, 'Present'),
 ('TG/2023/014', 'ICT1233', '2025-10-06', 'Practical', 2.0, 'Present'),
 ('TG/2023/015', 'ICT1233', '2025-10-06', 'Practical', 2.0, 'Present'),
@@ -2562,30 +2562,30 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/003', 'ICT1242', '2025-10-07', 'Theory', 2.0, 'Present'),
 ('TG/2023/004', 'ICT1242', '2025-10-07', 'Theory', 2.0, 'Present'),
 ('TG/2023/005', 'ICT1242', '2025-10-07', 'Theory', 2.0, 'Present'),
-('TG/2023/006', 'ICT1242', '2025-10-07', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/006', 'ICT1242', '2025-10-07', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/007', 'ICT1242', '2025-10-07', 'Theory', 2.0, 'Present'),
-('TG/2023/008', 'ICT1242', '2025-10-07', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Oct 7)
-('TG/2023/009', 'ICT1242', '2025-10-07', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Oct 7)
+('TG/2023/008', 'ICT1242', '2025-10-07', 'Theory', 2.0, 'Medical'),  
+('TG/2023/009', 'ICT1242', '2025-10-07', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/010', 'ICT1242', '2025-10-07', 'Theory', 2.0, 'Present'),
-('TG/2023/011', 'ICT1242', '2025-10-07', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Oct 7)
+('TG/2023/011', 'ICT1242', '2025-10-07', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/012', 'ICT1242', '2025-10-07', 'Theory', 2.0, 'Present'),
-('TG/2023/013', 'ICT1242', '2025-10-07', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/013', 'ICT1242', '2025-10-07', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/014', 'ICT1242', '2025-10-07', 'Theory', 2.0, 'Present'),
 ('TG/2023/015', 'ICT1242', '2025-10-07', 'Theory', 2.0, 'Present'),
 
 -- Tuesday (ICT1253 - Theory)
 ('TG/2023/001', 'ICT1253', '2025-10-07', 'Theory', 2.0, 'Present'),
 ('TG/2023/002', 'ICT1253', '2025-10-07', 'Theory', 2.0, 'Present'),
-('TG/2023/003', 'ICT1253', '2025-10-07', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/003', 'ICT1253', '2025-10-07', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/004', 'ICT1253', '2025-10-07', 'Theory', 2.0, 'Present'),
 ('TG/2023/005', 'ICT1253', '2025-10-07', 'Theory', 2.0, 'Present'),
 ('TG/2023/006', 'ICT1253', '2025-10-07', 'Theory', 2.0, 'Present'),
 ('TG/2023/007', 'ICT1253', '2025-10-07', 'Theory', 2.0, 'Present'),
-('TG/2023/008', 'ICT1253', '2025-10-07', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Oct 7)
-('TG/2023/009', 'ICT1253', '2025-10-07', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Oct 7)
+('TG/2023/008', 'ICT1253', '2025-10-07', 'Theory', 2.0, 'Medical'),  
+('TG/2023/009', 'ICT1253', '2025-10-07', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/010', 'ICT1253', '2025-10-07', 'Theory', 2.0, 'Present'),
-('TG/2023/011', 'ICT1253', '2025-10-07', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Oct 7)
-('TG/2023/012', 'ICT1253', '2025-10-07', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/011', 'ICT1253', '2025-10-07', 'Theory', 2.0, 'Medical'),  
+('TG/2023/012', 'ICT1253', '2025-10-07', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/013', 'ICT1253', '2025-10-07', 'Theory', 2.0, 'Present'),
 ('TG/2023/014', 'ICT1253', '2025-10-07', 'Theory', 2.0, 'Present'),
 ('TG/2023/015', 'ICT1253', '2025-10-07', 'Theory', 2.0, 'Present'),
@@ -2596,14 +2596,14 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/003', 'ICT1253', '2025-10-07', 'Practical', 2.0, 'Present'),
 ('TG/2023/004', 'ICT1253', '2025-10-07', 'Practical', 2.0, 'Present'),
 ('TG/2023/005', 'ICT1253', '2025-10-07', 'Practical', 2.0, 'Present'),
-('TG/2023/006', 'ICT1253', '2025-10-07', 'Practical', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/006', 'ICT1253', '2025-10-07', 'Practical', 2.0, 'Absent'),  
 ('TG/2023/007', 'ICT1253', '2025-10-07', 'Practical', 2.0, 'Present'),
-('TG/2023/008', 'ICT1253', '2025-10-07', 'Practical', 2.0, 'Medical'),  -- Medical student (all sessions on Oct 7)
-('TG/2023/009', 'ICT1253', '2025-10-07', 'Practical', 2.0, 'Medical'),  -- Medical student (all sessions on Oct 7)
+('TG/2023/008', 'ICT1253', '2025-10-07', 'Practical', 2.0, 'Medical'), 
+('TG/2023/009', 'ICT1253', '2025-10-07', 'Practical', 2.0, 'Medical'),  
 ('TG/2023/010', 'ICT1253', '2025-10-07', 'Practical', 2.0, 'Present'),
-('TG/2023/011', 'ICT1253', '2025-10-07', 'Practical', 2.0, 'Medical'),  -- Medical student (all sessions on Oct 7)
+('TG/2023/011', 'ICT1253', '2025-10-07', 'Practical', 2.0, 'Medical'),  
 ('TG/2023/012', 'ICT1253', '2025-10-07', 'Practical', 2.0, 'Present'),
-('TG/2023/013', 'ICT1253', '2025-10-07', 'Practical', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/013', 'ICT1253', '2025-10-07', 'Practical', 2.0, 'Absent'),  
 ('TG/2023/014', 'ICT1253', '2025-10-07', 'Practical', 2.0, 'Present'),
 ('TG/2023/015', 'ICT1253', '2025-10-07', 'Practical', 2.0, 'Present'),
 
@@ -2613,13 +2613,13 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/003', 'TMS1233', '2025-10-08', 'Theory', 3.0, 'Present'),
 ('TG/2023/004', 'TMS1233', '2025-10-08', 'Theory', 3.0, 'Present'),
 ('TG/2023/005', 'TMS1233', '2025-10-08', 'Theory', 3.0, 'Present'),
-('TG/2023/006', 'TMS1233', '2025-10-08', 'Theory', 3.0, 'Absent'),  -- Low attendance
+('TG/2023/006', 'TMS1233', '2025-10-08', 'Theory', 3.0, 'Absent'),  
 ('TG/2023/007', 'TMS1233', '2025-10-08', 'Theory', 3.0, 'Present'),
-('TG/2023/008', 'TMS1233', '2025-10-08', 'Theory', 3.0, 'Medical'),  -- Medical student (all sessions on Oct 8)
+('TG/2023/008', 'TMS1233', '2025-10-08', 'Theory', 3.0, 'Medical'),  
 ('TG/2023/009', 'TMS1233', '2025-10-08', 'Theory', 3.0, 'Present'),
 ('TG/2023/010', 'TMS1233', '2025-10-08', 'Theory', 3.0, 'Present'),
 ('TG/2023/011', 'TMS1233', '2025-10-08', 'Theory', 3.0, 'Present'),
-('TG/2023/012', 'TMS1233', '2025-10-08', 'Theory', 3.0, 'Absent'),  -- Low attendance
+('TG/2023/012', 'TMS1233', '2025-10-08', 'Theory', 3.0, 'Absent'),  
 ('TG/2023/013', 'TMS1233', '2025-10-08', 'Theory', 3.0, 'Present'),
 ('TG/2023/014', 'TMS1233', '2025-10-08', 'Theory', 3.0, 'Present'),
 ('TG/2023/015', 'TMS1233', '2025-10-08', 'Theory', 3.0, 'Present'),
@@ -2630,14 +2630,14 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/003', 'ICT1212', '2025-10-09', 'Theory', 2.0, 'Present'),
 ('TG/2023/004', 'ICT1212', '2025-10-09', 'Theory', 2.0, 'Present'),
 ('TG/2023/005', 'ICT1212', '2025-10-09', 'Theory', 2.0, 'Present'),
-('TG/2023/006', 'ICT1212', '2025-10-09', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/006', 'ICT1212', '2025-10-09', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/007', 'ICT1212', '2025-10-09', 'Theory', 2.0, 'Present'),
 ('TG/2023/008', 'ICT1212', '2025-10-09', 'Theory', 2.0, 'Present'),
-('TG/2023/009', 'ICT1212', '2025-10-09', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Oct 9)
+('TG/2023/009', 'ICT1212', '2025-10-09', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/010', 'ICT1212', '2025-10-09', 'Theory', 2.0, 'Present'),
-('TG/2023/011', 'ICT1212', '2025-10-09', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Oct 9)
+('TG/2023/011', 'ICT1212', '2025-10-09', 'Theory', 2.0, 'Medical'), 
 ('TG/2023/012', 'ICT1212', '2025-10-09', 'Theory', 2.0, 'Present'),
-('TG/2023/013', 'ICT1212', '2025-10-09', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/013', 'ICT1212', '2025-10-09', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/014', 'ICT1212', '2025-10-09', 'Theory', 2.0, 'Present'),
 ('TG/2023/015', 'ICT1212', '2025-10-09', 'Theory', 2.0, 'Present'),
 
@@ -2647,13 +2647,13 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/003', 'ICT1222', '2025-10-09', 'Practical', 4.0, 'Present'),
 ('TG/2023/004', 'ICT1222', '2025-10-09', 'Practical', 4.0, 'Present'),
 ('TG/2023/005', 'ICT1222', '2025-10-09', 'Practical', 4.0, 'Present'),
-('TG/2023/006', 'ICT1222', '2025-10-09', 'Practical', 4.0, 'Absent'),  -- Low attendance
+('TG/2023/006', 'ICT1222', '2025-10-09', 'Practical', 4.0, 'Absent'),  
 ('TG/2023/007', 'ICT1222', '2025-10-09', 'Practical', 4.0, 'Present'),
 ('TG/2023/008', 'ICT1222', '2025-10-09', 'Practical', 4.0, 'Present'),
-('TG/2023/009', 'ICT1222', '2025-10-09', 'Practical', 4.0, 'Medical'),  -- Medical student (all sessions on Oct 9)
+('TG/2023/009', 'ICT1222', '2025-10-09', 'Practical', 4.0, 'Medical'),  
 ('TG/2023/010', 'ICT1222', '2025-10-09', 'Practical', 4.0, 'Present'),
-('TG/2023/011', 'ICT1222', '2025-10-09', 'Practical', 4.0, 'Medical'),  -- Medical student (all sessions on Oct 9)
-('TG/2023/012', 'ICT1222', '2025-10-09', 'Practical', 4.0, 'Absent'),  -- Low attendance
+('TG/2023/011', 'ICT1222', '2025-10-09', 'Practical', 4.0, 'Medical'),  
+('TG/2023/012', 'ICT1222', '2025-10-09', 'Practical', 4.0, 'Absent'),  
 ('TG/2023/013', 'ICT1222', '2025-10-09', 'Practical', 4.0, 'Present'),
 ('TG/2023/014', 'ICT1222', '2025-10-09', 'Practical', 4.0, 'Present'),
 ('TG/2023/015', 'ICT1222', '2025-10-09', 'Practical', 4.0, 'Present'),
@@ -2664,13 +2664,13 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/003', 'ENG1222', '2025-10-10', 'Theory', 2.0, 'Present'),
 ('TG/2023/004', 'ENG1222', '2025-10-10', 'Theory', 2.0, 'Present'),
 ('TG/2023/005', 'ENG1222', '2025-10-10', 'Theory', 2.0, 'Present'),
-('TG/2023/006', 'ENG1222', '2025-10-10', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/006', 'ENG1222', '2025-10-10', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/007', 'ENG1222', '2025-10-10', 'Theory', 2.0, 'Present'),
-('TG/2023/008', 'ENG1222', '2025-10-10', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Oct 10)
-('TG/2023/009', 'ENG1222', '2025-10-10', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Oct 10)
+('TG/2023/008', 'ENG1222', '2025-10-10', 'Theory', 2.0, 'Medical'),  
+('TG/2023/009', 'ENG1222', '2025-10-10', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/010', 'ENG1222', '2025-10-10', 'Theory', 2.0, 'Present'),
 ('TG/2023/011', 'ENG1222', '2025-10-10', 'Theory', 2.0, 'Present'),
-('TG/2023/012', 'ENG1222', '2025-10-10', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/012', 'ENG1222', '2025-10-10', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/013', 'ENG1222', '2025-10-10', 'Theory', 2.0, 'Present'),
 ('TG/2023/014', 'ENG1222', '2025-10-10', 'Theory', 2.0, 'Present'),
 ('TG/2023/015', 'ENG1222', '2025-10-10', 'Theory', 2.0, 'Present'),
@@ -2681,13 +2681,13 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/003', 'TCS1212', '2025-10-10', 'Theory', 2.0, 'Present'),
 ('TG/2023/004', 'TCS1212', '2025-10-10', 'Theory', 2.0, 'Present'),
 ('TG/2023/005', 'TCS1212', '2025-10-10', 'Theory', 2.0, 'Present'),
-('TG/2023/006', 'TCS1212', '2025-10-10', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/006', 'TCS1212', '2025-10-10', 'Theory', 2.0, 'Absent'), 
 ('TG/2023/007', 'TCS1212', '2025-10-10', 'Theory', 2.0, 'Present'),
-('TG/2023/008', 'TCS1212', '2025-10-10', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Oct 10)
-('TG/2023/009', 'TCS1212', '2025-10-10', 'Theory', 2.0, 'Medical'),  -- Medical student (all sessions on Oct 10)
+('TG/2023/008', 'TCS1212', '2025-10-10', 'Theory', 2.0, 'Medical'),  
+('TG/2023/009', 'TCS1212', '2025-10-10', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/010', 'TCS1212', '2025-10-10', 'Theory', 2.0, 'Present'),
 ('TG/2023/011', 'TCS1212', '2025-10-10', 'Theory', 2.0, 'Present'),
-('TG/2023/012', 'TCS1212', '2025-10-10', 'Theory', 2.0, 'Absent'),  -- Low attendance
+('TG/2023/012', 'TCS1212', '2025-10-10', 'Theory', 2.0, 'Absent'), 
 ('TG/2023/013', 'TCS1212', '2025-10-10', 'Theory', 2.0, 'Present'),
 ('TG/2023/014', 'TCS1212', '2025-10-10', 'Theory', 2.0, 'Present'),
 ('TG/2023/015', 'TCS1212', '2025-10-10', 'Theory', 2.0, 'Present');
