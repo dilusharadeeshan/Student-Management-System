@@ -28,10 +28,11 @@ completed ->
 
 create user,dean,student,lecturer,technical officer,admin tables.
 create enroll in table for m-n relationship between course and student.
-create user contac phone numbers.
+create user contact phone numbers.
 data insert to user and subtables of it.
 data insert to 6 to 10th week for attendance table.
 insert data to enroll in table(001-005 amd repeaters)
+insert data to medical_record from 09/02 to 10/15 of 2025
 
  
 
