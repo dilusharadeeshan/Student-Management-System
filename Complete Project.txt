@@ -80,14 +80,18 @@ CREATE TABLE course (
 
 
 
-CREATE TABLE marks (
+CREATE TABLE mark (
     Mark_id INT AUTO_INCREMENT PRIMARY KEY,
     Reg_no CHAR(20),
     Course_code VARCHAR(20),
-    Marks_type VARCHAR(50) CHECK 
-        (Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Assesment', 
-                        'Mid_practical', 'Mid_theory', 'End_practical', 'End_theory')),
-    Marks_value DECIMAL(5,2) CHECK (Marks_value BETWEEN 0 AND 100),
+    Quiz_1 DECIMAL(5,2) CHECK (Quiz_1 BETWEEN 0 AND 100),
+    Quiz_2 DECIMAL(5,2) CHECK (Quiz_2 BETWEEN 0 AND 100),
+    Quiz_3 DECIMAL(5,2) CHECK (Quiz_3 BETWEEN 0 AND 100),
+    Assesment DECIMAL(5,2) CHECK (Assesment BETWEEN 0 AND 100),
+    Mid_theory DECIMAL(5,2) CHECK (Mid_theory BETWEEN 0 AND 100),
+    Mid_practical DECIMAL(5,2) CHECK (Mid_practical BETWEEN 0 AND 100),
+    End_theory DECIMAL(5,2) CHECK (End_theory BETWEEN 0 AND 100),
+    End_practical DECIMAL(5,2) CHECK (End_practical BETWEEN 0 AND 100),
     FOREIGN KEY (Reg_no) REFERENCES student(Reg_no),
     FOREIGN KEY (Course_code) REFERENCES course(Course_code)
 );
