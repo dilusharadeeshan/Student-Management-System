@@ -3011,7 +3011,7 @@ UPDATE attendance
 SET Status = 'Absent' 
 WHERE Status = 'Present' 
 AND Medical_id IS NULL 
-AND Attendance_id % 2 = 1  -- Odd IDs only
+AND Attendance_id % 2 = 1  
 LIMIT 50;
 
 
