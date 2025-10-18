@@ -2997,8 +2997,22 @@ INSERT INTO attendance (Attendance_id, Reg_no, Course_code, Session_date, Sessio
 (2250, 'TG/2023/015', 'TCS1212', '2025-11-15', 'Theory', 2.0, 'Present', NULL);
 
 
+UPDATE attendance SET Medical_id = NULL;
+UPDATE attendance SET Status = 'Present', Medical_id = NULL;
+
+UPDATE attendance a
+INNER JOIN medical_record m 
+ON a.Reg_no = m.reg_no AND a.Session_date = m.session_date
+SET a.Status = 'Medical',
+    a.Medical_id = m.Medical_id;
 
 
+UPDATE attendance 
+SET Status = 'Absent'
+WHERE Status = 'Present' 
+AND Medical_id IS NULL
+AND RAND() < 0.10
+LIMIT 50;
 
 
 
