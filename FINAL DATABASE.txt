@@ -478,7 +478,7 @@ INSERT INTO enrollment (Reg_no, Course_code) VALUES
 INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/003', '2025-08-04', 'Fever', TRUE);
 INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/007', '2025-08-04', 'Headache', TRUE);
 INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/010', '2025-08-04', 'Stomach ache', TRUE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/014', '2025-08-04', 'Cold and cough', TRUE);
+INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/014', '2025-08-04', 'Cold and cough', FALSE);
 INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/006', '2025-08-04', 'Dizziness', TRUE);
 INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/011', '2025-08-04', 'Fever', TRUE);
 INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/015', '2025-08-04', 'Migraine', TRUE);
@@ -519,7 +519,7 @@ INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/
 
 INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/007', '2025-08-15', 'Headache', FALSE);
 INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-08-15', 'Fever', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/014', '2025-08-15', 'Stomach ache', TRUE);
+INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/014', '2025-08-15', 'Stomach ache', FALSE);
 INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/015', '2025-08-15', 'Nausea', FALSE);
 
 INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/002', '2025-08-18', 'Sore throat', TRUE);
@@ -538,7 +538,7 @@ INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/
 INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/005', '2025-08-21', 'Stomach flu', FALSE);
 INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-08-21', 'Runny nose', FALSE);
 INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/011', '2025-08-21', 'Sore throat', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/014', '2025-08-21', 'Fever', TRUE);
+INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/014', '2025-08-21', 'Fever', FALSE);
 
 INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-08-22', 'Headache', FALSE);
 INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-08-22', 'Body pain', TRUE);
