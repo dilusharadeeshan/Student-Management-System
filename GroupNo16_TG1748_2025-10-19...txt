@@ -1,0 +1,425 @@
+
+
+
+++++++++++++
+VIEWS TABLES
+++++++++++++
+
+
+
+
+1. Medical Apply Attendance
+----------------------------
+
+
+
+DROP VIEW IF EXISTS medicalApplyAttendance;
+
+CREATE VIEW medicalApplyAttendance AS 
+SELECT attendance_id,reg_no,course_code,session_date,session_type,session_hours,status 
+FROM attendance 
+WHERE status='Medical';
+
+SELECT * FROM medicalApplyAttendance;
+
+DROP VIEW IF EXISTS medicalApplyAttendance;
+
+
+
+============================================================================================================================================================================================================================================
+
+
+2. Approved Medicals
+---------------------
+
+
+
+DROP VIEW IF EXISTS approvedMedical;
+
+CREATE VIEW approvedMedi AS 
+SELECT Medical_id,Reg_no,session_date,Reason,approved 
+FROM medical_record
+WHERE Approved=TRUE;
+
+SELECT * FROM approvedMedical;
+
+DROP VIEW IF EXISTS approvedMedical;
+
+
+============================================================================================================================================================================================================================================
+
+
+3. Attendance data with medical approved (attendance table)
+-----------------------------------------------------------
+
+
+
+DROP VIEW IF EXISTS attendance_with_medical_approval;
+
+
+CREATE VIEW attendance_with_medical_approval AS
+SELECT 
+    a.attendance_id,
+    a.reg_no,
+    a.course_code,
+    a.session_date,
+    a.session_type,
+    a.session_hours,
+    CASE 
+        WHEN a.status = 'Medical' AND m.Approved=TRUE THEN 'Present/M'
+        WHEN a.status = 'Medical' AND m.Approved=FALSE THEN 'Absent/M'
+        ELSE a.status
+    END AS status
+FROM attendance a
+LEFT JOIN Medical_record m ON 
+    a.Medical_id = m.Medical_id;
+
+
+SELECT * FROM attendance_with_medical_approval;
+
+
+DROP VIEW IF EXISTS attendance_with_medical_approval;
+
+
+
+============================================================================================================================================================================================================================================
+
+
+4.Attendance percentage without considering medical
+---------------------------------------------------
+
+DROP VIEW IF EXISTS attendance_percentage_without_medical;
+
+CREATE VIEW attendance_percentage_without_medical AS
+SELECT 
+    reg_no,
+    course_code,
+    session_type,
+    SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) AS attended_hours,
+    SUM(session_hours) AS total_hours,
+    SUM(CASE WHEN status = 'Present' THEN 1 ELSE 0 END) AS attended_sessions,
+    COUNT(*) AS total_sessions,
+    
+    ROUND(
+        (SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) / 
+        SUM(session_hours)
+    ) * 100, 2
+    ) AS attendance_percentage
+FROM attendance
+GROUP BY reg_no, course_code,session_type
+ORDER BY reg_no, course_code,session_type;
+
+SELECT * FROM attendance_percentage_without_medical;
+
+DROP VIEW IF EXISTS attendance_without_medical;
+
+
+============================================================================================================================================================================================================================================
+
+5.Attendance percentage without considering medical with name
+-------------------------------------------------------------
+
+
+DROP VIEW IF EXISTS attendance_percentage_without_medical_with_name;
+
+CREATE VIEW attendance_percentage_without_medical_with_name AS
+SELECT
+    u.L_name,
+    a.reg_no,
+    a.course_code,
+    a.session_type,
+    SUM(CASE WHEN a.status = 'Present' THEN a.session_hours ELSE 0 END) AS attended_hours,
+    SUM(a.session_hours) AS total_hours,
+    SUM(CASE WHEN a.status = 'Present' THEN 1 ELSE 0 END) AS attended_sessions,
+    COUNT(*) AS total_sessions,
+    ROUND(
+        (SUM(CASE WHEN a.status = 'Present' THEN a.session_hours ELSE 0 END) / 
+        SUM(a.session_hours)
+    ) * 100, 2
+    ) AS attendance_percentage
+FROM attendance a
+LEFT JOIN student s ON
+s.reg_no=a.reg_no
+LEFT JOIN user u ON
+u.user_id=s.user_id
+GROUP BY a.reg_no, a.course_code, a.session_type
+ORDER BY a.reg_no, a.course_code, a.session_type;
+
+
+SELECT * FROM attendance_percentage_without_medical_with_name;
+
+
+DROP VIEW IF EXISTS attendance_percentage_without_medical_with_name;
+
+
+============================================================================================================================================================================================================================================
+
+6.Attendance percentage without considering medical with eligibility 
+--------------------------------------------------------------------
+
+
+DROP VIEW IF EXISTS eligibility_without_medical;
+
+
+CREATE VIEW eligibility_without_medical AS
+SELECT 
+    reg_no,
+    course_code,
+    session_type,
+    SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) AS attended_hours,
+    SUM(session_hours) AS total_hours,
+    SUM(CASE WHEN status = 'Present' THEN 1 ELSE 0 END) AS attended_sessions,
+    COUNT(*) AS total_sessions,
+    
+    ROUND(
+        (SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) / 
+        SUM(session_hours)
+    ) * 100, 2
+    ) AS attendance_percentage,
+    CASE 
+	WHEN
+	    ROUND(
+            (SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) / 
+            SUM(session_hours)
+            ) * 100, 2
+    ) >=80 THEN 'Eligible' 
+	   ELSE 'Not Eligible'
+	END AS eligibility
+FROM attendance
+GROUP BY reg_no, course_code,session_type
+ORDER BY reg_no, course_code,session_type;
+
+SELECT * FROM eligibility_without_medical;
+
+DROP VIEW IF EXISTS eligibility_without_medical;
+
+
+============================================================================================================================================================================================================================================
+
+6.Attendance percentage without considering medical with eligibility and name
+-----------------------------------------------------------------------------
+
+
+DROP VIEW IF EXISTS eligibility_without_medical_with_name;
+
+
+
+CREATE VIEW eligibility_without_medical_with_name AS
+SELECT
+    u.L_name,
+    a.reg_no,
+    a.course_code,
+    a.session_type,
+    SUM(CASE WHEN a.status = 'Present' THEN a.session_hours ELSE 0 END) AS attended_hours,
+    SUM(a.session_hours) AS total_hours,
+    SUM(CASE WHEN a.status = 'Present' THEN 1 ELSE 0 END) AS attended_sessions,
+    COUNT(*) AS total_sessions,
+    ROUND(
+        (SUM(CASE WHEN a.status = 'Present' THEN a.session_hours ELSE 0 END) / 
+        SUM(a.session_hours)
+    ) * 100, 2
+    ) AS attendance_percentage,
+    CASE 
+	WHEN
+	    ROUND(
+            (SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) / 
+            SUM(session_hours)
+            ) * 100, 2
+    ) >=80 THEN 'Eligible' 
+	   ELSE 'Not Eligible'
+	END AS eligibility
+
+FROM attendance a
+LEFT JOIN student s ON
+s.reg_no=a.reg_no
+LEFT JOIN user u ON
+u.user_id=s.user_id
+GROUP BY a.reg_no, a.course_code, a.session_type
+ORDER BY a.reg_no, a.course_code, a.session_type;
+
+
+SELECT * FROM eligibility_without_medical_with_name;
+
+
+DROP VIEW IF EXISTS eligibility_without_medical_with_name;
+
+
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+
+
+
+
+6.Attendance percentage with considering medical 
+------------------------------------------------
+
+
+DROP VIEW IF EXISTS attendance_percentage_with_medical;
+
+
+
+CREATE VIEW attendance_percentage_with_medical AS
+SELECT 
+    a.reg_no,
+    a.course_code,
+    a.session_type,
+    SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END) AS attended_hours,
+    SUM(session_hours) AS total_hours,
+    SUM(CASE WHEN a.status = 'Present' THEN 1  WHEN a.status='Medical' AND m.approved=TRUE THEN 1 ELSE 0 END) AS attended_sessions,
+    COUNT(*) AS total_sessions,
+    
+    ROUND( (
+ SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END)/ SUM(a.session_hours)
+    ) * 100, 2
+    ) AS attendance_percentage
+FROM attendance a 
+LEFT JOIN medical_record m ON
+a.medical_id=m.medical_id
+GROUP BY reg_no, course_code,session_type
+ORDER BY reg_no, course_code,session_type;
+
+
+
+SELECT * FROM attendance_percentage_with_medical;
+
+
+
+DROP VIEW IF EXISTS attendance_percentage_with_medical;
+
+
+============================================================================================================================================================================================================================================
+
+
+6.Attendance percentage with considering medical with name
+----------------------------------------------------------
+
+
+DROP VIEW IF EXISTS attendance_percentage_with_medical_with_name;
+
+
+CREATE VIEW attendance_percentage_with_medical_with_name AS
+SELECT
+    u.L_name,
+    a.reg_no,
+    a.course_code,
+    a.session_type,
+    SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END) AS attended_hours,
+    SUM(a.session_hours) AS total_hours,
+    SUM(CASE WHEN a.status = 'Present' THEN 1  WHEN a.status='Medical' AND m.approved=TRUE THEN 1 ELSE 0 END) AS attended_sessions,
+    COUNT(*) AS total_sessions,
+    ROUND( (
+ SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END)/ SUM(a.session_hours)
+    ) * 100, 2
+    ) AS attendance_percentage
+FROM attendance a
+LEFT JOIN student s ON
+s.reg_no=a.reg_no
+LEFT JOIN user u ON
+u.user_id=s.user_id
+LEFT JOIN medical_record m ON
+a.medical_id=m.medical_id
+GROUP BY a.reg_no, a.course_code, a.session_type
+ORDER BY a.reg_no, a.course_code, a.session_type;
+
+
+SELECT * FROM attendance_percentage_with_medical_with_name;
+
+
+DROP VIEW IF EXISTS attendance_percentage_with_medical_with_name;
+
+
+
+============================================================================================================================================================================================================================================
+
+
+7.Attendance percentage with considering medical with eligibility
+-----------------------------------------------------------------
+
+
+DROP VIEW IF EXISTS attendance_percentage_with_medical_with_eligibility;
+
+
+CREATE VIEW attendance_percentage_with_medical_with_eligibility AS
+SELECT 
+    a.reg_no,
+    a.course_code,
+    a.session_type,
+    SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END) AS attended_hours,
+    SUM(session_hours) AS total_hours,
+    SUM(CASE WHEN a.status = 'Present' THEN 1  WHEN a.status='Medical' AND m.approved=TRUE THEN 1 ELSE 0 END) AS attended_sessions,
+    COUNT(*) AS total_sessions,
+    
+    ROUND( (
+ SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END)/ SUM(a.session_hours)
+    ) * 100, 2
+    ) AS attendance_percentage,
+    CASE WHEN    ROUND( (
+ SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END)/ SUM(a.session_hours)
+    ) * 100, 2
+    ) >= 80 THEN 'Eligible' 
+        ELSE 'Not Eligible'
+    END AS eligibility
+FROM attendance a 
+LEFT JOIN medical_record m ON
+a.medical_id=m.medical_id
+GROUP BY reg_no, course_code,session_type
+ORDER BY reg_no, course_code,session_type;
+
+
+SELECT * FROM attendance_percentage_with_medical_with_eligibility;
+
+
+DROP VIEW IF EXISTS attendance_percentage_with_medical_with_eligibility;
+
+
+============================================================================================================================================================================================================================================
+
+
+8.Attendance percentage with considering medical with name and eligibility
+--------------------------------------------------------------------------
+
+
+
+DROP VIEW IF EXISTS attendance_percentage_with_medical_with_eligibility_with_name;
+
+
+CREATE VIEW attendance_percentage_with_medical_with_eligibility_with_name AS
+SELECT 
+ u.L_name,
+    a.reg_no,
+    a.course_code,
+    a.session_type,
+    SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END) AS attended_hours,
+    SUM(session_hours) AS total_hours,
+    SUM(CASE WHEN a.status = 'Present' THEN 1  WHEN a.status='Medical' AND m.approved=TRUE THEN 1 ELSE 0 END) AS attended_sessions,
+    COUNT(*) AS total_sessions,
+    
+    ROUND( (
+ SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END)/ SUM(a.session_hours)
+    ) * 100, 2
+    ) AS attendance_percentage,
+    CASE WHEN    ROUND( (
+ SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END)/ SUM(a.session_hours)
+    ) * 100, 2
+    ) >= 80 THEN 'Eligible' 
+        ELSE 'Not Eligible'
+    END AS eligibility
+FROM attendance a
+LEFT JOIN student s ON
+s.reg_no=a.reg_no
+LEFT JOIN user u ON
+u.user_id=s.user_id
+LEFT JOIN medical_record m ON
+a.medical_id=m.medical_id
+GROUP BY a.reg_no, a.course_code, a.session_type
+ORDER BY a.reg_no, a.course_code, a.session_type;
+
+
+
+SELECT * FROM attendance_percentage_with_medical_with_eligibility_with_name;
+
+
+
+DROP VIEW IF EXISTS attendance_percentage_with_medical_with_eligibility_with_name;
+
