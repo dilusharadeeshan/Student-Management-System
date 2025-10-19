@@ -1,0 +1,13 @@
+CREATE TABLE attendance (
+    Attendance_id INT PRIMARY KEY AUTO_INCREMENT,
+    Reg_no CHAR(20),
+    Course_code VARCHAR(20),
+    Session_date DATE,
+    Session_type VARCHAR(10) CHECK (session_type IN ('Theory', 'Practical')),
+    Session_hours DECIMAL(2,1) NOT NULL,
+    Status VARCHAR(10) CHECK (status IN ('Present', 'Absent', 'Medical')),
+    Medical_id INT,
+    FOREIGN KEY (Medical_id) REFERENCES medical_record(Medical_id),
+    FOREIGN KEY (reg_no) REFERENCES STUDENT(reg_no),
+    FOREIGN KEY (course_code) REFERENCES COURSE(course_code)
+);
