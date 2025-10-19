@@ -11,8 +11,8 @@ SET a.Status = 'Medical',
 
 
 UPDATE attendance 
-SET Status = 'Absent'
+SET Status = 'Absent' 
 WHERE Status = 'Present' 
-AND Medical_id IS NULL
-AND RAND() < 0.10
-LIMIT 50;
+AND Medical_id IS NULL 
+AND (Attendance_id % 7 = 0)  
+LIMIT 180;
