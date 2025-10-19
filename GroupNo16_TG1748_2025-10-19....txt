@@ -1,0 +1,656 @@
+++++++++++
+Procedures
+++++++++++
+
+
+============================================================================================================================================================================================================================================
+
+
+1.1 attendance percentage without medical, for a course by giving course code (without session type) 
+----------------------------------------------------------------------------------------------------
+
+
+DROP PROCEDURE IF EXISTS GetAttendanceByCourseCodeWithoutMedical;
+
+DELIMITER //
+
+CREATE PROCEDURE GetAttendanceByCourseCodeWithoutMedical(IN course_code_param VARCHAR(10))
+BEGIN
+    SELECT 
+	course_code,
+        reg_no,
+        SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) AS attended_hours,
+        SUM(session_hours) AS total_hours,
+        SUM(CASE WHEN status = 'Present' THEN 1 ELSE 0 END) AS attended_sessions,
+	COUNT(*) AS total_sessions,
+        ROUND(
+            (SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) / 
+             SUM(session_hours)) * 100, 2
+        ) AS attendance_percentage,
+	CASE 
+            WHEN (SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) / SUM(session_hours)) >= 0.8 
+            	THEN 'Eligible' 
+            	ELSE 'Not Eligible' 
+        END AS eligibility
+    FROM attendance
+    WHERE course_code = course_code_param
+    GROUP BY reg_no, course_code
+    ORDER BY course_code,reg_no;
+END //
+
+DELIMITER ;
+
+
+
+CALL GetAttendanceByCourseCodeWithoutMedical('ICT1233');
+
+
+DROP PROCEDURE IF EXISTS GetAttendanceByCourseCodeWithoutMedical;
+
+
+
+============================================================================================================================================================================================================================================
+
+
+
+1.2 attendance percentage without medical, for a course by giving course code (with session type) 
+----------------------------------------------------------------------------------------------------
+
+
+DROP PROCEDURE IF EXISTS GetAttendanceByCourseCodeWithSTypeWithoutMedical;
+
+DELIMITER //
+
+CREATE PROCEDURE GetAttendanceByCourseCodeWithSTypeWithoutMedical(IN course_code_param VARCHAR(10))
+BEGIN
+    SELECT 
+	course_code,
+        reg_no,
+	session_type,
+        SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) AS attended_hours,
+        SUM(session_hours) AS total_hours,
+        SUM(CASE WHEN status = 'Present' THEN 1 ELSE 0 END) AS attended_sessions,
+	COUNT(*) AS total_sessions,
+        ROUND(
+            (SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) / 
+             SUM(session_hours)) * 100, 2
+        ) AS attendance_percentage,
+	CASE 
+            WHEN (SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) / SUM(session_hours)) >= 0.8 
+            	THEN 'Eligible' 
+            	ELSE 'Not Eligible' 
+        END AS eligibility
+    FROM attendance
+    WHERE course_code = course_code_param
+    GROUP BY reg_no, course_code,session_type
+    ORDER BY course_code,reg_no, session_type;
+END //
+
+DELIMITER ;
+
+
+
+CALL GetAttendanceByCourseCodeWithSTypeWithoutMedical('ICT1233');
+
+
+DROP PROCEDURE IF EXISTS GetAttendanceByCourseCodeWithSTypeWithoutMedical;
+
+
+
+============================================================================================================================================================================================================================================
+
+
+
+2.1 attendance percentage with medical, for a course by giving course code (without session type) 
+--------------------------------------------------------------------------------------------------
+
+
+DROP PROCEDURE IF EXISTS GetAttendanceByCourseCodeWithMedical;
+
+DELIMITER //
+
+CREATE PROCEDURE GetAttendanceByCourseCodeWithMedical(IN course_code_param VARCHAR(10))
+BEGIN
+SELECT 
+	 a.course_code,
+    a.reg_no,
+   
+    
+    SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END) AS attended_hours,
+    SUM(session_hours) AS total_hours,
+    SUM(CASE WHEN a.status = 'Present' THEN 1  WHEN a.status='Medical' AND m.approved=TRUE THEN 1 ELSE 0 END) AS attended_sessions,
+    COUNT(*) AS total_sessions,
+    
+    ROUND( (
+ SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END)/ SUM(a.session_hours)
+    ) * 100, 2
+    ) AS attendance_percentage,
+    CASE WHEN    
+ SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END)/ SUM(a.session_hours)
+    
+     >= 0.8  THEN 'Eligible' 
+        ELSE 'Not Eligible'
+    END AS eligibility
+FROM attendance a 
+LEFT JOIN medical_record m ON
+a.medical_id=m.medical_id
+WHERE course_code = course_code_param
+GROUP BY reg_no, course_code
+ORDER BY course_code,reg_no ;
+
+END //
+
+DELIMITER ;
+
+
+
+CALL GetAttendanceByCourseCodeWithMedical('ICT1233');
+
+
+DROP PROCEDURE IF EXISTS GetAttendanceByCourseCodeWithMedical;
+
+
+
+============================================================================================================================================================================================================================================
+
+
+
+
+2.2 attendance percentage with medical, for a course by giving course code (with session type) 
+----------------------------------------------------------------------------------------------
+
+
+DROP PROCEDURE IF EXISTS GetAttendanceByCourseCodeWithSTypeWithMedical;
+
+DELIMITER //
+
+CREATE PROCEDURE GetAttendanceByCourseCodeWithSTypeWithMedical(IN course_code_param VARCHAR(10))
+BEGIN
+SELECT 
+    a.reg_no,
+    a.course_code,
+    a.session_type,
+    SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END) AS attended_hours,
+    SUM(session_hours) AS total_hours,
+    SUM(CASE WHEN a.status = 'Present' THEN 1  WHEN a.status='Medical' AND m.approved=TRUE THEN 1 ELSE 0 END) AS attended_sessions,
+    COUNT(*) AS total_sessions,
+    
+    ROUND( (
+ SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END)/ SUM(a.session_hours)
+    ) * 100, 2
+    ) AS attendance_percentage,
+    CASE WHEN    
+ SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END)/ SUM(a.session_hours)
+    
+     >= 0.8  THEN 'Eligible' 
+        ELSE 'Not Eligible'
+    END AS eligibility
+FROM attendance a 
+LEFT JOIN medical_record m ON
+a.medical_id=m.medical_id
+WHERE course_code = course_code_param
+GROUP BY reg_no, course_code,session_type
+ORDER BY course_code,reg_no, session_type;
+
+END //
+
+DELIMITER ;
+
+
+
+CALL GetAttendanceByCourseCodeWithSTypeWithMedical('ICT1233');
+
+
+DROP PROCEDURE IF EXISTS GetAttendanceByCourseCodeWithSTypeWithMedical;
+
+
+============================================================================================================================================================================================================================================
+
+
+3.1 attendance percentage without medical, for a student by giving reg no (without session type) 
+------------------------------------------------------------------------------------------------
+
+
+
+DROP PROCEDURE IF EXISTS GetAttendanceByRegnoWithoutMedical;
+
+DELIMITER //
+
+CREATE PROCEDURE GetAttendanceByRegnoWithoutMedical(IN input_reg_no VARCHAR(20))
+BEGIN
+     SELECT 
+        reg_no,
+        course_code,
+        
+        CASE 
+            WHEN (SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) / 
+                  SUM(session_hours)) >= 0.8 
+            THEN 'Eligible' 
+            ELSE 'Not Eligible' 
+        END AS eligibility,
+        SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) AS attended_hours,
+        SUM(session_hours) AS total_hours,
+        COUNT(*) AS total_sessions,
+        SUM(CASE WHEN status = 'Present' THEN 1 ELSE 0 END) AS attended_sessions,
+        ROUND(
+            (SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) / 
+             SUM(session_hours)) * 100, 2
+        ) AS attendance_percentage
+    FROM attendance
+    WHERE reg_no = input_reg_no
+    GROUP BY reg_no, course_code
+    ORDER BY reg_no,course_code;
+END //
+
+DELIMITER ;
+
+
+
+
+CALL GetAttendanceByRegnoWithoutMedical('TG/2023/001');
+
+DROP PROCEDURE IF EXISTS GetAttendanceByRegnoWithoutMedical;
+
+============================================================================================================================================================================================================================================
+
+
+3.2 attendance percentage without medical, for a student by giving reg no (with session type) 
+----------------------------------------------------------------------------------------------
+
+
+
+
+
+DROP PROCEDURE IF EXISTS GetAttendanceByRegnoWithSTypeWithoutMedical;
+
+DELIMITER //
+
+CREATE PROCEDURE GetAttendanceByRegnoWithSTypeWithoutMedical(IN input_reg_no VARCHAR(20))
+BEGIN
+     SELECT 
+        reg_no,
+        course_code,
+        session_type,
+        CASE 
+            WHEN (SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) / 
+                  SUM(session_hours)) >= 0.8 
+            THEN 'Eligible' 
+            ELSE 'Not Eligible' 
+        END AS eligibility,
+        SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) AS attended_hours,
+        SUM(session_hours) AS total_hours,
+        COUNT(*) AS total_sessions,
+        SUM(CASE WHEN status = 'Present' THEN 1 ELSE 0 END) AS attended_sessions,
+        ROUND(
+            (SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) / 
+             SUM(session_hours)) * 100, 2
+        ) AS attendance_percentage
+    FROM attendance
+    WHERE reg_no = input_reg_no
+    GROUP BY reg_no, course_code, session_type
+    ORDER BY reg_no, course_code, session_type;
+END //
+
+DELIMITER ;
+
+
+
+CALL GetAttendanceByRegnoWithSTypeWithoutMedical('TG/2023/001');
+
+DROP PROCEDURE IF EXISTS GetAttendanceByRegnoWithSTypeWithoutMedical;
+
+
+============================================================================================================================================================================================================================================
+
+
+4.1 attendance percentage with medical, for a student by giving reg no (without session type)
+---------------------------------------------------------------------------------------------
+
+
+
+DROP PROCEDURE IF EXISTS GetAttendanceByRegnoWithMedical;
+
+DELIMITER //
+
+CREATE PROCEDURE GetAttendanceByRegnoWithMedical(IN input_reg_no
+ VARCHAR(20))
+BEGIN
+SELECT 
+    a.reg_no,
+    a.course_code,
+    SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END) AS attended_hours,
+    SUM(session_hours) AS total_hours,
+    SUM(CASE WHEN a.status = 'Present' THEN 1  WHEN a.status='Medical' AND m.approved=TRUE THEN 1 ELSE 0 END) AS attended_sessions,
+    COUNT(*) AS total_sessions,
+    
+    ROUND( (
+ SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END)/ SUM(a.session_hours)
+    ) * 100, 2
+    ) AS attendance_percentage,
+    CASE WHEN    
+ SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END)/ SUM(a.session_hours)
+    
+     >= 0.8  THEN 'Eligible' 
+        ELSE 'Not Eligible'
+    END AS eligibility
+FROM attendance a 
+LEFT JOIN medical_record m ON
+a.medical_id=m.medical_id
+ WHERE a.reg_no = input_reg_no
+
+GROUP BY reg_no, course_code
+ORDER BY reg_no,course_code;
+
+END //
+
+DELIMITER ;
+
+
+CALL GetAttendanceByRegnoWithMedical('TG/2023/001');
+
+DROP PROCEDURE IF EXISTS GetAttendanceByRegnoWithMedical;
+
+
+============================================================================================================================================================================================================================================
+
+
+
+
+4.2 attendance percentage with medical, for a student by giving reg no (with session type)
+-------------------------------------------------------------------------------------------
+
+
+
+DROP PROCEDURE IF EXISTS GetAttendanceByRegnoWithSTypeWithMedical;
+
+DELIMITER //
+
+CREATE PROCEDURE GetAttendanceByRegnoWithSTypeWithMedical(IN input_reg_no VARCHAR(20))
+BEGIN
+SELECT 
+    a.reg_no,
+    a.course_code,
+    a.session_type,
+    SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END) AS attended_hours,
+    SUM(session_hours) AS total_hours,
+    SUM(CASE WHEN a.status = 'Present' THEN 1  WHEN a.status='Medical' AND m.approved=TRUE THEN 1 ELSE 0 END) AS attended_sessions,
+    COUNT(*) AS total_sessions,
+    
+    ROUND( (
+ SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END)/ SUM(a.session_hours)
+    ) * 100, 2
+    ) AS attendance_percentage,
+    CASE WHEN    
+ SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END)/ SUM(a.session_hours)
+    
+     >= 0.8  THEN 'Eligible' 
+        ELSE 'Not Eligible'
+    END AS eligibility
+FROM attendance a 
+LEFT JOIN medical_record m ON
+a.medical_id=m.medical_id
+ WHERE a.reg_no = input_reg_no
+
+GROUP BY reg_no, course_code,session_type
+ORDER BY reg_no, course_code,session_type;
+
+END //
+
+DELIMITER ;
+
+
+CALL GetAttendanceByRegnoWithSTypeWithMedical('TG/2023/001');
+
+DROP PROCEDURE IF EXISTS GetAttendanceByRegnoWithSTypeWithMedical;
+
+
+============================================================================================================================================================================================================================================
+============================================================================================================================================================================================================================================
+
+
+2.1 attendance percentage with medical, for a course by giving course code (without session type) 
+-------------------------------------------------------------------------------------------------
+
+
+
+
+DROP PROCEDURE IF EXISTS GetAttendanceByCourseCodeWithMedical;
+
+DELIMITER //
+
+CREATE PROCEDURE GetAttendanceByCourseCodeWithMedical(IN course_code_param VARCHAR(10))
+BEGIN
+SELECT 
+	 a.course_code,
+    a.reg_no,
+   
+    
+    SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END) AS attended_hours,
+    SUM(session_hours) AS total_hours,
+    SUM(CASE WHEN a.status = 'Present' THEN 1  WHEN a.status='Medical' AND m.approved=TRUE THEN 1 ELSE 0 END) AS attended_sessions,
+    COUNT(*) AS total_sessions,
+    
+    ROUND( (
+ SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END)/ SUM(a.session_hours)
+    ) * 100, 2
+    ) AS attendance_percentage,
+
+    CASE WHEN    
+ SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END)/ SUM(a.session_hours)
+    
+     >= 0.8 AND SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) / SUM(session_hours) < 0.8 THEN 'Eligible with medical' 
+ WHEN (SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) / SUM(session_hours)) >= 0.8 
+            	THEN 'Eligible' 
+
+        ELSE 'Not Eligible'
+
+    END AS eligibility
+FROM attendance a 
+LEFT JOIN medical_record m ON
+a.medical_id=m.medical_id
+WHERE course_code = course_code_param
+GROUP BY reg_no, course_code
+ORDER BY course_code,reg_no ;
+
+END //
+
+DELIMITER ;
+
+
+
+CALL GetAttendanceByCourseCodeWithMedical('ICT1233');
+
+
+DROP PROCEDURE IF EXISTS GetAttendanceByCourseCodeWithMedical;
+
+
+
+
+============================================================================================================================================================================================================================================
+
+
+
+
+
+2.2 attendance percentage with medical, for a course by giving course code (with session type) 
+----------------------------------------------------------------------------------------------
+
+
+
+DROP PROCEDURE IF EXISTS GetAttendanceByCourseCodeWithSTypeWithMedical;
+
+DELIMITER //
+
+CREATE PROCEDURE GetAttendanceByCourseCodeWithSTypeWithMedical(IN course_code_param VARCHAR(10))
+BEGIN
+SELECT 
+    a.reg_no,
+    a.course_code,
+    a.session_type,
+    SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END) AS attended_hours,
+    SUM(session_hours) AS total_hours,
+    SUM(CASE WHEN a.status = 'Present' THEN 1  WHEN a.status='Medical' AND m.approved=TRUE THEN 1 ELSE 0 END) AS attended_sessions,
+    COUNT(*) AS total_sessions,
+    
+    ROUND( (
+ SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END)/ SUM(a.session_hours)
+    ) * 100, 2
+    ) AS attendance_percentage,
+    CASE WHEN    
+ SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END)/ SUM(a.session_hours)
+    
+     >= 0.8 AND SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) / SUM(session_hours) < 0.8 THEN 'Eligible with medical' 
+ WHEN (SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) / SUM(session_hours)) >= 0.8 
+            	THEN 'Eligible' 
+
+        ELSE 'Not Eligible'
+
+    END AS eligibility
+FROM attendance a 
+LEFT JOIN medical_record m ON
+a.medical_id=m.medical_id
+WHERE course_code = course_code_param
+GROUP BY reg_no, course_code,session_type
+ORDER BY course_code,reg_no, session_type;
+
+END //
+
+DELIMITER ;
+
+
+
+CALL GetAttendanceByCourseCodeWithSTypeWithMedical('ICT1233');
+
+
+DROP PROCEDURE IF EXISTS GetAttendanceByCourseCodeWithSTypeWithMedical;
+
+
+============================================================================================================================================================================================================================================
+
+
+
+
+4.1 attendance percentage with medical, for a student by giving reg no (without session type)
+---------------------------------------------------------------------------------------------
+
+
+
+DROP PROCEDURE IF EXISTS GetAttendanceByRegnoWithMedical;
+
+DELIMITER //
+
+CREATE PROCEDURE GetAttendanceByRegnoWithMedical(IN input_reg_no
+ VARCHAR(20))
+BEGIN
+SELECT 
+    a.reg_no,
+    a.course_code,
+    SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END) AS attended_hours,
+    SUM(session_hours) AS total_hours,
+    SUM(CASE WHEN a.status = 'Present' THEN 1  WHEN a.status='Medical' AND m.approved=TRUE THEN 1 ELSE 0 END) AS attended_sessions,
+    COUNT(*) AS total_sessions,
+    
+    ROUND( (
+ SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END)/ SUM(a.session_hours)
+    ) * 100, 2
+    ) AS attendance_percentage,
+     CASE WHEN    
+ SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END)/ SUM(a.session_hours)
+    
+     >= 0.8 AND SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) / SUM(session_hours) < 0.8 THEN 'Eligible with medical' 
+ WHEN (SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) / SUM(session_hours)) >= 0.8 
+            	THEN 'Eligible' 
+
+        ELSE 'Not Eligible'
+
+    END AS eligibility
+
+FROM attendance a 
+LEFT JOIN medical_record m ON
+a.medical_id=m.medical_id
+ WHERE a.reg_no = input_reg_no
+
+GROUP BY reg_no, course_code
+ORDER BY reg_no,course_code;
+
+END //
+
+DELIMITER ;
+
+
+CALL GetAttendanceByRegnoWithMedical('TG/2023/001');
+
+DROP PROCEDURE IF EXISTS GetAttendanceByRegnoWithMedical;
+
+
+
+============================================================================================================================================================================================================================================
+
+
+
+4.2 attendance percentage with medical, for a student by giving reg no (with session type)
+-------------------------------------------------------------------------------------------
+
+
+DROP PROCEDURE IF EXISTS GetAttendanceByRegnoWithSTypeWithMedical;
+
+DELIMITER //
+
+CREATE PROCEDURE GetAttendanceByRegnoWithSTypeWithMedical(IN input_reg_no VARCHAR(20))
+BEGIN
+SELECT 
+    a.reg_no,
+    a.course_code,
+    a.session_type,
+    SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END) AS attended_hours,
+    SUM(session_hours) AS total_hours,
+    SUM(CASE WHEN a.status = 'Present' THEN 1  WHEN a.status='Medical' AND m.approved=TRUE THEN 1 ELSE 0 END) AS attended_sessions,
+    COUNT(*) AS total_sessions,
+    
+    ROUND( (
+ SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END)/ SUM(a.session_hours)
+    ) * 100, 2
+    ) AS attendance_percentage,
+    CASE WHEN    
+ SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END)/ SUM(a.session_hours)
+    
+     >= 0.8 AND SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) / SUM(session_hours) < 0.8 THEN 'Eligible with medical' 
+ WHEN (SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) / SUM(session_hours)) >= 0.8 
+            	THEN 'Eligible' 
+
+        ELSE 'Not Eligible'
+
+    END AS eligibility
+
+
+FROM attendance a 
+LEFT JOIN medical_record m ON
+a.medical_id=m.medical_id
+ WHERE a.reg_no = input_reg_no
+
+GROUP BY reg_no, course_code,session_type
+ORDER BY reg_no, course_code,session_type;
+
+END //
+
+DELIMITER ;
+
+
+CALL GetAttendanceByRegnoWithSTypeWithMedical('TG/2023/001');
+
+DROP PROCEDURE IF EXISTS GetAttendanceByRegnoWithSTypeWithMedical;
+
+
+============================================================================================================================================================================================================================================
+
+
+
+
+
+
+
+
+
+
+
+
