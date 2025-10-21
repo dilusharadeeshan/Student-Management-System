@@ -1,44 +1,29 @@
--- Function to calculate attendance percentage for a student in a course
+-- Procedure to Get Attendance Summary by Course
 DELIMITER //
-CREATE FUNCTION CalculateAttendancePercentage(
-    p_reg_no CHAR(20), 
-    p_course_code VARCHAR(20)
-) 
-RETURNS DECIMAL(5,2)
-READS SQL DATA
-DETERMINISTIC
-BEGIN
-    DECLARE total_hours DECIMAL(8,2);
-    DECLARE attended_hours DECIMAL(8,2);
-    DECLARE attendance_percentage DECIMAL(5,2);
-    
-    -- Get total session hours for the course
-    SELECT COALESCE(SUM(session_hours), 0) INTO total_hours
-    FROM attendance 
-    WHERE reg_no = p_reg_no AND course_code = p_course_code;
-    
-    -- Get attended hours (Present + Medical)
-    SELECT COALESCE(SUM(session_hours), 0) INTO attended_hours
-    FROM attendance 
-    WHERE reg_no = p_reg_no 
-      AND course_code = p_course_code 
-      AND status IN ('Present', 'Medical');
-    
-    -- Calculate percentage
-    IF total_hours > 0 THEN
-        SET attendance_percentage = (attended_hours / total_hours) * 100;
-    ELSE
-        SET attendance_percentage = 0;
-    END IF;
-    
-    RETURN attendance_percentage;
-END//
-DELIMITER ;
 
--- Run to display the attendance percentage
-SELECT 
-    s.Reg_no,
-    e.Course_code,
-    CalculateAttendancePercentage(s.Reg_no, e.Course_code) AS attendance_percentage
-FROM student s
-JOIN enrollment e ON s.Reg_no = e.Reg_no;
+CREATE PROCEDURE GetAttendanceSummaryByCourse(
+    IN p_course_code VARCHAR(20)
+)
+BEGIN
+    SELECT 
+        a.Reg_no,
+        s.Batch,
+        CONCAT(u.F_name, ' ', u.L_name) AS Student_Name,
+        COUNT(*) AS Total_Sessions,
+        SUM(CASE WHEN a.Status IN ('Present', 'Medical') THEN a.Session_hours ELSE 0 END) AS Attended_Hours,
+        SUM(a.Session_hours) AS Total_Hours,
+        ROUND((SUM(CASE WHEN a.Status IN ('Present', 'Medical') THEN a.Session_hours ELSE 0 END) / SUM(a.Session_hours)) * 100, 2) AS Attendance_Percentage,
+        CASE 
+            WHEN (SUM(CASE WHEN a.Status IN ('Present', 'Medical') THEN a.Session_hours ELSE 0 END) / SUM(a.Session_hours)) * 100 >= 80 
+            THEN 'Eligible' 
+            ELSE 'Not Eligible' 
+        END AS Eligibility
+    FROM attendance a
+    JOIN student s ON a.Reg_no = s.Reg_no
+    JOIN user u ON s.User_id = u.User_id
+    WHERE a.Course_code = p_course_code
+    GROUP BY a.Reg_no, s.Batch, Student_Name
+    ORDER BY a.Reg_no;
+END //
+
+DELIMITER ;
