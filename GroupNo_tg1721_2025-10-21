@@ -1,23 +1,28 @@
- -- This view shows student attendance summaries and exam eligibility for all courses.
+ --Procedure to Get Individual Student Attendance Summary
+DELIMITER //
 
-CREATE VIEW AttendanceSummaryByCourse AS
-SELECT 
-    a.Reg_no,
-    s.Batch,
-    CONCAT(u.F_name, ' ', u.L_name) AS Student_Name,
-    a.Course_code,
-    c.Course_name,
-    COUNT(*) AS Total_Sessions,
-    SUM(CASE WHEN a.Status IN ('Present', 'Medical') THEN a.Session_hours ELSE 0 END) AS Attended_Hours,
-    SUM(a.Session_hours) AS Total_Hours,
-    ROUND((SUM(CASE WHEN a.Status IN ('Present', 'Medical') THEN a.Session_hours ELSE 0 END) / SUM(a.Session_hours)) * 100, 2) AS Attendance_Percentage,
-    CASE 
-        WHEN (SUM(CASE WHEN a.Status IN ('Present', 'Medical') THEN a.Session_hours ELSE 0 END) / SUM(a.Session_hours)) * 100 >= 80 
-        THEN 'Eligible' 
-        ELSE 'Not Eligible' 
-    END AS Eligibility
-FROM attendance a
-JOIN student s ON a.Reg_no = s.Reg_no
-JOIN user u ON s.User_id = u.User_id
-JOIN course c ON a.Course_code = c.Course_code
-GROUP BY a.Reg_no, s.Batch, u.F_name, u.L_name, a.Course_code, c.Course_name;
+CREATE PROCEDURE GetStudentAttendanceSummary(
+    IN p_reg_no CHAR(20)
+)
+BEGIN
+    SELECT 
+        a.Course_code,
+        c.Course_name,
+        COUNT(*) AS Total_Sessions,
+        SUM(CASE WHEN a.Status IN ('Present', 'Medical') THEN a.Session_hours ELSE 0 END) AS Attended_Hours,
+        SUM(a.Session_hours) AS Total_Hours,
+        ROUND((SUM(CASE WHEN a.Status IN ('Present', 'Medical') THEN a.Session_hours ELSE 0 END) / SUM(a.Session_hours)) * 100, 2) AS Attendance_Percentage,
+        CASE 
+            WHEN (SUM(CASE WHEN a.Status IN ('Present', 'Medical') THEN a.Session_hours ELSE 0 END) / SUM(a.Session_hours)) * 100 >= 80 
+            THEN 'Eligible' 
+            ELSE 'Not Eligible' 
+        END AS Eligibility
+    FROM attendance a
+    JOIN course c ON a.Course_code = c.Course_code
+    WHERE a.Reg_no = p_reg_no
+    GROUP BY a.Course_code, c.Course_name
+    ORDER BY a.Course_code;
+END //
+
+DELIMITER ;
+
