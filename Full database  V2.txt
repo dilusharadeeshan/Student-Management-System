@@ -3989,14 +3989,14 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 -- 015
 
 
--- ENG1222 - 2 assignments, mid theory, end theory
+
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/015', 'ENG1222', 'Assignment_1', 79.00),
 ('TG/2023/015', 'ENG1222', 'Assignment_2', 74.50),
 ('TG/2023/015', 'ENG1222', 'Mid_theory', 76.00),
 ('TG/2023/015', 'ENG1222', 'End_theory', 80.25);
 
--- ICT1212 - 3 quizzes, mid theory, end theory
+
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/015', 'ICT1212', 'Quiz_1', 83.50),
 ('TG/2023/015', 'ICT1212', 'Quiz_2', 86.75),
@@ -4004,7 +4004,7 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/015', 'ICT1212', 'Mid_theory', 77.00),
 ('TG/2023/015', 'ICT1212', 'End_theory', 81.50);
 
--- ICT1222 - 3 quizzes, mid practical, mini project, end practical
+
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/015', 'ICT1222', 'Quiz_1', 85.25),
 ('TG/2023/015', 'ICT1222', 'Quiz_2', 88.50),
@@ -4013,7 +4013,7 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/015', 'ICT1222', 'Mini_project', 86.75),
 ('TG/2023/015', 'ICT1222', 'End_practical', 80.50);
 
--- ICT1233 - 3 quizzes, mid practical, mini project, end theory, end practical
+
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/015', 'ICT1233', 'Quiz_1', 78.75),
 ('TG/2023/015', 'ICT1233', 'Quiz_2', 84.25),
@@ -4023,7 +4023,7 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/015', 'ICT1233', 'End_theory', 76.75),
 ('TG/2023/015', 'ICT1233', 'End_practical', 85.50);
 
--- ICT1242 - 3 quizzes, 1 assignment, mid theory, end theory
+
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/015', 'ICT1242', 'Quiz_1', 81.25),
 ('TG/2023/015', 'ICT1242', 'Quiz_2', 87.50),
@@ -4032,7 +4032,7 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/015', 'ICT1242', 'Mid_theory', 75.50),
 ('TG/2023/015', 'ICT1242', 'End_theory', 81.25);
 
--- ICT1253 - 3 quizzes, mid practical, 1 assignment, end theory, end practical
+
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/015', 'ICT1253', 'Quiz_1', 84.75),
 ('TG/2023/015', 'ICT1253', 'Quiz_2', 80.25),
@@ -4042,14 +4042,14 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/015', 'ICT1253', 'End_theory', 78.25),
 ('TG/2023/015', 'ICT1253', 'End_practical', 86.75);
 
--- TCS1212 - 1 quiz, 1 assignment, mid theory, end theory
+
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/015', 'TCS1212', 'Quiz_1', 82.25),
 ('TG/2023/015', 'TCS1212', 'Assignment_1', 77.50),
 ('TG/2023/015', 'TCS1212', 'Mid_theory', 74.75),
 ('TG/2023/015', 'TCS1212', 'End_theory', 80.00);
 
--- TMS1233 - 1 assignment, mid theory, end theory
+
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/015', 'TMS1233', 'Assignment_1', 85.50),
 ('TG/2023/015', 'TMS1233', 'Mid_theory', 78.75),
@@ -4061,7 +4061,7 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 -- reapeters
 
 
--- ICT1212 - 3 quizzes, mid theory paper, and end theory paper
+
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2022/001', 'ICT1212', 'Quiz_1', 85.50),
 ('TG/2022/001', 'ICT1212', 'Quiz_2', 92.00),
@@ -4069,7 +4069,7 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2022/001', 'ICT1212', 'Mid_theory', 88.00),
 ('TG/2022/001', 'ICT1212', 'End_theory', 82.50);
 
--- ICT1242 - 3 quizzes, 1 assignment, mid theory paper, and end theory paper
+
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2022/001', 'ICT1242', 'Quiz_1', 90.25),
 ('TG/2022/001', 'ICT1242', 'Quiz_2', 87.50),
@@ -4083,7 +4083,7 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 
 
 
--- TCS1212 - 1 quiz, 1 assignment, mid theory paper, and end theory paper
+
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2022/002', 'TCS1212', 'Quiz_1', 88.50),
 ('TG/2022/002', 'TCS1212', 'Assignment_1', 92.00),
@@ -4094,7 +4094,7 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 
 
 
--- TMS1233 - 1 assignment, mid theory paper, and end theory paper
+
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2022/003', 'TMS1233', 'Assignment_1', 87.50),
 ('TG/2022/003', 'TMS1233', 'Mid_theory', 92.00),
@@ -4102,7 +4102,7 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 
 
 
--- ICT1233 - 3 quizzes, mid practical paper, mini project, end theory paper and end practical paper
+
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2022/004', 'ICT1233', 'Quiz_1', 85.00),
 ('TG/2022/004', 'ICT1233', 'Quiz_2', 92.50),
@@ -4112,7 +4112,7 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2022/004', 'ICT1233', 'End_theory', 84.75),
 ('TG/2022/004', 'ICT1233', 'End_practical', 87.00);
 
--- ICT1253 - 3 quizzes, mid practical paper, 1 assignment, end theory paper and end practical paper
+
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2022/004', 'ICT1253', 'Quiz_1', 90.25),
 ('TG/2022/004', 'ICT1253', 'Quiz_2', 86.50),
@@ -4122,7 +4122,7 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2022/004', 'ICT1253', 'End_theory', 82.25),
 ('TG/2022/004', 'ICT1253', 'End_practical', 89.75);
 
--- TCS1212 - 1 quiz, 1 assignment, mid theory paper, and end theory paper
+
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2022/004', 'TCS1212', 'Quiz_1', 87.75),
 ('TG/2022/004', 'TCS1212', 'Assignment_1', 91.00),
@@ -4131,7 +4131,7 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 
 
 
--- ICT1222 - 3 quizzes, mid practical paper, mini project, and end practical paper
+
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2022/005', 'ICT1222', 'Quiz_1', 58.50),
 ('TG/2022/005', 'ICT1222', 'Quiz_2', 62.75),
@@ -4142,7 +4142,6 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 
 
 
--- ICT1253 - 3 quizzes, mid practical paper, 1 assignment, end theory paper and end practical paper
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2022/006', 'ICT1253', 'Quiz_1', 48.50),
 ('TG/2022/006', 'ICT1253', 'Quiz_2', 52.75),
@@ -4155,7 +4154,7 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 
 
 
--- ENG1222 - 2 assignments, one mid theory paper, and one end theory paper
+
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2022/007', 'ENG1222', 'Assignment_1', 48.50),
 ('TG/2022/007', 'ENG1222', 'Assignment_2', 52.75),
@@ -4164,7 +4163,7 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 
 
 
--- ICT1253 - 3 quizzes, mid practical paper, 1 assignment, end theory paper and end practical paper
+
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2022/008', 'ICT1253', 'Quiz_1', 68.50),
 ('TG/2022/008', 'ICT1253', 'Quiz_2', 72.75),
@@ -4174,7 +4173,7 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2022/008', 'ICT1253', 'End_theory', 67.30),
 ('TG/2022/008', 'ICT1253', 'End_practical', 73.45);
 
--- TCS1212 - 1 quiz, 1 assignment, mid theory paper, and end theory paper
+
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2022/008', 'TCS1212', 'Quiz_1', 72.25),
 ('TG/2022/008', 'TCS1212', 'Assignment_1', 75.50),
