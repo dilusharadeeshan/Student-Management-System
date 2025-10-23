@@ -1,0 +1,26 @@
+DELIMITER //
+
+CREATE PROCEDURE individual_subject_marks_on_regno (IN TG CHAR(20))
+BEGIN 
+    SELECT Reg_no, 'ENG1222' AS Course,`Total_CA_marks(30%)` AS CA_marks FROM vw_ENG1222_marks WHERE Reg_no = TG
+    UNION ALL
+    SELECT Reg_no, 'ICT1212' AS Course,`Total_CA_marks(30%)` AS CA_marks FROM vw_ICT1212_marks WHERE Reg_no = TG
+    UNION ALL
+    SELECT Reg_no, 'ICT1222' AS Course,`Total_CA_Marks(40%)` AS CA_marks FROM vw_ICT1222_marks WHERE Reg_no = TG
+    UNION ALL
+    SELECT Reg_no, 'ICT1233' AS Course,`Total_CA_Marks(40%)` AS CA_marks FROM vw_ICT1233_marks WHERE Reg_no = TG
+    UNION ALL
+    SELECT Reg_no, 'ICT1242' AS Course,`Total_CA_marks(30%)` AS CA_marks FROM vw_ICT1242_marks WHERE Reg_no = TG
+    UNION ALL
+    SELECT Reg_no, 'ICT1253' AS Course,`Total_CA_marks(40%)` AS CA_marks FROM vw_ICT1253_marks WHERE Reg_no = TG
+    UNION ALL
+    SELECT Reg_no, 'TCS1212' AS Course,`Total_CA_marks(40%)` AS CA_marks FROM vw_TCS1212_marks WHERE Reg_no = TG
+    UNION ALL
+    SELECT Reg_no, 'TMS1233' AS Course,`Total_CA_marks(40%)` AS CA_marks FROM vw_TMS1233_marks WHERE Reg_no = TG;
+END //
+
+DELIMITER ;
+
+CALL individual_subject_marks_on_regno('TG/2023/001');
+
+
