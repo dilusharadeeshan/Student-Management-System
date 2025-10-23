@@ -1,0 +1,47 @@
+---- calculate end exam marks
+DELIMITER //
+
+CREATE PROCEDURE CalculateEndMarksForStudent(IN student_reg_no CHAR(20))
+BEGIN
+    SELECT 
+        m.Reg_no AS 'Student Registration Number',
+        m.Course_code AS 'Course Code',
+        c.Course_name AS 'Course Name',
+        CASE 
+            WHEN m.Course_code = 'ENG1222' THEN 
+                MAX(CASE WHEN m.Marks_type = 'End_theory' THEN m.Marks_value * 0.70 ELSE 0 END)
+            WHEN m.Course_code = 'ICT1212' THEN 
+                MAX(CASE WHEN m.Marks_type = 'End_theory' THEN m.Marks_value * 0.70 ELSE 0 END)
+            WHEN m.Course_code = 'ICT1222' THEN 
+                MAX(CASE WHEN m.Marks_type = 'End_practical' THEN m.Marks_value * 0.60 ELSE 0 END)
+            WHEN m.Course_code = 'ICT1233' THEN 
+                (COALESCE(MAX(CASE WHEN m.Marks_type = 'End_theory' THEN m.Marks_value ELSE 0 END), 0) +
+                 COALESCE(MAX(CASE WHEN m.Marks_type = 'End_practical' THEN m.Marks_value ELSE 0 END), 0)) / 2 * 0.60
+            WHEN m.Course_code = 'ICT1242' THEN 
+                MAX(CASE WHEN m.Marks_type = 'End_theory' THEN m.Marks_value * 0.70 ELSE 0 END)
+            WHEN m.Course_code = 'ICT1253' THEN 
+                (COALESCE(MAX(CASE WHEN m.Marks_type = 'End_theory' THEN m.Marks_value ELSE 0 END), 0) +
+                 COALESCE(MAX(CASE WHEN m.Marks_type = 'End_practical' THEN m.Marks_value ELSE 0 END), 0)) / 2 * 0.60
+            WHEN m.Course_code = 'TCS1212' THEN 
+                MAX(CASE WHEN m.Marks_type = 'End_theory' THEN m.Marks_value * 0.70 ELSE 0 END)
+            WHEN m.Course_code = 'TMS1233' THEN 
+                MAX(CASE WHEN m.Marks_type = 'End_theory' THEN m.Marks_value * 0.70 ELSE 0 END)
+            ELSE 0
+        END AS 'Calculated End Mark'
+    FROM 
+        MARK m
+    JOIN 
+        course c ON m.Course_code = c.Course_code
+    WHERE 
+        m.Marks_type IN ('End_theory', 'End_practical')
+        AND m.Reg_no = student_reg_no
+    GROUP BY 
+        m.Reg_no, m.Course_code, c.Course_name
+    ORDER BY 
+        m.Course_code;
+END //
+
+DELIMITER ;
+
+
+
