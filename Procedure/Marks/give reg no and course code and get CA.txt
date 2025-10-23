@@ -23,10 +23,7 @@ BEGIN
                         WHERE Course_code = p_course_code
                           AND Reg_no = p_reg_no  
                           AND Marks_type = 'Mid_theory'), 0) AS `Mid_theory(100%)`,
-	    IFNULL((SELECT Marks_value FROM mark 
-                        WHERE Course_code = p_course_code
-                          AND Reg_no = p_reg_no  
-                          AND Marks_type = 'End_theory'), 0) AS `End_theory(100%)`,
+	   
 	    (
                 IFNULL((SELECT Marks_value FROM mark 
                         WHERE Course_code = p_course_code
@@ -42,33 +39,9 @@ BEGIN
                 IFNULL((SELECT Marks_value FROM mark 
                         WHERE Course_code = p_course_code
                           AND Reg_no = p_reg_no  
-                          AND Marks_type = 'Mid_theory'), 0)*0.1 ) AS `Total_CA_marks(30%)`,
-	        IFNULL((SELECT Marks_value FROM mark 
-                        WHERE Course_code = p_course_code
-                          AND Reg_no = p_reg_no  
-                          AND Marks_type = 'End_theory'), 0)*0.7  AS `Total_End_marks(70%)`,
-            (
-                IFNULL((SELECT Marks_value FROM mark 
-                        WHERE Course_code = p_course_code
-                          AND Reg_no = p_reg_no 
-                          AND Marks_type = 'Assignment_1'), 0)*0.1
-                +
-                IFNULL((SELECT Marks_value FROM mark 
-                        WHERE Course_code = p_course_code
-                          AND Reg_no = p_reg_no 
-                          AND Marks_type = 'Assignment_2'), 0)*0.1
-
-                +
-                IFNULL((SELECT Marks_value FROM mark 
-                        WHERE Course_code = p_course_code
-                          AND Reg_no = p_reg_no  
-                          AND Marks_type = 'Mid_theory'), 0)*0.1
-		+
-                IFNULL((SELECT Marks_value FROM mark 
-                        WHERE Course_code = p_course_code
-                          AND Reg_no = p_reg_no  
-                          AND Marks_type = 'End_theory'), 0)*0.7
-            ) AS `Final_marks(100%)`;
+                          AND Marks_type = 'Mid_theory'), 0)*0.1 ) AS `Total_CA_marks(30%)`;
+	        
+        
 
     ELSEIF (p_course_code = 'ICT1212') THEN
         SELECT 
@@ -99,7 +72,7 @@ BEGIN
     )
 ) AS `Second_Max_Quiz(100%)`,
 	    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Mid_theory'), 0) AS `Mid_theory(100%)`,
-	    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'End_theory'), 0) AS `End_theory(100%)`,
+	    
 	    ((((
                     IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Quiz_1'), 0) +
                     IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Quiz_2'), 0) +
@@ -111,24 +84,9 @@ BEGIN
                     IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Quiz_3'), 0)
                 ))*0.5)*0.1
                 +
-                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Mid_theory'), 0)*0.2) AS `Total_CA_marks(30%)`,
-	        IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'End_theory'), 0)*0.7 AS `Total_End_marks(70%)`,
-            (
-                (((
-                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Quiz_1'), 0) +
-                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Quiz_2'), 0) +
-                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Quiz_3'), 0)
-                )
-                - LEAST(
-                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Quiz_1'), 0),
-                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Quiz_2'), 0),
-                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Quiz_3'), 0)
-                ))*0.5)*0.1
-                +
-                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Mid_theory'), 0)*0.2
-                +
-                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'End_theory'), 0)*0.7
-            ) AS `Final_Marks(100%)`;
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Mid_theory'), 0)*0.2) AS `Total_CA_marks(30%)`;
+	  
+           
 
     ELSEIF (p_course_code = 'ICT1222') THEN
         SELECT 
@@ -160,7 +118,6 @@ BEGIN
 ) AS `Second_Max_Quiz(100%)`,
 	    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Mid_practical'), 0) AS 'Mid_practical(100%)',
                 IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Mini_project'), 0) AS `Mini_project(100%)`,
-                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'End_practical'), 0) `End_practical(100%)`,
 		((((
                     IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Quiz_1'), 0) +
                     IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Quiz_2'), 0) +
@@ -173,28 +130,10 @@ BEGIN
                 ))*0.5)*0.1
                 + IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Mini_project'), 0)*0.1
                 +
-                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Mid_practical'), 0)*0.2) `Total_CA_marks(40%)`,
-                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'End_practical'), 0)*0.6  `Total_End_marks(60%)`,
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Mid_practical'), 0)*0.2) `Total_CA_marks(40%)`;
 
 
-            (
-                (((
-                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Quiz_1'), 0) +
-                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Quiz_2'), 0) +
-                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Quiz_3'), 0)
-                )
-                - LEAST(
-                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Quiz_1'), 0),
-                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Quiz_2'), 0),
-                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Quiz_3'), 0)
-                ))*0.5)*0.1
-                +
-                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Mid_practical'), 0)*0.2
-                +
-                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'End_practical'), 0)*0.6
-                +
-                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Mini_project'), 0)*0.1
-            )  AS `Final_marks(100%)`;
+          
 
     ELSEIF (p_course_code = 'ICT1233') THEN
         SELECT 
@@ -226,8 +165,7 @@ BEGIN
 ) AS `Second_Max_Quiz(100%)`,
 IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Mid_practical'), 0) AS 'Mid_practical(100%)',
 IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Mini_project'), 0) AS 'Mini_project(100%)',
-                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'End_theory'), 0) AS 'End_theory(100%)',
-                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'End_practical'), 0) 'End_practical(100%)',
+           
 
 
 
@@ -246,33 +184,11 @@ IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_n
                 +
                 IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Mini_project'), 0)*0.2
                 
-            ) AS  `Total_CA_marks(40%)`,
-               ((IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'End_theory'), 0)
-            +                 IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'End_practical'), 0))*0.5)*0.6 AS `Total_End_marks(60%)`,
+            ) AS  `Total_CA_marks(40%)`;
+            
 
 
-
-            (
-                (((
-                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Quiz_1'), 0) +
-                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Quiz_2'), 0) +
-                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Quiz_3'), 0)
-                )
-                - LEAST(
-                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Quiz_1'), 0),
-                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Quiz_2'), 0),
-                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Quiz_3'), 0)
-                ))*0.5)*0.1
-                +
-                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Mid_practical'), 0)*0.1
-               
-                +
-                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Mini_project'), 0)*0.2
-                +
-                ((IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'End_theory'), 0)
-                 +
-                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'End_practical'), 0))*0.5)*0.6
-            )  AS `Final_Marks(100%)`;
+         
 	 ELSEIF (p_course_code = 'ICT1242') THEN
         SELECT 
             p_reg_no AS Reg_no,
@@ -303,7 +219,6 @@ IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_n
 ) AS `Second_Max_Quiz(100%)`,
                 IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Mid_theory'), 0) AS `Mid_theory(100%)`,
                                 IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Assignment_1'), 0) AS `Assignment_1(100%)`,
-                            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'End_theory'), 0) AS `End_theory(100%)`,
 
                 ((((
                     IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Quiz_1'), 0) +
@@ -319,28 +234,10 @@ IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_n
                 IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Mid_theory'), 0)*0.15
                 +
                 IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Assignment_1'), 0)*0.05
-                            ) AS `Total_CA_Marks(40%)`,
-              IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'End_theory'), 0)*0.7 AS `Total_END_Marks(70%)`,
+                            ) AS `Total_CA_Marks(40%)`;
 
             
-                ((((
-                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Quiz_1'), 0) +
-                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Quiz_2'), 0) +
-                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Quiz_3'), 0)
-                )
-                - LEAST(
-                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Quiz_1'), 0),
-                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Quiz_2'), 0),
-                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Quiz_3'), 0)
-                ))*0.5)*0.1
-                +
-                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Mid_theory'), 0)*0.15
-                
-                +
-                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Assignment_1'), 0)*0.05
-                +
-                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'End_theory'), 0)*0.7
-            ) AS `Final_Marks(100%)`;
+            
 	 ELSEIF (p_course_code = 'ICT1253') THEN
         SELECT 
             p_reg_no AS Reg_no,
@@ -373,9 +270,7 @@ IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_n
 
             IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Mid_practical'), 0) AS 'Mid_practical(100%)',
 
-           IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'End_theory'), 0) AS 'End_theory(100%)',
 
-              IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'End_Practical'), 0) AS 'End_practical(100%)',
 
          
                 ((((
@@ -394,33 +289,7 @@ IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_n
                 IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Assignment_1'), 0)*0.1
              
                 
-            )  AS `Total_CA_Marks(40%)`,
-            ((IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'End_theory'), 0)*0.4)
-                +
-                (IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'End_Practical'), 0)*0.2)) AS `Total_End_Marks(60%)`,
-
-            
-               ( ((((
-                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Quiz_1'), 0) +
-                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Quiz_2'), 0) +
-                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Quiz_3'), 0)
-                )
-                - LEAST(
-                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Quiz_1'), 0),
-                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Quiz_2'), 0),
-                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Quiz_3'), 0)
-                ))*0.5)*0.1
-                +
-                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Mid_practical'), 0)*0.2
-                +
-                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'Assignment_1'), 0)*0.1
-             
-                
-            )  
-                +
-                ((IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'End_theory'), 0)*0.4)
-                +
-                (IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_no = p_reg_no AND Marks_type = 'End_Practical'), 0)*0.2)) )  AS `Final_Marks(100%)`;
+            )  AS `Total_CA_Marks(40%)`;
 	ELSEIF (p_course_code = 'TCS1212') THEN
         SELECT 
             p_reg_no AS Reg_no,
@@ -437,10 +306,7 @@ IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_n
                         WHERE Course_code = p_course_code
                           AND Reg_no = p_reg_no 
                           AND Marks_type = 'Mid_theory'), 0) AS `Mid_theory(100%)`,
-            IFNULL((SELECT Marks_value FROM mark 
-                        WHERE Course_code = p_course_code 
-                          AND Reg_no = p_reg_no 
-                          AND Marks_type = 'End_theory'), 0) AS `End_theory(100%)`,
+       
             (IFNULL((SELECT Marks_value FROM mark 
                         WHERE Course_code = p_course_code
                           AND Reg_no = p_reg_no 
@@ -454,32 +320,9 @@ IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_n
                 IFNULL((SELECT Marks_value FROM mark 
                         WHERE Course_code = p_course_code
                           AND Reg_no = p_reg_no 
-                          AND Marks_type = 'Mid_theory'), 0)*0.2) AS `Total_CA_Marks(40%)`,
-                      IFNULL((SELECT Marks_value FROM mark 
-                        WHERE Course_code = p_course_code
-                          AND Reg_no = p_reg_no 
-                          AND Marks_type = 'End_theory'), 0)*0.6   AS   `Total_End_Marks(60%)`,
-            (
-                IFNULL((SELECT Marks_value FROM mark 
-                        WHERE Course_code = p_course_code
-                          AND Reg_no = p_reg_no 
-                          AND Marks_type = 'Quiz_1'), 0)*0.1
-                +
-                IFNULL((SELECT Marks_value FROM mark 
-                        WHERE Course_code = p_course_code
-                          AND Reg_no = p_reg_no 
-                          AND Marks_type = 'Assignment_1'), 0)*0.1
-                +          
-                IFNULL((SELECT Marks_value FROM mark 
-                        WHERE Course_code = p_course_code
-                          AND Reg_no = p_reg_no 
-                          AND Marks_type = 'End_theory'), 0)*0.6
-                +
-                IFNULL((SELECT Marks_value FROM mark 
-                        WHERE Course_code = p_course_code
-                          AND Reg_no = p_reg_no  
-                          AND Marks_type = 'Mid_theory'), 0)*0.2
-            )  AS `Final_Marks(100%)`;
+                          AND Marks_type = 'Mid_theory'), 0)*0.2) AS `Total_CA_Marks(40%)`;
+                
+     
 	ELSEIF (p_course_code = 'TMS1233') THEN
         SELECT 
             p_reg_no AS Reg_no,
@@ -496,10 +339,7 @@ IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_n
                         WHERE Course_code = p_course_code
                           AND Reg_no = p_reg_no 
                           AND Marks_type = 'Mid_theory'), 0) AS `Mid_theory(100%)`,
-            IFNULL((SELECT Marks_value FROM mark 
-                        WHERE Course_code = p_course_code 
-                          AND Reg_no = p_reg_no 
-                          AND Marks_type = 'End_theory'), 0) AS `End_theory(100%)`,
+       
             (IFNULL((SELECT Marks_value FROM mark 
                         WHERE Course_code = p_course_code
                           AND Reg_no = p_reg_no 
@@ -513,32 +353,9 @@ IFNULL((SELECT Marks_value FROM mark WHERE Course_code = p_course_code AND Reg_n
                 IFNULL((SELECT Marks_value FROM mark 
                         WHERE Course_code = p_course_code
                           AND Reg_no = p_reg_no 
-                          AND Marks_type = 'Mid_theory'), 0)*0.2) AS `Total_CA_Marks(40%)`,
-                      IFNULL((SELECT Marks_value FROM mark 
-                        WHERE Course_code = p_course_code
-                          AND Reg_no = p_reg_no 
-                          AND Marks_type = 'End_theory'), 0)*0.6   AS   `Total_End_Marks(60%)`,
-            (
-                IFNULL((SELECT Marks_value FROM mark 
-                        WHERE Course_code = p_course_code
-                          AND Reg_no = p_reg_no 
-                          AND Marks_type = 'Quiz_1'), 0)*0.1
-                +
-                IFNULL((SELECT Marks_value FROM mark 
-                        WHERE Course_code = p_course_code
-                          AND Reg_no = p_reg_no 
-                          AND Marks_type = 'Quiz_2'), 0)*0.1
-                +          
-                IFNULL((SELECT Marks_value FROM mark 
-                        WHERE Course_code = p_course_code
-                          AND Reg_no = p_reg_no 
-                          AND Marks_type = 'End_theory'), 0)*0.6
-                +
-                IFNULL((SELECT Marks_value FROM mark 
-                        WHERE Course_code = p_course_code
-                          AND Reg_no = p_reg_no  
-                          AND Marks_type = 'Mid_theory'), 0)*0.2
-            )  AS `Final_Marks(100%)`;
+                          AND Marks_type = 'Mid_theory'), 0)*0.2) AS `Total_CA_Marks(40%)`;
+                   
+          
     END IF;
 END $$
 
