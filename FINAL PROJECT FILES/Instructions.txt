@@ -34,6 +34,11 @@ medical ekka reg no eka dunnama ,
 
 
 
+reg no ekai course code ekai dunnama,
+	session type ekka =>  CALL  get_attend_by_regno_and_coursecode_with_stype('TG/2023/001','ICT1253');
+
+	session type netuw => CALL get_attend_by_regno_and_coursecode_without_stype('TG/2023/001','ICT1253');
+
 
 
 
@@ -96,6 +101,9 @@ SELECT * FROM vw_ICT1242_marks;
 
 
 reg no eka deela ca mark ganna =>  CALL individual_subject_marks_by_regno('TG/2023/001');
+
+
+
 
 
 
