@@ -43,5 +43,4 @@ END //
 DELIMITER ;
 
 
-
 CALL get_attend_by_regno_and_coursecode_without_stype('TG/2023/001','ICT1253');
