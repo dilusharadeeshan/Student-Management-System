@@ -1,0 +1,18 @@
+DROP VIEW IF EXISTS vw_end_exam_eligibility;
+
+CREATE VIEW vw_end_exam_eligibility AS
+SELECT 
+    cp.Reg_no,
+    cp.Course_code,
+    cp.CA_Status,
+    COALESCE(att.eligibility, 'Not Eligible') AS Attendance_Eligibility,
+    CASE 
+        WHEN cp.CA_Status = 'Pass' AND att.eligibility IN ('Eligible', 'Eligible with medical') THEN 'Eligible'
+        ELSE 'Not Eligible'
+    END AS Final_Eligibility
+FROM vw_CA_pass_fail cp
+LEFT JOIN vw_attend_percen_with_medical_with_elig_without_S_type_with_n att 
+    ON cp.Reg_no = att.reg_no AND cp.Course_code = att.course_code
+ORDER BY cp.Reg_no, cp.Course_code;
+
+SELECT * FROM vw_end_exam_eligibility;
