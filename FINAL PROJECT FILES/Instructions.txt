@@ -1,0 +1,102 @@
+requirements ===>
+
+
+
+medical nethuwa cource code eka dunnama ,
+
+	session type eka ekka , 1.2 => CALL GetAttendanceByCourseCodeWithSTypeWithoutMedical('ICT1233');
+
+	session type eka nethuwa, 1.1 =>  CALL GetAttendanceByCourseCodeWithoutMedical('ICT1233');
+
+
+
+
+medical ekka cource code eka dunnama 
+
+	session type eka ekka, 5.2  =>  CALL GetAttendanceByCourseCodeWithSTypeWithMedical('ICT1233');
+
+	session type eka nethuwa, 5.1  =>  CALL GetAttendanceByCourseCodeWithMedical('ICT1233');
+
+
+medical nethuwa reg no eka dunnama ,
+
+	session type eka ekka, 3.2  =>  CALL GetAttendanceByRegnoWithSTypeWithoutMedical('TG/2023/001');
+
+	session type eka nethuwa, 3.1  =>  CALL GetAttendanceByRegnoWithoutMedical('TG/2023/001');
+
+
+
+medical ekka reg no eka dunnama ,
+
+	session type eka ekka, 6.2  =>  CALL GetAttendanceByRegnoWithSTypeWithMedical('TG/2023/001');
+
+	session type eka nethuwa, 6.1  => CALL GetAttendanceByRegnoWithMedical('TG/2023/001');
+
+
+
+
+
+
+
+
+okkotama dala attendance table eka medical approvel ekka (3) =>  SELECT * FROM attendance_with_medical_approval;
+
+
+
+
+
+
+mulu batch eke hema course ekatama session type ekath ekka medical nethuwa attendance percentage eka eligibility ekath ekka (7)=>  SELECT * FROM eligibility_without_medical_with_name;
+
+
+mulu batch eke hema course ekatama session type ekath ekka medical ekka attendance percentage eka eligibility ekath ekka (11)=>  SELECT * FROM attendance_percentage_with_medical_with_eligibility_with_name;
+
+
+mulu batch eke hema course ekatama session type eka nethuwa medical nethuwa attendance percentage eka eligibility ekath ekka (12)=>  
+SELECT * FROM eligibility_without_medical_with_name_without_S_type;
+
+
+
+mulu batch eke hema course ekatama session type eka nethuwa medical ekka attendance percentage eka eligibility ekath ekka (13)=> SELECT * FROM attendance_percen_with_medical_with_elig_without_S_type_with_n;
+ 
+
+
+=========================================
+
+
+
+marks =>
+
+
+overall mark views
+------------
+
+SELECT * FROM vw_TMS1233_marks;
+
+SELECT * FROM vw_TCS1212_marks;
+
+
+SELECT * FROM vw_ICT1253_marks;
+
+SELECT * FROM vw_ICT1222_marks;
+
+
+
+SELECT * FROM vw_ENG1222_marks;
+
+
+SELECT * FROM vw_ICT1212_marks;
+
+SELECT * FROM vw_ICT1233_marks;
+
+
+SELECT * FROM vw_ICT1242_marks;
+
+
+
+
+reg no eka deela ca mark ganna =>  CALL individual_subject_marks_by_regno('TG/2023/001');
+
+
+
+
