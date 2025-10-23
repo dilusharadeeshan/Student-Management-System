@@ -1,3 +1,4 @@
+DROP VIEW IF EXISTS vw_CA_pass_fail;
 CREATE VIEW vw_CA_pass_fail AS
 SELECT 
     Reg_no,
@@ -77,7 +78,10 @@ FROM (
         Course_code,
         `Total_CA_marks(40%)` AS CA_marks
     FROM vw_TMS1233_marks
-) AS all_ca_marks;
+
+) AS all_ca_marks
+ORDER BY reg_no,course_code
+;
 
 
 SELECT * FROM vw_CA_pass_fail;
