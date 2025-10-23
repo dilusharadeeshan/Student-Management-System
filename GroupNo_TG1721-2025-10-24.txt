@@ -1,0 +1,83 @@
+CREATE VIEW vw_CA_pass_fail AS
+SELECT 
+    Reg_no,
+    Course_code,
+    CA_marks,
+    CASE 
+        WHEN CA_marks >= 20 THEN 'Pass' 
+        ELSE 'Fail' 
+    END AS CA_Status
+FROM (
+    -- ENG1222
+    SELECT 
+        Reg_no,
+        Course_code,
+        `Total_CA_marks(30%)` AS CA_marks
+    FROM vw_ENG1222_marks
+    
+    UNION ALL
+    
+    -- ICT1212
+    SELECT 
+        Reg_no,
+        Course_code,
+        `Total_CA_marks(30%)` AS CA_marks
+    FROM vw_ICT1212_marks
+    
+    UNION ALL
+    
+    -- ICT1222
+    SELECT 
+        Reg_no,
+        Course_code,
+        `Total_CA_marks(40%)` AS CA_marks
+    FROM vw_ICT1222_marks
+    
+    UNION ALL
+    
+    -- ICT1233
+    SELECT 
+        Reg_no,
+        Course_code,
+        `Total_CA_marks(40%)` AS CA_marks
+    FROM vw_ICT1233_marks
+    
+    UNION ALL
+    
+    -- ICT1242
+    SELECT 
+        Reg_no,
+        Course_code,
+        `Total_CA_marks(30%)` AS CA_marks
+    FROM vw_ICT1242_marks
+    
+    UNION ALL
+    
+    -- ICT1253
+    SELECT 
+        Reg_no,
+        Course_code,
+        `Total_CA_marks(40%)` AS CA_marks
+    FROM vw_ICT1253_marks
+    
+    UNION ALL
+    
+    -- TCS1212
+    SELECT 
+        Reg_no,
+        Course_code,
+        `Total_CA_marks(40%)` AS CA_marks
+    FROM vw_TCS1212_marks
+    
+    UNION ALL
+    
+    -- TMS1233
+    SELECT 
+        Reg_no,
+        Course_code,
+        `Total_CA_marks(40%)` AS CA_marks
+    FROM vw_TMS1233_marks
+) AS all_ca_marks;
+
+
+SELECT * FROM vw_CA_pass_fail;
