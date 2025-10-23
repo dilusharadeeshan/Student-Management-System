@@ -5298,28 +5298,6 @@ WHERE
 
 
 
-SELECT * FROM vw_TMS1233_marks;
-
-SELECT * FROM vw_TCS1212_marks;
-
-
-SELECT * FROM vw_ICT1253_marks;
-
-SELECT * FROM vw_ICT1222_marks;
-
-
-
-SELECT * FROM vw_ENG1222_marks;
-
-
-SELECT * FROM vw_ICT1212_marks;
-
-SELECT * FROM vw_ICT1233_marks;
-
-
-SELECT * FROM vw_ICT1242_marks;
-
-
 
 
 
