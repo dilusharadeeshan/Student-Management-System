@@ -1,0 +1,262 @@
+
+CREATE VIEW CA_Marks_View AS
+SELECT 
+    m.Reg_no,
+    m.Course_code,
+    c.Course_name,
+    CASE 
+        -- ENG1222: (Assignment_1 * 0.05 + Assignment_2 * 0.05 + Mid_theory * 0.20)
+        WHEN m.Course_code = 'ENG1222' THEN
+            COALESCE(MAX(CASE WHEN m.Marks_type = 'Assignment_1' THEN m.Marks_value END) * 0.05, 0) +
+            COALESCE(MAX(CASE WHEN m.Marks_type = 'Assignment_2' THEN m.Marks_value END) * 0.05, 0) +
+            COALESCE(MAX(CASE WHEN m.Marks_type = 'Mid_theory' THEN m.Marks_value END) * 0.20, 0)
+
+        -- ICT1212: (TOTAL Highest 2 quizzes MARK /2) * 0.10 + Mid_theory * 0.20
+        WHEN m.Course_code = 'ICT1212' THEN
+            ((SELECT AVG(quiz_marks) 
+              FROM (SELECT Marks_value as quiz_marks
+                    FROM MARK 
+                    WHERE Reg_no = m.Reg_no 
+                    AND Course_code = m.Course_code 
+                    AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3')
+                    ORDER BY Marks_value DESC 
+                    LIMIT 2) as top_quizzes) * 0.10) +
+            COALESCE(MAX(CASE WHEN m.Marks_type = 'Mid_theory' THEN m.Marks_value END) * 0.20, 0)
+
+        -- ICT1222: (TOTAL Highest 2 quizzes MARK /2) * 0.10 + Mid_practical * 0.20 + Mini_project * 0.10
+  WHEN m.Course_code = 'ICT1222' THEN
+    ((SELECT SUM(quiz_marks)/2
+      FROM (SELECT Marks_value as quiz_marks
+            FROM MARK 
+            WHERE Reg_no = m.Reg_no 
+            AND Course_code = m.Course_code 
+            AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3')
+            ORDER BY Marks_value DESC 
+            LIMIT 2) as top_quizzes) * 0.10) +
+    COALESCE(MAX(CASE WHEN m.Marks_type = 'Mid_practical' THEN m.Marks_value END) * 0.20, 0) +
+    COALESCE(MAX(CASE WHEN m.Marks_type = 'Mini_project' THEN m.Marks_value END) * 0.10, 0)
+
+
+        -- ICT1233: (TOTAL Highest 2 quizzes MARK /2) * 0.10 + Mid_practical * 0.20 + Mini_project * 0.10
+        WHEN m.Course_code = 'ICT1233' THEN
+            ((SELECT SUM(quiz_marks)/2
+              FROM (SELECT Marks_value as quiz_marks
+                    FROM MARK 
+                    WHERE Reg_no = m.Reg_no 
+                    AND Course_code = m.Course_code 
+                    AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3')
+                    ORDER BY Marks_value DESC 
+                    LIMIT 2) as top_quizzes) * 0.10) +
+            COALESCE(MAX(CASE WHEN m.Marks_type = 'Mid_practical' THEN m.Marks_value END) * 0.20, 0) +
+            COALESCE(MAX(CASE WHEN m.Marks_type = 'Mini_project' THEN m.Marks_value END) * 0.10, 0)
+
+        --  ICT1242: (TOTAL Highest 2 quizzes MARK /2) * 0.05 + Assignment_1 * 0.05 + Mid_theory * 0.20
+        WHEN m.Course_code = 'ICT1242' THEN
+            ((SELECT SUM(quiz_marks)/2
+              FROM (SELECT Marks_value as quiz_marks
+                    FROM MARK 
+                    WHERE Reg_no = m.Reg_no 
+                    AND Course_code = m.Course_code 
+                    AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3')
+                    ORDER BY Marks_value DESC 
+                    LIMIT 2) as top_quizzes) * 0.05) +
+            COALESCE(MAX(CASE WHEN m.Marks_type = 'Assignment_1' THEN m.Marks_value END) * 0.05, 0) +
+            COALESCE(MAX(CASE WHEN m.Marks_type = 'Mid_theory' THEN m.Marks_value END) * 0.20, 0)
+
+        -- ICT1253: (TOTAL Highest 2 quizzes MARK /2) * 0.10 + Assignment_1 * 0.10 + Mid_practical * 0.20
+        WHEN m.Course_code = 'ICT1253' THEN
+            ((SELECT SUM(quiz_marks)/2
+              FROM (SELECT Marks_value as quiz_marks
+                    FROM MARK 
+                    WHERE Reg_no = m.Reg_no 
+                    AND Course_code = m.Course_code 
+                    AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3')
+                    ORDER BY Marks_value DESC 
+                    LIMIT 2) as top_quizzes) * 0.10) +
+            COALESCE(MAX(CASE WHEN m.Marks_type = 'Assignment_1' THEN m.Marks_value END) * 0.10, 0) +
+            COALESCE(MAX(CASE WHEN m.Marks_type = 'Mid_practical' THEN m.Marks_value END) * 0.20, 0)
+
+        -- TCS1212: (Quiz_1 * 0.05 + Assignment_1 * 0.05 + Mid_theory * 0.20)
+        WHEN m.Course_code = 'TCS1212' THEN
+            COALESCE(MAX(CASE WHEN m.Marks_type = 'Quiz_1' THEN m.Marks_value END) * 0.05, 0) +
+            COALESCE(MAX(CASE WHEN m.Marks_type = 'Assignment_1' THEN m.Marks_value END) * 0.05, 0) +
+            COALESCE(MAX(CASE WHEN m.Marks_type = 'Mid_theory' THEN m.Marks_value END) * 0.20, 0)
+
+        -- TMS1233: Assignment_1 * 0.10 + Mid_theory * 0.20
+        WHEN m.Course_code = 'TMS1233' THEN
+            COALESCE(MAX(CASE WHEN m.Marks_type = 'Assignment_1' THEN m.Marks_value END) * 0.10, 0) +
+            COALESCE(MAX(CASE WHEN m.Marks_type = 'Mid_theory' THEN m.Marks_value END) * 0.20, 0)
+
+        ELSE 0
+    END AS CA_Mark,
+
+    CASE 
+        WHEN m.Course_code = 'ENG1222' THEN 30
+        WHEN m.Course_code = 'ICT1212' THEN 30
+        WHEN m.Course_code = 'ICT1222' THEN 40
+        WHEN m.Course_code = 'ICT1233' THEN 40
+        WHEN m.Course_code = 'ICT1242' THEN 30
+        WHEN m.Course_code = 'ICT1253' THEN 40
+        WHEN m.Course_code = 'TCS1212' THEN 30
+        WHEN m.Course_code = 'TMS1233' THEN 30
+        ELSE 0
+    END AS CA_Mark_Limit
+
+FROM MARK m
+JOIN course c ON m.Course_code = c.Course_code
+GROUP BY m.Reg_no, m.Course_code, c.Course_name;
+
+
+
+---- Procedure to Get individual CA marks Summary by regno
+
+DELIMITER //
+
+CREATE PROCEDURE Get_CA_Marks_For_Student(IN student_reg_no VARCHAR(20))
+BEGIN
+    SELECT 
+        m.Reg_no,
+        m.Course_code,
+        c.Course_name,
+        CASE 
+            -- ENG1222: (Assignment_1 * 0.05 + Assignment_2 * 0.05 + Mid_theory * 0.20)
+            WHEN m.Course_code = 'ENG1222' THEN
+                COALESCE(MAX(CASE WHEN m.Marks_type = 'Assignment_1' THEN m.Marks_value END) * 0.05, 0) +
+                COALESCE(MAX(CASE WHEN m.Marks_type = 'Assignment_2' THEN m.Marks_value END) * 0.05, 0) +
+                COALESCE(MAX(CASE WHEN m.Marks_type = 'Mid_theory' THEN m.Marks_value END) * 0.20, 0)
+
+            -- ICT1212: (TOTAL Highest 2 quizzes MARK /2) * 0.10 + Mid_theory * 0.20
+            WHEN m.Course_code = 'ICT1212' THEN
+                ((SELECT AVG(quiz_marks) 
+                  FROM (SELECT Marks_value as quiz_marks
+                        FROM MARK 
+                        WHERE Reg_no = m.Reg_no 
+                        AND Course_code = m.Course_code 
+                        AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3')
+                        ORDER BY Marks_value DESC 
+                        LIMIT 2) as top_quizzes) * 0.10) +
+                COALESCE(MAX(CASE WHEN m.Marks_type = 'Mid_theory' THEN m.Marks_value END) * 0.20, 0)
+
+            -- ICT1222: (TOTAL Highest 2 quizzes MARK /2) * 0.10 + Mid_practical * 0.20 + Mini_project * 0.10
+            WHEN m.Course_code = 'ICT1222' THEN
+                ((SELECT SUM(quiz_marks)/2
+                  FROM (SELECT Marks_value as quiz_marks
+                        FROM MARK 
+                        WHERE Reg_no = m.Reg_no 
+                        AND Course_code = m.Course_code 
+                        AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3')
+                        ORDER BY Marks_value DESC 
+                        LIMIT 2) as top_quizzes) * 0.10) +
+                COALESCE(MAX(CASE WHEN m.Marks_type = 'Mid_practical' THEN m.Marks_value END) * 0.20, 0) +
+                COALESCE(MAX(CASE WHEN m.Marks_type = 'Mini_project' THEN m.Marks_value END) * 0.10, 0)
+
+            -- ICT1233: (TOTAL Highest 2 quizzes MARK /2) * 0.10 + Mid_practical * 0.20 + Mini_project * 0.10
+            WHEN m.Course_code = 'ICT1233' THEN
+                ((SELECT SUM(quiz_marks)/2
+                  FROM (SELECT Marks_value as quiz_marks
+                        FROM MARK 
+                        WHERE Reg_no = m.Reg_no 
+                        AND Course_code = m.Course_code 
+                        AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3')
+                        ORDER BY Marks_value DESC 
+                        LIMIT 2) as top_quizzes) * 0.10) +
+                COALESCE(MAX(CASE WHEN m.Marks_type = 'Mid_practical' THEN m.Marks_value END) * 0.20, 0) +
+                COALESCE(MAX(CASE WHEN m.Marks_type = 'Mini_project' THEN m.Marks_value END) * 0.10, 0)
+
+            -- ICT1242: (TOTAL Highest 2 quizzes MARK /2) * 0.05 + Assignment_1 * 0.05 + Mid_theory * 0.20
+            WHEN m.Course_code = 'ICT1242' THEN
+                ((SELECT SUM(quiz_marks)/2
+                  FROM (SELECT Marks_value as quiz_marks
+                        FROM MARK 
+                        WHERE Reg_no = m.Reg_no 
+                        AND Course_code = m.Course_code 
+                        AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3')
+                        ORDER BY Marks_value DESC 
+                        LIMIT 2) as top_quizzes) * 0.05) +
+                COALESCE(MAX(CASE WHEN m.Marks_type = 'Assignment_1' THEN m.Marks_value END) * 0.05, 0) +
+                COALESCE(MAX(CASE WHEN m.Marks_type = 'Mid_theory' THEN m.Marks_value END) * 0.20, 0)
+
+            -- ICT1253: (TOTAL Highest 2 quizzes MARK /2) * 0.10 + Assignment_1 * 0.10 + Mid_practical * 0.20
+            WHEN m.Course_code = 'ICT1253' THEN
+                ((SELECT SUM(quiz_marks)/2
+                  FROM (SELECT Marks_value as quiz_marks
+                        FROM MARK 
+                        WHERE Reg_no = m.Reg_no 
+                        AND Course_code = m.Course_code 
+                        AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3')
+                        ORDER BY Marks_value DESC 
+                        LIMIT 2) as top_quizzes) * 0.10) +
+                COALESCE(MAX(CASE WHEN m.Marks_type = 'Assignment_1' THEN m.Marks_value END) * 0.10, 0) +
+                COALESCE(MAX(CASE WHEN m.Marks_type = 'Mid_practical' THEN m.Marks_value END) * 0.20, 0)
+
+            -- TCS1212: (Quiz_1 * 0.05 + Assignment_1 * 0.05 + Mid_theory * 0.20)
+            WHEN m.Course_code = 'TCS1212' THEN
+                COALESCE(MAX(CASE WHEN m.Marks_type = 'Quiz_1' THEN m.Marks_value END) * 0.05, 0) +
+                COALESCE(MAX(CASE WHEN m.Marks_type = 'Assignment_1' THEN m.Marks_value END) * 0.05, 0) +
+                COALESCE(MAX(CASE WHEN m.Marks_type = 'Mid_theory' THEN m.Marks_value END) * 0.20, 0)
+
+            -- TMS1233: Assignment_1 * 0.10 + Mid_theory * 0.20
+            WHEN m.Course_code = 'TMS1233' THEN
+                COALESCE(MAX(CASE WHEN m.Marks_type = 'Assignment_1' THEN m.Marks_value END) * 0.10, 0) +
+                COALESCE(MAX(CASE WHEN m.Marks_type = 'Mid_theory' THEN m.Marks_value END) * 0.20, 0)
+
+            ELSE 0
+        END AS CA_Mark,
+
+        CASE 
+            WHEN m.Course_code = 'ENG1222' THEN 30
+            WHEN m.Course_code = 'ICT1212' THEN 30
+            WHEN m.Course_code = 'ICT1222' THEN 40
+            WHEN m.Course_code = 'ICT1233' THEN 40
+            WHEN m.Course_code = 'ICT1242' THEN 30
+            WHEN m.Course_code = 'ICT1253' THEN 40
+            WHEN m.Course_code = 'TCS1212' THEN 30
+            WHEN m.Course_code = 'TMS1233' THEN 30
+            ELSE 0
+        END AS CA_Mark_Limit
+
+    FROM MARK m
+    JOIN course c ON m.Course_code = c.Course_code
+    WHERE m.Reg_no = student_reg_no
+    GROUP BY m.Reg_no, m.Course_code, c.Course_name;
+END //
+
+DELIMITER ;
+
+
+
+
+----CHECK ELIGIBLE OR NOT ELIGIBLE
+
+DELIMITER //
+
+CREATE PROCEDURE CheckSubjectEligibility(
+    IN student_reg_no VARCHAR(20),
+    IN subject_code VARCHAR(20)
+)
+BEGIN
+    DECLARE ca_mark_value DECIMAL(5,2);
+    DECLARE eligibility VARCHAR(20);
+    
+    -- Get the CA mark for the specific student and subject
+    SELECT CA_Mark INTO ca_mark_value
+    FROM CA_Marks_View
+    WHERE Reg_no = student_reg_no AND Course_code = subject_code;
+    
+    -- Check eligibility (assuming 20 is the threshold)
+    IF ca_mark_value >= 20 THEN
+        SET eligibility = 'ELIGIBLE';
+    ELSE
+        SET eligibility = 'NOT ELIGIBLE';
+    END IF;
+    
+    -- Display the result
+    SELECT 
+        student_reg_no AS 'Registration_No',
+        subject_code AS 'Subject_Code',
+        ca_mark_value AS 'CA_Marks',
+        eligibility AS 'Eligibility';
+        
+END //
+
+DELIMITER ;
