@@ -1,0 +1,596 @@
+
+
+DROP VIEW IF EXISTS vw_ENG1222_marks;
+DROP VIEW IF EXISTS vw_ICT1212_marks;
+DROP VIEW IF EXISTS vw_ICT1222_marks;
+DROP VIEW IF EXISTS vw_ICT1233_marks;
+DROP VIEW IF EXISTS vw_ICT1242_marks;
+DROP VIEW IF EXISTS vw_ICT1253_marks;
+DROP VIEW IF EXISTS vw_TCS1212_marks;
+DROP VIEW IF EXISTS vw_TMS1233_marks;
+
+
+
+
+
+
+
+
+
+CREATE VIEW vw_TMS1233_marks AS
+SELECT DISTINCT
+    m.Reg_no,
+    m.Course_code,
+    IFNULL((SELECT Marks_value FROM mark 
+            WHERE Course_code = 'TMS1233'
+              AND Reg_no = m.Reg_no 
+              AND Marks_type = 'Quiz_1'), 0) AS `Quiz_1(100%)`,
+    IFNULL((SELECT Marks_value FROM mark 
+            WHERE Course_code = 'TMS1233'
+              AND Reg_no = m.Reg_no 
+              AND Marks_type = 'Quiz_2'), 0) AS `Quiz_2(100%)`,
+    IFNULL((SELECT Marks_value FROM mark 
+            WHERE Course_code = 'TMS1233'
+              AND Reg_no = m.Reg_no 
+              AND Marks_type = 'Mid_theory'), 0) AS `Mid_theory(100%)`,
+    IFNULL((SELECT Marks_value FROM mark 
+            WHERE Course_code = 'TMS1233'
+              AND Reg_no = m.Reg_no 
+              AND Marks_type = 'End_theory'), 0) AS `End_theory(100%)`,
+    (
+        IFNULL((SELECT Marks_value FROM mark 
+                WHERE Course_code = 'TMS1233'
+                  AND Reg_no = m.Reg_no 
+                  AND Marks_type = 'Quiz_1'), 0) * 0.1 +
+        IFNULL((SELECT Marks_value FROM mark 
+                WHERE Course_code = 'TMS1233'
+                  AND Reg_no = m.Reg_no 
+                  AND Marks_type = 'Quiz_2'), 0) * 0.1 +
+        IFNULL((SELECT Marks_value FROM mark 
+                WHERE Course_code = 'TMS1233'
+                  AND Reg_no = m.Reg_no 
+                  AND Marks_type = 'Mid_theory'), 0) * 0.2
+    ) AS `Total_CA_Marks(40%)`,
+    IFNULL((SELECT Marks_value FROM mark 
+            WHERE Course_code = 'TMS1233'
+              AND Reg_no = m.Reg_no 
+              AND Marks_type = 'End_theory'), 0) * 0.6 AS `Total_End_Marks(60%)`,
+    (
+        IFNULL((SELECT Marks_value FROM mark 
+                WHERE Course_code = 'TMS1233'
+                  AND Reg_no = m.Reg_no 
+                  AND Marks_type = 'Quiz_1'), 0) * 0.1 +
+        IFNULL((SELECT Marks_value FROM mark 
+                WHERE Course_code = 'TMS1233'
+                  AND Reg_no = m.Reg_no 
+                  AND Marks_type = 'Quiz_2'), 0) * 0.1 +
+        IFNULL((SELECT Marks_value FROM mark 
+                WHERE Course_code = 'TMS1233'
+                  AND Reg_no = m.Reg_no 
+                  AND Marks_type = 'Mid_theory'), 0) * 0.2 +
+        IFNULL((SELECT Marks_value FROM mark 
+                WHERE Course_code = 'TMS1233'
+                  AND Reg_no = m.Reg_no 
+                  AND Marks_type = 'End_theory'), 0) * 0.6
+    ) AS `Final_Marks(100%)`
+FROM 
+    mark m
+WHERE 
+    m.Course_code = 'TMS1233';
+
+
+
+    CREATE VIEW vw_TCS1212_marks AS
+SELECT DISTINCT
+    m.Reg_no,
+    m.Course_code,
+    IFNULL((SELECT Marks_value FROM mark 
+            WHERE Course_code = 'TCS1212'
+              AND Reg_no = m.Reg_no 
+              AND Marks_type = 'Quiz_1'), 0) AS `Quiz_1(100%)`,
+    IFNULL((SELECT Marks_value FROM mark 
+            WHERE Course_code = 'TCS1212'
+              AND Reg_no = m.Reg_no 
+              AND Marks_type = 'Assignment_1'), 0) AS `Assignment_1(100%)`,
+    IFNULL((SELECT Marks_value FROM mark 
+            WHERE Course_code = 'TCS1212'
+              AND Reg_no = m.Reg_no 
+              AND Marks_type = 'Mid_theory'), 0) AS `Mid_theory(100%)`,
+    IFNULL((SELECT Marks_value FROM mark 
+            WHERE Course_code = 'TCS1212'
+              AND Reg_no = m.Reg_no 
+              AND Marks_type = 'End_theory'), 0) AS `End_theory(100%)`,
+    (
+        IFNULL((SELECT Marks_value FROM mark 
+                WHERE Course_code = 'TCS1212'
+                  AND Reg_no = m.Reg_no 
+                  AND Marks_type = 'Quiz_1'), 0) * 0.1 +
+        IFNULL((SELECT Marks_value FROM mark 
+                WHERE Course_code = 'TCS1212'
+                  AND Reg_no = m.Reg_no 
+                  AND Marks_type = 'Assignment_1'), 0) * 0.1 +
+        IFNULL((SELECT Marks_value FROM mark 
+                WHERE Course_code = 'TCS1212'
+                  AND Reg_no = m.Reg_no 
+                  AND Marks_type = 'Mid_theory'), 0) * 0.2
+    ) AS `Total_CA_Marks(40%)`,
+    IFNULL((SELECT Marks_value FROM mark 
+            WHERE Course_code = 'TCS1212'
+              AND Reg_no = m.Reg_no 
+              AND Marks_type = 'End_theory'), 0) * 0.6 AS `Total_End_Marks(60%)`,
+    (
+        IFNULL((SELECT Marks_value FROM mark 
+                WHERE Course_code = 'TCS1212'
+                  AND Reg_no = m.Reg_no 
+                  AND Marks_type = 'Quiz_1'), 0) * 0.1 +
+        IFNULL((SELECT Marks_value FROM mark 
+                WHERE Course_code = 'TCS1212'
+                  AND Reg_no = m.Reg_no 
+                  AND Marks_type = 'Assignment_1'), 0) * 0.1 +
+        IFNULL((SELECT Marks_value FROM mark 
+                WHERE Course_code = 'TCS1212'
+                  AND Reg_no = m.Reg_no 
+                  AND Marks_type = 'Mid_theory'), 0) * 0.2 +
+        IFNULL((SELECT Marks_value FROM mark 
+                WHERE Course_code = 'TCS1212'
+                  AND Reg_no = m.Reg_no 
+                  AND Marks_type = 'End_theory'), 0) * 0.6
+    ) AS `Final_Marks(100%)`
+FROM 
+    mark m
+WHERE 
+    m.Course_code = 'TCS1212';
+
+
+
+    CREATE VIEW vw_ICT1253_marks AS
+SELECT DISTINCT
+    m.Reg_no,
+    m.Course_code,
+    GREATEST(
+        IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1253' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_1'), 0),
+        IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1253' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_2'), 0),
+        IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1253' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_3'), 0)
+    ) AS `Max_Quiz(100%)`,
+    (
+        (
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1253' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_1'), 0) +
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1253' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_2'), 0) +
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1253' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_3'), 0)
+        )
+        -
+        GREATEST(
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1253' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_1'), 0),
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1253' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_2'), 0),
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1253' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_3'), 0)
+        )
+        -
+        LEAST(
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1253' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_1'), 0),
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1253' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_2'), 0),
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1253' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_3'), 0)
+        )
+    ) AS `Second_Max_Quiz(100%)`,
+    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1253' AND Reg_no = m.Reg_no AND Marks_type = 'Assignment_1'), 0) AS `Assignment_1(100%)`,
+    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1253' AND Reg_no = m.Reg_no AND Marks_type = 'Mid_practical'), 0) AS `Mid_practical(100%)`,
+    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1253' AND Reg_no = m.Reg_no AND Marks_type = 'End_theory'), 0) AS `End_theory(100%)`,
+    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1253' AND Reg_no = m.Reg_no AND Marks_type = 'End_Practical'), 0) AS `End_practical(100%)`,
+    (
+        (((
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1253' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_1'), 0) +
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1253' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_2'), 0) +
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1253' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_3'), 0)
+        )
+        - LEAST(
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1253' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_1'), 0),
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1253' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_2'), 0),
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1253' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_3'), 0)
+        )) * 0.5) * 0.1 +
+        IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1253' AND Reg_no = m.Reg_no AND Marks_type = 'Mid_practical'), 0) * 0.2 +
+        IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1253' AND Reg_no = m.Reg_no AND Marks_type = 'Assignment_1'), 0) * 0.1
+    ) AS `Total_CA_Marks(40%)`,
+    (
+        (IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1253' AND Reg_no = m.Reg_no AND Marks_type = 'End_theory'), 0) * 0.4) +
+        (IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1253' AND Reg_no = m.Reg_no AND Marks_type = 'End_Practical'), 0) * 0.2)
+    ) AS `Total_End_Marks(60%)`,
+    (
+        (((
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1253' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_1'), 0) +
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1253' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_2'), 0) +
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1253' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_3'), 0)
+        )
+        - LEAST(
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1253' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_1'), 0),
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1253' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_2'), 0),
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1253' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_3'), 0)
+        )) * 0.5) * 0.1 +
+        IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1253' AND Reg_no = m.Reg_no AND Marks_type = 'Mid_practical'), 0) * 0.2 +
+        IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1253' AND Reg_no = m.Reg_no AND Marks_type = 'Assignment_1'), 0) * 0.1 +
+        (IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1253' AND Reg_no = m.Reg_no AND Marks_type = 'End_theory'), 0) * 0.4) +
+        (IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1253' AND Reg_no = m.Reg_no AND Marks_type = 'End_Practical'), 0) * 0.2)
+    ) AS `Final_Marks(100%)`
+FROM 
+    mark m
+WHERE 
+    m.Course_code = 'ICT1253';
+
+
+
+
+
+CREATE VIEW vw_ICT1222_marks AS
+SELECT DISTINCT
+    m.Reg_no,
+    m.Course_code,
+    GREATEST(
+        IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1222' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_1'), 0),
+        IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1222' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_2'), 0),
+        IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1222' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_3'), 0)
+    ) AS `Max_Quiz(100%)`,
+    (
+        (
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1222' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_1'), 0) +
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1222' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_2'), 0) +
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1222' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_3'), 0)
+        )
+        -
+        GREATEST(
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1222' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_1'), 0),
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1222' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_2'), 0),
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1222' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_3'), 0)
+        )
+        -
+        LEAST(
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1222' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_1'), 0),
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1222' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_2'), 0),
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1222' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_3'), 0)
+        )
+    ) AS `Second_Max_Quiz(100%)`,
+    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1222' AND Reg_no = m.Reg_no AND Marks_type = 'Mid_practical'), 0) AS `Mid_practical(100%)`,
+    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1222' AND Reg_no = m.Reg_no AND Marks_type = 'Mini_project'), 0) AS `Mini_project(100%)`,
+    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1222' AND Reg_no = m.Reg_no AND Marks_type = 'End_practical'), 0) AS `End_practical(100%)`,
+    (
+        (((
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1222' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_1'), 0) +
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1222' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_2'), 0) +
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1222' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_3'), 0)
+        )
+        - LEAST(
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1222' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_1'), 0),
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1222' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_2'), 0),
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1222' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_3'), 0)
+        )) * 0.5) * 0.1 +
+        IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1222' AND Reg_no = m.Reg_no AND Marks_type = 'Mini_project'), 0) * 0.1 +
+        IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1222' AND Reg_no = m.Reg_no AND Marks_type = 'Mid_practical'), 0) * 0.2
+    ) AS `Total_CA_marks(40%)`,
+    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1222' AND Reg_no = m.Reg_no AND Marks_type = 'End_practical'), 0) * 0.6 AS `Total_End_marks(60%)`,
+    (
+        (((
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1222' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_1'), 0) +
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1222' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_2'), 0) +
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1222' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_3'), 0)
+        )
+        - LEAST(
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1222' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_1'), 0),
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1222' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_2'), 0),
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1222' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_3'), 0)
+        )) * 0.5) * 0.1 +
+        IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1222' AND Reg_no = m.Reg_no AND Marks_type = 'Mid_practical'), 0) * 0.2 +
+        IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1222' AND Reg_no = m.Reg_no AND Marks_type = 'End_practical'), 0) * 0.6 +
+        IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1222' AND Reg_no = m.Reg_no AND Marks_type = 'Mini_project'), 0) * 0.1
+    ) AS `Final_marks(100%)`
+FROM 
+    mark m
+WHERE 
+    m.Course_code = 'ICT1222';
+
+
+
+
+CREATE VIEW vw_ENG1222_marks AS
+SELECT 
+    e.Reg_no,
+    e.Course_code,
+    IFNULL((SELECT Marks_value FROM mark 
+            WHERE Course_code = 'ENG1222'
+              AND Reg_no = e.Reg_no 
+              AND Marks_type = 'Assignment_1'), 0) AS `Assignment_1(100%)`,
+    IFNULL((SELECT Marks_value FROM mark 
+            WHERE Course_code = 'ENG1222'
+              AND Reg_no = e.Reg_no 
+              AND Marks_type = 'Assignment_2'), 0) AS `Assignment_2(100%)`,
+    IFNULL((SELECT Marks_value FROM mark 
+            WHERE Course_code = 'ENG1222'
+              AND Reg_no = e.Reg_no  
+              AND Marks_type = 'Mid_theory'), 0) AS `Mid_theory(100%)`,
+    IFNULL((SELECT Marks_value FROM mark 
+            WHERE Course_code = 'ENG1222'
+              AND Reg_no = e.Reg_no  
+              AND Marks_type = 'End_theory'), 0) AS `End_theory(100%)`,
+    (
+        IFNULL((SELECT Marks_value FROM mark 
+                WHERE Course_code = 'ENG1222'
+                  AND Reg_no = e.Reg_no 
+                  AND Marks_type = 'Assignment_1'), 0)*0.1
+        +
+        IFNULL((SELECT Marks_value FROM mark 
+                WHERE Course_code = 'ENG1222'
+                  AND Reg_no = e.Reg_no 
+                  AND Marks_type = 'Assignment_2'), 0)*0.1
+        +
+        IFNULL((SELECT Marks_value FROM mark 
+                WHERE Course_code = 'ENG1222'
+                  AND Reg_no = e.Reg_no  
+                  AND Marks_type = 'Mid_theory'), 0)*0.1
+    ) AS `Total_CA_marks(30%)`,
+    IFNULL((SELECT Marks_value FROM mark 
+            WHERE Course_code = 'ENG1222'
+              AND Reg_no = e.Reg_no  
+              AND Marks_type = 'End_theory'), 0)*0.7 AS `Total_End_marks(70%)`,
+    (
+        IFNULL((SELECT Marks_value FROM mark 
+                WHERE Course_code = 'ENG1222'
+                  AND Reg_no = e.Reg_no 
+                  AND Marks_type = 'Assignment_1'), 0)*0.1
+        +
+        IFNULL((SELECT Marks_value FROM mark 
+                WHERE Course_code = 'ENG1222'
+                  AND Reg_no = e.Reg_no 
+                  AND Marks_type = 'Assignment_2'), 0)*0.1
+        +
+        IFNULL((SELECT Marks_value FROM mark 
+                WHERE Course_code = 'ENG1222'
+                  AND Reg_no = e.Reg_no  
+                  AND Marks_type = 'Mid_theory'), 0)*0.1
+        +
+        IFNULL((SELECT Marks_value FROM mark 
+                WHERE Course_code = 'ENG1222'
+                  AND Reg_no = e.Reg_no  
+                  AND Marks_type = 'End_theory'), 0)*0.7
+    ) AS `Final_marks(100%)`
+FROM 
+    enrollment e
+WHERE 
+    e.Course_code = 'ENG1222';
+
+
+
+
+    CREATE VIEW vw_ICT1212_marks AS
+SELECT 
+    e.Reg_no,
+    e.Course_code,
+    GREATEST(
+        IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1212' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0),
+        IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1212' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0),
+        IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1212' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_3'), 0)
+    ) AS `Max_Quiz(100%)`,
+    (
+        (
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1212' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0) +
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1212' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0) +
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1212' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_3'), 0)
+        )
+        -
+        GREATEST(
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1212' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0),
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1212' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0),
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1212' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_3'), 0)
+        )
+        -
+        LEAST(
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1212' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0),
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1212' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0),
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1212' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_3'), 0)
+        )
+    ) AS `Second_Max_Quiz(100%)`,
+    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1212' AND Reg_no = e.Reg_no AND Marks_type = 'Mid_theory'), 0) AS `Mid_theory(100%)`,
+    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1212' AND Reg_no = e.Reg_no AND Marks_type = 'End_theory'), 0) AS `End_theory(100%)`,
+    ((((
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1212' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0) +
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1212' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0) +
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1212' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_3'), 0)
+            )
+            - LEAST(
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1212' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0),
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1212' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0),
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1212' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_3'), 0)
+            ))*0.5)*0.1
+            +
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1212' AND Reg_no = e.Reg_no AND Marks_type = 'Mid_theory'), 0)*0.2) AS `Total_CA_marks(30%)`,
+    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1212' AND Reg_no = e.Reg_no AND Marks_type = 'End_theory'), 0)*0.7 AS `Total_End_marks(70%)`,
+    (
+        (((
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1212' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0) +
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1212' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0) +
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1212' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_3'), 0)
+        )
+        - LEAST(
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1212' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0),
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1212' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0),
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1212' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_3'), 0)
+        ))*0.5)*0.1
+        +
+        IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1212' AND Reg_no = e.Reg_no AND Marks_type = 'Mid_theory'), 0)*0.2
+        +
+        IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1212' AND Reg_no = e.Reg_no AND Marks_type = 'End_theory'), 0)*0.7
+    ) AS `Final_Marks(100%)`
+FROM 
+    enrollment e
+WHERE 
+    e.Course_code = 'ICT1212';
+
+
+
+
+CREATE VIEW vw_ICT1233_marks AS
+SELECT 
+    e.Reg_no,
+    e.Course_code,
+    GREATEST(
+        IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0),
+        IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0),
+        IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_3'), 0)
+    ) AS `Max_Quiz(100%)`,
+    (
+        (
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0) +
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0) +
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_3'), 0)
+        )
+        -
+        GREATEST(
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0),
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0),
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_3'), 0)
+        )
+        -
+        LEAST(
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0),
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0),
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_3'), 0)
+        )
+    ) AS `Second_Max_Quiz(100%)`,
+    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Mid_practical'), 0) AS `Mid_practical(100%)`,
+    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Mini_project'), 0) AS `Mini_project(100%)`,
+    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'End_theory'), 0) AS `End_theory(100%)`,
+    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'End_practical'), 0) AS `End_practical(100%)`,
+    ((((
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0) +
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0) +
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_3'), 0)
+            )
+            - LEAST(
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0),
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0),
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_3'), 0)
+            ))*0.5)*0.1
+            +
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Mid_practical'), 0)*0.1
+            +
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Mini_project'), 0)*0.2
+    ) AS `Total_CA_marks(40%)`,
+    ((IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'End_theory'), 0)
+        +                 
+        IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'End_practical'), 0))*0.5)*0.6 AS `Total_End_marks(60%)`,
+    (
+        (((
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0) +
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0) +
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_3'), 0)
+        )
+        - LEAST(
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0),
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0),
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_3'), 0)
+        ))*0.5)*0.1
+        +
+        IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Mid_practical'), 0)*0.1
+        +
+        IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Mini_project'), 0)*0.2
+        +
+        ((IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'End_theory'), 0)
+         +
+        IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'End_practical'), 0))*0.5)*0.6
+    ) AS `Final_Marks(100%)`
+FROM 
+    enrollment e
+WHERE 
+    e.Course_code = 'ICT1233';
+
+
+
+CREATE VIEW vw_ICT1242_marks AS
+SELECT 
+    e.Reg_no,
+    e.Course_code,
+    GREATEST(
+        IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0),
+        IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0),
+        IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_3'), 0)
+    ) AS `Max_Quiz(100%)`,
+    (
+        (
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0) +
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0) +
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_3'), 0)
+        )
+        -
+        GREATEST(
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0),
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0),
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_3'), 0)
+        )
+        -
+        LEAST(
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0),
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0),
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_3'), 0)
+        )
+    ) AS `Second_Max_Quiz(100%)`,
+    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Mid_theory'), 0) AS `Mid_theory(100%)`,
+    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Assignment_1'), 0) AS `Assignment_1(100%)`,
+    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'End_theory'), 0) AS `End_theory(100%)`,
+    ((((
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0) +
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0) +
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_3'), 0)
+            )
+            - LEAST(
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0),
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0),
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_3'), 0)
+            ))*0.5)*0.1
+            +
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Mid_theory'), 0)*0.15
+            +
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Assignment_1'), 0)*0.05
+    ) AS `Total_CA_Marks(30%)`,
+    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'End_theory'), 0)*0.7 AS `Total_END_Marks(70%)`,
+    ((((
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0) +
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0) +
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_3'), 0)
+            )
+            - LEAST(
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0),
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0),
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_3'), 0)
+            ))*0.5)*0.1
+            +
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Mid_theory'), 0)*0.15
+            +
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Assignment_1'), 0)*0.05
+            +
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'End_theory'), 0)*0.7
+    ) AS `Final_Marks(100%)`
+FROM 
+    enrollment e
+WHERE 
+    e.Course_code = 'ICT1242';
+
+
+
+
+SELECT * FROM vw_TMS1233_marks;
+
+SELECT * FROM vw_TCS1212_marks;
+
+
+SELECT * FROM vw_ICT1253_marks;
+
+SELECT * FROM vw_ICT1222_marks;
+
+
+
+SELECT * FROM vw_ENG1222_marks;
+
+
+SELECT * FROM vw_ICT1212_marks;
+
+SELECT * FROM vw_ICT1233_marks;
+
+
+SELECT * FROM vw_ICT1242_marks;
+
+
