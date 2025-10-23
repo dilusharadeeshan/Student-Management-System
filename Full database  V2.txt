@@ -4098,7 +4098,8 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2022/003', 'TMS1233', 'Assignment_1', 87.50),
 ('TG/2022/003', 'TMS1233', 'Mid_theory', 92.00),
-('TG/2022/003', 'TMS1233', 'End_theory', 85.75);
+('TG/2022/003', 'TMS1233', 'End_theory', 85.75),
+('TG/2023/012', 'TMS1233', 'Quiz_2', 48);
 
 
 
