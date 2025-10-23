@@ -4519,10 +4519,10 @@ END //
 DELIMITER ;
 
 
-DROP VIEW IF EXISTS attendance_with_medical_approval;
+DROP VIEW IF EXISTS vw_attend_with_medical_approval;
 
 
-CREATE VIEW attendance_with_medical_approval AS
+CREATE VIEW vw_attend_with_medical_approval AS
 SELECT 
     a.attendance_id,
     a.reg_no,
@@ -4544,11 +4544,11 @@ LEFT JOIN Medical_record m ON
 
 
 
-DROP VIEW IF EXISTS eligibility_without_medical_with_name;
+DROP VIEW IF EXISTS vw_eligibi_without_medical_with_name;
 
 
 
-CREATE VIEW eligibility_without_medical_with_name AS
+CREATE VIEW vw_eligibi_without_medical_with_name AS
 SELECT
     u.L_name,
     a.reg_no,
@@ -4583,10 +4583,10 @@ ORDER BY a.reg_no, a.course_code, a.session_type;
 
 
 
-DROP VIEW IF EXISTS attendance_percentage_with_medical_with_eligibility_with_name;
+DROP VIEW IF EXISTS vw_attend_percentage_with_medical_with_eligibility_with_name;
 
 
-CREATE VIEW attendance_percentage_with_medical_with_eligibility_with_name AS
+CREATE VIEW vw_attend_percentage_with_medical_with_eligibility_with_name AS
 SELECT 
  u.L_name,
     a.reg_no,
@@ -4623,11 +4623,11 @@ GROUP BY a.reg_no, a.course_code, a.session_type
 ORDER BY a.reg_no, a.course_code, a.session_type;
 
 
-DROP VIEW IF EXISTS eligibility_without_medical_with_name_without_S_type;
+DROP VIEW IF EXISTS vw_eligibi_without_medical_with_name_without_S_type;
 
 
 
-CREATE VIEW eligibility_without_medical_with_name_without_S_type AS
+CREATE VIEW vw_eligibi_without_medical_with_name_without_S_type AS
 SELECT
     u.L_name,
     a.reg_no,
@@ -4664,10 +4664,10 @@ ORDER BY a.reg_no, a.course_code;
 
 
 
-DROP VIEW IF EXISTS attendance_percen_with_medical_with_elig_without_S_type_with_n;
+DROP VIEW IF EXISTS vw_attend_percen_with_medical_with_elig_without_S_type_with_n;
 
 
-CREATE VIEW attendance_percen_with_medical_with_elig_without_S_type_with_n AS
+CREATE VIEW vw_attend_percen_with_medical_with_elig_without_S_type_with_n AS
 SELECT 
  u.L_name,
     a.reg_no,

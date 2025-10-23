@@ -39,25 +39,25 @@ medical ekka reg no eka dunnama ,
 
 
 
-okkotama dala attendance table eka medical approvel ekka (3) =>  SELECT * FROM attendance_with_medical_approval;
+okkotama dala attendance table eka medical approvel ekka (3) =>  SELECT * FROM vw_attend_with_medical_approval;
 
 
 
 
 
 
-mulu batch eke hema course ekatama session type ekath ekka medical nethuwa attendance percentage eka eligibility ekath ekka (7)=>  SELECT * FROM eligibility_without_medical_with_name;
+mulu batch eke hema course ekatama session type ekath ekka medical nethuwa attendance percentage eka eligibility ekath ekka (7)=>  SELECT * FROM vw_eligibi_without_medical_with_name;
 
 
-mulu batch eke hema course ekatama session type ekath ekka medical ekka attendance percentage eka eligibility ekath ekka (11)=>  SELECT * FROM attendance_percentage_with_medical_with_eligibility_with_name;
+mulu batch eke hema course ekatama session type ekath ekka medical ekka attendance percentage eka eligibility ekath ekka (11)=>  SELECT * FROM vw_attend_percentage_with_medical_with_eligibility_with_name;
 
 
 mulu batch eke hema course ekatama session type eka nethuwa medical nethuwa attendance percentage eka eligibility ekath ekka (12)=>  
-SELECT * FROM eligibility_without_medical_with_name_without_S_type;
+SELECT * FROM vw_eligibi_without_medical_with_name_without_S_type;
 
 
 
-mulu batch eke hema course ekatama session type eka nethuwa medical ekka attendance percentage eka eligibility ekath ekka (13)=> SELECT * FROM attendance_percen_with_medical_with_elig_without_S_type_with_n;
+mulu batch eke hema course ekatama session type eka nethuwa medical ekka attendance percentage eka eligibility ekath ekka (13)=> SELECT * FROM vw_attend_percen_with_medical_with_elig_without_S_type_with_n;
  
 
 
