@@ -3090,11 +3090,11 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 
 -- ICT1212 - 3 quizzes, mid theory, end theory
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
-('TG/2023/002', 'ICT1212', 'Quiz_1', 88.00),
-('TG/2023/002', 'ICT1212', 'Quiz_2', 92.50),
-('TG/2023/002', 'ICT1212', 'Quiz_3', 85.75),
-('TG/2023/002', 'ICT1212', 'Mid_theory', 79.00),
-('TG/2023/002', 'ICT1212', 'End_theory', 84.50);
+('TG/2023/002', 'ICT1212', 'Quiz_1', 82.00),
+('TG/2023/002', 'ICT1212', 'Quiz_2', 56.50),
+('TG/2023/002', 'ICT1212', 'Quiz_3', 80.75),
+('TG/2023/002', 'ICT1212', 'Mid_theory', 69.00),
+('TG/2023/002', 'ICT1212', 'End_theory', 89.50);
 
 -- ICT1222 - 3 quizzes, mid practical, mini project, end practical
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
