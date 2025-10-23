@@ -4178,5 +4178,25 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2022/008', 'TCS1212', 'Quiz_1', 72.25),
 ('TG/2022/008', 'TCS1212', 'Assignment_1', 75.50),
 ('TG/2022/008', 'TCS1212', 'Mid_theory', 68.75),
-('TG/2022/008', 'TCS1212', 'End_theory', 70.80);
+('TG/2022/008', 'TCS1212', 'End_theory', 70.80),
+
+
+
+('TG/2023/001', 'TMS1233', 'Quiz_2', 43),
+('TG/2023/002', 'TMS1233', 'Quiz_2', 32),
+('TG/2023/003', 'TMS1233', 'Quiz_2', 56.3),
+('TG/2023/004', 'TMS1233', 'Quiz_2', 61.2),
+('TG/2023/005', 'TMS1233', 'Quiz_2', 43),
+('TG/2023/006', 'TMS1233', 'Quiz_2', 82.98),
+('TG/2023/007', 'TMS1233', 'Quiz_2', 75.50),
+('TG/2023/008', 'TMS1233', 'Quiz_2', 69.75),
+('TG/2023/009', 'TMS1233', 'Quiz_2', 87.98),
+('TG/2023/010', 'TMS1233', 'Quiz_2', 63.75),
+('TG/2023/011', 'TMS1233', 'Quiz_2', 68.75),
+('TG/2023/012', 'TMS1233', 'Quiz_2', 48),
+('TG/2023/013', 'TMS1233', 'Quiz_2', 71.80),
+('TG/2023/014', 'TMS1233', 'Quiz_2', 49),
+('TG/2023/015', 'TMS1233', 'Quiz_2', 71.80);
+
+update mark set Marks_type='Quiz_1' where course_code='TMS1233' and Marks_type='Assignment_1';
 
