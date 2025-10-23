@@ -3015,7 +3015,7 @@ LIMIT 180;
 -- ENG1222 - 2 assignments, one mid theory, one end theory
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/001', 'ENG1222', 'Assignment_1', 85.00),
-('TG/2023/001', 'ENG1222', 'Assignment_2', 78.50),
+('TG/2023/001', 'ENG1222', 'Assignment_2', 60.50),
 ('TG/2023/001', 'ENG1222', 'Mid_theory', 82.00),
 ('TG/2023/001', 'ENG1222', 'End_theory', 76.50);
 
@@ -3083,7 +3083,7 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 
 -- ENG1222 - 2 assignments, one mid theory, one end theory
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
-('TG/2023/002', 'ENG1222', 'Assignment_1', 85.00),
+('TG/2023/002', 'ENG1222', 'Assignment_1', 57.00),
 ('TG/2023/002', 'ENG1222', 'Assignment_2', 78.50),
 ('TG/2023/002', 'ENG1222', 'Mid_theory', 82.00),
 ('TG/2023/002', 'ENG1222', 'End_theory', 76.50);
