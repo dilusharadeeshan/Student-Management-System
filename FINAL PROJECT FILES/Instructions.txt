@@ -2,116 +2,111 @@ requirements ===>
 
 
 
-medical nethuwa cource code eka dunnama ,
-
-	session type eka ekka , 1.2 => CALL GetAttendanceByCourseCodeWithSTypeWithoutMedical('ICT1233');
-
-	session type eka nethuwa, 1.1 =>  CALL GetAttendanceByCourseCodeWithoutMedical('ICT1233');
++++++++++++++++++++
+Attendance Related
++++++++++++++++++++
 
 
+views
+-----
 
 
-medical ekka cource code eka dunnama 
+full attendance table with medical approvel  => SELECT * FROM vw_attend_with_medical_approval;
 
-	session type eka ekka, 5.2  =>  CALL GetAttendanceByCourseCodeWithSTypeWithMedical('ICT1233');
-
-	session type eka nethuwa, 5.1  =>  CALL GetAttendanceByCourseCodeWithMedical('ICT1233');
-
-
-medical nethuwa reg no eka dunnama ,
-
-	session type eka ekka, 3.2  =>  CALL GetAttendanceByRegnoWithSTypeWithoutMedical('TG/2023/001');
-
-	session type eka nethuwa, 3.1  =>  CALL GetAttendanceByRegnoWithoutMedical('TG/2023/001');
-
-
-
-medical ekka reg no eka dunnama ,
-
-	session type eka ekka, 6.2  =>  CALL GetAttendanceByRegnoWithSTypeWithMedical('TG/2023/001');
-
-	session type eka nethuwa, 6.1  => CALL GetAttendanceByRegnoWithMedical('TG/2023/001');
-
-
-
-reg no ekai course code ekai dunnama,
-	session type ekka =>  CALL  get_attend_by_regno_and_coursecode_with_stype('TG/2023/001','ICT1253');
-
-	session type netuw => CALL get_attend_by_regno_and_coursecode_without_stype('TG/2023/001','ICT1253');
+view attendance with eligibility and percentage by,
+    without medical,
+	    with session type =>  SELECT * FROM vw_eligibi_without_medical_with_name;
+		without session type =>  SELECT * FROM vw_eligibi_without_medical_with_name_without_S_type;
+    with medical,
+        with session type =>  SELECT * FROM vw_attend_percentage_with_medical_with_eligibility_with_name;
+        without session type =>  SELECT * FROM vw_attend_percen_with_medical_with_elig_without_S_type_with_n;
 
 
 
 
 
 
-okkotama dala attendance table eka medical approvel ekka (3) =>  SELECT * FROM vw_attend_with_medical_approval;
+
+
+
+
+procedures
+----------
+
+
+Get attendance with eligibility and percentage by,
+    Give cource code,
+	    without medical,
+		    with session type =>  CALL GetAttendanceByCourseCodeWithSTypeWithoutMedical('ICT1233');
+            without session type =>  CALL GetAttendanceByCourseCodeWithoutMedical('ICT1233');
+        with medical,
+            with session type =>  CALL GetAttendanceByCourseCodeWithSTypeWithMedical('ICT1233');
+            without session type =>  CALL GetAttendanceByCourseCodeWithMedical('ICT1233');
+    Give reg no,
+	    without medical,
+		    with session type =>  CALL GetAttendanceByRegnoWithSTypeWithoutMedical('TG/2023/001');
+            without session type =>  CALL GetAttendanceByRegnoWithoutMedical('TG/2023/001');
+        with medical,
+		    with session type =>  CALL GetAttendanceByRegnoWithSTypeWithMedical('TG/2023/001');
+			without session type =>  CALL GetAttendanceByRegnoWithMedical('TG/2023/001');
+    Give cource code and reg no,
+	    with medical,
+	            with session type =>  CALL  get_attend_by_regno_and_coursecode_with_stype('TG/2023/001','ICT1253');
+			    without session type =>  CALL get_attend_by_regno_and_coursecode_without_stype('TG/2023/001','ICT1253');
+    
+			    
+
+
+
+                                                                                                                            
++++++++++++++
+Marks Related
++++++++++++++
+
+
+views
+------
+
+
+CA, End marks for all student for TMS1233(Discrete Mathematics) =>  SELECT * FROM vw_TMS1233_marks;
+
+CA, End marks for all student for TCS1212(Fundamentals of Management) =>  SELECT * FROM vw_TCS1212_marks;
+
+CA, End marks for all student for ICT1253(Computer Networks) =>  SELECT * FROM vw_ICT1253_marks;
+
+CA, End marks for all student for ICT1212(Database Management Systems) =>  SELECT * FROM vw_ICT1212_marks;
+
+CA, End marks for all student for ENG1222(English II) =>  SELECT * FROM vw_ENG1222_marks;
+
+CA, End marks for all student for ICT1222(Database Management Systems Practicum) =>  SELECT * FROM vw_ICT1222_marks;
+
+CA, End marks for all student for ICT1233(Server-Side Web Development) =>  SELECT * FROM vw_ICT1233_marks;
+
+CA, End marks for all student for ICT1242(Computer Architecture) =>  SELECT * FROM vw_ICT1242_marks;
+
+
+for whole batch,
+    CA marks with status  => SELECT * FROM vw_CA_Status;
+	End marks with status  => SELECT * FROM vw_end_Status;
+    CA marks And End marks with status =>  SELECT * FROM vw_total_CA_End_status;
+	Eligibility for End Exam based on CA and Attendance (old method) => SELECT * FROM vw_end_exam_elig_basedON_CA_and_Atten;
+	grade and grade point =>  SELECT * FROM vw_all_stu_all_course_grade_point;
+
+Procedures
+----------
+
+Give reg no get CA marks for all subject =>  CALL CA_marks_all_sub_by_regNo('TG/2023/001');
 
 
 
 
 
 
-mulu batch eke hema course ekatama session type ekath ekka medical nethuwa attendance percentage eka eligibility ekath ekka (7)=>  SELECT * FROM vw_eligibi_without_medical_with_name;
-
-
-mulu batch eke hema course ekatama session type ekath ekka medical ekka attendance percentage eka eligibility ekath ekka (11)=>  SELECT * FROM vw_attend_percentage_with_medical_with_eligibility_with_name;
-
-
-mulu batch eke hema course ekatama session type eka nethuwa medical nethuwa attendance percentage eka eligibility ekath ekka (12)=>  
-SELECT * FROM vw_eligibi_without_medical_with_name_without_S_type;
 
 
 
-mulu batch eke hema course ekatama session type eka nethuwa medical ekka attendance percentage eka eligibility ekath ekka (13)=> SELECT * FROM vw_attend_percen_with_medical_with_elig_without_S_type_with_n;
+
  
-
-
-=========================================
-
-
-
-marks =>
-
-
-overall mark views
-------------
-
-SELECT * FROM vw_TMS1233_marks;
-
-SELECT * FROM vw_TCS1212_marks;
-
-
-SELECT * FROM vw_ICT1253_marks;
-
-SELECT * FROM vw_ICT1212_marks;
-
-
-
-SELECT * FROM vw_ENG1222_marks;
-
-
-SELECT * FROM vw_ICT1222_marks;
-
-SELECT * FROM vw_ICT1233_marks;
-
-
-SELECT * FROM vw_ICT1242_marks;
-
-
-
-
-reg no eka deela ca mark ganna =>  CALL individual_subject_marks_by_regno('TG/2023/001');
-
-
-
-mulu batch ekata ca pass d faild balanna  => SELECT * FROM vw_CA_Status;
-
-
-ca saha attendance dekama anuwa end ekata eligibility eka =>  SELECT * FROM vw_end_exam_eligibility;
-
-
-hema student kenektama adala grade ekai greade point ekai => SELECT * FROM vw_all_stu_all_course_grade_point;
-
 
 
 
