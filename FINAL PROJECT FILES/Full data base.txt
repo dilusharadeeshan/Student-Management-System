@@ -4726,22 +4726,6 @@ DROP VIEW IF EXISTS vw_TMS1233_marks;
 
 
 
-DROP VIEW IF EXISTS vw_ENG1222_marks;
-DROP VIEW IF EXISTS vw_ICT1212_marks;
-DROP VIEW IF EXISTS vw_ICT1222_marks;
-DROP VIEW IF EXISTS vw_ICT1233_marks;
-DROP VIEW IF EXISTS vw_ICT1242_marks;
-DROP VIEW IF EXISTS vw_ICT1253_marks;
-DROP VIEW IF EXISTS vw_TCS1212_marks;
-DROP VIEW IF EXISTS vw_TMS1233_marks;
-
-
-
-
-
-
-
-
 
 CREATE VIEW vw_TMS1233_marks AS
 SELECT DISTINCT
@@ -4830,29 +4814,29 @@ SELECT DISTINCT
         IFNULL((SELECT Marks_value FROM mark 
                 WHERE Course_code = 'TCS1212'
                   AND Reg_no = m.Reg_no 
-                  AND Marks_type = 'Quiz_1'), 0) * 0.1 +
+                  AND Marks_type = 'Quiz_1'), 0) * 0.05 +
         IFNULL((SELECT Marks_value FROM mark 
                 WHERE Course_code = 'TCS1212'
                   AND Reg_no = m.Reg_no 
-                  AND Marks_type = 'Assignment_1'), 0) * 0.1 +
+                  AND Marks_type = 'Assignment_1'), 0) * 0.05 +
         IFNULL((SELECT Marks_value FROM mark 
                 WHERE Course_code = 'TCS1212'
                   AND Reg_no = m.Reg_no 
                   AND Marks_type = 'Mid_theory'), 0) * 0.2
-    ),2) AS `Total_CA_Marks(40%)`,
+    ),2) AS `Total_CA_Marks(30%)`,
   ROUND( ( IFNULL((SELECT Marks_value FROM mark 
             WHERE Course_code = 'TCS1212'
               AND Reg_no = m.Reg_no 
-              AND Marks_type = 'End_theory'), 0) * 0.6),2) AS `Total_End_Marks(60%)`,
+              AND Marks_type = 'End_theory'), 0) * 0.7),2) AS `Total_End_Marks(70%)`,
    ROUND( (
         IFNULL((SELECT Marks_value FROM mark 
                 WHERE Course_code = 'TCS1212'
                   AND Reg_no = m.Reg_no 
-                  AND Marks_type = 'Quiz_1'), 0) * 0.1 +
+                  AND Marks_type = 'Quiz_1'), 0) * 0.05 +
         IFNULL((SELECT Marks_value FROM mark 
                 WHERE Course_code = 'TCS1212'
                   AND Reg_no = m.Reg_no 
-                  AND Marks_type = 'Assignment_1'), 0) * 0.1 +
+                  AND Marks_type = 'Assignment_1'), 0) * 0.05 +
         IFNULL((SELECT Marks_value FROM mark 
                 WHERE Course_code = 'TCS1212'
                   AND Reg_no = m.Reg_no 
@@ -4860,7 +4844,7 @@ SELECT DISTINCT
         IFNULL((SELECT Marks_value FROM mark 
                 WHERE Course_code = 'TCS1212'
                   AND Reg_no = m.Reg_no 
-                  AND Marks_type = 'End_theory'), 0) * 0.6
+                  AND Marks_type = 'End_theory'), 0) * 0.7
     ),2) AS `Final_Marks(100%)`
 FROM 
     mark m
@@ -5075,7 +5059,7 @@ SELECT
                   AND Marks_type = 'End_theory'), 0)*0.7
     ),2) AS `Final_marks(100%)`
 FROM 
-    enrollment e
+    mark e
 WHERE 
     e.Course_code = 'ENG1222';
 
@@ -5142,7 +5126,7 @@ SELECT
         IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1212' AND Reg_no = e.Reg_no AND Marks_type = 'End_theory'), 0)*0.7
     ),2) AS `Final_Marks(100%)`
 FROM 
-    enrollment e
+     mark e
 WHERE 
     e.Course_code = 'ICT1212';
 
@@ -5220,7 +5204,7 @@ SELECT
         IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'End_practical'), 0))*0.5)*0.6
     ),2)   AS `Final_Marks(100%)`
 FROM 
-    enrollment e
+     mark e
 WHERE 
     e.Course_code = 'ICT1233';
 
@@ -5291,7 +5275,7 @@ SELECT
             IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'End_theory'), 0)*0.7
     ),2) AS `Final_Marks(100%)`
 FROM 
-    enrollment e
+ mark e
 WHERE 
     e.Course_code = 'ICT1242';
 
@@ -5320,7 +5304,7 @@ BEGIN
     UNION ALL
     SELECT Reg_no, 'ICT1253' AS Course,`Total_CA_marks(40%)` AS CA_marks FROM vw_ICT1253_marks WHERE Reg_no = TG
     UNION ALL
-    SELECT Reg_no, 'TCS1212' AS Course,`Total_CA_marks(40%)` AS CA_marks FROM vw_TCS1212_marks WHERE Reg_no = TG
+    SELECT Reg_no, 'TCS1212' AS Course,`Total_CA_marks(30%)` AS CA_marks FROM vw_TCS1212_marks WHERE Reg_no = TG
     UNION ALL
     SELECT Reg_no, 'TMS1233' AS Course,`Total_CA_marks(40%)` AS CA_marks FROM vw_TMS1233_marks WHERE Reg_no = TG;
 END //
@@ -5372,10 +5356,10 @@ SELECT
     Course_code,
     CA_marks,
     CASE 
-        WHEN Course_code IN ('ICT1222', 'ICT1233', 'ICT1253', 'TCS1212', 'TMS1233') THEN 
-            CASE WHEN CA_marks >= 20 THEN 'Pass' ELSE 'Fail' END
-        WHEN Course_code IN ('ENG1222', 'ICT1212', 'ICT1242') THEN 
-            CASE WHEN CA_marks >= 15 THEN 'Pass' ELSE 'Fail' END
+        WHEN Course_code IN ('ICT1222', 'ICT1233', 'ICT1253', 'TMS1233') THEN 
+            CASE WHEN CA_marks >= 16 THEN 'CA_Pass' ELSE 'CA_Fail' END
+        WHEN Course_code IN ('ENG1222', 'ICT1212', 'ICT1242', 'TCS1212') THEN 
+            CASE WHEN CA_marks >= 12 THEN 'CA_Pass' ELSE 'CA_Fail' END
         ELSE 'Unknown'
     END AS CA_Status
 FROM (
@@ -5431,7 +5415,7 @@ FROM (
     SELECT 
         Reg_no,
         Course_code,
-        `Total_CA_marks(40%)` AS CA_marks
+        `Total_CA_marks(30%)` AS CA_marks
     FROM vw_TCS1212_marks
     
     UNION ALL
