@@ -113,6 +113,6 @@ ca saha attendance dekama anuwa end ekata eligibility eka =>  SELECT * FROM vw_e
 hema student kenektama adala grade ekai greade point ekai => SELECT * FROM vw_all_stu_all_course_grade_point;
 
 
-update marks if suspen => CALL updateMarks_ifStu_suspend();
+
 
 
