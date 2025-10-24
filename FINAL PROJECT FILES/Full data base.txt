@@ -5059,7 +5059,7 @@ SELECT
                   AND Marks_type = 'End_theory'), 0)*0.7
     ),2) AS `Final_marks(100%)`
 FROM 
-    mark e
+    enrollment e
 WHERE 
     e.Course_code = 'ENG1222';
 
@@ -5126,7 +5126,7 @@ SELECT
         IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1212' AND Reg_no = e.Reg_no AND Marks_type = 'End_theory'), 0)*0.7
     ),2) AS `Final_Marks(100%)`
 FROM 
-     mark e
+     enrollment e
 WHERE 
     e.Course_code = 'ICT1212';
 
@@ -5204,7 +5204,7 @@ SELECT
         IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'End_practical'), 0))*0.5)*0.6
     ),2)   AS `Final_Marks(100%)`
 FROM 
-     mark e
+     enrollment e
 WHERE 
     e.Course_code = 'ICT1233';
 
@@ -5275,7 +5275,7 @@ SELECT
             IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'End_theory'), 0)*0.7
     ),2) AS `Final_Marks(100%)`
 FROM 
- mark e
+ enrollment e
 WHERE 
     e.Course_code = 'ICT1242';
 
