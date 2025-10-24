@@ -5363,6 +5363,8 @@ END //
 
 DELIMITER ;
 
+
+
 DROP VIEW IF EXISTS vw_CA_Status;
 CREATE VIEW vw_CA_Status AS
 SELECT 
@@ -5370,11 +5372,14 @@ SELECT
     Course_code,
     CA_marks,
     CASE 
-        WHEN CA_marks >= 20 THEN 'Pass' 
-        ELSE 'Fail' 
+        WHEN Course_code IN ('ICT1222', 'ICT1233', 'ICT1253', 'TCS1212', 'TMS1233') THEN 
+            CASE WHEN CA_marks >= 20 THEN 'Pass' ELSE 'Fail' END
+        WHEN Course_code IN ('ENG1222', 'ICT1212', 'ICT1242') THEN 
+            CASE WHEN CA_marks >= 15 THEN 'Pass' ELSE 'Fail' END
+        ELSE 'Unknown'
     END AS CA_Status
 FROM (
-    -- ENG1222
+
     SELECT 
         Reg_no,
         Course_code,
@@ -5383,7 +5388,6 @@ FROM (
     
     UNION ALL
     
-    -- ICT1212
     SELECT 
         Reg_no,
         Course_code,
@@ -5392,7 +5396,6 @@ FROM (
     
     UNION ALL
     
-    -- ICT1222
     SELECT 
         Reg_no,
         Course_code,
@@ -5401,7 +5404,6 @@ FROM (
     
     UNION ALL
     
-    -- ICT1233
     SELECT 
         Reg_no,
         Course_code,
@@ -5410,7 +5412,6 @@ FROM (
     
     UNION ALL
     
-    -- ICT1242
     SELECT 
         Reg_no,
         Course_code,
@@ -5419,7 +5420,6 @@ FROM (
     
     UNION ALL
     
-    -- ICT1253
     SELECT 
         Reg_no,
         Course_code,
@@ -5428,7 +5428,6 @@ FROM (
     
     UNION ALL
     
-    -- TCS1212
     SELECT 
         Reg_no,
         Course_code,
@@ -5437,16 +5436,14 @@ FROM (
     
     UNION ALL
     
-    -- TMS1233
     SELECT 
         Reg_no,
         Course_code,
         `Total_CA_marks(40%)` AS CA_marks
     FROM vw_TMS1233_marks
-
 ) AS all_ca_marks
-ORDER BY reg_no,course_code
-;
+ORDER BY reg_no, course_code;
+
 
 
 
