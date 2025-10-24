@@ -5982,3 +5982,25 @@ FROM vw_TMS1233_marks m
 JOIN course c ON c.Course_Code = 'TMS1233'
 JOIN STUDENT s ON s.Reg_no = m.Reg_no
 ORDER BY Reg_no, Course;
+
+
+
+
+
+
+
+
+DROP PROCEDURE IF EXISTS updateMarks_ifStu_suspend;
+
+DELIMITER //
+
+CREATE PROCEDURE updateMarks_ifStu_suspend()
+BEGIN
+    UPDATE mark m
+    JOIN student s ON m.Reg_no = s.Reg_no
+    SET m.Marks_value = 'WH'
+    WHERE s.Student_type = 'suspend';
+END //
+
+DELIMITER ;
+
