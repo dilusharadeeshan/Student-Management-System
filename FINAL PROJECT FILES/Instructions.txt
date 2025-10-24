@@ -104,7 +104,7 @@ reg no eka deela ca mark ganna =>  CALL individual_subject_marks_by_regno('TG/20
 
 
 
-mulu batch ekata ca pass d faild balanna  => SELECT * FROM vw_CA_pass_fail;
+mulu batch ekata ca pass d faild balanna  => SELECT * FROM vw_CA_Status;
 
 
 
