@@ -1,0 +1,19 @@
+DELIMITER //
+
+CREATE PROCEDURE GetExamEligibility(
+    IN p_reg_no VARCHAR(50),
+    IN p_course_code VARCHAR(20)
+)
+BEGIN
+    SELECT 
+        Reg_no,
+        Course_code,
+        CA_Status AS CA_PASS,
+        Attendance_Eligibility,
+        Final_Eligibility
+    FROM vw_end_exam_eligibility
+    WHERE Reg_no = p_reg_no 
+        AND Course_code = p_course_code;
+END //
+
+DELIMITER ;
