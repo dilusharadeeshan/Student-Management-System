@@ -29,15 +29,15 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/006', 'ICT1233', '2025-10-13', 'Practical', 2.0, 'Absent'),   
 ('TG/2023/007', 'ICT1233', '2025-10-13', 'Practical', 2.0, 'Present'),
 ('TG/2023/008', 'ICT1233', '2025-10-13', 'Practical', 2.0, 'Present'),
-('TG/2023/009', 'ICT1233', '2025-10-13', 'Practical', 2.0, 'Medical'), -- Changed to Medical
+('TG/2023/009', 'ICT1233', '2025-10-13', 'Practical', 2.0, 'Medical'),  
 ('TG/2023/010', 'ICT1233', '2025-10-13', 'Practical', 2.0, 'Present'),
-('TG/2023/011', 'ICT1233', '2025-10-13', 'Practical', 2.0, 'Present'), -- TG/2023/011 had Medical in Practical but it's on same day as Theory, so both should be Medical
+('TG/2023/011', 'ICT1233', '2025-10-13', 'Practical', 2.0, 'Present'),  
 ('TG/2023/012', 'ICT1233', '2025-10-13', 'Practical', 2.0, 'Absent'),   
 ('TG/2023/013', 'ICT1233', '2025-10-13', 'Practical', 2.0, 'Present'),
 ('TG/2023/014', 'ICT1233', '2025-10-13', 'Practical', 2.0, 'Present'),
 ('TG/2023/015', 'ICT1233', '2025-10-13', 'Practical', 2.0, 'Present'),
  
--- 2025-10-14: TG/2023/008 has medical in ICT1242 Theory, TG/2023/009 has medical in ICT1253 Theory, TG/2023/011 has medical in ICT1253 Practical
+ 
 ('TG/2023/001', 'ICT1242', '2025-10-14', 'Theory', 2.0, 'Present'),
 ('TG/2023/002', 'ICT1242', '2025-10-14', 'Theory', 2.0, 'Present'),
 ('TG/2023/003', 'ICT1242', '2025-10-14', 'Theory', 2.0, 'Present'),
@@ -46,9 +46,9 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/006', 'ICT1242', '2025-10-14', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/007', 'ICT1242', '2025-10-14', 'Theory', 2.0, 'Present'),
 ('TG/2023/008', 'ICT1242', '2025-10-14', 'Theory', 2.0, 'Medical'),
-('TG/2023/009', 'ICT1242', '2025-10-14', 'Theory', 2.0, 'Medical'), -- Changed to Medical (has medical in ICT1253 on same day)
+('TG/2023/009', 'ICT1242', '2025-10-14', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/010', 'ICT1242', '2025-10-14', 'Theory', 2.0, 'Present'),
-('TG/2023/011', 'ICT1242', '2025-10-14', 'Theory', 2.0, 'Medical'), -- Changed to Medical (has medical in ICT1253 Practical on same day)
+('TG/2023/011', 'ICT1242', '2025-10-14', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/012', 'ICT1242', '2025-10-14', 'Theory', 2.0, 'Present'),
 ('TG/2023/013', 'ICT1242', '2025-10-14', 'Theory', 2.0, 'Absent'),   
 ('TG/2023/014', 'ICT1242', '2025-10-14', 'Theory', 2.0, 'Present'),
@@ -61,10 +61,10 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/005', 'ICT1253', '2025-10-14', 'Theory', 2.0, 'Present'),
 ('TG/2023/006', 'ICT1253', '2025-10-14', 'Theory', 2.0, 'Present'),
 ('TG/2023/007', 'ICT1253', '2025-10-14', 'Theory', 2.0, 'Present'),
-('TG/2023/008', 'ICT1253', '2025-10-14', 'Theory', 2.0, 'Medical'), -- Changed to Medical (has medical in ICT1242 on same day)
+('TG/2023/008', 'ICT1253', '2025-10-14', 'Theory', 2.0, 'Medical'), 
 ('TG/2023/009', 'ICT1253', '2025-10-14', 'Theory', 2.0, 'Medical'),
 ('TG/2023/010', 'ICT1253', '2025-10-14', 'Theory', 2.0, 'Present'),
-('TG/2023/011', 'ICT1253', '2025-10-14', 'Theory', 2.0, 'Medical'), -- Changed to Medical (has medical in ICT1253 Practical on same day)
+('TG/2023/011', 'ICT1253', '2025-10-14', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/012', 'ICT1253', '2025-10-14', 'Theory', 2.0, 'Absent'),   
 ('TG/2023/013', 'ICT1253', '2025-10-14', 'Theory', 2.0, 'Present'),
 ('TG/2023/014', 'ICT1253', '2025-10-14', 'Theory', 2.0, 'Present'),
@@ -77,8 +77,8 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/005', 'ICT1253', '2025-10-14', 'Practical', 2.0, 'Present'),
 ('TG/2023/006', 'ICT1253', '2025-10-14', 'Practical', 2.0, 'Absent'),   
 ('TG/2023/007', 'ICT1253', '2025-10-14', 'Practical', 2.0, 'Present'),
-('TG/2023/008', 'ICT1253', '2025-10-14', 'Practical', 2.0, 'Medical'), -- Changed to Medical (has medical in ICT1242 on same day)
-('TG/2023/009', 'ICT1253', '2025-10-14', 'Practical', 2.0, 'Medical'), -- Changed to Medical (has medical in ICT1253 Theory on same day)
+('TG/2023/008', 'ICT1253', '2025-10-14', 'Practical', 2.0, 'Medical'),  
+('TG/2023/009', 'ICT1253', '2025-10-14', 'Practical', 2.0, 'Medical'),  
 ('TG/2023/010', 'ICT1253', '2025-10-14', 'Practical', 2.0, 'Present'),
 ('TG/2023/011', 'ICT1253', '2025-10-14', 'Practical', 2.0, 'Medical'),   
 ('TG/2023/012', 'ICT1253', '2025-10-14', 'Practical', 2.0, 'Present'),
@@ -103,7 +103,7 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/014', 'TMS1233', '2025-10-15', 'Theory', 3.0, 'Present'),
 ('TG/2023/015', 'TMS1233', '2025-10-15', 'Theory', 3.0, 'Present'),
 
--- 2025-10-16: TG/2023/009 has medical in ICT1212 Theory, TG/2023/011 has medical in ICT1222 Practical
+ 
 ('TG/2023/001', 'ICT1212', '2025-10-16', 'Theory', 2.0, 'Present'),
 ('TG/2023/002', 'ICT1212', '2025-10-16', 'Theory', 2.0, 'Present'),
 ('TG/2023/003', 'ICT1212', '2025-10-16', 'Theory', 2.0, 'Present'),
@@ -114,8 +114,7 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/008', 'ICT1212', '2025-10-16', 'Theory', 2.0, 'Present'),
 ('TG/2023/009', 'ICT1212', '2025-10-16', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/010', 'ICT1212', '2025-10-16', 'Theory', 2.0, 'Present'),
-('TG/2023/011', 'ICT1212', '2025-10-16', 'Theory', 2.0, 'Medical'), -- Changed to Medical (has medical in ICT1222 Practical on same day)
-('TG/2023/012', 'ICT1212', '2025-10-16', 'Theory', 2.0, 'Present'),
+('TG/2023/011', 'ICT1212', '2025-10-16', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/013', 'ICT1212', '2025-10-16', 'Theory', 2.0, 'Absent'),   
 ('TG/2023/014', 'ICT1212', '2025-10-16', 'Theory', 2.0, 'Present'),
 ('TG/2023/015', 'ICT1212', '2025-10-16', 'Theory', 2.0, 'Present'),
@@ -128,7 +127,7 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/006', 'ICT1222', '2025-10-16', 'Practical', 4.0, 'Absent'),   
 ('TG/2023/007', 'ICT1222', '2025-10-16', 'Practical', 4.0, 'Present'),
 ('TG/2023/008', 'ICT1222', '2025-10-16', 'Practical', 4.0, 'Present'),
-('TG/2023/009', 'ICT1222', '2025-10-16', 'Practical', 4.0, 'Medical'), -- Changed to Medical (has medical in ICT1212 Theory on same day)
+('TG/2023/009', 'ICT1222', '2025-10-16', 'Practical', 4.0, 'Medical'), 
 ('TG/2023/010', 'ICT1222', '2025-10-16', 'Practical', 4.0, 'Present'),
 ('TG/2023/011', 'ICT1222', '2025-10-16', 'Practical', 4.0, 'Medical'),   
 ('TG/2023/012', 'ICT1222', '2025-10-16', 'Practical', 4.0, 'Absent'),  
@@ -136,7 +135,7 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/014', 'ICT1222', '2025-10-16', 'Practical', 4.0, 'Present'),
 ('TG/2023/015', 'ICT1222', '2025-10-16', 'Practical', 4.0, 'Present'),
 
--- 2025-10-17: TG/2023/008 has medical in ENG1222 Theory, TG/2023/009 has medical in TCS1212 Theory
+ 
 ('TG/2023/001', 'ENG1222', '2025-10-17', 'Theory', 2.0, 'Present'),
 ('TG/2023/002', 'ENG1222', '2025-10-17', 'Theory', 2.0, 'Present'),
 ('TG/2023/003', 'ENG1222', '2025-10-17', 'Theory', 2.0, 'Present'),
@@ -145,7 +144,7 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/006', 'ENG1222', '2025-10-17', 'Theory', 2.0, 'Absent'),   
 ('TG/2023/007', 'ENG1222', '2025-10-17', 'Theory', 2.0, 'Present'),
 ('TG/2023/008', 'ENG1222', '2025-10-17', 'Theory', 2.0, 'Medical'),
-('TG/2023/009', 'ENG1222', '2025-10-17', 'Theory', 2.0, 'Medical'), -- Changed to Medical (has medical in TCS1212 on same day)
+('TG/2023/009', 'ENG1222', '2025-10-17', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/010', 'ENG1222', '2025-10-17', 'Theory', 2.0, 'Present'),
 ('TG/2023/011', 'ENG1222', '2025-10-17', 'Theory', 2.0, 'Present'),
 ('TG/2023/012', 'ENG1222', '2025-10-17', 'Theory', 2.0, 'Absent'),   
@@ -160,7 +159,7 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/005', 'TCS1212', '2025-10-17', 'Theory', 2.0, 'Present'),
 ('TG/2023/006', 'TCS1212', '2025-10-17', 'Theory', 2.0, 'Absent'),   
 ('TG/2023/007', 'TCS1212', '2025-10-17', 'Theory', 2.0, 'Present'),
-('TG/2023/008', 'TCS1212', '2025-10-17', 'Theory', 2.0, 'Medical'), -- Changed to Medical (has medical in ENG1222 on same day)
+('TG/2023/008', 'TCS1212', '2025-10-17', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/009', 'TCS1212', '2025-10-17', 'Theory', 2.0, 'Medical'),
 ('TG/2023/010', 'TCS1212', '2025-10-17', 'Theory', 2.0, 'Present'),
 ('TG/2023/011', 'TCS1212', '2025-10-17', 'Theory', 2.0, 'Present'),
@@ -176,7 +175,7 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 
 -- Week 12: 
 
--- 2025-10-20: TG/2023/002 has medical in ICT1233 Theory, TG/2023/011 has medical in ICT1233 Practical
+-- 2025-10-20: TG/2023/002 has medical in ICT1233 Theory, TG/2023/011 has medical in ICT1233 Practical 
 ('TG/2023/001', 'ICT1233', '2025-10-20', 'Theory', 2.0, 'Present'),
 ('TG/2023/002', 'ICT1233', '2025-10-20', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/003', 'ICT1233', '2025-10-20', 'Theory', 2.0, 'Absent'),   
@@ -187,14 +186,14 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/008', 'ICT1233', '2025-10-20', 'Theory', 2.0, 'Present'),
 ('TG/2023/009', 'ICT1233', '2025-10-20', 'Theory', 2.0, 'Present'),
 ('TG/2023/010', 'ICT1233', '2025-10-20', 'Theory', 2.0, 'Absent'),   
-('TG/2023/011', 'ICT1233', '2025-10-20', 'Theory', 2.0, 'Medical'), -- Changed to Medical (has medical in Practical on same day)
+('TG/2023/011', 'ICT1233', '2025-10-20', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/012', 'ICT1233', '2025-10-20', 'Theory', 2.0, 'Present'),
 ('TG/2023/013', 'ICT1233', '2025-10-20', 'Theory', 2.0, 'Present'),
 ('TG/2023/014', 'ICT1233', '2025-10-20', 'Theory', 2.0, 'Present'),
 ('TG/2023/015', 'ICT1233', '2025-10-20', 'Theory', 2.0, 'Present'),
 
 ('TG/2023/001', 'ICT1233', '2025-10-20', 'Practical', 2.0, 'Present'),
-('TG/2023/002', 'ICT1233', '2025-10-20', 'Practical', 2.0, 'Medical'), -- Changed to Medical (has medical in Theory on same day)
+('TG/2023/002', 'ICT1233', '2025-10-20', 'Practical', 2.0, 'Medical'),  
 ('TG/2023/003', 'ICT1233', '2025-10-20', 'Practical', 2.0, 'Present'),
 ('TG/2023/004', 'ICT1233', '2025-10-20', 'Practical', 2.0, 'Present'),
 ('TG/2023/005', 'ICT1233', '2025-10-20', 'Practical', 2.0, 'Present'),
@@ -209,7 +208,7 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/014', 'ICT1233', '2025-10-20', 'Practical', 2.0, 'Present'),
 ('TG/2023/015', 'ICT1233', '2025-10-20', 'Practical', 2.0, 'Present'),
 
--- 2025-10-21: TG/2023/008 has medical in ICT1242 Theory, TG/2023/009 has medical in ICT1253 Theory, TG/2023/011 has medical in ICT1253 Practical
+ 
 ('TG/2023/001', 'ICT1242', '2025-10-21', 'Theory', 2.0, 'Present'),
 ('TG/2023/002', 'ICT1242', '2025-10-21', 'Theory', 2.0, 'Present'),
 ('TG/2023/003', 'ICT1242', '2025-10-21', 'Theory', 2.0, 'Present'),
@@ -218,9 +217,9 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/006', 'ICT1242', '2025-10-21', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/007', 'ICT1242', '2025-10-21', 'Theory', 2.0, 'Present'),
 ('TG/2023/008', 'ICT1242', '2025-10-21', 'Theory', 2.0, 'Medical'),
-('TG/2023/009', 'ICT1242', '2025-10-21', 'Theory', 2.0, 'Medical'), -- Changed to Medical (has medical in ICT1253 on same day)
+('TG/2023/009', 'ICT1242', '2025-10-21', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/010', 'ICT1242', '2025-10-21', 'Theory', 2.0, 'Present'),
-('TG/2023/011', 'ICT1242', '2025-10-21', 'Theory', 2.0, 'Medical'), -- Changed to Medical (has medical in ICT1253 Practical on same day)
+('TG/2023/011', 'ICT1242', '2025-10-21', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/012', 'ICT1242', '2025-10-21', 'Theory', 2.0, 'Present'),
 ('TG/2023/013', 'ICT1242', '2025-10-21', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/014', 'ICT1242', '2025-10-21', 'Theory', 2.0, 'Present'),
@@ -233,10 +232,10 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/005', 'ICT1253', '2025-10-21', 'Theory', 2.0, 'Present'),
 ('TG/2023/006', 'ICT1253', '2025-10-21', 'Theory', 2.0, 'Present'),
 ('TG/2023/007', 'ICT1253', '2025-10-21', 'Theory', 2.0, 'Present'),
-('TG/2023/008', 'ICT1253', '2025-10-21', 'Theory', 2.0, 'Medical'), -- Changed to Medical (has medical in ICT1242 on same day)
+('TG/2023/008', 'ICT1253', '2025-10-21', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/009', 'ICT1253', '2025-10-21', 'Theory', 2.0, 'Medical'),
 ('TG/2023/010', 'ICT1253', '2025-10-21', 'Theory', 2.0, 'Present'),
-('TG/2023/011', 'ICT1253', '2025-10-21', 'Theory', 2.0, 'Medical'), -- Changed to Medical (has medical in ICT1253 Practical on same day)
+('TG/2023/011', 'ICT1253', '2025-10-21', 'Theory', 2.0, 'Medical'), 
 ('TG/2023/012', 'ICT1253', '2025-10-21', 'Theory', 2.0, 'Absent'), 
 ('TG/2023/013', 'ICT1253', '2025-10-21', 'Theory', 2.0, 'Present'),
 ('TG/2023/014', 'ICT1253', '2025-10-21', 'Theory', 2.0, 'Present'),
@@ -249,8 +248,8 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/005', 'ICT1253', '2025-10-21', 'Practical', 2.0, 'Present'),
 ('TG/2023/006', 'ICT1253', '2025-10-21', 'Practical', 2.0, 'Absent'),   
 ('TG/2023/007', 'ICT1253', '2025-10-21', 'Practical', 2.0, 'Present'),
-('TG/2023/008', 'ICT1253', '2025-10-21', 'Practical', 2.0, 'Medical'), -- Changed to Medical (has medical in ICT1242 on same day)
-('TG/2023/009', 'ICT1253', '2025-10-21', 'Practical', 2.0, 'Medical'), -- Changed to Medical (has medical in ICT1253 Theory on same day)
+('TG/2023/008', 'ICT1253', '2025-10-21', 'Practical', 2.0, 'Medical'),  
+('TG/2023/009', 'ICT1253', '2025-10-21', 'Practical', 2.0, 'Medical'),  
 ('TG/2023/010', 'ICT1253', '2025-10-21', 'Practical', 2.0, 'Present'),
 ('TG/2023/011', 'ICT1253', '2025-10-21', 'Practical', 2.0, 'Medical'),   
 ('TG/2023/012', 'ICT1253', '2025-10-21', 'Practical', 2.0, 'Present'),
@@ -258,7 +257,7 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/014', 'ICT1253', '2025-10-21', 'Practical', 2.0, 'Present'),
 ('TG/2023/015', 'ICT1253', '2025-10-21', 'Practical', 2.0, 'Present'),
 
--- 2025-10-22: TG/2023/008 has medical in TMS1233 Theory
+ 
 ('TG/2023/001', 'TMS1233', '2025-10-22', 'Theory', 3.0, 'Present'),
 ('TG/2023/002', 'TMS1233', '2025-10-22', 'Theory', 3.0, 'Present'),
 ('TG/2023/003', 'TMS1233', '2025-10-22', 'Theory', 3.0, 'Present'),
@@ -275,7 +274,7 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/014', 'TMS1233', '2025-10-22', 'Theory', 3.0, 'Present'),
 ('TG/2023/015', 'TMS1233', '2025-10-22', 'Theory', 3.0, 'Present'),
 
--- 2025-10-23: TG/2023/009 has medical in ICT1212 Theory, TG/2023/011 has medical in ICT1222 Practical
+ 
 ('TG/2023/001', 'ICT1212', '2025-10-23', 'Theory', 2.0, 'Present'),
 ('TG/2023/002', 'ICT1212', '2025-10-23', 'Theory', 2.0, 'Present'),
 ('TG/2023/003', 'ICT1212', '2025-10-23', 'Theory', 2.0, 'Present'),
@@ -286,7 +285,7 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/008', 'ICT1212', '2025-10-23', 'Theory', 2.0, 'Present'),
 ('TG/2023/009', 'ICT1212', '2025-10-23', 'Theory', 2.0, 'Medical'),   
 ('TG/2023/010', 'ICT1212', '2025-10-23', 'Theory', 2.0, 'Present'),
-('TG/2023/011', 'ICT1212', '2025-10-23', 'Theory', 2.0, 'Medical'), -- Changed to Medical (has medical in ICT1222 Practical on same day)
+('TG/2023/011', 'ICT1212', '2025-10-23', 'Theory', 2.0, 'Medical'), 
 ('TG/2023/012', 'ICT1212', '2025-10-23', 'Theory', 2.0, 'Present'),
 ('TG/2023/013', 'ICT1212', '2025-10-23', 'Theory', 2.0, 'Absent'),   
 ('TG/2023/014', 'ICT1212', '2025-10-23', 'Theory', 2.0, 'Present'),
@@ -300,7 +299,7 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/006', 'ICT1222', '2025-10-23', 'Practical', 4.0, 'Absent'),   
 ('TG/2023/007', 'ICT1222', '2025-10-23', 'Practical', 4.0, 'Present'),
 ('TG/2023/008', 'ICT1222', '2025-10-23', 'Practical', 4.0, 'Present'),
-('TG/2023/009', 'ICT1222', '2025-10-23', 'Practical', 4.0, 'Medical'), -- Changed to Medical (has medical in ICT1212 Theory on same day)
+('TG/2023/009', 'ICT1222', '2025-10-23', 'Practical', 4.0, 'Medical'),  
 ('TG/2023/010', 'ICT1222', '2025-10-23', 'Practical', 4.0, 'Present'),
 ('TG/2023/011', 'ICT1222', '2025-10-23', 'Practical', 4.0, 'Medical'),   
 ('TG/2023/012', 'ICT1222', '2025-10-23', 'Practical', 4.0, 'Absent'),   
@@ -308,7 +307,7 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/014', 'ICT1222', '2025-10-23', 'Practical', 4.0, 'Present'),
 ('TG/2023/015', 'ICT1222', '2025-10-23', 'Practical', 4.0, 'Present'),
 
--- 2025-10-24: TG/2023/008 has medical in ENG1222 Theory, TG/2023/009 has medical in TCS1212 Theory
+ 
 ('TG/2023/001', 'ENG1222', '2025-10-24', 'Theory', 2.0, 'Present'),
 ('TG/2023/002', 'ENG1222', '2025-10-24', 'Theory', 2.0, 'Present'),
 ('TG/2023/003', 'ENG1222', '2025-10-24', 'Theory', 2.0, 'Present'),
@@ -317,7 +316,7 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/006', 'ENG1222', '2025-10-24', 'Theory', 2.0, 'Absent'),   
 ('TG/2023/007', 'ENG1222', '2025-10-24', 'Theory', 2.0, 'Present'),
 ('TG/2023/008', 'ENG1222', '2025-10-24', 'Theory', 2.0, 'Medical'),
-('TG/2023/009', 'ENG1222', '2025-10-24', 'Theory', 2.0, 'Medical'), -- Changed to Medical (has medical in TCS1212 on same day)
+('TG/2023/009', 'ENG1222', '2025-10-24', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/010', 'ENG1222', '2025-10-24', 'Theory', 2.0, 'Present'),
 ('TG/2023/011', 'ENG1222', '2025-10-24', 'Theory', 2.0, 'Present'),
 ('TG/2023/012', 'ENG1222', '2025-10-24', 'Theory', 2.0, 'Absent'),   
@@ -332,7 +331,7 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/005', 'TCS1212', '2025-10-24', 'Theory', 2.0, 'Present'),
 ('TG/2023/006', 'TCS1212', '2025-10-24', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/007', 'TCS1212', '2025-10-24', 'Theory', 2.0, 'Present'),
-('TG/2023/008', 'TCS1212', '2025-10-24', 'Theory', 2.0, 'Medical'), -- Changed to Medical (has medical in ENG1222 on same day)
+('TG/2023/008', 'TCS1212', '2025-10-24', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/009', 'TCS1212', '2025-10-24', 'Theory', 2.0, 'Medical'),
 ('TG/2023/010', 'TCS1212', '2025-10-24', 'Theory', 2.0, 'Present'),
 ('TG/2023/011', 'TCS1212', '2025-10-24', 'Theory', 2.0, 'Present'),
@@ -348,7 +347,7 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 
 -- Week 13: 
 
--- 2025-10-27: TG/2023/009 has medical in ICT1233 Theory, TG/2023/011 has medical in ICT1233 Practical
+ 
 ('TG/2023/001', 'ICT1233', '2025-10-27', 'Theory', 2.0, 'Present'),
 ('TG/2023/002', 'ICT1233', '2025-10-27', 'Theory', 2.0, 'Present'),
 ('TG/2023/003', 'ICT1233', '2025-10-27', 'Theory', 2.0, 'Absent'),  
@@ -359,7 +358,7 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/008', 'ICT1233', '2025-10-27', 'Theory', 2.0, 'Present'),
 ('TG/2023/009', 'ICT1233', '2025-10-27', 'Theory', 2.0, 'Medical'),
 ('TG/2023/010', 'ICT1233', '2025-10-27', 'Theory', 2.0, 'Absent'),   
-('TG/2023/011', 'ICT1233', '2025-10-27', 'Theory', 2.0, 'Medical'), -- Changed to Medical (has medical in Practical on same day)
+('TG/2023/011', 'ICT1233', '2025-10-27', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/012', 'ICT1233', '2025-10-27', 'Theory', 2.0, 'Present'),
 ('TG/2023/013', 'ICT1233', '2025-10-27', 'Theory', 2.0, 'Present'),
 ('TG/2023/014', 'ICT1233', '2025-10-27', 'Theory', 2.0, 'Present'),
@@ -373,7 +372,7 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/006', 'ICT1233', '2025-10-27', 'Practical', 2.0, 'Absent'),   
 ('TG/2023/007', 'ICT1233', '2025-10-27', 'Practical', 2.0, 'Present'),
 ('TG/2023/008', 'ICT1233', '2025-10-27', 'Practical', 2.0, 'Present'),
-('TG/2023/009', 'ICT1233', '2025-10-27', 'Practical', 2.0, 'Medical'), -- Changed to Medical (has medical in Theory on same day)
+('TG/2023/009', 'ICT1233', '2025-10-27', 'Practical', 2.0, 'Medical'),  
 ('TG/2023/010', 'ICT1233', '2025-10-27', 'Practical', 2.0, 'Present'),
 ('TG/2023/011', 'ICT1233', '2025-10-27', 'Practical', 2.0, 'Medical'),   
 ('TG/2023/012', 'ICT1233', '2025-10-27', 'Practical', 2.0, 'Absent'),  
@@ -381,7 +380,7 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/014', 'ICT1233', '2025-10-27', 'Practical', 2.0, 'Present'),
 ('TG/2023/015', 'ICT1233', '2025-10-27', 'Practical', 2.0, 'Present'),
 
--- 2025-10-28: TG/2023/008 has medical in ICT1242 Theory, TG/2023/009 has medical in ICT1253 Theory, TG/2023/011 has medical in ICT1253 Practical
+ 
 ('TG/2023/001', 'ICT1242', '2025-10-28', 'Theory', 2.0, 'Present'),
 ('TG/2023/002', 'ICT1242', '2025-10-28', 'Theory', 2.0, 'Present'),
 ('TG/2023/003', 'ICT1242', '2025-10-28', 'Theory', 2.0, 'Present'),
@@ -390,9 +389,9 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/006', 'ICT1242', '2025-10-28', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/007', 'ICT1242', '2025-10-28', 'Theory', 2.0, 'Present'),
 ('TG/2023/008', 'ICT1242', '2025-10-28', 'Theory', 2.0, 'Medical'),
-('TG/2023/009', 'ICT1242', '2025-10-28', 'Theory', 2.0, 'Medical'), -- Changed to Medical (has medical in ICT1253 on same day)
+('TG/2023/009', 'ICT1242', '2025-10-28', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/010', 'ICT1242', '2025-10-28', 'Theory', 2.0, 'Present'),
-('TG/2023/011', 'ICT1242', '2025-10-28', 'Theory', 2.0, 'Medical'), -- Changed to Medical (has medical in ICT1253 Practical on same day)
+('TG/2023/011', 'ICT1242', '2025-10-28', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/012', 'ICT1242', '2025-10-28', 'Theory', 2.0, 'Present'),
 ('TG/2023/013', 'ICT1242', '2025-10-28', 'Theory', 2.0, 'Absent'),   
 ('TG/2023/014', 'ICT1242', '2025-10-28', 'Theory', 2.0, 'Present'),
@@ -405,10 +404,10 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/005', 'ICT1253', '2025-10-28', 'Theory', 2.0, 'Present'),
 ('TG/2023/006', 'ICT1253', '2025-10-28', 'Theory', 2.0, 'Present'),
 ('TG/2023/007', 'ICT1253', '2025-10-28', 'Theory', 2.0, 'Present'),
-('TG/2023/008', 'ICT1253', '2025-10-28', 'Theory', 2.0, 'Medical'), -- Changed to Medical (has medical in ICT1242 on same day)
+('TG/2023/008', 'ICT1253', '2025-10-28', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/009', 'ICT1253', '2025-10-28', 'Theory', 2.0, 'Medical'),
 ('TG/2023/010', 'ICT1253', '2025-10-28', 'Theory', 2.0, 'Present'),
-('TG/2023/011', 'ICT1253', '2025-10-28', 'Theory', 2.0, 'Medical'), -- Changed to Medical (has medical in ICT1253 Practical on same day)
+('TG/2023/011', 'ICT1253', '2025-10-28', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/012', 'ICT1253', '2025-10-28', 'Theory', 2.0, 'Absent'),   
 ('TG/2023/013', 'ICT1253', '2025-10-28', 'Theory', 2.0, 'Present'),
 ('TG/2023/014', 'ICT1253', '2025-10-28', 'Theory', 2.0, 'Present'),
@@ -421,8 +420,8 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/005', 'ICT1253', '2025-10-28', 'Practical', 2.0, 'Present'),
 ('TG/2023/006', 'ICT1253', '2025-10-28', 'Practical', 2.0, 'Absent'), 
 ('TG/2023/007', 'ICT1253', '2025-10-28', 'Practical', 2.0, 'Present'),
-('TG/2023/008', 'ICT1253', '2025-10-28', 'Practical', 2.0, 'Medical'), -- Changed to Medical (has medical in ICT1242 on same day)
-('TG/2023/009', 'ICT1253', '2025-10-28', 'Practical', 2.0, 'Medical'), -- Changed to Medical (has medical in ICT1253 Theory on same day)
+('TG/2023/008', 'ICT1253', '2025-10-28', 'Practical', 2.0, 'Medical'),  
+('TG/2023/009', 'ICT1253', '2025-10-28', 'Practical', 2.0, 'Medical'),  
 ('TG/2023/010', 'ICT1253', '2025-10-28', 'Practical', 2.0, 'Present'),
 ('TG/2023/011', 'ICT1253', '2025-10-28', 'Practical', 2.0, 'Medical'),   
 ('TG/2023/012', 'ICT1253', '2025-10-28', 'Practical', 2.0, 'Present'),
@@ -430,7 +429,7 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/014', 'ICT1253', '2025-10-28', 'Practical', 2.0, 'Present'),
 ('TG/2023/015', 'ICT1253', '2025-10-28', 'Practical', 2.0, 'Present'),
 
--- 2025-10-29: TG/2023/008 has medical in TMS1233 Theory
+ 
 ('TG/2023/001', 'TMS1233', '2025-10-29', 'Theory', 3.0, 'Present'),
 ('TG/2023/002', 'TMS1233', '2025-10-29', 'Theory', 3.0, 'Present'),
 ('TG/2023/003', 'TMS1233', '2025-10-29', 'Theory', 3.0, 'Present'),
@@ -447,7 +446,7 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/014', 'TMS1233', '2025-10-29', 'Theory', 3.0, 'Present'),
 ('TG/2023/015', 'TMS1233', '2025-10-29', 'Theory', 3.0, 'Present'),
 
--- 2025-10-30: TG/2023/009 has medical in ICT1212 Theory, TG/2023/011 has medical in ICT1222 Practical
+ 
 ('TG/2023/001', 'ICT1212', '2025-10-30', 'Theory', 2.0, 'Present'),
 ('TG/2023/002', 'ICT1212', '2025-10-30', 'Theory', 2.0, 'Present'),
 ('TG/2023/003', 'ICT1212', '2025-10-30', 'Theory', 2.0, 'Present'),
@@ -458,7 +457,7 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/008', 'ICT1212', '2025-10-30', 'Theory', 2.0, 'Present'),
 ('TG/2023/009', 'ICT1212', '2025-10-30', 'Theory', 2.0, 'Medical'),   
 ('TG/2023/010', 'ICT1212', '2025-10-30', 'Theory', 2.0, 'Present'),
-('TG/2023/011', 'ICT1212', '2025-10-30', 'Theory', 2.0, 'Medical'), -- Changed to Medical (has medical in ICT1222 Practical on same day)
+('TG/2023/011', 'ICT1212', '2025-10-30', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/012', 'ICT1212', '2025-10-30', 'Theory', 2.0, 'Present'),
 ('TG/2023/013', 'ICT1212', '2025-10-30', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/014', 'ICT1212', '2025-10-30', 'Theory', 2.0, 'Present'),
@@ -472,7 +471,7 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/006', 'ICT1222', '2025-10-30', 'Practical', 4.0, 'Absent'),  
 ('TG/2023/007', 'ICT1222', '2025-10-30', 'Practical', 4.0, 'Present'),
 ('TG/2023/008', 'ICT1222', '2025-10-30', 'Practical', 4.0, 'Present'),
-('TG/2023/009', 'ICT1222', '2025-10-30', 'Practical', 4.0, 'Medical'), -- Changed to Medical (has medical in ICT1212 Theory on same day)
+('TG/2023/009', 'ICT1222', '2025-10-30', 'Practical', 4.0, 'Medical'),  
 ('TG/2023/010', 'ICT1222', '2025-10-30', 'Practical', 4.0, 'Present'),
 ('TG/2023/011', 'ICT1222', '2025-10-30', 'Practical', 4.0, 'Medical'),  
 ('TG/2023/012', 'ICT1222', '2025-10-30', 'Practical', 4.0, 'Absent'),  
@@ -480,7 +479,7 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/014', 'ICT1222', '2025-10-30', 'Practical', 4.0, 'Present'),
 ('TG/2023/015', 'ICT1222', '2025-10-30', 'Practical', 4.0, 'Present'),
 
--- 2025-10-31: TG/2023/008 has medical in ENG1222 Theory, TG/2023/009 has medical in TCS1212 Theory
+ 
 ('TG/2023/001', 'ENG1222', '2025-10-31', 'Theory', 2.0, 'Present'),
 ('TG/2023/002', 'ENG1222', '2025-10-31', 'Theory', 2.0, 'Present'),
 ('TG/2023/003', 'ENG1222', '2025-10-31', 'Theory', 2.0, 'Present'),
@@ -489,7 +488,7 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/006', 'ENG1222', '2025-10-31', 'Theory', 2.0, 'Absent'),   
 ('TG/2023/007', 'ENG1222', '2025-10-31', 'Theory', 2.0, 'Present'),
 ('TG/2023/008', 'ENG1222', '2025-10-31', 'Theory', 2.0, 'Medical'),
-('TG/2023/009', 'ENG1222', '2025-10-31', 'Theory', 2.0, 'Medical'), -- Changed to Medical (has medical in TCS1212 on same day)
+('TG/2023/009', 'ENG1222', '2025-10-31', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/010', 'ENG1222', '2025-10-31', 'Theory', 2.0, 'Present'),
 ('TG/2023/011', 'ENG1222', '2025-10-31', 'Theory', 2.0, 'Present'),
 ('TG/2023/012', 'ENG1222', '2025-10-31', 'Theory', 2.0, 'Absent'),   
@@ -504,7 +503,7 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/005', 'TCS1212', '2025-10-31', 'Theory', 2.0, 'Present'),
 ('TG/2023/006', 'TCS1212', '2025-10-31', 'Theory', 2.0, 'Absent'),   
 ('TG/2023/007', 'TCS1212', '2025-10-31', 'Theory', 2.0, 'Present'),
-('TG/2023/008', 'TCS1212', '2025-10-31', 'Theory', 2.0, 'Medical'), -- Changed to Medical (has medical in ENG1222 on same day)
+('TG/2023/008', 'TCS1212', '2025-10-31', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/009', 'TCS1212', '2025-10-31', 'Theory', 2.0, 'Medical'),
 ('TG/2023/010', 'TCS1212', '2025-10-31', 'Theory', 2.0, 'Present'),
 ('TG/2023/011', 'TCS1212', '2025-10-31', 'Theory', 2.0, 'Present'),
@@ -520,7 +519,7 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 
 -- Week 14: 
 
--- 2025-11-03: TG/2023/002 has medical in ICT1233 Theory, TG/2023/011 has medical in ICT1233 Practical
+ 
 ('TG/2023/001', 'ICT1233', '2025-11-03', 'Theory', 2.0, 'Present'),
 ('TG/2023/002', 'ICT1233', '2025-11-03', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/003', 'ICT1233', '2025-11-03', 'Theory', 2.0, 'Absent'),  
@@ -531,14 +530,14 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/008', 'ICT1233', '2025-11-03', 'Theory', 2.0, 'Present'),
 ('TG/2023/009', 'ICT1233', '2025-11-03', 'Theory', 2.0, 'Present'),
 ('TG/2023/010', 'ICT1233', '2025-11-03', 'Theory', 2.0, 'Absent'),   
-('TG/2023/011', 'ICT1233', '2025-11-03', 'Theory', 2.0, 'Medical'), -- Changed to Medical (has medical in Practical on same day)
+('TG/2023/011', 'ICT1233', '2025-11-03', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/012', 'ICT1233', '2025-11-03', 'Theory', 2.0, 'Present'),
 ('TG/2023/013', 'ICT1233', '2025-11-03', 'Theory', 2.0, 'Present'),
 ('TG/2023/014', 'ICT1233', '2025-11-03', 'Theory', 2.0, 'Present'),
 ('TG/2023/015', 'ICT1233', '2025-11-03', 'Theory', 2.0, 'Present'),
 
 ('TG/2023/001', 'ICT1233', '2025-11-03', 'Practical', 2.0, 'Present'),
-('TG/2023/002', 'ICT1233', '2025-11-03', 'Practical', 2.0, 'Medical'), -- Changed to Medical (has medical in Theory on same day)
+('TG/2023/002', 'ICT1233', '2025-11-03', 'Practical', 2.0, 'Medical'),  
 ('TG/2023/003', 'ICT1233', '2025-11-03', 'Practical', 2.0, 'Present'),
 ('TG/2023/004', 'ICT1233', '2025-11-03', 'Practical', 2.0, 'Present'),
 ('TG/2023/005', 'ICT1233', '2025-11-03', 'Practical', 2.0, 'Present'),
@@ -553,7 +552,7 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/014', 'ICT1233', '2025-11-03', 'Practical', 2.0, 'Present'),
 ('TG/2023/015', 'ICT1233', '2025-11-03', 'Practical', 2.0, 'Present'),
 
--- 2025-11-04: TG/2023/008 has medical in ICT1242 Theory, TG/2023/009 has medical in ICT1253 Theory, TG/2023/011 has medical in ICT1253 Practical
+ 
 ('TG/2023/001', 'ICT1242', '2025-11-04', 'Theory', 2.0, 'Present'),
 ('TG/2023/002', 'ICT1242', '2025-11-04', 'Theory', 2.0, 'Present'),
 ('TG/2023/003', 'ICT1242', '2025-11-04', 'Theory', 2.0, 'Present'),
@@ -562,9 +561,9 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/006', 'ICT1242', '2025-11-04', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/007', 'ICT1242', '2025-11-04', 'Theory', 2.0, 'Present'),
 ('TG/2023/008', 'ICT1242', '2025-11-04', 'Theory', 2.0, 'Medical'),
-('TG/2023/009', 'ICT1242', '2025-11-04', 'Theory', 2.0, 'Medical'), -- Changed to Medical (has medical in ICT1253 on same day)
+('TG/2023/009', 'ICT1242', '2025-11-04', 'Theory', 2.0, 'Medical'), 
 ('TG/2023/010', 'ICT1242', '2025-11-04', 'Theory', 2.0, 'Present'),
-('TG/2023/011', 'ICT1242', '2025-11-04', 'Theory', 2.0, 'Medical'), -- Changed to Medical (has medical in ICT1253 Practical on same day)
+('TG/2023/011', 'ICT1242', '2025-11-04', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/012', 'ICT1242', '2025-11-04', 'Theory', 2.0, 'Present'),
 ('TG/2023/013', 'ICT1242', '2025-11-04', 'Theory', 2.0, 'Absent'),   
 ('TG/2023/014', 'ICT1242', '2025-11-04', 'Theory', 2.0, 'Present'),
@@ -577,10 +576,10 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/005', 'ICT1253', '2025-11-04', 'Theory', 2.0, 'Present'),
 ('TG/2023/006', 'ICT1253', '2025-11-04', 'Theory', 2.0, 'Present'),
 ('TG/2023/007', 'ICT1253', '2025-11-04', 'Theory', 2.0, 'Present'),
-('TG/2023/008', 'ICT1253', '2025-11-04', 'Theory', 2.0, 'Medical'), -- Changed to Medical (has medical in ICT1242 on same day)
+('TG/2023/008', 'ICT1253', '2025-11-04', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/009', 'ICT1253', '2025-11-04', 'Theory', 2.0, 'Medical'),
 ('TG/2023/010', 'ICT1253', '2025-11-04', 'Theory', 2.0, 'Present'),
-('TG/2023/011', 'ICT1253', '2025-11-04', 'Theory', 2.0, 'Medical'), -- Changed to Medical (has medical in ICT1253 Practical on same day)
+('TG/2023/011', 'ICT1253', '2025-11-04', 'Theory', 2.0, 'Medical'), 
 ('TG/2023/012', 'ICT1253', '2025-11-04', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/013', 'ICT1253', '2025-11-04', 'Theory', 2.0, 'Present'),
 ('TG/2023/014', 'ICT1253', '2025-11-04', 'Theory', 2.0, 'Present'),
@@ -593,8 +592,8 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/005', 'ICT1253', '2025-11-04', 'Practical', 2.0, 'Present'),
 ('TG/2023/006', 'ICT1253', '2025-11-04', 'Practical', 2.0, 'Absent'),   
 ('TG/2023/007', 'ICT1253', '2025-11-04', 'Practical', 2.0, 'Present'),
-('TG/2023/008', 'ICT1253', '2025-11-04', 'Practical', 2.0, 'Medical'), -- Changed to Medical (has medical in ICT1242 on same day)
-('TG/2023/009', 'ICT1253', '2025-11-04', 'Practical', 2.0, 'Medical'), -- Changed to Medical (has medical in ICT1253 Theory on same day)
+('TG/2023/008', 'ICT1253', '2025-11-04', 'Practical', 2.0, 'Medical'),  
+('TG/2023/009', 'ICT1253', '2025-11-04', 'Practical', 2.0, 'Medical'), 
 ('TG/2023/010', 'ICT1253', '2025-11-04', 'Practical', 2.0, 'Present'),
 ('TG/2023/011', 'ICT1253', '2025-11-04', 'Practical', 2.0, 'Medical'),  
 ('TG/2023/012', 'ICT1253', '2025-11-04', 'Practical', 2.0, 'Present'),
@@ -602,7 +601,7 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/014', 'ICT1253', '2025-11-04', 'Practical', 2.0, 'Present'),
 ('TG/2023/015', 'ICT1253', '2025-11-04', 'Practical', 2.0, 'Present'),
 
--- 2025-11-05: TG/2023/008 has medical in TMS1233 Theory
+ 
 ('TG/2023/001', 'TMS1233', '2025-11-05', 'Theory', 3.0, 'Present'),
 ('TG/2023/002', 'TMS1233', '2025-11-05', 'Theory', 3.0, 'Present'),
 ('TG/2023/003', 'TMS1233', '2025-11-05', 'Theory', 3.0, 'Present'),
@@ -619,7 +618,7 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/014', 'TMS1233', '2025-11-05', 'Theory', 3.0, 'Present'),
 ('TG/2023/015', 'TMS1233', '2025-11-05', 'Theory', 3.0, 'Present'),
 
--- 2025-11-06: TG/2023/009 has medical in ICT1212 Theory, TG/2023/011 has medical in ICT1222 Practical
+ 
 ('TG/2023/001', 'ICT1212', '2025-11-06', 'Theory', 2.0, 'Present'),
 ('TG/2023/002', 'ICT1212', '2025-11-06', 'Theory', 2.0, 'Present'),
 ('TG/2023/003', 'ICT1212', '2025-11-06', 'Theory', 2.0, 'Present'),
@@ -630,7 +629,7 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/008', 'ICT1212', '2025-11-06', 'Theory', 2.0, 'Present'),
 ('TG/2023/009', 'ICT1212', '2025-11-06', 'Theory', 2.0, 'Medical'),   
 ('TG/2023/010', 'ICT1212', '2025-11-06', 'Theory', 2.0, 'Present'),
-('TG/2023/011', 'ICT1212', '2025-11-06', 'Theory', 2.0, 'Medical'), -- Changed to Medical (has medical in ICT1222 Practical on same day)
+('TG/2023/011', 'ICT1212', '2025-11-06', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/012', 'ICT1212', '2025-11-06', 'Theory', 2.0, 'Present'),
 ('TG/2023/013', 'ICT1212', '2025-11-06', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/014', 'ICT1212', '2025-11-06', 'Theory', 2.0, 'Present'),
@@ -644,7 +643,7 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/006', 'ICT1222', '2025-11-06', 'Practical', 4.0, 'Absent'), 
 ('TG/2023/007', 'ICT1222', '2025-11-06', 'Practical', 4.0, 'Present'),
 ('TG/2023/008', 'ICT1222', '2025-11-06', 'Practical', 4.0, 'Present'),
-('TG/2023/009', 'ICT1222', '2025-11-06', 'Practical', 4.0, 'Medical'), -- Changed to Medical (has medical in ICT1212 Theory on same day)
+('TG/2023/009', 'ICT1222', '2025-11-06', 'Practical', 4.0, 'Medical'),  
 ('TG/2023/010', 'ICT1222', '2025-11-06', 'Practical', 4.0, 'Present'),
 ('TG/2023/011', 'ICT1222', '2025-11-06', 'Practical', 4.0, 'Medical'),  
 ('TG/2023/012', 'ICT1222', '2025-11-06', 'Practical', 4.0, 'Absent'),   
@@ -652,7 +651,7 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/014', 'ICT1222', '2025-11-06', 'Practical', 4.0, 'Present'),
 ('TG/2023/015', 'ICT1222', '2025-11-06', 'Practical', 4.0, 'Present'),
 
--- 2025-11-07: TG/2023/008 has medical in ENG1222 Theory, TG/2023/009 has medical in TCS1212 Theory
+ 
 ('TG/2023/001', 'ENG1222', '2025-11-07', 'Theory', 2.0, 'Present'),
 ('TG/2023/002', 'ENG1222', '2025-11-07', 'Theory', 2.0, 'Present'),
 ('TG/2023/003', 'ENG1222', '2025-11-07', 'Theory', 2.0, 'Present'),
@@ -661,7 +660,7 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/006', 'ENG1222', '2025-11-07', 'Theory', 2.0, 'Absent'),   
 ('TG/2023/007', 'ENG1222', '2025-11-07', 'Theory', 2.0, 'Present'),
 ('TG/2023/008', 'ENG1222', '2025-11-07', 'Theory', 2.0, 'Medical'),
-('TG/2023/009', 'ENG1222', '2025-11-07', 'Theory', 2.0, 'Medical'), -- Changed to Medical (has medical in TCS1212 on same day)
+('TG/2023/009', 'ENG1222', '2025-11-07', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/010', 'ENG1222', '2025-11-07', 'Theory', 2.0, 'Present'),
 ('TG/2023/011', 'ENG1222', '2025-11-07', 'Theory', 2.0, 'Present'),
 ('TG/2023/012', 'ENG1222', '2025-11-07', 'Theory', 2.0, 'Absent'),   
@@ -676,7 +675,7 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/005', 'TCS1212', '2025-11-07', 'Theory', 2.0, 'Present'),
 ('TG/2023/006', 'TCS1212', '2025-11-07', 'Theory', 2.0, 'Absent'),   
 ('TG/2023/007', 'TCS1212', '2025-11-07', 'Theory', 2.0, 'Present'),
-('TG/2023/008', 'TCS1212', '2025-11-07', 'Theory', 2.0, 'Medical'), -- Changed to Medical (has medical in ENG1222 on same day)
+('TG/2023/008', 'TCS1212', '2025-11-07', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/009', 'TCS1212', '2025-11-07', 'Theory', 2.0, 'Medical'),
 ('TG/2023/010', 'TCS1212', '2025-11-07', 'Theory', 2.0, 'Present'),
 ('TG/2023/011', 'TCS1212', '2025-11-07', 'Theory', 2.0, 'Present'),
@@ -692,7 +691,7 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 
 -- Week 15: 
 
--- 2025-11-10: TG/2023/009 has medical in ICT1233 Theory, TG/2023/011 has medical in ICT1233 Practical
+ 
 ('TG/2023/001', 'ICT1233', '2025-11-10', 'Theory', 2.0, 'Present'),
 ('TG/2023/002', 'ICT1233', '2025-11-10', 'Theory', 2.0, 'Present'),
 ('TG/2023/003', 'ICT1233', '2025-11-10', 'Theory', 2.0, 'Absent'),   
@@ -703,7 +702,7 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/008', 'ICT1233', '2025-11-10', 'Theory', 2.0, 'Present'),
 ('TG/2023/009', 'ICT1233', '2025-11-10', 'Theory', 2.0, 'Medical'),
 ('TG/2023/010', 'ICT1233', '2025-11-10', 'Theory', 2.0, 'Absent'),  
-('TG/2023/011', 'ICT1233', '2025-11-10', 'Theory', 2.0, 'Medical'), -- Changed to Medical (has medical in Practical on same day)
+('TG/2023/011', 'ICT1233', '2025-11-10', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/012', 'ICT1233', '2025-11-10', 'Theory', 2.0, 'Present'),
 ('TG/2023/013', 'ICT1233', '2025-11-10', 'Theory', 2.0, 'Present'),
 ('TG/2023/014', 'ICT1233', '2025-11-10', 'Theory', 2.0, 'Present'),
@@ -717,7 +716,7 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/006', 'ICT1233', '2025-11-10', 'Practical', 2.0, 'Absent'),  
 ('TG/2023/007', 'ICT1233', '2025-11-10', 'Practical', 2.0, 'Present'),
 ('TG/2023/008', 'ICT1233', '2025-11-10', 'Practical', 2.0, 'Present'),
-('TG/2023/009', 'ICT1233', '2025-11-10', 'Practical', 2.0, 'Medical'), -- Changed to Medical (has medical in Theory on same day)
+('TG/2023/009', 'ICT1233', '2025-11-10', 'Practical', 2.0, 'Medical'),  
 ('TG/2023/010', 'ICT1233', '2025-11-10', 'Practical', 2.0, 'Present'),
 ('TG/2023/011', 'ICT1233', '2025-11-10', 'Practical', 2.0, 'Medical'),   
 ('TG/2023/012', 'ICT1233', '2025-11-10', 'Practical', 2.0, 'Absent'),   
@@ -725,7 +724,7 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/014', 'ICT1233', '2025-11-10', 'Practical', 2.0, 'Present'),
 ('TG/2023/015', 'ICT1233', '2025-11-10', 'Practical', 2.0, 'Present'),
 
--- 2025-11-11: TG/2023/008 has medical in ICT1242 Theory, TG/2023/009 has medical in ICT1253 Theory, TG/2023/011 has medical in ICT1253 Practical
+ 
 ('TG/2023/001', 'ICT1242', '2025-11-11', 'Theory', 2.0, 'Present'),
 ('TG/2023/002', 'ICT1242', '2025-11-11', 'Theory', 2.0, 'Present'),
 ('TG/2023/003', 'ICT1242', '2025-11-11', 'Theory', 2.0, 'Present'),
@@ -734,9 +733,9 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/006', 'ICT1242', '2025-11-11', 'Theory', 2.0, 'Absent'),   
 ('TG/2023/007', 'ICT1242', '2025-11-11', 'Theory', 2.0, 'Present'),
 ('TG/2023/008', 'ICT1242', '2025-11-11', 'Theory', 2.0, 'Medical'),
-('TG/2023/009', 'ICT1242', '2025-11-11', 'Theory', 2.0, 'Medical'), -- Changed to Medical (has medical in ICT1253 on same day)
+('TG/2023/009', 'ICT1242', '2025-11-11', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/010', 'ICT1242', '2025-11-11', 'Theory', 2.0, 'Present'),
-('TG/2023/011', 'ICT1242', '2025-11-11', 'Theory', 2.0, 'Medical'), -- Changed to Medical (has medical in ICT1253 Practical on same day)
+('TG/2023/011', 'ICT1242', '2025-11-11', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/012', 'ICT1242', '2025-11-11', 'Theory', 2.0, 'Present'),
 ('TG/2023/013', 'ICT1242', '2025-11-11', 'Theory', 2.0, 'Absent'),   
 ('TG/2023/014', 'ICT1242', '2025-11-11', 'Theory', 2.0, 'Present'),
@@ -749,10 +748,10 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/005', 'ICT1253', '2025-11-11', 'Theory', 2.0, 'Present'),
 ('TG/2023/006', 'ICT1253', '2025-11-11', 'Theory', 2.0, 'Present'),
 ('TG/2023/007', 'ICT1253', '2025-11-11', 'Theory', 2.0, 'Present'),
-('TG/2023/008', 'ICT1253', '2025-11-11', 'Theory', 2.0, 'Medical'), -- Changed to Medical (has medical in ICT1242 on same day)
+('TG/2023/008', 'ICT1253', '2025-11-11', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/009', 'ICT1253', '2025-11-11', 'Theory', 2.0, 'Medical'),
 ('TG/2023/010', 'ICT1253', '2025-11-11', 'Theory', 2.0, 'Present'),
-('TG/2023/011', 'ICT1253', '2025-11-11', 'Theory', 2.0, 'Medical'), -- Changed to Medical (has medical in ICT1253 Practical on same day)
+('TG/2023/011', 'ICT1253', '2025-11-11', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/012', 'ICT1253', '2025-11-11', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/013', 'ICT1253', '2025-11-11', 'Theory', 2.0, 'Present'),
 ('TG/2023/014', 'ICT1253', '2025-11-11', 'Theory', 2.0, 'Present'),
@@ -765,8 +764,8 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/005', 'ICT1253', '2025-11-11', 'Practical', 2.0, 'Present'),
 ('TG/2023/006', 'ICT1253', '2025-11-11', 'Practical', 2.0, 'Absent'),   
 ('TG/2023/007', 'ICT1253', '2025-11-11', 'Practical', 2.0, 'Present'),
-('TG/2023/008', 'ICT1253', '2025-11-11', 'Practical', 2.0, 'Medical'), -- Changed to Medical (has medical in ICT1242 on same day)
-('TG/2023/009', 'ICT1253', '2025-11-11', 'Practical', 2.0, 'Medical'), -- Changed to Medical (has medical in ICT1253 Theory on same day)
+('TG/2023/008', 'ICT1253', '2025-11-11', 'Practical', 2.0, 'Medical'),  
+('TG/2023/009', 'ICT1253', '2025-11-11', 'Practical', 2.0, 'Medical'),  
 ('TG/2023/010', 'ICT1253', '2025-11-11', 'Practical', 2.0, 'Present'),
 ('TG/2023/011', 'ICT1253', '2025-11-11', 'Practical', 2.0, 'Medical'),   
 ('TG/2023/012', 'ICT1253', '2025-11-11', 'Practical', 2.0, 'Present'),
@@ -791,7 +790,7 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/014', 'TMS1233', '2025-11-12', 'Theory', 3.0, 'Present'),
 ('TG/2023/015', 'TMS1233', '2025-11-12', 'Theory', 3.0, 'Present'),
 
--- 2025-11-13: TG/2023/009 has medical in ICT1212 Theory, TG/2023/011 has medical in ICT1222 Practical
+ 
 ('TG/2023/001', 'ICT1212', '2025-11-13', 'Theory', 2.0, 'Present'),
 ('TG/2023/002', 'ICT1212', '2025-11-13', 'Theory', 2.0, 'Present'),
 ('TG/2023/003', 'ICT1212', '2025-11-13', 'Theory', 2.0, 'Present'),
@@ -802,7 +801,7 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/008', 'ICT1212', '2025-11-13', 'Theory', 2.0, 'Present'),
 ('TG/2023/009', 'ICT1212', '2025-11-13', 'Theory', 2.0, 'Medical'),   
 ('TG/2023/010', 'ICT1212', '2025-11-13', 'Theory', 2.0, 'Present'),
-('TG/2023/011', 'ICT1212', '2025-11-13', 'Theory', 2.0, 'Medical'), -- Changed to Medical (has medical in ICT1222 Practical on same day)
+('TG/2023/011', 'ICT1212', '2025-11-13', 'Theory', 2.0, 'Medical'),  
 ('TG/2023/012', 'ICT1212', '2025-11-13', 'Theory', 2.0, 'Present'),
 ('TG/2023/013', 'ICT1212', '2025-11-13', 'Theory', 2.0, 'Absent'),  
 ('TG/2023/014', 'ICT1212', '2025-11-13', 'Theory', 2.0, 'Present'),
@@ -816,7 +815,7 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/006', 'ICT1222', '2025-11-13', 'Practical', 4.0, 'Absent'),   
 ('TG/2023/007', 'ICT1222', '2025-11-13', 'Practical', 4.0, 'Present'),
 ('TG/2023/008', 'ICT1222', '2025-11-13', 'Practical', 4.0, 'Present'),
-('TG/2023/009', 'ICT1222', '2025-11-13', 'Practical', 4.0, 'Medical'), -- Changed to Medical (has medical in ICT1212 Theory on same day)
+('TG/2023/009', 'ICT1222', '2025-11-13', 'Practical', 4.0, 'Medical'),  
 ('TG/2023/010', 'ICT1222', '2025-11-13', 'Practical', 4.0, 'Present'),
 ('TG/2023/011', 'ICT1222', '2025-11-13', 'Practical', 4.0, 'Medical'),   
 ('TG/2023/012', 'ICT1222', '2025-11-13', 'Practical', 4.0, 'Absent'),   
@@ -824,7 +823,7 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/014', 'ICT1222', '2025-11-13', 'Practical', 4.0, 'Present'),
 ('TG/2023/015', 'ICT1222', '2025-11-13', 'Practical', 4.0, 'Present'),
 
--- 2025-11-14: TG/2023/008 has medical in ENG1222 Theory
+ 
 ('TG/2023/001', 'ENG1222', '2025-11-14', 'Theory', 2.0, 'Present'),
 ('TG/2023/002', 'ENG1222', '2025-11-14', 'Theory', 2.0, 'Present'),
 ('TG/2023/003', 'ENG1222', '2025-11-14', 'Theory', 2.0, 'Present'),
@@ -841,7 +840,7 @@ INSERT INTO ATTENDANCE (reg_no, course_code, session_date, session_type, session
 ('TG/2023/014', 'ENG1222', '2025-11-14', 'Theory', 2.0, 'Present'),
 ('TG/2023/015', 'ENG1222', '2025-11-14', 'Theory', 2.0, 'Present'),
 
--- 2025-11-15: TG/2023/009 has medical in TCS1212 Theory
+ 
 ('TG/2023/001', 'TCS1212', '2025-11-15', 'Theory', 2.0, 'Present'),
 ('TG/2023/002', 'TCS1212', '2025-11-15', 'Theory', 2.0, 'Present'),
 ('TG/2023/003', 'TCS1212', '2025-11-15', 'Theory', 2.0, 'Present'),
