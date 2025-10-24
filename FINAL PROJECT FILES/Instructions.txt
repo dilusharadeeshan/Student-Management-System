@@ -110,6 +110,6 @@ mulu batch ekata ca pass d faild balanna  => SELECT * FROM vw_CA_Status;
 ca saha attendance dekama anuwa end ekata eligibility eka =>  SELECT * FROM vw_end_exam_eligibility;
 
 
-
+hema student kenektama adala grade ekai greade point ekai => SELECT * FROM vw_all_stu_all_course_grade_point;
 
 

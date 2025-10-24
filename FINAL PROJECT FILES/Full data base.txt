@@ -5449,3 +5449,379 @@ ORDER BY cp.Reg_no, cp.Course_code;
 
 
 
+DROP VIEW IF EXISTS vw_all_stu_all_course_grade_point;
+CREATE VIEW vw_all_stu_all_course_grade_point AS
+SELECT 
+    m.Reg_no, 
+    c.Course_Code AS Course,
+    c.Credits AS Credit,
+    m.`Total_CA_marks(30%)` AS CA_marks,
+    m.`Total_End_marks(70%)` AS End_marks,
+    m.`Final_Marks(100%)` AS Final_marks,
+    CASE 
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 45 THEN 'C'
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 40 THEN 'C-'
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 35 THEN 'D'
+        WHEN s.Student_type = 'Repeat' THEN 'E'
+        WHEN m.`Final_Marks(100%)` >= 85 THEN 'A+'
+        WHEN m.`Final_Marks(100%)` >= 75 THEN 'A'
+        WHEN m.`Final_Marks(100%)` >= 70 THEN 'A-'
+        WHEN m.`Final_Marks(100%)` >= 65 THEN 'B+'
+        WHEN m.`Final_Marks(100%)` >= 60 THEN 'B'
+        WHEN m.`Final_Marks(100%)` >= 55 THEN 'B-'
+        WHEN m.`Final_Marks(100%)` >= 50 THEN 'C+'
+        WHEN m.`Final_Marks(100%)` >= 45 THEN 'C'
+        WHEN m.`Final_Marks(100%)` >= 40 THEN 'C-'
+        WHEN m.`Final_Marks(100%)` >= 35 THEN 'D'
+        ELSE 'E'
+    END AS Grade,
+    CASE 
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 45 THEN 2.0
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 40 THEN 1.7
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 35 THEN 1.3
+        WHEN s.Student_type = 'Repeat' THEN 0.0
+        WHEN m.`Final_Marks(100%)` >= 85 THEN 4.0
+        WHEN m.`Final_Marks(100%)` >= 75 THEN 4.0
+        WHEN m.`Final_Marks(100%)` >= 70 THEN 3.7
+        WHEN m.`Final_Marks(100%)` >= 65 THEN 3.3
+        WHEN m.`Final_Marks(100%)` >= 60 THEN 3.0
+        WHEN m.`Final_Marks(100%)` >= 55 THEN 2.7
+        WHEN m.`Final_Marks(100%)` >= 50 THEN 2.3
+        WHEN m.`Final_Marks(100%)` >= 45 THEN 2.0
+        WHEN m.`Final_Marks(100%)` >= 40 THEN 1.7
+        WHEN m.`Final_Marks(100%)` >= 35 THEN 1.3
+        ELSE 0.0
+    END AS Grade_Point
+FROM vw_eng1222_marks m
+JOIN course c ON c.Course_Code = 'ENG1222'
+JOIN STUDENT s ON s.Reg_no = m.Reg_no
+
+UNION ALL
+
+SELECT 
+    m.Reg_no, 
+    c.Course_Code AS Course,
+    c.Credits AS Credit,
+    m.`Total_CA_marks(30%)` AS CA_marks,
+    m.`Total_End_marks(70%)` AS End_marks,
+    m.`Final_Marks(100%)` AS Final_marks,
+    CASE 
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 45 THEN 'C'
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 40 THEN 'C-'
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 35 THEN 'D'
+        WHEN s.Student_type = 'Repeat' THEN 'E'
+        WHEN m.`Final_Marks(100%)` >= 85 THEN 'A+'
+        WHEN m.`Final_Marks(100%)` >= 75 THEN 'A'
+        WHEN m.`Final_Marks(100%)` >= 70 THEN 'A-'
+        WHEN m.`Final_Marks(100%)` >= 65 THEN 'B+'
+        WHEN m.`Final_Marks(100%)` >= 60 THEN 'B'
+        WHEN m.`Final_Marks(100%)` >= 55 THEN 'B-'
+        WHEN m.`Final_Marks(100%)` >= 50 THEN 'C+'
+        WHEN m.`Final_Marks(100%)` >= 45 THEN 'C'
+        WHEN m.`Final_Marks(100%)` >= 40 THEN 'C-'
+        WHEN m.`Final_Marks(100%)` >= 35 THEN 'D'
+        ELSE 'E'
+    END AS Grade,
+    CASE 
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 45 THEN 2.0
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 40 THEN 1.7
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 35 THEN 1.3
+        WHEN s.Student_type = 'Repeat' THEN 0.0
+        WHEN m.`Final_Marks(100%)` >= 85 THEN 4.0
+        WHEN m.`Final_Marks(100%)` >= 75 THEN 4.0
+        WHEN m.`Final_Marks(100%)` >= 70 THEN 3.7
+        WHEN m.`Final_Marks(100%)` >= 65 THEN 3.3
+        WHEN m.`Final_Marks(100%)` >= 60 THEN 3.0
+        WHEN m.`Final_Marks(100%)` >= 55 THEN 2.7
+        WHEN m.`Final_Marks(100%)` >= 50 THEN 2.3
+        WHEN m.`Final_Marks(100%)` >= 45 THEN 2.0
+        WHEN m.`Final_Marks(100%)` >= 40 THEN 1.7
+        WHEN m.`Final_Marks(100%)` >= 35 THEN 1.3
+        ELSE 0.0
+    END AS Grade_Point
+FROM vw_ICT1212_marks m
+JOIN course c ON c.Course_Code = 'ICT1212'
+JOIN STUDENT s ON s.Reg_no = m.Reg_no
+
+UNION ALL
+
+SELECT 
+    m.Reg_no, 
+    c.Course_Code AS Course,
+    c.Credits AS Credit,
+    m.`Total_CA_Marks(40%)` AS CA_marks,
+    m.`Total_End_marks(60%)` AS End_marks,
+    m.`Final_Marks(100%)` AS Final_marks,
+    CASE 
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 45 THEN 'C'
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 40 THEN 'C-'
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 35 THEN 'D'
+        WHEN s.Student_type = 'Repeat' THEN 'E'
+        WHEN m.`Final_Marks(100%)` >= 85 THEN 'A+'
+        WHEN m.`Final_Marks(100%)` >= 75 THEN 'A'
+        WHEN m.`Final_Marks(100%)` >= 70 THEN 'A-'
+        WHEN m.`Final_Marks(100%)` >= 65 THEN 'B+'
+        WHEN m.`Final_Marks(100%)` >= 60 THEN 'B'
+        WHEN m.`Final_Marks(100%)` >= 55 THEN 'B-'
+        WHEN m.`Final_Marks(100%)` >= 50 THEN 'C+'
+        WHEN m.`Final_Marks(100%)` >= 45 THEN 'C'
+        WHEN m.`Final_Marks(100%)` >= 40 THEN 'C-'
+        WHEN m.`Final_Marks(100%)` >= 35 THEN 'D'
+        ELSE 'E'
+    END AS Grade,
+    CASE 
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 45 THEN 2.0
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 40 THEN 1.7
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 35 THEN 1.3
+        WHEN s.Student_type = 'Repeat' THEN 0.0
+        WHEN m.`Final_Marks(100%)` >= 85 THEN 4.0
+        WHEN m.`Final_Marks(100%)` >= 75 THEN 4.0
+        WHEN m.`Final_Marks(100%)` >= 70 THEN 3.7
+        WHEN m.`Final_Marks(100%)` >= 65 THEN 3.3
+        WHEN m.`Final_Marks(100%)` >= 60 THEN 3.0
+        WHEN m.`Final_Marks(100%)` >= 55 THEN 2.7
+        WHEN m.`Final_Marks(100%)` >= 50 THEN 2.3
+        WHEN m.`Final_Marks(100%)` >= 45 THEN 2.0
+        WHEN m.`Final_Marks(100%)` >= 40 THEN 1.7
+        WHEN m.`Final_Marks(100%)` >= 35 THEN 1.3
+        ELSE 0.0
+    END AS Grade_Point
+FROM vw_ICT1222_marks m
+JOIN course c ON c.Course_Code = 'ICT1222'
+JOIN STUDENT s ON s.Reg_no = m.Reg_no
+
+UNION ALL
+
+SELECT 
+    m.Reg_no, 
+    c.Course_Code AS Course,
+    c.Credits AS Credit,
+    m.`Total_CA_Marks(40%)` AS CA_marks,
+    m.`Total_End_marks(60%)` AS End_marks,
+    m.`Final_Marks(100%)` AS Final_marks,
+    CASE 
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 45 THEN 'C'
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 40 THEN 'C-'
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 35 THEN 'D'
+        WHEN s.Student_type = 'Repeat' THEN 'E'
+        WHEN m.`Final_Marks(100%)` >= 85 THEN 'A+'
+        WHEN m.`Final_Marks(100%)` >= 75 THEN 'A'
+        WHEN m.`Final_Marks(100%)` >= 70 THEN 'A-'
+        WHEN m.`Final_Marks(100%)` >= 65 THEN 'B+'
+        WHEN m.`Final_Marks(100%)` >= 60 THEN 'B'
+        WHEN m.`Final_Marks(100%)` >= 55 THEN 'B-'
+        WHEN m.`Final_Marks(100%)` >= 50 THEN 'C+'
+        WHEN m.`Final_Marks(100%)` >= 45 THEN 'C'
+        WHEN m.`Final_Marks(100%)` >= 40 THEN 'C-'
+        WHEN m.`Final_Marks(100%)` >= 35 THEN 'D'
+        ELSE 'E'
+    END AS Grade,
+    CASE 
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 45 THEN 2.0
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 40 THEN 1.7
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 35 THEN 1.3
+        WHEN s.Student_type = 'Repeat' THEN 0.0
+        WHEN m.`Final_Marks(100%)` >= 85 THEN 4.0
+        WHEN m.`Final_Marks(100%)` >= 75 THEN 4.0
+        WHEN m.`Final_Marks(100%)` >= 70 THEN 3.7
+        WHEN m.`Final_Marks(100%)` >= 65 THEN 3.3
+        WHEN m.`Final_Marks(100%)` >= 60 THEN 3.0
+        WHEN m.`Final_Marks(100%)` >= 55 THEN 2.7
+        WHEN m.`Final_Marks(100%)` >= 50 THEN 2.3
+        WHEN m.`Final_Marks(100%)` >= 45 THEN 2.0
+        WHEN m.`Final_Marks(100%)` >= 40 THEN 1.7
+        WHEN m.`Final_Marks(100%)` >= 35 THEN 1.3
+        ELSE 0.0
+    END AS Grade_Point
+FROM vw_ICT1233_marks m
+JOIN course c ON c.Course_Code = 'ICT1233'
+JOIN STUDENT s ON s.Reg_no = m.Reg_no
+
+UNION ALL
+
+SELECT 
+    m.Reg_no, 
+    c.Course_Code AS Course,
+    c.Credits AS Credit,
+    m.`Total_CA_marks(30%)` AS CA_marks,
+    m.`Total_End_marks(70%)` AS End_marks,
+    m.`Final_Marks(100%)` AS Final_marks,
+    CASE 
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 45 THEN 'C'
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 40 THEN 'C-'
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 35 THEN 'D'
+        WHEN s.Student_type = 'Repeat' THEN 'E'
+        WHEN m.`Final_Marks(100%)` >= 85 THEN 'A+'
+        WHEN m.`Final_Marks(100%)` >= 75 THEN 'A'
+        WHEN m.`Final_Marks(100%)` >= 70 THEN 'A-'
+        WHEN m.`Final_Marks(100%)` >= 65 THEN 'B+'
+        WHEN m.`Final_Marks(100%)` >= 60 THEN 'B'
+        WHEN m.`Final_Marks(100%)` >= 55 THEN 'B-'
+        WHEN m.`Final_Marks(100%)` >= 50 THEN 'C+'
+        WHEN m.`Final_Marks(100%)` >= 45 THEN 'C'
+        WHEN m.`Final_Marks(100%)` >= 40 THEN 'C-'
+        WHEN m.`Final_Marks(100%)` >= 35 THEN 'D'
+        ELSE 'E'
+    END AS Grade,
+    CASE 
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 45 THEN 2.0
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 40 THEN 1.7
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 35 THEN 1.3
+        WHEN s.Student_type = 'Repeat' THEN 0.0
+        WHEN m.`Final_Marks(100%)` >= 85 THEN 4.0
+        WHEN m.`Final_Marks(100%)` >= 75 THEN 4.0
+        WHEN m.`Final_Marks(100%)` >= 70 THEN 3.7
+        WHEN m.`Final_Marks(100%)` >= 65 THEN 3.3
+        WHEN m.`Final_Marks(100%)` >= 60 THEN 3.0
+        WHEN m.`Final_Marks(100%)` >= 55 THEN 2.7
+        WHEN m.`Final_Marks(100%)` >= 50 THEN 2.3
+        WHEN m.`Final_Marks(100%)` >= 45 THEN 2.0
+        WHEN m.`Final_Marks(100%)` >= 40 THEN 1.7
+        WHEN m.`Final_Marks(100%)` >= 35 THEN 1.3
+        ELSE 0.0
+    END AS Grade_Point
+FROM vw_ICT1242_marks m
+JOIN course c ON c.Course_Code = 'ICT1242'
+JOIN STUDENT s ON s.Reg_no = m.Reg_no
+
+UNION ALL
+
+SELECT 
+    m.Reg_no, 
+    c.Course_Code AS Course,
+    c.Credits AS Credit,
+    m.`Total_CA_marks(40%)` AS CA_marks,
+    m.`Total_End_marks(60%)` AS End_marks,
+    m.`Final_Marks(100%)` AS Final_marks,
+    CASE 
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 45 THEN 'C'
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 40 THEN 'C-'
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 35 THEN 'D'
+        WHEN s.Student_type = 'Repeat' THEN 'E'
+        WHEN m.`Final_Marks(100%)` >= 85 THEN 'A+'
+        WHEN m.`Final_Marks(100%)` >= 75 THEN 'A'
+        WHEN m.`Final_Marks(100%)` >= 70 THEN 'A-'
+        WHEN m.`Final_Marks(100%)` >= 65 THEN 'B+'
+        WHEN m.`Final_Marks(100%)` >= 60 THEN 'B'
+        WHEN m.`Final_Marks(100%)` >= 55 THEN 'B-'
+        WHEN m.`Final_Marks(100%)` >= 50 THEN 'C+'
+        WHEN m.`Final_Marks(100%)` >= 45 THEN 'C'
+        WHEN m.`Final_Marks(100%)` >= 40 THEN 'C-'
+        WHEN m.`Final_Marks(100%)` >= 35 THEN 'D'
+        ELSE 'E'
+    END AS Grade,
+    CASE 
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 45 THEN 2.0
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 40 THEN 1.7
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 35 THEN 1.3
+        WHEN s.Student_type = 'Repeat' THEN 0.0
+        WHEN m.`Final_Marks(100%)` >= 85 THEN 4.0
+        WHEN m.`Final_Marks(100%)` >= 75 THEN 4.0
+        WHEN m.`Final_Marks(100%)` >= 70 THEN 3.7
+        WHEN m.`Final_Marks(100%)` >= 65 THEN 3.3
+        WHEN m.`Final_Marks(100%)` >= 60 THEN 3.0
+        WHEN m.`Final_Marks(100%)` >= 55 THEN 2.7
+        WHEN m.`Final_Marks(100%)` >= 50 THEN 2.3
+        WHEN m.`Final_Marks(100%)` >= 45 THEN 2.0
+        WHEN m.`Final_Marks(100%)` >= 40 THEN 1.7
+        WHEN m.`Final_Marks(100%)` >= 35 THEN 1.3
+        ELSE 0.0
+    END AS Grade_Point
+FROM vw_ICT1253_marks m
+JOIN course c ON c.Course_Code = 'ICT1253'
+JOIN STUDENT s ON s.Reg_no = m.Reg_no
+
+UNION ALL
+
+SELECT 
+    m.Reg_no, 
+    c.Course_Code AS Course,
+    c.Credits AS Credit,
+    m.`Total_CA_marks(30%)` AS CA_marks,
+    m.`Total_End_marks(70%)` AS End_marks,
+    m.`Final_Marks(100%)` AS Final_marks,
+    CASE 
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 45 THEN 'C'
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 40 THEN 'C-'
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 35 THEN 'D'
+        WHEN s.Student_type = 'Repeat' THEN 'E'
+        WHEN m.`Final_Marks(100%)` >= 85 THEN 'A+'
+        WHEN m.`Final_Marks(100%)` >= 75 THEN 'A'
+        WHEN m.`Final_Marks(100%)` >= 70 THEN 'A-'
+        WHEN m.`Final_Marks(100%)` >= 65 THEN 'B+'
+        WHEN m.`Final_Marks(100%)` >= 60 THEN 'B'
+        WHEN m.`Final_Marks(100%)` >= 55 THEN 'B-'
+        WHEN m.`Final_Marks(100%)` >= 50 THEN 'C+'
+        WHEN m.`Final_Marks(100%)` >= 45 THEN 'C'
+        WHEN m.`Final_Marks(100%)` >= 40 THEN 'C-'
+        WHEN m.`Final_Marks(100%)` >= 35 THEN 'D'
+        ELSE 'E'
+    END AS Grade,
+    CASE 
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 45 THEN 2.0
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 40 THEN 1.7
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 35 THEN 1.3
+        WHEN s.Student_type = 'Repeat' THEN 0.0
+        WHEN m.`Final_Marks(100%)` >= 85 THEN 4.0
+        WHEN m.`Final_Marks(100%)` >= 75 THEN 4.0
+        WHEN m.`Final_Marks(100%)` >= 70 THEN 3.7
+        WHEN m.`Final_Marks(100%)` >= 65 THEN 3.3
+        WHEN m.`Final_Marks(100%)` >= 60 THEN 3.0
+        WHEN m.`Final_Marks(100%)` >= 55 THEN 2.7
+        WHEN m.`Final_Marks(100%)` >= 50 THEN 2.3
+        WHEN m.`Final_Marks(100%)` >= 45 THEN 2.0
+        WHEN m.`Final_Marks(100%)` >= 40 THEN 1.7
+        WHEN m.`Final_Marks(100%)` >= 35 THEN 1.3
+        ELSE 0.0
+    END AS Grade_Point
+FROM vw_TCS1212_marks m
+JOIN course c ON c.Course_Code = 'TCS1212'
+JOIN STUDENT s ON s.Reg_no = m.Reg_no
+
+UNION ALL
+
+SELECT 
+    m.Reg_no, 
+    c.Course_Code AS Course,
+    c.Credits AS Credit,
+    m.`Total_CA_marks(40%)` AS CA_marks,
+    m.`Total_End_marks(60%)` AS End_marks,
+    m.`Final_Marks(100%)` AS Final_marks,
+    CASE 
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 45 THEN 'C'
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 40 THEN 'C-'
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 35 THEN 'D'
+        WHEN s.Student_type = 'Repeat' THEN 'E'
+        WHEN m.`Final_Marks(100%)` >= 85 THEN 'A+'
+        WHEN m.`Final_Marks(100%)` >= 75 THEN 'A'
+        WHEN m.`Final_Marks(100%)` >= 70 THEN 'A-'
+        WHEN m.`Final_Marks(100%)` >= 65 THEN 'B+'
+        WHEN m.`Final_Marks(100%)` >= 60 THEN 'B'
+        WHEN m.`Final_Marks(100%)` >= 55 THEN 'B-'
+        WHEN m.`Final_Marks(100%)` >= 50 THEN 'C+'
+        WHEN m.`Final_Marks(100%)` >= 45 THEN 'C'
+        WHEN m.`Final_Marks(100%)` >= 40 THEN 'C-'
+        WHEN m.`Final_Marks(100%)` >= 35 THEN 'D'
+        ELSE 'E'
+    END AS Grade,
+    CASE 
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 45 THEN 2.0
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 40 THEN 1.7
+        WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 35 THEN 1.3
+        WHEN s.Student_type = 'Repeat' THEN 0.0
+        WHEN m.`Final_Marks(100%)` >= 85 THEN 4.0
+        WHEN m.`Final_Marks(100%)` >= 75 THEN 4.0
+        WHEN m.`Final_Marks(100%)` >= 70 THEN 3.7
+        WHEN m.`Final_Marks(100%)` >= 65 THEN 3.3
+        WHEN m.`Final_Marks(100%)` >= 60 THEN 3.0
+        WHEN m.`Final_Marks(100%)` >= 55 THEN 2.7
+        WHEN m.`Final_Marks(100%)` >= 50 THEN 2.3
+        WHEN m.`Final_Marks(100%)` >= 45 THEN 2.0
+        WHEN m.`Final_Marks(100%)` >= 40 THEN 1.7
+        WHEN m.`Final_Marks(100%)` >= 35 THEN 1.3
+        ELSE 0.0
+    END AS Grade_Point
+FROM vw_TMS1233_marks m
+JOIN course c ON c.Course_Code = 'TMS1233'
+JOIN STUDENT s ON s.Reg_no = m.Reg_no
+ORDER BY Reg_no, Course;
