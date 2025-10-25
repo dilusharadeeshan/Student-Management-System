@@ -6589,7 +6589,6 @@ BEGIN
             m.`Second_Max_Quiz(100%)`,
             m.`Mid_theory(100%)`,
             m.`Total_CA_Marks(30%)`,
-            c.CA_marks,
             c.CA_Status
         FROM  vw_ICT1212_marks m
         JOIN vw_CA_Status c ON m.Reg_no = c.Reg_no AND m.Course_code = c.Course_code;
