@@ -6358,6 +6358,21 @@ GROUP BY Reg_no;
 
 
 
+DROP VIEW IF EXISTS vw_all_SGPA_and_CGPA;
+
+CREATE VIEW vw_all_SGPA_and_CGPA AS
+SELECT 
+    s.Reg_no,
+    s.your_sgpa,
+    c.`your cgpa`,
+    c.class
+FROM vw_all_stu_SGPA s
+JOIN vw_all_stu_CGPA c ON c.Reg_no = s.Reg_no;
+
+
+
+
+
 -- procedures
 
 
@@ -6752,3 +6767,18 @@ END //
 
 DELIMITER ;
 
+
+
+
+DROP PROCEDURE IF EXISTS individual_SGPA_and_CGPA;
+DELIMITER //
+
+CREATE PROCEDURE individual_SGPA_and_CGPA (IN p_regno CHAR(20))
+BEGIN
+
+SELECT * FROM vw_all_SGPA_and_CGPA
+WHERE p_regno=Reg_no;
+
+END //
+
+DELIMITER ;

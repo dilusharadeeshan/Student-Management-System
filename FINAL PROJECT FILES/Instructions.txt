@@ -93,11 +93,15 @@ for whole batch,
 	grade and grade point =>  SELECT * FROM vw_all_stu_all_course_grade_point;
     CGPA => SELECT * FROM vw_all_stu_CGPA;
     SGPA => SELECT * FROM vw_all_stu_SGPA;
+    Both CGPA and SGPA => SELECT * FROM vw_all_SGPA_and_CGPA;
+
+
+
 Procedures
 ----------
 
 Give reg no get CA marks for all subject =>  CALL CA_marks_all_sub_by_regNo('TG/2023/001');
-
+Give reg no get Both CGPA and SGPA CALL individual_SGPA_and_CGPA('TG/2023/003');
 
 
 
