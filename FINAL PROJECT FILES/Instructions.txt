@@ -11,16 +11,20 @@ views
 -----
 
 
-full attendance table with medical approvel  => SELECT * FROM vw_attend_with_medical_approval;
+==> full attendance table with medical approvel--> (Line 4072)
+        SELECT * FROM vw_attend_with_medical_approval;
 
-view attendance with eligibility and percentage by,
-    without medical,
-	    with session type =>  SELECT * FROM vw_eligibi_without_medical_with_name;
-		without session type =>  SELECT * FROM vw_eligibi_without_medical_with_name_without_S_type;
-    with medical,
-        with session type =>  SELECT * FROM vw_attend_percentage_with_medical_with_eligibility_with_name;
-        without session type =>  SELECT * FROM vw_attend_percen_with_medical_with_elig_without_S_type_with_n;
-
+==> view attendance with eligibility and percentage by,
+        without medical,
+	        with session type =>  (Line 4096)
+                SELECT * FROM vw_eligibi_without_medical_with_name;
+		without session type =>  (Line 4169)
+                SELECT * FROM vw_eligibi_without_medical_with_name_without_S_type;
+        with medical,
+            with session type =>  (Line 4131)
+                SELECT * FROM vw_attend_percentage_with_medical_with_eligibility_with_name;
+            without session type =>  (Line 4205)
+                SELECT * FROM vw_attend_percen_with_medical_with_elig_without_S_type_with_n;
 
 
 
@@ -68,32 +72,48 @@ views
 ------
 
 
-CA, End marks for all student for TMS1233(Discrete Mathematics) =>  SELECT * FROM vw_TMS1233_marks;
+CA, End marks for all student for TMS1233(Discrete Mathematics) =>  
+    SELECT * FROM vw_TMS1233_marks;
 
-CA, End marks for all student for TCS1212(Fundamentals of Management) =>  SELECT * FROM vw_TCS1212_marks;
+CA, End marks for all student for TCS1212(Fundamentals of Management) =>  
+    SELECT * FROM vw_TCS1212_marks;
 
-CA, End marks for all student for ICT1253(Computer Networks) =>  SELECT * FROM vw_ICT1253_marks;
+CA, End marks for all student for ICT1253(Computer Networks) =>  
+    SELECT * FROM vw_ICT1253_marks;
 
-CA, End marks for all student for ICT1212(Database Management Systems) =>  SELECT * FROM vw_ICT1212_marks;
+CA, End marks for all student for ICT1212(Database Management Systems) =>  
+    SELECT * FROM vw_ICT1212_marks;
 
-CA, End marks for all student for ENG1222(English II) =>  SELECT * FROM vw_ENG1222_marks;
+CA, End marks for all student for ENG1222(English II) =>  
+    SELECT * FROM vw_ENG1222_marks;
 
-CA, End marks for all student for ICT1222(Database Management Systems Practicum) =>  SELECT * FROM vw_ICT1222_marks;
+CA, End marks for all student for ICT1222(Database Management Systems Practicum) =>  
+    SELECT * FROM vw_ICT1222_marks;
 
-CA, End marks for all student for ICT1233(Server-Side Web Development) =>  SELECT * FROM vw_ICT1233_marks;
+CA, End marks for all student for ICT1233(Server-Side Web Development) =>  
+    SELECT * FROM vw_ICT1233_marks;
 
-CA, End marks for all student for ICT1242(Computer Architecture) =>  SELECT * FROM vw_ICT1242_marks;
+CA, End marks for all student for ICT1242(Computer Architecture) =>  
+    SELECT * FROM vw_ICT1242_marks;
 
 
 for whole batch,
-    CA marks with status  => SELECT * FROM vw_CA_Status;
-	End marks with status  => SELECT * FROM vw_end_Status;
-    CA marks And End marks with status =>  SELECT * FROM vw_total_CA_End_status;
-	Eligibility for End Exam based on CA and Attendance (old method) => SELECT * FROM vw_end_exam_elig_basedON_CA_and_Atten;
-	grade and grade point =>  SELECT * FROM vw_all_stu_all_course_grade_point;
-    CGPA => SELECT * FROM vw_all_stu_CGPA;
-    SGPA => SELECT * FROM vw_all_stu_SGPA;
-    Both CGPA and SGPA => SELECT * FROM vw_all_SGPA_and_CGPA;
+    CA marks with status  => 
+        SELECT * FROM vw_CA_Status;
+	End marks with status  => 
+        SELECT * FROM vw_end_Status;
+    CA marks And End marks with status =>  
+        SELECT * FROM vw_total_CA_End_status;
+	Eligibility for End Exam based on CA and Attendance (old method) => 
+        SELECT * FROM vw_end_exam_elig_basedON_CA_and_Atten;
+	grade and grade point =>  
+        SELECT * FROM vw_all_stu_all_course_grade_point;
+    CGPA => 
+        SELECT * FROM vw_all_stu_CGPA;
+    SGPA => 
+        SELECT * FROM vw_all_stu_SGPA;
+    Both CGPA and SGPA => 
+        SELECT * FROM vw_all_SGPA_and_CGPA;
 
 
 

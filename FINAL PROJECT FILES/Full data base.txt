@@ -6,7 +6,6 @@ CREATE DATABASE IF NOT EXISTS Faculty_Of_Technology;
 
 USE Faculty_Of_Technology;
 
-
 -- Create user table and subtables of it
 CREATE TABLE user (
     User_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -21,7 +20,6 @@ CREATE TABLE user (
     Password VARCHAR(100)
 );
 
-
 CREATE TABLE department (
     Department_id  CHAR(5) PRIMARY KEY,
     Dep_name VARCHAR(50));
@@ -33,7 +31,6 @@ CREATE TABLE user_contact_number (
 	FOREIGN KEY(User_id) REFERENCES user(User_id)
 );
     
-
 CREATE TABLE admin(
     Admin_id INT PRIMARY KEY,
     FOREIGN KEY(Admin_id) REFERENCES user(User_id) ON DELETE CASCADE
@@ -66,7 +63,6 @@ CREATE TABLE lecturer (
     FOREIGN KEY (Lecturer_id) REFERENCES USER(User_id) ON DELETE CASCADE
 );
 
-
 CREATE TABLE course (
     Course_code VARCHAR(20) PRIMARY KEY,
     Course_name VARCHAR(100),
@@ -77,8 +73,6 @@ CREATE TABLE course (
     FOREIGN KEY (Dep_id) REFERENCES department(Department_id),
     FOREIGN KEY (Lecturer_in_charge) REFERENCES lecturer(Lecturer_id)
 );
-
-
 
 CREATE TABLE MARK (
     Mark_id INT AUTO_INCREMENT  PRIMARY KEY,
@@ -113,9 +107,6 @@ CREATE TABLE attendance (
     FOREIGN KEY (course_code) REFERENCES COURSE(course_code)
 );
 
-
-
-
 -- create table for enrolls_in relationship between student and course
 CREATE TABLE enrollment (
     Reg_no CHAR(20),
@@ -124,15 +115,12 @@ CREATE TABLE enrollment (
     FOREIGN KEY(Reg_no) REFERENCES student(Reg_no) ON DELETE CASCADE,
     FOREIGN KEY(Course_code) REFERENCES course(Course_code) ON DELETE CASCADE
 );
-  
- 
+   
 INSERT INTO department VALUES 
-    	('D1',"Information Communication Technology"),
+    ('D1',"Information Communication Technology"),
 	('D2',"Engineering Technology"),
 	('D3',"Bio System Technology"),
 	('D4',"Multidisciplinary");	
-
-
 
 INSERT INTO USER (F_name, L_name, date_of_birth, Street, City, Postal_code, Email, Role, Password) VALUES
 ('Subhash', 'Jayasinghe', '1980-01-01', '1 Wackwella Road', 'Galle', '80000', 'admin@tech.ruh.ac.lk', 'Admin', 'admin123'),
@@ -179,7 +167,6 @@ INSERT INTO USER (F_name, L_name, date_of_birth, Street, City, Postal_code, Emai
 ('Sampath', 'Ranasinghe', '2002-03-08', '15 Samudra Mawatha', 'Galle', '80000', 'sampath.ranasinghe@student.ruh.ac.lk', 'Student', 'student123'),
 ('Kumudu', 'Herath', '2002-06-15', '34 Hakmana Road', 'Matara', '81000', 'kumudu.herath@student.ruh.ac.lk', 'Student', 'student123'),
 ('Prasanna', 'Wickrama', '2002-09-22', '42 Pedlar Street', 'Galle', '80000', 'prasanna.wickrama@student.ruh.ac.lk', 'Student', 'student123');
-
 
 INSERT INTO user_contact_number (user_id, phone_no) VALUES
 (1, '+94711234567'),
@@ -238,7 +225,6 @@ INSERT INTO user_contact_number (user_id, phone_no) VALUES
 (39, '+94779212345'),
 (39, '+94719212345');
 
-
 INSERT INTO ADMIN (Admin_id) VALUES (1);
 
 INSERT INTO DEAN (Dean_id) VALUES (2);
@@ -280,11 +266,6 @@ INSERT INTO STUDENT (Reg_no, User_id, Batch, Student_type,Dep_id) VALUES
 ('TG/2022/007', 38, '2022', 'Repeat','D1'),
 ('TG/2022/008', 39, '2022', 'Repeat','D1');
 
-
-
-
-
-
   -- data insert to course table
 INSERT INTO COURSE (Course_code,Course_name,Type,Credits,Lecturer_in_charge,Dep_id) VALUES
 ('ENG1222', 'English II', 'Theory', 2, 8,'D4'),
@@ -296,11 +277,7 @@ INSERT INTO COURSE (Course_code,Course_name,Type,Credits,Lecturer_in_charge,Dep_
 ('TCS1212', 'Fundamentals of Management', 'Theory', 2, 9,'D4'),
 ('TMS1233', 'Discrete Mathematics', 'Theory', 3, 6,'D2');
 
-
-
-
 INSERT INTO enrollment (Reg_no, Course_code) VALUES
-
 ('TG/2023/001', 'ENG1222'),
 ('TG/2023/001', 'ICT1212'),
 ('TG/2023/001', 'ICT1222'),
@@ -309,7 +286,6 @@ INSERT INTO enrollment (Reg_no, Course_code) VALUES
 ('TG/2023/001', 'ICT1253'),
 ('TG/2023/001', 'TCS1212'),
 ('TG/2023/001', 'TMS1233'),
-
 
 ('TG/2023/002', 'ENG1222'),
 ('TG/2023/002', 'ICT1212'),
@@ -320,7 +296,6 @@ INSERT INTO enrollment (Reg_no, Course_code) VALUES
 ('TG/2023/002', 'TCS1212'),
 ('TG/2023/002', 'TMS1233'),
 
-
 ('TG/2023/003', 'ENG1222'),
 ('TG/2023/003', 'ICT1212'),
 ('TG/2023/003', 'ICT1222'),
@@ -330,7 +305,6 @@ INSERT INTO enrollment (Reg_no, Course_code) VALUES
 ('TG/2023/003', 'TCS1212'),
 ('TG/2023/003', 'TMS1233'),
 
-
 ('TG/2023/004', 'ENG1222'),
 ('TG/2023/004', 'ICT1212'),
 ('TG/2023/004', 'ICT1222'),
@@ -339,7 +313,6 @@ INSERT INTO enrollment (Reg_no, Course_code) VALUES
 ('TG/2023/004', 'ICT1253'),
 ('TG/2023/004', 'TCS1212'),
 ('TG/2023/004', 'TMS1233'),
-
 
 ('TG/2023/005', 'ENG1222'),
 ('TG/2023/005', 'ICT1212'),
@@ -359,7 +332,6 @@ INSERT INTO enrollment (Reg_no, Course_code) VALUES
 ('TG/2023/006', 'TCS1212'),
 ('TG/2023/006', 'TMS1233'),
 
-
 ('TG/2023/007', 'ENG1222'),
 ('TG/2023/007', 'ICT1212'),
 ('TG/2023/007', 'ICT1222'),
@@ -368,7 +340,6 @@ INSERT INTO enrollment (Reg_no, Course_code) VALUES
 ('TG/2023/007', 'ICT1253'),
 ('TG/2023/007', 'TCS1212'),
 ('TG/2023/007', 'TMS1233'),
-
 
 ('TG/2023/008', 'ENG1222'),
 ('TG/2023/008', 'ICT1212'),
@@ -379,7 +350,6 @@ INSERT INTO enrollment (Reg_no, Course_code) VALUES
 ('TG/2023/008', 'TCS1212'),
 ('TG/2023/008', 'TMS1233'),
 
-
 ('TG/2023/009', 'ENG1222'),
 ('TG/2023/009', 'ICT1212'),
 ('TG/2023/009', 'ICT1222'),
@@ -388,7 +358,6 @@ INSERT INTO enrollment (Reg_no, Course_code) VALUES
 ('TG/2023/009', 'ICT1253'),
 ('TG/2023/009', 'TCS1212'),
 ('TG/2023/009', 'TMS1233'),
-
 
 ('TG/2023/010', 'ENG1222'),
 ('TG/2023/010', 'ICT1212'),
@@ -399,7 +368,6 @@ INSERT INTO enrollment (Reg_no, Course_code) VALUES
 ('TG/2023/010', 'TCS1212'),
 ('TG/2023/010', 'TMS1233'),
 
-
 ('TG/2023/011', 'ENG1222'),
 ('TG/2023/011', 'ICT1212'),
 ('TG/2023/011', 'ICT1222'),
@@ -408,7 +376,6 @@ INSERT INTO enrollment (Reg_no, Course_code) VALUES
 ('TG/2023/011', 'ICT1253'),
 ('TG/2023/011', 'TCS1212'),
 ('TG/2023/011', 'TMS1233'),
-
 
 ('TG/2023/012', 'ENG1222'),
 ('TG/2023/012', 'ICT1212'),
@@ -419,7 +386,6 @@ INSERT INTO enrollment (Reg_no, Course_code) VALUES
 ('TG/2023/012', 'TCS1212'),
 ('TG/2023/012', 'TMS1233'),
 
-
 ('TG/2023/013', 'ENG1222'),
 ('TG/2023/013', 'ICT1212'),
 ('TG/2023/013', 'ICT1222'),
@@ -428,7 +394,6 @@ INSERT INTO enrollment (Reg_no, Course_code) VALUES
 ('TG/2023/013', 'ICT1253'),
 ('TG/2023/013', 'TCS1212'),
 ('TG/2023/013', 'TMS1233'),
-
 
 ('TG/2023/014', 'ENG1222'),
 ('TG/2023/014', 'ICT1212'),
@@ -439,7 +404,6 @@ INSERT INTO enrollment (Reg_no, Course_code) VALUES
 ('TG/2023/014', 'TCS1212'),
 ('TG/2023/014', 'TMS1233'),
 
-
 ('TG/2023/015', 'ENG1222'),
 ('TG/2023/015', 'ICT1212'),
 ('TG/2023/015', 'ICT1222'),
@@ -449,10 +413,7 @@ INSERT INTO enrollment (Reg_no, Course_code) VALUES
 ('TG/2023/015', 'TCS1212'),
 ('TG/2023/015', 'TMS1233');
 
-
 -- repeat students
-
-
 INSERT INTO enrollment (Reg_no, Course_code) VALUES 
 ('TG/2022/001', 'ICT1212'),
 ('TG/2022/001', 'ICT1242'),
@@ -466,9 +427,6 @@ INSERT INTO enrollment (Reg_no, Course_code) VALUES
 ('TG/2022/007', 'ENG1222'),
 ('TG/2022/008', 'ICT1253'),
 ('TG/2022/008', 'TCS1212');
-
-
-
 
 INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/003', '2025-08-04', 'Fever', TRUE);
 INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/007', '2025-08-04', 'Headache', TRUE);
@@ -716,12 +674,6 @@ INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/
 INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-11-15', 'Cough', FALSE);
 INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-11-15', 'Fever', FALSE);
 
-
-
-
-
-
-
 INSERT INTO attendance (Attendance_id, Reg_no, Course_code, Session_date, Session_type, Session_hours, Status, Medical_id) VALUES
 (1, 'TG/2023/001', 'ICT1233', '2025-08-04', 'Theory', 2.0, 'Present', NULL),
 (2, 'TG/2023/002', 'ICT1233', '2025-08-04', 'Theory', 2.0, 'Present', NULL),
@@ -873,6 +825,7 @@ INSERT INTO attendance (Attendance_id, Reg_no, Course_code, Session_date, Sessio
 (148, 'TG/2023/013', 'TCS1212', '2025-08-08', 'Theory', 2.0, 'Present', NULL),
 (149, 'TG/2023/014', 'TCS1212', '2025-08-08', 'Theory', 2.0, 'Present', NULL),
 (150, 'TG/2023/015', 'TCS1212', '2025-08-08', 'Theory', 2.0, 'Medical', 19),
+
 (151, 'TG/2023/001', 'ICT1233', '2025-08-11', 'Theory', 2.0, 'Present', NULL),
 (152, 'TG/2023/002', 'ICT1233', '2025-08-11', 'Theory', 2.0, 'Present', NULL),
 (153, 'TG/2023/003', 'ICT1233', '2025-08-11', 'Theory', 2.0, 'Present', NULL),
@@ -1023,6 +976,7 @@ INSERT INTO attendance (Attendance_id, Reg_no, Course_code, Session_date, Sessio
 (298, 'TG/2023/013', 'TCS1212', '2025-08-15', 'Theory', 2.0, 'Present', NULL),
 (299, 'TG/2023/014', 'TCS1212', '2025-08-15', 'Theory', 2.0, 'Medical', 36),
 (300, 'TG/2023/015', 'TCS1212', '2025-08-15', 'Theory', 2.0, 'Medical', 37),
+
 (301, 'TG/2023/001', 'ICT1233', '2025-08-18', 'Theory', 2.0, 'Present', NULL),
 (302, 'TG/2023/002', 'ICT1233', '2025-08-18', 'Theory', 2.0, 'Medical', 38),
 (303, 'TG/2023/003', 'ICT1233', '2025-08-18', 'Theory', 2.0, 'Present', NULL),
@@ -1173,6 +1127,7 @@ INSERT INTO attendance (Attendance_id, Reg_no, Course_code, Session_date, Sessio
 (448, 'TG/2023/013', 'TCS1212', '2025-08-22', 'Theory', 2.0, 'Present', NULL),
 (449, 'TG/2023/014', 'TCS1212', '2025-08-22', 'Theory', 2.0, 'Present', NULL),
 (450, 'TG/2023/015', 'TCS1212', '2025-08-22', 'Theory', 2.0, 'Medical', 54),
+
 (451, 'TG/2023/001', 'ICT1233', '2025-08-25', 'Theory', 2.0, 'Present', NULL),
 (452, 'TG/2023/002', 'ICT1233', '2025-08-25', 'Theory', 2.0, 'Medical', 55),
 (453, 'TG/2023/003', 'ICT1233', '2025-08-25', 'Theory', 2.0, 'Absent', NULL),
@@ -1475,7 +1430,6 @@ INSERT INTO attendance (Attendance_id, Reg_no, Course_code, Session_date, Sessio
 (749, 'TG/2023/014', 'TCS1212', '2025-09-05', 'Theory', 2.0, 'Present', NULL),
 (750, 'TG/2023/015', 'TCS1212', '2025-09-05', 'Theory', 2.0, 'Present', NULL),
 
-
 (751, 'TG/2023/001', 'ICT1233', '2025-09-08', 'Theory', 2.0, 'Present', NULL),
 (752, 'TG/2023/002', 'ICT1233', '2025-09-08', 'Theory', 2.0, 'Medical', 76),
 (753, 'TG/2023/003', 'ICT1233', '2025-09-08', 'Theory', 2.0, 'Present', NULL),
@@ -1627,8 +1581,6 @@ INSERT INTO attendance (Attendance_id, Reg_no, Course_code, Session_date, Sessio
 (899, 'TG/2023/014', 'TCS1212', '2025-09-12', 'Theory', 2.0, 'Present', NULL),
 (900, 'TG/2023/015', 'TCS1212', '2025-09-12', 'Theory', 2.0, 'Present', NULL),
 
-
-
 (901, 'TG/2023/001', 'ICT1233', '2025-09-15', 'Theory', 2.0, 'Present', NULL),
 (902, 'TG/2023/002', 'ICT1233', '2025-09-15', 'Theory', 2.0, 'Present', NULL),
 (903, 'TG/2023/003', 'ICT1233', '2025-09-15', 'Theory', 2.0, 'Absent', NULL),
@@ -1659,7 +1611,6 @@ INSERT INTO attendance (Attendance_id, Reg_no, Course_code, Session_date, Sessio
 (928, 'TG/2023/013', 'ICT1233', '2025-09-15', 'Practical', 2.0, 'Present', NULL),
 (929, 'TG/2023/014', 'ICT1233', '2025-09-15', 'Practical', 2.0, 'Present', NULL),
 (930, 'TG/2023/015', 'ICT1233', '2025-09-15', 'Practical', 2.0, 'Present', NULL),
-
 (931, 'TG/2023/001', 'ICT1242', '2025-09-16', 'Theory', 2.0, 'Present', NULL),
 (932, 'TG/2023/002', 'ICT1242', '2025-09-16', 'Theory', 2.0, 'Present', NULL),
 (933, 'TG/2023/003', 'ICT1242', '2025-09-16', 'Theory', 2.0, 'Present', NULL),
@@ -1670,8 +1621,6 @@ INSERT INTO attendance (Attendance_id, Reg_no, Course_code, Session_date, Sessio
 (938, 'TG/2023/008', 'ICT1242', '2025-09-16', 'Theory', 2.0, 'Medical', 87),
 (939, 'TG/2023/009', 'ICT1242', '2025-09-16', 'Theory', 2.0, 'Medical', 88),
 (940, 'TG/2023/010', 'ICT1242', '2025-09-16', 'Theory', 2.0, 'Present', NULL);
-
-
 
 INSERT INTO attendance (Attendance_id, Reg_no, Course_code, Session_date, Session_type, Session_hours, Status, Medical_id) VALUES
 (941, 'TG/2023/011', 'ICT1242', '2025-09-16', 'Theory', 2.0, 'Medical', 90),
@@ -1784,6 +1733,7 @@ INSERT INTO attendance (Attendance_id, Reg_no, Course_code, Session_date, Sessio
 (1048, 'TG/2023/013', 'TCS1212', '2025-09-19', 'Theory', 2.0, 'Present', NULL),
 (1049, 'TG/2023/014', 'TCS1212', '2025-09-19', 'Theory', 2.0, 'Present', NULL),
 (1050, 'TG/2023/015', 'TCS1212', '2025-09-19', 'Theory', 2.0, 'Present', NULL),
+
 (1051, 'TG/2023/001', 'ICT1233', '2025-09-22', 'Theory', 2.0, 'Present', NULL),
 (1052, 'TG/2023/002', 'ICT1233', '2025-09-22', 'Theory', 2.0, 'Medical', 96),
 (1053, 'TG/2023/003', 'ICT1233', '2025-09-22', 'Theory', 2.0, 'Present', NULL),
@@ -1934,6 +1884,7 @@ INSERT INTO attendance (Attendance_id, Reg_no, Course_code, Session_date, Sessio
 (1198, 'TG/2023/013', 'TCS1212', '2025-09-26', 'Theory', 2.0, 'Present', NULL),
 (1199, 'TG/2023/014', 'TCS1212', '2025-09-26', 'Theory', 2.0, 'Present', NULL),
 (1200, 'TG/2023/015', 'TCS1212', '2025-09-26', 'Theory', 2.0, 'Present', NULL),
+
 (1201, 'TG/2023/001', 'ICT1233', '2025-09-29', 'Theory', 2.0, 'Present', NULL),
 (1202, 'TG/2023/002', 'ICT1233', '2025-09-29', 'Theory', 2.0, 'Present', NULL),
 (1203, 'TG/2023/003', 'ICT1233', '2025-09-29', 'Theory', 2.0, 'Absent', NULL),
@@ -2084,6 +2035,7 @@ INSERT INTO attendance (Attendance_id, Reg_no, Course_code, Session_date, Sessio
 (1348, 'TG/2023/013', 'TCS1212', '2025-10-03', 'Theory', 2.0, 'Present', NULL),
 (1349, 'TG/2023/014', 'TCS1212', '2025-10-03', 'Theory', 2.0, 'Present', NULL),
 (1350, 'TG/2023/015', 'TCS1212', '2025-10-03', 'Theory', 2.0, 'Present', NULL),
+
 (1351, 'TG/2023/001', 'ICT1233', '2025-10-06', 'Theory', 2.0, 'Present', NULL),
 (1352, 'TG/2023/002', 'ICT1233', '2025-10-06', 'Theory', 2.0, 'Medical', 114),
 (1353, 'TG/2023/003', 'ICT1233', '2025-10-06', 'Theory', 2.0, 'Absent', NULL),
@@ -2234,6 +2186,7 @@ INSERT INTO attendance (Attendance_id, Reg_no, Course_code, Session_date, Sessio
 (1498, 'TG/2023/013', 'TCS1212', '2025-10-10', 'Theory', 2.0, 'Present', NULL),
 (1499, 'TG/2023/014', 'TCS1212', '2025-10-10', 'Theory', 2.0, 'Present', NULL),
 (1500, 'TG/2023/015', 'TCS1212', '2025-10-10', 'Theory', 2.0, 'Present', NULL),
+
 (1501, 'TG/2023/001', 'ICT1233', '2025-10-13', 'Theory', 2.0, 'Present', NULL),
 (1502, 'TG/2023/002', 'ICT1233', '2025-10-13', 'Theory', 2.0, 'Present', NULL),
 (1503, 'TG/2023/003', 'ICT1233', '2025-10-13', 'Theory', 2.0, 'Absent', NULL),
@@ -2384,6 +2337,7 @@ INSERT INTO attendance (Attendance_id, Reg_no, Course_code, Session_date, Sessio
 (1648, 'TG/2023/013', 'TCS1212', '2025-10-17', 'Theory', 2.0, 'Present', NULL),
 (1649, 'TG/2023/014', 'TCS1212', '2025-10-17', 'Theory', 2.0, 'Present', NULL),
 (1650, 'TG/2023/015', 'TCS1212', '2025-10-17', 'Theory', 2.0, 'Present', NULL),
+
 (1651, 'TG/2023/001', 'ICT1233', '2025-10-20', 'Theory', 2.0, 'Present', NULL),
 (1652, 'TG/2023/002', 'ICT1233', '2025-10-20', 'Theory', 2.0, 'Medical', 132),
 (1653, 'TG/2023/003', 'ICT1233', '2025-10-20', 'Theory', 2.0, 'Absent', NULL),
@@ -2534,6 +2488,7 @@ INSERT INTO attendance (Attendance_id, Reg_no, Course_code, Session_date, Sessio
 (1798, 'TG/2023/013', 'TCS1212', '2025-10-24', 'Theory', 2.0, 'Present', NULL),
 (1799, 'TG/2023/014', 'TCS1212', '2025-10-24', 'Theory', 2.0, 'Present', NULL),
 (1800, 'TG/2023/015', 'TCS1212', '2025-10-24', 'Theory', 2.0, 'Present', NULL),
+
 (1801, 'TG/2023/001', 'ICT1233', '2025-10-27', 'Theory', 2.0, 'Present', NULL),
 (1802, 'TG/2023/002', 'ICT1233', '2025-10-27', 'Theory', 2.0, 'Present', NULL),
 (1803, 'TG/2023/003', 'ICT1233', '2025-10-27', 'Theory', 2.0, 'Absent', NULL),
@@ -2558,8 +2513,6 @@ INSERT INTO attendance (Attendance_id, Reg_no, Course_code, Session_date, Sessio
 (1822, 'TG/2023/007', 'ICT1233', '2025-10-27', 'Practical', 2.0, 'Present', NULL),
 (1823, 'TG/2023/008', 'ICT1233', '2025-10-27', 'Practical', 2.0, 'Present', NULL),
 (1824, 'TG/2023/009', 'ICT1233', '2025-10-27', 'Practical', 2.0, 'Medical', 142),
-
-
 (1825, 'TG/2023/010', 'ICT1233', '2025-10-27', 'Practical', 2.0, 'Present', NULL),
 (1826, 'TG/2023/011', 'ICT1233', '2025-10-27', 'Practical', 2.0, 'Medical', 143),
 (1827, 'TG/2023/012', 'ICT1233', '2025-10-27', 'Practical', 2.0, 'Absent', NULL),
@@ -2686,6 +2639,7 @@ INSERT INTO attendance (Attendance_id, Reg_no, Course_code, Session_date, Sessio
 (1948, 'TG/2023/013', 'TCS1212', '2025-10-31', 'Theory', 2.0, 'Present', NULL),
 (1949, 'TG/2023/014', 'TCS1212', '2025-10-31', 'Theory', 2.0, 'Present', NULL),
 (1950, 'TG/2023/015', 'TCS1212', '2025-10-31', 'Theory', 2.0, 'Present', NULL),
+
 (1951, 'TG/2023/001', 'ICT1233', '2025-11-03', 'Theory', 2.0, 'Present', NULL),
 (1952, 'TG/2023/002', 'ICT1233', '2025-11-03', 'Theory', 2.0, 'Medical', 152),
 (1953, 'TG/2023/003', 'ICT1233', '2025-11-03', 'Theory', 2.0, 'Absent', NULL),
@@ -2736,8 +2690,6 @@ INSERT INTO attendance (Attendance_id, Reg_no, Course_code, Session_date, Sessio
 (1998, 'TG/2023/003', 'ICT1253', '2025-11-04', 'Theory', 2.0, 'Absent', NULL),
 (1999, 'TG/2023/004', 'ICT1253', '2025-11-04', 'Theory', 2.0, 'Present', NULL),
 (2000, 'TG/2023/005', 'ICT1253', '2025-11-04', 'Theory', 2.0, 'Present', NULL);
--- Corrected INSERT statements for Attendance_id 2001-2250
--- All 250 rows with corrected Medical_id references
 
 INSERT INTO attendance (Attendance_id, Reg_no, Course_code, Session_date, Session_type, Session_hours, Status, Medical_id) VALUES
 (2001, 'TG/2023/006', 'ICT1253', '2025-11-04', 'Theory', 2.0, 'Present', NULL),
@@ -2840,6 +2792,7 @@ INSERT INTO attendance (Attendance_id, Reg_no, Course_code, Session_date, Sessio
 (2098, 'TG/2023/013', 'TCS1212', '2025-11-07', 'Theory', 2.0, 'Present', NULL),
 (2099, 'TG/2023/014', 'TCS1212', '2025-11-07', 'Theory', 2.0, 'Present', NULL),
 (2100, 'TG/2023/015', 'TCS1212', '2025-11-07', 'Theory', 2.0, 'Present', NULL),
+
 (2101, 'TG/2023/001', 'ICT1233', '2025-11-10', 'Theory', 2.0, 'Present', NULL),
 (2102, 'TG/2023/002', 'ICT1233', '2025-11-10', 'Theory', 2.0, 'Present', NULL),
 (2103, 'TG/2023/003', 'ICT1233', '2025-11-10', 'Theory', 2.0, 'Absent', NULL),
@@ -2991,17 +2944,16 @@ INSERT INTO attendance (Attendance_id, Reg_no, Course_code, Session_date, Sessio
 (2249, 'TG/2023/014', 'TCS1212', '2025-11-15', 'Theory', 2.0, 'Present', NULL),
 (2250, 'TG/2023/015', 'TCS1212', '2025-11-15', 'Theory', 2.0, 'Present', NULL);
 
-
+-- medical id correction of attendance table
 UPDATE attendance SET Medical_id = NULL;
 UPDATE attendance SET Status = 'Present', Medical_id = NULL;
-
 UPDATE attendance a
 INNER JOIN medical_record m 
 ON a.Reg_no = m.reg_no AND a.Session_date = m.session_date
 SET a.Status = 'Medical',
     a.Medical_id = m.Medical_id;
 
-
+-- correcting aa status for better
 UPDATE attendance 
 SET Status = 'Absent' 
 WHERE Status = 'Present' 
@@ -3009,9 +2961,7 @@ AND Medical_id IS NULL
 AND (Attendance_id % 7 = 0)  
 LIMIT 180;
 
-
 -- 001
-
 -- ENG1222 - 2 assignments, one mid theory, one end theory
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/001', 'ENG1222', 'Assignment_1', 85.00),
@@ -3072,16 +3022,14 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/001', 'TCS1212', 'Mid_theory', 80.50),
 ('TG/2023/001', 'TCS1212', 'End_theory', 78.00);
 
--- TMS1233 - 1 assignment, mid theory, end theory
+-- TMS1233 - 2 quiz, mid theory, end theory
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/001', 'TMS1233', 'Quiz_1', 82.50),
 ('TG/2023/001', 'TMS1233', 'Quiz_2', 32),
 ('TG/2023/001', 'TMS1233', 'Mid_theory', 85.00),
 ('TG/2023/001', 'TMS1233', 'End_theory', 79.50);
 
-
 -- 002
-
 -- ENG1222 - 2 assignments, one mid theory, one end theory
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/002', 'ENG1222', 'Assignment_1', 57.00),
@@ -3142,7 +3090,7 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/002', 'TCS1212', 'Mid_theory', 83.75),
 ('TG/2023/002', 'TCS1212', 'End_theory', 88.00);
 
--- TMS1233 - 1 assignment, mid theory, end theory
+-- TMS1233 - 2 quiz, mid theory, end theory
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/002', 'TMS1233', 'Quiz_1', 85.75),
 ('TG/2023/002', 'TMS1233', 'Quiz_2', 56.3),
@@ -3150,7 +3098,6 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/002', 'TMS1233', 'End_theory', 86.50);
 
 -- 003
-
 -- ENG1222 - 2 assignments, mid theory, end theory
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/003', 'ENG1222', 'Assignment_1', 55.00),
@@ -3211,7 +3158,7 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/003', 'TCS1212', 'Mid_theory', 48.00),
 ('TG/2023/003', 'TCS1212', 'End_theory', 45.00);
 
--- TMS1233 - 1 assignment, mid theory, end theory
+-- TMS1233 - 2 quiz, mid theory, end theory
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/003', 'TMS1233', 'Quiz_1', 52.00),
 ('TG/2023/003', 'TMS1233', 'Quiz_2', 61.2),
@@ -3219,8 +3166,6 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/003', 'TMS1233', 'End_theory', 47.00);
 
 -- 004
-
-
 -- ENG1222 - 2 assignments, mid theory, end theory
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/004', 'ENG1222', 'Assignment_1', 65.00),
@@ -3281,7 +3226,7 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/004', 'TCS1212', 'Mid_theory', 58.00),
 ('TG/2023/004', 'TCS1212', 'End_theory', 55.00);
 
--- TMS1233 - 1 assignment, mid theory, end theory
+-- TMS1233 - 2 quiz, mid theory, end theory
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/004', 'TMS1233', 'Quiz_1', 62.00),
 ('TG/2023/004', 'TMS1233', 'Quiz_2', 61.2),
@@ -3291,8 +3236,6 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 
 
 -- 005
-
-
 -- ENG1222 - 2 assignments, mid theory, end theory
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/005', 'ENG1222', 'Assignment_1', 72.00),
@@ -3353,17 +3296,14 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/005', 'TCS1212', 'Mid_theory', 68.00),
 ('TG/2023/005', 'TCS1212', 'End_theory', 65.00);
 
--- TMS1233 - 1 assignment, mid theory, end theory
+-- TMS1233 - 2 quiz, mid theory, end theory
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/005', 'TMS1233', 'Quiz_1', 72.00),
 ('TG/2023/005', 'TMS1233', 'Quiz_2', 43),
 ('TG/2023/005', 'TMS1233', 'Mid_theory', 69.00),
 ('TG/2023/005', 'TMS1233', 'End_theory', 67.00);
 
-
 -- 006
-
-
 -- ENG1222 - 2 assignments, mid theory, end theory
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/006', 'ENG1222', 'Assignment_1', 78.00),
@@ -3424,18 +3364,14 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/006', 'TCS1212', 'Mid_theory', 76.00),
 ('TG/2023/006', 'TCS1212', 'End_theory', 74.00);
 
--- TMS1233 - 1 assignment, mid theory, end theory
+-- TMS1233 - 2 quiz, mid theory, end theory
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/006', 'TMS1233', 'Quiz_1', 80.00),
 ('TG/2023/006', 'TMS1233', 'Quiz_2', 82.98),
 ('TG/2023/006', 'TMS1233', 'Mid_theory', 77.00),
 ('TG/2023/006', 'TMS1233', 'End_theory', 75.00);
 
-
-
 -- 007
-
-
 -- ENG1222 - 2 assignments, mid theory, end theory
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/007', 'ENG1222', 'Assignment_1', 48.00),
@@ -3496,17 +3432,14 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/007', 'TCS1212', 'Mid_theory', 43.00),
 ('TG/2023/007', 'TCS1212', 'End_theory', 40.00);
 
--- TMS1233 - 1 assignment, mid theory, end theory
+-- TMS1233 - 2 quiz, mid theory, end theory
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/007', 'TMS1233', 'Quiz_1', 47.00),
 ('TG/2023/007', 'TMS1233', 'Quiz_2', 75.50),
 ('TG/2023/007', 'TMS1233', 'Mid_theory', 44.00),
 ('TG/2023/007', 'TMS1233', 'End_theory', 42.00);
 
-
-
 -- 008
-
 -- ENG1222 - 2 assignments, mid theory, end theory
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/008', 'ENG1222', 'Assignment_1', 85.00),
@@ -3567,16 +3500,14 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/008', 'TCS1212', 'Mid_theory', 79.50),
 ('TG/2023/008', 'TCS1212', 'End_theory', 85.75);
 
--- TMS1233 - 1 assignment, mid theory, end theory
+-- TMS1233 - 2 quiz, mid theory, end theory
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/008', 'TMS1233', 'Quiz_1', 90.00),
 ('TG/2023/008', 'TMS1233', 'Quiz_2', 69.75),
 ('TG/2023/008', 'TMS1233', 'Mid_theory', 82.25),
 ('TG/2023/008', 'TMS1233', 'End_theory', 88.50);
 
-
 -- 009
-
 -- ENG1222 - 2 assignments, mid theory, end theory
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/009', 'ENG1222', 'Assignment_1', 78.00),
@@ -3637,17 +3568,14 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/009', 'TCS1212', 'Mid_theory', 76.75),
 ('TG/2023/009', 'TCS1212', 'End_theory', 82.00);
 
--- TMS1233 - 1 assignment, mid theory, end theory
+-- TMS1233 - 2 quiz, mid theory, end theory
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/009', 'TMS1233', 'Quiz_1', 87.50),
 ('TG/2023/009', 'TMS1233', 'Quiz_2', 87.98),
 ('TG/2023/009', 'TMS1233', 'Mid_theory', 82.25),
 ('TG/2023/009', 'TMS1233', 'End_theory', 88.50);
 
-
 -- 010
-
-
 -- ENG1222 - 2 assignments, mid theory, end theory
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/010', 'ENG1222', 'Assignment_1', 72.00),
@@ -3708,17 +3636,14 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/010', 'TCS1212', 'Mid_theory', 66.75),
 ('TG/2023/010', 'TCS1212', 'End_theory', 72.00);
 
--- TMS1233 - 1 assignment, mid theory, end theory
+-- TMS1233 - 2 quiz, mid theory, end theory
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/010', 'TMS1233', 'Quiz_1', 77.50),
 ('TG/2023/010', 'TMS1233', 'Quiz_2', 63.75),
 ('TG/2023/010', 'TMS1233', 'Mid_theory', 70.75),
 ('TG/2023/010', 'TMS1233', 'End_theory', 75.25);
 
-
 -- 011
-
-
 -- ENG1222 - 2 assignments, mid theory, end theory
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/011', 'ENG1222', 'Assignment_1', 80.00),
@@ -3779,18 +3704,14 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/011', 'TCS1212', 'Mid_theory', 73.75),
 ('TG/2023/011', 'TCS1212', 'End_theory', 79.00);
 
--- TMS1233 - 1 assignment, mid theory, end theory
+-- TMS1233 - 2 quiz, mid theory, end theory
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/011', 'TMS1233', 'Quiz_1', 84.50),
 ('TG/2023/011', 'TMS1233', 'Quiz_2', 68.75),
 ('TG/2023/011', 'TMS1233', 'Mid_theory', 77.75),
 ('TG/2023/011', 'TMS1233', 'End_theory', 82.25);
 
-
-
 -- 012
-
-
 -- ENG1222 - 2 assignments, mid theory, end theory
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/012', 'ENG1222', 'Assignment_1', 88.00),
@@ -3851,16 +3772,14 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/012', 'TCS1212', 'Mid_theory', 82.75),
 ('TG/2023/012', 'TCS1212', 'End_theory', 87.00);
 
--- TMS1233 - 1 assignment, mid theory, end theory
+-- TMS1233 - 2 quiz, mid theory, end theory
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/012', 'TMS1233', 'Quiz_1', 91.50),
 ('TG/2023/012', 'TMS1233', 'Quiz_2', 48),
 ('TG/2023/012', 'TMS1233', 'Mid_theory', 86.75),
 ('TG/2023/012', 'TMS1233', 'End_theory', 90.25);
 
-
 -- 013
-
 -- ENG1222 - 2 assignments, mid theory, end theory
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/013', 'ENG1222', 'Assignment_1', 73.00),
@@ -3921,17 +3840,14 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/013', 'TCS1212', 'Mid_theory', 67.75),
 ('TG/2023/013', 'TCS1212', 'End_theory', 73.00);
 
--- TMS1233 - 1 assignment, mid theory, end theory
+-- TMS1233 - 2 quiz, mid theory, end theory
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/013', 'TMS1233', 'Quiz_1', 78.50),
 ('TG/2023/013', 'TMS1233', 'Quiz_2', 71.80),
 ('TG/2023/013', 'TMS1233', 'Mid_theory', 71.75),
 ('TG/2023/013', 'TMS1233', 'End_theory', 76.25);
 
-
 -- 014
-
-
 -- ENG1222 - 2 assignments, mid theory, end theory
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/014', 'ENG1222', 'Assignment_1', 81.00),
@@ -3992,7 +3908,7 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/014', 'TCS1212', 'Mid_theory', 75.75),
 ('TG/2023/014', 'TCS1212', 'End_theory', 81.00);
 
--- TMS1233 - 1 assignment, mid theory, end theory
+-- TMS1233 - 2 quiz, mid theory, end theory
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/014', 'TMS1233', 'Quiz_1', 86.50),
 ('TG/2023/014', 'TMS1233', 'Quiz_2', 49),
@@ -4001,15 +3917,11 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 
 
 -- 015
-
-
-
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/015', 'ENG1222', 'Assignment_1', 79.00),
 ('TG/2023/015', 'ENG1222', 'Assignment_2', 74.50),
 ('TG/2023/015', 'ENG1222', 'Mid_theory', 76.00),
 ('TG/2023/015', 'ENG1222', 'End_theory', 80.25);
-
 
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/015', 'ICT1212', 'Quiz_1', 83.50),
@@ -4018,7 +3930,6 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/015', 'ICT1212', 'Mid_theory', 77.00),
 ('TG/2023/015', 'ICT1212', 'End_theory', 81.50);
 
-
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/015', 'ICT1222', 'Quiz_1', 85.25),
 ('TG/2023/015', 'ICT1222', 'Quiz_2', 88.50),
@@ -4026,7 +3937,6 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/015', 'ICT1222', 'Mid_practical', 83.25),
 ('TG/2023/015', 'ICT1222', 'Mini_project', 86.75),
 ('TG/2023/015', 'ICT1222', 'End_practical', 80.50);
-
 
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/015', 'ICT1233', 'Quiz_1', 78.75),
@@ -4046,7 +3956,6 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/015', 'ICT1242', 'Mid_theory', 75.50),
 ('TG/2023/015', 'ICT1242', 'End_theory', 81.25);
 
-
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/015', 'ICT1253', 'Quiz_1', 84.75),
 ('TG/2023/015', 'ICT1253', 'Quiz_2', 80.25),
@@ -4056,13 +3965,11 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/015', 'ICT1253', 'End_theory', 78.25),
 ('TG/2023/015', 'ICT1253', 'End_practical', 86.75);
 
-
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/015', 'TCS1212', 'Quiz_1', 82.25),
 ('TG/2023/015', 'TCS1212', 'Assignment_1', 77.50),
 ('TG/2023/015', 'TCS1212', 'Mid_theory', 74.75),
 ('TG/2023/015', 'TCS1212', 'End_theory', 80.00);
-
 
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/015', 'TMS1233', 'Quiz_1', 85.50),
@@ -4070,20 +3977,13 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2023/015', 'TMS1233', 'Mid_theory', 78.75),
 ('TG/2023/015', 'TMS1233', 'End_theory', 83.25);
 
-
-
-
 -- reapeters
-
-
-
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2022/001', 'ICT1212', 'Quiz_1', 85.50),
 ('TG/2022/001', 'ICT1212', 'Quiz_2', 92.00),
 ('TG/2022/001', 'ICT1212', 'Quiz_3', 78.75),
 ('TG/2022/001', 'ICT1212', 'Mid_theory', 88.00),
 ('TG/2022/001', 'ICT1212', 'End_theory', 82.50);
-
 
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2022/001', 'ICT1242', 'Quiz_1', 90.25),
@@ -4093,32 +3993,17 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2022/001', 'ICT1242', 'Mid_theory', 79.50),
 ('TG/2022/001', 'ICT1242', 'End_theory', 86.25);
 
-
-
-
-
-
-
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2022/002', 'TCS1212', 'Quiz_1', 88.50),
 ('TG/2022/002', 'TCS1212', 'Assignment_1', 92.00),
 ('TG/2022/002', 'TCS1212', 'Mid_theory', 85.75),
 ('TG/2022/002', 'TCS1212', 'End_theory', 89.25);
 
-
-
-
-
-
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2022/003', 'TMS1233', 'Quiz_1', 87.50),
 ('TG/2022/003', 'TMS1233', 'Quiz_2', 48),
 ('TG/2022/003', 'TMS1233', 'Mid_theory', 92.00),
 ('TG/2022/003', 'TMS1233', 'End_theory', 85.75);
-
-
-
-
 
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2022/004', 'ICT1233', 'Quiz_1', 85.00),
@@ -4129,7 +4014,6 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2022/004', 'ICT1233', 'End_theory', 84.75),
 ('TG/2022/004', 'ICT1233', 'End_practical', 87.00);
 
-
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2022/004', 'ICT1253', 'Quiz_1', 90.25),
 ('TG/2022/004', 'ICT1253', 'Quiz_2', 86.50),
@@ -4139,15 +4023,11 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2022/004', 'ICT1253', 'End_theory', 82.25),
 ('TG/2022/004', 'ICT1253', 'End_practical', 89.75);
 
-
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2022/004', 'TCS1212', 'Quiz_1', 87.75),
 ('TG/2022/004', 'TCS1212', 'Assignment_1', 91.00),
 ('TG/2022/004', 'TCS1212', 'Mid_theory', 83.50),
 ('TG/2022/004', 'TCS1212', 'End_theory', 86.25);
-
-
-
 
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2022/005', 'ICT1222', 'Quiz_1', 58.50),
@@ -4156,8 +4036,6 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2022/005', 'ICT1222', 'Mid_practical', 59.80),
 ('TG/2022/005', 'ICT1222', 'Mini_project', 63.45),
 ('TG/2022/005', 'ICT1222', 'End_practical', 61.20);
-
-
 
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2022/006', 'ICT1253', 'Quiz_1', 48.50),
@@ -4168,18 +4046,11 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2022/006', 'ICT1253', 'End_theory', 47.30),
 ('TG/2022/006', 'ICT1253', 'End_practical', 53.45);
 
-
-
-
-
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2022/007', 'ENG1222', 'Assignment_1', 48.50),
 ('TG/2022/007', 'ENG1222', 'Assignment_2', 52.75),
 ('TG/2022/007', 'ENG1222', 'Mid_theory', 51.25),
 ('TG/2022/007', 'ENG1222', 'End_theory', 49.80);
-
-
-
 
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2022/008', 'ICT1253', 'Quiz_1', 68.50),
@@ -4190,30 +4061,13 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2022/008', 'ICT1253', 'End_theory', 67.30),
 ('TG/2022/008', 'ICT1253', 'End_practical', 73.45);
 
-
 INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 ('TG/2022/008', 'TCS1212', 'Quiz_1', 72.25),
 ('TG/2022/008', 'TCS1212', 'Assignment_1', 75.50),
 ('TG/2022/008', 'TCS1212', 'Mid_theory', 68.75),
 ('TG/2022/008', 'TCS1212', 'End_theory', 70.80);
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 -- views
-
 
 DROP VIEW IF EXISTS vw_attend_with_medical_approval;
 
@@ -4263,7 +4117,6 @@ SELECT
     ) >=80 THEN 'Eligible' 
 	   ELSE 'Not Eligible'
 	END AS eligibility
-
 FROM attendance a
 LEFT JOIN student s ON
 s.reg_no=a.reg_no
@@ -4271,7 +4124,6 @@ LEFT JOIN user u ON
 u.user_id=s.user_id
 GROUP BY a.reg_no, a.course_code, a.session_type
 ORDER BY a.reg_no, a.course_code, a.session_type;
-
 
 
 
@@ -4288,20 +4140,17 @@ SELECT
     SUM(session_hours) AS total_hours,
     SUM(CASE WHEN a.status = 'Present' THEN 1  WHEN a.status='Medical' AND m.approved=TRUE THEN 1 ELSE 0 END) AS attended_sessions,
     COUNT(*) AS total_sessions,
-    
     ROUND( (
- SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END)/ SUM(a.session_hours)
-    ) * 100, 2
-    ) AS attendance_percentage,
+        SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END)/ SUM(a.session_hours)
+    ) * 100, 2 ) AS attendance_percentage,
     CASE 
-	WHEN    
- SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END)/ SUM(a.session_hours)
-    
-     >= 0.8 AND SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) / SUM(session_hours) < 0.8 THEN 'Eligible with medical' 
- WHEN    ROUND( (
- SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END)/ SUM(a.session_hours)
-    ) * 100, 2
-    ) >= 80 THEN 'Eligible' 
+	    WHEN    
+            SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END)/ SUM(a.session_hours)
+                >= 0.8 AND SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) / SUM(session_hours) < 0.8 THEN 'Eligible with medical' 
+        WHEN    
+            ROUND( (
+                SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END)/ SUM(a.session_hours)) * 100, 2
+                ) >= 80 THEN 'Eligible' 
         ELSE 'Not Eligible'
     END AS eligibility
 FROM attendance a
@@ -4334,15 +4183,14 @@ SELECT
     ) * 100, 2
     ) AS attendance_percentage,
     CASE 
-	WHEN
-	    ROUND(
-            (SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) / 
-            SUM(session_hours)
-            ) * 100, 2
-    ) >=80 THEN 'Eligible' 
-	   ELSE 'Not Eligible'
+	    WHEN
+	        ROUND(
+                (SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) / 
+                SUM(session_hours)
+                ) * 100, 2) >=80 
+        THEN 'Eligible' 
+	    ELSE 'Not Eligible'
 	END AS eligibility
-
 FROM attendance a
 LEFT JOIN student s ON
 s.reg_no=a.reg_no
@@ -4354,33 +4202,28 @@ ORDER BY a.reg_no, a.course_code;
 
 
 
-
-
 DROP VIEW IF EXISTS vw_attend_percen_with_medical_with_elig_without_S_type_with_n;
 
 CREATE VIEW vw_attend_percen_with_medical_with_elig_without_S_type_with_n AS
 SELECT 
- u.L_name,
+    u.L_name,
     a.reg_no,
     a.course_code,
     SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END) AS attended_hours,
     SUM(session_hours) AS total_hours,
     SUM(CASE WHEN a.status = 'Present' THEN 1  WHEN a.status='Medical' AND m.approved=TRUE THEN 1 ELSE 0 END) AS attended_sessions,
     COUNT(*) AS total_sessions,
-    
     ROUND( (
- SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END)/ SUM(a.session_hours)
-    ) * 100, 2
+        SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END)/ SUM(a.session_hours)
+        ) * 100, 2
     ) AS attendance_percentage,
     CASE
-	WHEN    
- SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END)/ SUM(a.session_hours)
-    
-     >= 0.8 AND SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) / SUM(session_hours) < 0.8 THEN 'Eligible with medical' 
- WHEN    ROUND( (
- SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END)/ SUM(a.session_hours)
-    ) * 100, 2
-    ) >= 80 THEN 'Eligible' 
+	    WHEN    
+            SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END)/ SUM(a.session_hours)
+            >= 0.8 AND SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) / SUM(session_hours) < 0.8 THEN 'Eligible with medical' 
+        WHEN    
+            ROUND( (SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END)/ SUM(a.session_hours)
+            ) * 100, 2) >= 80 THEN 'Eligible' 
         ELSE 'Not Eligible'
     END AS eligibility
 FROM attendance a
@@ -4395,6 +4238,7 @@ ORDER BY a.reg_no, a.course_code;
 
 
 
+-- correct mark details by deleting to end exams not available student's marks
 DELETE FROM mark 
 WHERE Marks_type IN ('End_theory', 'End_practical')
 AND EXISTS (
@@ -4408,11 +4252,6 @@ AND EXISTS (
 
 
 
-
-
-
-
-
 DROP VIEW IF EXISTS vw_ENG1222_marks;
 DROP VIEW IF EXISTS vw_ICT1212_marks;
 DROP VIEW IF EXISTS vw_ICT1222_marks;
@@ -4421,7 +4260,6 @@ DROP VIEW IF EXISTS vw_ICT1242_marks;
 DROP VIEW IF EXISTS vw_ICT1253_marks;
 DROP VIEW IF EXISTS vw_TCS1212_marks;
 DROP VIEW IF EXISTS vw_TMS1233_marks;
-
 
 
 CREATE VIEW vw_TMS1233_marks AS
@@ -4559,11 +4397,6 @@ WHERE
 
 
 
-
-
-
-
-
 CREATE VIEW vw_TCS1212_marks AS
 SELECT DISTINCT
     m.Reg_no,
@@ -4695,11 +4528,6 @@ FROM
     mark m
 WHERE 
     m.Course_code = 'TCS1212';
-
-
-
-
-
 
 
 
@@ -4878,11 +4706,6 @@ WHERE
 
 
 
-
-
-
-
-
 CREATE VIEW vw_ICT1222_marks AS
 SELECT DISTINCT
     m.Reg_no,
@@ -5031,16 +4854,6 @@ WHERE
 
 
 
-
-
-
-
-
-
-
-
-
-
 CREATE VIEW vw_ENG1222_marks AS
 SELECT 
     e.Reg_no,
@@ -5178,17 +4991,6 @@ WHERE
 
 
 
-
-
-
-
-
-
-
-
-
-
-
 CREATE VIEW vw_ICT1212_marks AS
 SELECT 
     e.Reg_no,
@@ -5311,21 +5113,6 @@ FROM
      enrollment e
 WHERE 
     e.Course_code = 'ICT1212';
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -5494,18 +5281,6 @@ WHERE
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 CREATE VIEW vw_ICT1242_marks AS
 SELECT 
     e.Reg_no,
@@ -5645,8 +5420,6 @@ WHERE
 
 
 
-
-
 DROP VIEW IF EXISTS vw_CA_Status;
 CREATE VIEW vw_CA_Status AS
 SELECT 
@@ -5660,8 +5433,7 @@ SELECT
             CASE WHEN CA_marks >= 12 THEN 'CA_Pass' ELSE 'CA_Fail' END
         ELSE 'Unknown'
     END AS CA_Status
-FROM (
-
+    FROM (
     SELECT 
         Reg_no,
         Course_code,
@@ -5725,6 +5497,7 @@ FROM (
     FROM vw_TMS1233_marks
 ) AS all_ca_marks
 ORDER BY reg_no, course_code;
+
 
 
 
@@ -5827,9 +5600,6 @@ FROM (
     FROM vw_TMS1233_marks
 ) AS all_END_marks
 ORDER BY reg_no, course_code;
-
-
-
 
 
 
@@ -6305,12 +6075,6 @@ ORDER BY Reg_no, Course;
 
 
 
-
-
-
-
-
-
 DROP VIEW IF EXISTS vw_all_stu_CGPA;
 CREATE VIEW vw_all_stu_CGPA AS
     SELECT 
@@ -6343,7 +6107,6 @@ CREATE VIEW vw_all_stu_CGPA AS
 
 
 
-
 DROP VIEW IF EXISTS vw_all_stu_SGPA;
 CREATE VIEW vw_all_stu_SGPA AS
 SELECT 
@@ -6372,9 +6135,7 @@ JOIN vw_all_stu_CGPA c ON c.Reg_no = s.Reg_no;
 
 
 
-
 -- procedures
-
 
 DROP PROCEDURE IF EXISTS GetAttendanceByCourseCodeWithoutMedical;
 
@@ -6445,7 +6206,6 @@ DELIMITER ;
 
 
 
-
 DROP PROCEDURE IF EXISTS GetAttendanceByCourseCodeWithMedical;
 
 DELIMITER //
@@ -6459,21 +6219,16 @@ SELECT
     SUM(session_hours) AS total_hours,
     SUM(CASE WHEN a.status = 'Present' THEN 1  WHEN a.status='Medical' AND m.approved=TRUE THEN 1 ELSE 0 END) AS attended_sessions,
     COUNT(*) AS total_sessions,
-    
     ROUND( (
  SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END)/ SUM(a.session_hours)
     ) * 100, 2
     ) AS attendance_percentage,
-
     CASE WHEN    
- SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END)/ SUM(a.session_hours)
-    
+ SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END)/ SUM(a.session_hours)  
      >= 0.8 AND SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) / SUM(session_hours) < 0.8 THEN 'Eligible with medical' 
  WHEN (SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) / SUM(session_hours)) >= 0.8 
             	THEN 'Eligible' 
-
         ELSE 'Not Eligible'
-
     END AS eligibility
 FROM attendance a 
 LEFT JOIN medical_record m ON
@@ -6505,20 +6260,16 @@ SELECT
     SUM(session_hours) AS total_hours,
     SUM(CASE WHEN a.status = 'Present' THEN 1  WHEN a.status='Medical' AND m.approved=TRUE THEN 1 ELSE 0 END) AS attended_sessions,
     COUNT(*) AS total_sessions,
-    
     ROUND( (
  SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END)/ SUM(a.session_hours)
     ) * 100, 2
     ) AS attendance_percentage,
     CASE WHEN    
- SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END)/ SUM(a.session_hours)
-    
+        SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END)/ SUM(a.session_hours)
      >= 0.8 AND SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) / SUM(session_hours) < 0.8 THEN 'Eligible with medical' 
  WHEN (SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) / SUM(session_hours)) >= 0.8 
             	THEN 'Eligible' 
-
-        ELSE 'Not Eligible'
-
+                ELSE 'Not Eligible'
     END AS eligibility
 FROM attendance a 
 LEFT JOIN medical_record m ON
@@ -6588,8 +6339,7 @@ BEGIN
         ROUND(
             (SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) / 
              SUM(session_hours)) * 100, 2
-        ) AS attendance_percentage,
-	        
+        ) AS attendance_percentage, 
         CASE 
             WHEN (SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) / 
                   SUM(session_hours)) >= 0.8 
@@ -6622,7 +6372,6 @@ SELECT
     SUM(session_hours) AS total_hours,
     SUM(CASE WHEN a.status = 'Present' THEN 1  WHEN a.status='Medical' AND m.approved=TRUE THEN 1 ELSE 0 END) AS attended_sessions,
     COUNT(*) AS total_sessions,
-    
     ROUND( (
  SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END)/ SUM(a.session_hours)
     ) * 100, 2
@@ -6633,16 +6382,12 @@ SELECT
      >= 0.8 AND SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) / SUM(session_hours) < 0.8 THEN 'Eligible with medical' 
  WHEN (SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) / SUM(session_hours)) >= 0.8 
             	THEN 'Eligible' 
-
         ELSE 'Not Eligible'
-
     END AS eligibility
-
 FROM attendance a 
 LEFT JOIN medical_record m ON
 a.medical_id=m.medical_id
- WHERE a.reg_no = input_reg_no
-
+WHERE a.reg_no = input_reg_no
 GROUP BY reg_no, course_code
 ORDER BY reg_no,course_code;
 
@@ -6667,41 +6412,27 @@ SELECT
     SUM(session_hours) AS total_hours,
     SUM(CASE WHEN a.status = 'Present' THEN 1  WHEN a.status='Medical' AND m.approved=TRUE THEN 1 ELSE 0 END) AS attended_sessions,
     COUNT(*) AS total_sessions,
-    
     ROUND( (
  SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END)/ SUM(a.session_hours)
     ) * 100, 2
     ) AS attendance_percentage,
     CASE WHEN    
  SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END)/ SUM(a.session_hours)
-    
      >= 0.8 AND SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) / SUM(session_hours) < 0.8 THEN 'Eligible with medical' 
  WHEN (SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) / SUM(session_hours)) >= 0.8 
             	THEN 'Eligible' 
-
         ELSE 'Not Eligible'
-
     END AS eligibility
-
-
 FROM attendance a 
 LEFT JOIN medical_record m ON
 a.medical_id=m.medical_id
- WHERE a.reg_no = input_reg_no
-
+WHERE a.reg_no = input_reg_no
 GROUP BY reg_no, course_code,session_type
 ORDER BY reg_no, course_code,session_type;
 
 END //
 
 DELIMITER ;
-
-
-
-
-
-
-
 
 
 
@@ -6741,10 +6472,8 @@ DELIMITER //
 CREATE PROCEDURE get_attend_by_regno_and_coursecode_with_stype(IN TG CHAR(20),IN cid CHAR(10))
 
 BEGIN
-
 SELECT * FROM vw_attend_percentage_with_medical_with_eligibility_with_name  WHERE Reg_no = TG AND 
 course_code = cid;
-
 END //
 
 DELIMITER ;
@@ -6756,13 +6485,11 @@ DELIMITER ;
 DROP PROCEDURE IF EXISTS get_attend_by_regno_and_coursecode_without_stype;
 
 DELIMITER //
+
 CREATE PROCEDURE get_attend_by_regno_and_coursecode_without_stype(IN TG CHAR(20),IN cid CHAR(10))
-
 BEGIN
-
 SELECT * FROM vw_attend_percen_with_medical_with_elig_without_S_type_with_n  WHERE Reg_no = TG AND 
 course_code = cid;
-
 END //
 
 DELIMITER ;
@@ -6775,10 +6502,8 @@ DELIMITER //
 
 CREATE PROCEDURE individual_SGPA_and_CGPA (IN p_regno CHAR(20))
 BEGIN
-
 SELECT * FROM vw_all_SGPA_and_CGPA
 WHERE p_regno=Reg_no;
-
 END //
 
 DELIMITER ;
