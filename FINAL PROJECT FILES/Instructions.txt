@@ -91,7 +91,8 @@ for whole batch,
     CA marks And End marks with status =>  SELECT * FROM vw_total_CA_End_status;
 	Eligibility for End Exam based on CA and Attendance (old method) => SELECT * FROM vw_end_exam_elig_basedON_CA_and_Atten;
 	grade and grade point =>  SELECT * FROM vw_all_stu_all_course_grade_point;
-
+    CGPA => SELECT * FROM vw_all_stu_CGPA;
+    SGPA => SELECT * FROM vw_all_stu_SGPA;
 Procedures
 ----------
 

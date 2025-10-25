@@ -5855,6 +5855,50 @@ ON
 
 
 
+DROP VIEW IF EXISTS vw_all_stu_CGPA;
+CREATE VIEW vw_all_stu_CGPA AS
+    SELECT 
+        Reg_no,
+        CASE 
+            WHEN course_count = 8 AND total_credits > 0 THEN 
+                ROUND(total_grade_points / total_credits, 2)
+            ELSE 'No CGPA [repeat stu]'
+        END AS `Your CGPA`,
+        
+        CASE 
+            WHEN course_count < 8 THEN 'Incomplete [repeat stu]'
+            WHEN total_credits = 0 THEN 'No Valid Courses'
+            WHEN ROUND(total_grade_points / total_credits, 2) >= 3.70 THEN 'First Class'
+            WHEN ROUND(total_grade_points / total_credits, 2) >= 3.30 THEN 'Second Class (Upper)'
+            WHEN ROUND(total_grade_points / total_credits, 2) >= 3.00 THEN 'Second Class (Lower)'
+            WHEN ROUND(total_grade_points / total_credits, 2) >= 2.00 THEN 'Pass'
+            ELSE 'No any class [lower CGPA]'
+        END AS `Class`
+    FROM (
+        SELECT 
+            Reg_no,
+            COUNT(DISTINCT course) as course_count,
+            SUM(CASE WHEN course != 'ENG1222' THEN credit * Grade_Point ELSE 0 END) as total_grade_points,
+            SUM(CASE WHEN course != 'ENG1222' THEN credit ELSE 0 END) as total_credits
+        FROM vw_all_stu_all_course_grade_point
+        GROUP BY Reg_no
+    ) as student_stats;
+
+
+
+
+
+DROP VIEW IF EXISTS vw_all_stu_SGPA;
+CREATE VIEW vw_all_stu_SGPA AS
+SELECT 
+    Reg_no,
+    CASE 
+        WHEN COUNT(DISTINCT course) = 8 AND SUM(credit) > 0 THEN 
+            ROUND(SUM(credit * Grade_Point) / SUM(credit), 2)
+        ELSE 'No SGPA [repeat stu]'
+    END AS Your_SGPA
+FROM vw_all_stu_all_course_grade_point
+GROUP BY Reg_no;
 
 
 
