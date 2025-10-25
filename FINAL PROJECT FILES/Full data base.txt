@@ -6645,3 +6645,122 @@ JOIN vw_all_stu_all_course_grade_point a
     ON a.Reg_no = b.Reg_no
 GROUP BY a.Reg_no;
 
+
+
+
+DELIMITER //
+
+CREATE PROCEDURE give_course_reg_get_CA (IN p_course_code CHAR(20), IN p_reg_no CHAR(20))
+BEGIN
+    IF p_course_code = 'TMS1233' THEN
+        SELECT 
+            m.Reg_no,
+            m.Course_code,
+            m.`Quiz_1(100%)`,
+            m.`Quiz_2(100%)`,
+            m.`Mid_theory(100%)`,
+            m.`Total_CA_Marks(40%)`,
+            c.CA_Status
+        FROM vw_TMS1233_marks m
+        JOIN vw_CA_Status c ON m.Reg_no = c.Reg_no AND m.Course_code = c.Course_code
+        WHERE m.Reg_no = p_reg_no;
+        
+    ELSEIF p_course_code = 'TCS1212' THEN
+        SELECT 
+            m.Reg_no,
+            m.Course_code,
+            m.`Quiz_1(100%)`,
+            m.`Assignment_1(100%)`,
+            m.`Mid_theory(100%)`,
+            m.`Total_CA_Marks(30%)`,
+            c.CA_Status
+        FROM vw_TCS1212_marks m
+        JOIN vw_CA_Status c ON m.Reg_no = c.Reg_no AND m.Course_code = c.Course_code
+        WHERE m.Reg_no = p_reg_no;
+        
+    ELSEIF p_course_code = 'ICT1253' THEN
+        SELECT 
+            m.Reg_no,
+            m.Course_code,
+            m.`Max_Quiz(100%)`,
+            m.`Second_Max_Quiz(100%)`,
+            m.`Assignment_1(100%)`,
+            m.`Mid_practical(100%)`,
+            m.`Total_CA_Marks(40%)`,
+            c.CA_Status
+        FROM vw_ICT1253_marks m
+        JOIN vw_CA_Status c ON m.Reg_no = c.Reg_no AND m.Course_code = c.Course_code
+        WHERE m.Reg_no = p_reg_no;
+
+    ELSEIF p_course_code = 'ICT1212' THEN
+        SELECT 
+            m.Reg_no,
+            m.Course_code,
+            m.`Max_Quiz(100%)`,
+            m.`Second_Max_Quiz(100%)`,
+            m.`Mid_theory(100%)`,
+            m.`Total_CA_Marks(30%)`,
+            c.CA_Status  -- Fixed: removed c.CA_marks as it wasn't in other queries
+        FROM vw_ICT1212_marks m
+        JOIN vw_CA_Status c ON m.Reg_no = c.Reg_no AND m.Course_code = c.Course_code
+        WHERE m.Reg_no = p_reg_no;
+
+    ELSEIF p_course_code = 'ENG1222' THEN
+        SELECT 
+            m.Reg_no,
+            m.Course_code,
+            m.`Assignment_1(100%)`,
+            m.`Assignment_2(100%)`,
+            m.`Mid_theory(100%)`,
+            m.`Total_CA_Marks(30%)`,
+            c.CA_Status
+        FROM vw_ENG1222_marks m
+        JOIN vw_CA_Status c ON m.Reg_no = c.Reg_no AND m.Course_code = c.Course_code
+        WHERE m.Reg_no = p_reg_no;
+
+    ELSEIF p_course_code = 'ICT1222' THEN
+        SELECT 
+            m.Reg_no,
+            m.Course_code,
+            m.`Max_Quiz(100%)`,
+            m.`Second_Max_Quiz(100%)`,
+            m.`Mid_practical(100%)`,
+            m.`Mini_project(100%)`,
+            m.`Total_CA_Marks(40%)`,
+            c.CA_Status
+        FROM vw_ICT1222_marks m
+        JOIN vw_CA_Status c ON m.Reg_no = c.Reg_no AND m.Course_code = c.Course_code
+        WHERE m.Reg_no = p_reg_no;
+
+    ELSEIF p_course_code = 'ICT1233' THEN
+        SELECT 
+            m.Reg_no,
+            m.Course_code,
+            m.`Max_Quiz(100%)`,
+            m.`Second_Max_Quiz(100%)`,
+            m.`Mid_practical(100%)`,
+            m.`Mini_project(100%)`,
+            m.`Total_CA_Marks(40%)`,
+            c.CA_Status
+        FROM vw_ICT1233_marks m
+        JOIN vw_CA_Status c ON m.Reg_no = c.Reg_no AND m.Course_code = c.Course_code
+        WHERE m.Reg_no = p_reg_no;
+
+    ELSEIF p_course_code = 'ICT1242' THEN
+        SELECT 
+            m.Reg_no,
+            m.Course_code,
+            m.`Max_Quiz(100%)`,
+            m.`Second_Max_Quiz(100%)`,
+            m.`Assignment_1(100%)`,
+            m.`Mid_theory(100%)`,
+            m.`Total_CA_Marks(30%)`,
+            c.CA_Status
+        FROM vw_ICT1242_marks m  -- Fixed: changed from vw_ICT1233_marks to vw_ICT1242_marks
+        JOIN vw_CA_Status c ON m.Reg_no = c.Reg_no AND m.Course_code = c.Course_code
+        WHERE m.Reg_no = p_reg_no;
+
+    END IF;
+END //
+
+DELIMITER ;
