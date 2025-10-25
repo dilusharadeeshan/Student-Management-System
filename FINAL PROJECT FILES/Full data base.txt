@@ -6763,3 +6763,58 @@ BEGIN
 END //
 
 DELIMITER ;
+
+
+
+
+DELIMITER //
+
+CREATE PROCEDURE GetFinalMarksByCourseCode(IN course_code VARCHAR(20))
+BEGIN
+    SELECT 
+        g.Course AS CourseCode,
+        g.Reg_no,
+        g.Final_marks AS FinalMark,
+        g.Grade,
+        CASE 
+            WHEN g.Grade IN ('A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D') THEN 'Pass'
+            WHEN g.Grade = 'WH' THEN 'Withheld'
+            WHEN g.Grade LIKE 'E(%' THEN 'Fail'
+            WHEN g.Grade = '_' THEN 'Not Eligible for End Exam'
+            ELSE 'Fail'
+        END AS FinalStatus
+    FROM vw_all_stu_all_course_grade_point g
+    WHERE g.Course = course_code
+    ORDER BY g.Reg_no;
+END //
+
+DELIMITER ;
+
+
+
+
+
+DELIMITER //
+
+CREATE PROCEDURE GetStudentFinalMarks(IN reg_no CHAR(20))
+BEGIN
+    SELECT 
+        g.Reg_no,
+        g.Course AS CourseCode,
+        g.Final_marks AS FinalMark,
+        g.Grade,
+        CASE 
+            WHEN g.Grade IN ('A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D') THEN 'Pass'
+            WHEN g.Grade = 'WH' THEN 'Withheld'
+            WHEN g.Grade LIKE 'E%' THEN 'Fail'
+            WHEN g.Grade = '_' THEN 'Not Eligible'
+            ELSE 'Pending'
+        END AS FinalStatus
+    FROM vw_all_stu_all_course_grade_point g
+    WHERE g.Reg_no = reg_no
+    ORDER BY g.Course;
+END //
+
+DELIMITER ;
+
+

@@ -119,28 +119,31 @@ for whole batch,whole courses,
         SELECT * FROM vw_all_stu_SGPA;
     Both CGPA and SGPA => 
         SELECT * FROM vw_all_SGPA_and_CGPA;
-
+    result sheet=>
+        SELECT * FROM vw_result_sheet;
 
 
 Procedures
 ----------
 
-Give reg no get CA marks for all subject =>  
-    CALL CA_marks_all_sub_by_regNo('TG/2023/001');
-Give reg no get Both CGPA and SGPA =>
-    CALL individual_SGPA_and_CGPA('TG/2023/003');
-Give course get CA marks for all student => 
-    CALL give_course_get_CA('TMS1233');
-give reg no and course code get CA marks  => 
-    CALL give_course_reg_get_CA ('ICT1222','TG/2023/002');
+Get CA marks,
+    Give reg no get CA marks for all subject =>  
+        CALL CA_marks_all_sub_by_regNo('TG/2023/001');
+    Give reg no get Both CGPA and SGPA =>
+        CALL individual_SGPA_and_CGPA('TG/2023/003');
+    Give course get CA marks for all student => 
+        CALL give_course_get_CA('TMS1233');
+    give reg no and course code get   => 
+        CALL give_course_reg_get_CA ('ICT1222','TG/2023/002');
 
-Give reg no get final marks for all subject =>  
-    CALL GetStudentFinalMarks('TG/2023/001');
-Give course code get final marks for all student =>  
-    CALL GetStudentFinalMarks('TG/2023/001');
+get final marks,
+    Give reg no , for all subject =>  
+        CALL GetStudentFinalMarks('TG/2023/001');
+    Give course code , for all student =>  
+        CALL GetFinalMarksByCourseCode('ICT1212');
 
-result sheet=>
-    SELECT * FROM vw_result_sheet;
+
+
 
 
 
