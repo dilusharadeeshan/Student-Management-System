@@ -5634,7 +5634,7 @@ SELECT
     m.`Final_Marks(100%)` AS Final_marks,
     ca_end.CA_Status,
     ca_end.END_Status,
-    CASE 
+    CASE  WHEN ca_end.END_Status = 'E*(Not_eligible)' THEN '_'
         WHEN ca_end.CA_Status = 'CA_Fail' AND ca_end.END_Status = 'END_Fail' THEN 'E(CA& ESA)'
         WHEN ca_end.CA_Status = 'CA_Fail' THEN 'E(CA)'
         WHEN ca_end.END_Status = 'END_Fail' THEN 'E(ESA)'
@@ -5655,7 +5655,7 @@ SELECT
         WHEN m.`Final_Marks(100%)` >= 35 THEN 'D'
         ELSE 'E'
     END AS Grade,
-    CASE 
+    CASE  WHEN ca_end.END_Status = 'E*(Not_eligible)' THEN '_'
         WHEN ca_end.CA_Status = 'CA_Fail' OR ca_end.END_Status = 'END_Fail' THEN 0.0
         WHEN m.`Final_Marks(100%)` = 'WH' THEN 'WH'
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 45 THEN 2.0
@@ -5690,7 +5690,7 @@ SELECT
     m.`Final_Marks(100%)` AS Final_marks,
     ca_end.CA_Status,
     ca_end.END_Status,
-    CASE 
+    CASE  WHEN ca_end.END_Status = 'E*(Not_eligible)' THEN '_'
         WHEN ca_end.CA_Status = 'CA_Fail' AND ca_end.END_Status = 'END_Fail' THEN 'E(CA& ESA)'
         WHEN ca_end.CA_Status = 'CA_Fail' THEN 'E(CA)'
         WHEN ca_end.END_Status = 'END_Fail' THEN 'E(ESA)'
@@ -5711,7 +5711,7 @@ SELECT
         WHEN m.`Final_Marks(100%)` >= 35 THEN 'D'
         ELSE 'E'
     END AS Grade,
-    CASE 
+    CASE  WHEN ca_end.END_Status = 'E*(Not_eligible)' THEN '_'
         WHEN ca_end.CA_Status = 'CA_Fail' OR ca_end.END_Status = 'END_Fail' THEN 0.0
         WHEN m.`Final_Marks(100%)` = 'WH' THEN 'WH'
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 45 THEN 2.0
@@ -5746,7 +5746,7 @@ SELECT
     m.`Final_Marks(100%)` AS Final_marks,
     ca_end.CA_Status,
     ca_end.END_Status,
-    CASE 
+    CASE  WHEN ca_end.END_Status = 'E*(Not_eligible)' THEN '_'
         WHEN ca_end.CA_Status = 'CA_Fail' AND ca_end.END_Status = 'END_Fail' THEN 'E(CA& ESA)'
         WHEN ca_end.CA_Status = 'CA_Fail' THEN 'E(CA)'
         WHEN ca_end.END_Status = 'END_Fail' THEN 'E(ESA)'
@@ -5767,7 +5767,7 @@ SELECT
         WHEN m.`Final_Marks(100%)` >= 35 THEN 'D'
         ELSE 'E'
     END AS Grade,
-    CASE 
+    CASE  WHEN ca_end.END_Status = 'E*(Not_eligible)' THEN '_'
         WHEN ca_end.CA_Status = 'CA_Fail' OR ca_end.END_Status = 'END_Fail' THEN 0.0
         WHEN m.`Final_Marks(100%)` = 'WH' THEN 'WH'
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 45 THEN 2.0
@@ -5802,7 +5802,7 @@ SELECT
     m.`Final_Marks(100%)` AS Final_marks,
     ca_end.CA_Status,
     ca_end.END_Status,
-    CASE 
+    CASE  WHEN ca_end.END_Status = 'E*(Not_eligible)' THEN '_'
         WHEN ca_end.CA_Status = 'CA_Fail' AND ca_end.END_Status = 'END_Fail' THEN 'E(CA& ESA)'
         WHEN ca_end.CA_Status = 'CA_Fail' THEN 'E(CA)'
         WHEN ca_end.END_Status = 'END_Fail' THEN 'E(ESA)'
@@ -5823,7 +5823,7 @@ SELECT
         WHEN m.`Final_Marks(100%)` >= 35 THEN 'D'
         ELSE 'E'
     END AS Grade,
-    CASE 
+    CASE  WHEN ca_end.END_Status = 'E*(Not_eligible)' THEN '_'
         WHEN ca_end.CA_Status = 'CA_Fail' OR ca_end.END_Status = 'END_Fail' THEN 0.0
         WHEN m.`Final_Marks(100%)` = 'WH' THEN 'WH'
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 45 THEN 2.0
@@ -5858,7 +5858,7 @@ SELECT
     m.`Final_Marks(100%)` AS Final_marks,
     ca_end.CA_Status,
     ca_end.END_Status,
-    CASE 
+    CASE  WHEN ca_end.END_Status = 'E*(Not_eligible)' THEN '_'
         WHEN ca_end.CA_Status = 'CA_Fail' AND ca_end.END_Status = 'END_Fail' THEN 'E(CA& ESA)'
         WHEN ca_end.CA_Status = 'CA_Fail' THEN 'E(CA)'
         WHEN ca_end.END_Status = 'END_Fail' THEN 'E(ESA)'
@@ -5879,7 +5879,7 @@ SELECT
         WHEN m.`Final_Marks(100%)` >= 35 THEN 'D'
         ELSE 'E'
     END AS Grade,
-    CASE 
+    CASE  WHEN ca_end.END_Status = 'E*(Not_eligible)' THEN '_'
         WHEN ca_end.CA_Status = 'CA_Fail' OR ca_end.END_Status = 'END_Fail' THEN 0.0
         WHEN m.`Final_Marks(100%)` = 'WH' THEN 'WH'
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 45 THEN 2.0
@@ -5914,7 +5914,7 @@ SELECT
     m.`Final_Marks(100%)` AS Final_marks,
     ca_end.CA_Status,
     ca_end.END_Status,
-    CASE 
+    CASE  WHEN ca_end.END_Status = 'E*(Not_eligible)' THEN '_'
         WHEN ca_end.CA_Status = 'CA_Fail' AND ca_end.END_Status = 'END_Fail' THEN 'E(CA& ESA)'
         WHEN ca_end.CA_Status = 'CA_Fail' THEN 'E(CA)'
         WHEN ca_end.END_Status = 'END_Fail' THEN 'E(ESA)'
@@ -5935,7 +5935,7 @@ SELECT
         WHEN m.`Final_Marks(100%)` >= 35 THEN 'D'
         ELSE 'E'
     END AS Grade,
-    CASE 
+    CASE  WHEN ca_end.END_Status = 'E*(Not_eligible)' THEN '_'
         WHEN ca_end.CA_Status = 'CA_Fail' OR ca_end.END_Status = 'END_Fail' THEN 0.0
         WHEN m.`Final_Marks(100%)` = 'WH' THEN 'WH'
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 45 THEN 2.0
@@ -5970,7 +5970,7 @@ SELECT
     m.`Final_Marks(100%)` AS Final_marks,
     ca_end.CA_Status,
     ca_end.END_Status,
-    CASE 
+    CASE  WHEN ca_end.END_Status = 'E*(Not_eligible)' THEN '_'
         WHEN ca_end.CA_Status = 'CA_Fail' AND ca_end.END_Status = 'END_Fail' THEN 'E(CA& ESA)'
         WHEN ca_end.CA_Status = 'CA_Fail' THEN 'E(CA)'
         WHEN ca_end.END_Status = 'END_Fail' THEN 'E(ESA)'
@@ -5991,7 +5991,7 @@ SELECT
         WHEN m.`Final_Marks(100%)` >= 35 THEN 'D'
         ELSE 'E'
     END AS Grade,
-    CASE 
+    CASE  WHEN ca_end.END_Status = 'E*(Not_eligible)' THEN '_'
         WHEN ca_end.CA_Status = 'CA_Fail' OR ca_end.END_Status = 'END_Fail' THEN 0.0
         WHEN m.`Final_Marks(100%)` = 'WH' THEN 'WH'
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 45 THEN 2.0
@@ -6026,7 +6026,7 @@ SELECT
     m.`Final_Marks(100%)` AS Final_marks,
     ca_end.CA_Status,
     ca_end.END_Status,
-    CASE 
+    CASE  WHEN ca_end.END_Status = 'E*(Not_eligible)' THEN '_'
         WHEN ca_end.CA_Status = 'CA_Fail' AND ca_end.END_Status = 'END_Fail' THEN 'E(CA& ESA)'
         WHEN ca_end.CA_Status = 'CA_Fail' THEN 'E(CA)'
         WHEN ca_end.END_Status = 'END_Fail' THEN 'E(ESA)'
@@ -6047,7 +6047,7 @@ SELECT
         WHEN m.`Final_Marks(100%)` >= 35 THEN 'D'
         ELSE 'E'
     END AS Grade,
-    CASE 
+    CASE  WHEN ca_end.END_Status = 'E*(Not_eligible)' THEN '_'
         WHEN ca_end.CA_Status = 'CA_Fail' OR ca_end.END_Status = 'END_Fail' THEN 0.0
         WHEN m.`Final_Marks(100%)` = 'WH' THEN 'WH'
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 45 THEN 2.0
@@ -6615,4 +6615,33 @@ BEGIN
 END //
 
 DELIMITER ;
+
+DROP VIEW IF EXISTS vw_result_sheet;
+
+CREATE VIEW vw_result_sheet AS
+SELECT 
+    a.Reg_no,
+    (SELECT Grade FROM vw_all_stu_all_course_grade_point 
+        WHERE Reg_no = a.Reg_no AND course = 'ENG1222') AS ENG1222,
+    (SELECT Grade FROM vw_all_stu_all_course_grade_point 
+        WHERE Reg_no = a.Reg_no AND course = 'ICT1212') AS ICT1212,
+    (SELECT Grade FROM vw_all_stu_all_course_grade_point 
+        WHERE Reg_no = a.Reg_no AND course = 'ICT1222') AS ICT1222,
+    (SELECT Grade FROM vw_all_stu_all_course_grade_point 
+        WHERE Reg_no = a.Reg_no AND course = 'ICT1233') AS ICT1233,
+    (SELECT Grade FROM vw_all_stu_all_course_grade_point 
+        WHERE Reg_no = a.Reg_no AND course = 'ICT1242') AS ICT1242,
+    (SELECT Grade FROM vw_all_stu_all_course_grade_point 
+        WHERE Reg_no = a.Reg_no AND course= 'ICT1253') AS ICT1253,
+    (SELECT Grade FROM vw_all_stu_all_course_grade_point 
+        WHERE Reg_no = a.Reg_no AND course = 'TCS1212') AS TCS1212,
+    (SELECT Grade FROM vw_all_stu_all_course_grade_point 
+        WHERE Reg_no = a.Reg_no AND course = 'TMS1233') AS TMS1233,
+    b.your_sgpa,
+    b.`your cgpa`,
+    b.class
+FROM vw_all_sgpa_and_cgpa b
+JOIN vw_all_stu_all_course_grade_point a 
+    ON a.Reg_no = b.Reg_no
+GROUP BY a.Reg_no;
 

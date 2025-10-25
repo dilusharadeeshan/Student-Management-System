@@ -129,11 +129,11 @@ Give reg no get CA marks for all subject =>
     CALL CA_marks_all_sub_by_regNo('TG/2023/001');
 Give reg no get Both CGPA and SGPA =>
     CALL individual_SGPA_and_CGPA('TG/2023/003');
-Give reg no get CA marks for all subject => 
+Give course get CA marks for all student => 
     CALL give_course_get_CA('TMS1233');
 
-
-
+result sheet=>
+SELECT * FROM vw_result_sheet;
 
 
 
