@@ -6638,7 +6638,7 @@ BEGIN
             m.`Mid_theory(100%)`,
 	    m.`Total_CA_Marks(30%)`,
             c.CA_Status
-        FROM  vw_ICT1233_marks m
+        FROM  vw_ICT1242_marks m
         JOIN vw_CA_Status c ON m.Reg_no = c.Reg_no AND m.Course_code = c.Course_code;
     END IF;
 END //
