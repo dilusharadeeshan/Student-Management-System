@@ -134,6 +134,11 @@ Give course get CA marks for all student =>
 give reg no and course code get CA marks  => 
     CALL give_course_reg_get_CA ('ICT1222','TG/2023/002');
 
+Give reg no get final marks for all subject =>  
+    CALL GetStudentFinalMarks('TG/2023/001');
+Give course code get final marks for all student =>  
+    CALL GetStudentFinalMarks('TG/2023/001');
+
 result sheet=>
     SELECT * FROM vw_result_sheet;
 
