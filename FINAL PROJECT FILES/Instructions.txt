@@ -129,12 +129,14 @@ Procedures
 Get CA marks,
     Give reg no get CA marks for all subject =>  
         CALL CA_marks_all_sub_by_regNo('TG/2023/001');
-    Give reg no get Both CGPA and SGPA =>
-        CALL individual_SGPA_and_CGPA('TG/2023/003');
     Give course get CA marks for all student => 
         CALL give_course_get_CA('TMS1233');
     give reg no and course code get   => 
         CALL give_course_reg_get_CA ('ICT1222','TG/2023/002');
+
+
+Give reg no get Both CGPA and SGPA =>
+        CALL individual_SGPA_and_CGPA('TG/2023/003');
 
 get final marks,
     Give reg no , for all subject =>  
