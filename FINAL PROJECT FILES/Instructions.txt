@@ -1,10 +1,7 @@
 
-
-
 +++++++++++++++++++
 Attendance Related
 +++++++++++++++++++
-
 
 views
 -----
@@ -40,22 +37,32 @@ procedures
 Get attendance with eligibility and percentage by,
     Give cource code,
 	    without medical,
-		    with session type =>  CALL GetAttendanceByCourseCodeWithSTypeWithoutMedical('ICT1233');
-            without session type =>  CALL GetAttendanceByCourseCodeWithoutMedical('ICT1233');
+		    with session type =>  
+                CALL GetAttendanceByCourseCodeWithSTypeWithoutMedical('ICT1233');
+            without session type =>  
+                CALL GetAttendanceByCourseCodeWithoutMedical('ICT1233');
         with medical,
-            with session type =>  CALL GetAttendanceByCourseCodeWithSTypeWithMedical('ICT1233');
-            without session type =>  CALL GetAttendanceByCourseCodeWithMedical('ICT1233');
+            with session type =>  
+                CALL GetAttendanceByCourseCodeWithSTypeWithMedical('ICT1233');
+            without session type =>  
+                CALL GetAttendanceByCourseCodeWithMedical('ICT1233');
     Give reg no,
 	    without medical,
-		    with session type =>  CALL GetAttendanceByRegnoWithSTypeWithoutMedical('TG/2023/001');
-            without session type =>  CALL GetAttendanceByRegnoWithoutMedical('TG/2023/001');
+		    with session type =>  
+                CALL GetAttendanceByRegnoWithSTypeWithoutMedical('TG/2023/001');
+            without session type =>  
+                CALL GetAttendanceByRegnoWithoutMedical('TG/2023/001');
         with medical,
-		    with session type =>  CALL GetAttendanceByRegnoWithSTypeWithMedical('TG/2023/001');
-			without session type =>  CALL GetAttendanceByRegnoWithMedical('TG/2023/001');
+		    with session type =>  
+                CALL GetAttendanceByRegnoWithSTypeWithMedical('TG/2023/001');
+			without session type =>  
+                CALL GetAttendanceByRegnoWithMedical('TG/2023/001');
     Give cource code and reg no,
 	    with medical,
-	            with session type =>  CALL  get_attend_by_regno_and_coursecode_with_stype('TG/2023/001','ICT1253');
-			    without session type =>  CALL get_attend_by_regno_and_coursecode_without_stype('TG/2023/001','ICT1253');
+	        with session type =>  
+                CALL  get_attend_by_regno_and_coursecode_with_stype('TG/2023/001','ICT1253');
+			without session type =>  
+                CALL get_attend_by_regno_and_coursecode_without_stype('TG/2023/001','ICT1253');
     
 			    
 
@@ -65,7 +72,6 @@ Get attendance with eligibility and percentage by,
 +++++++++++++
 Marks Related
 +++++++++++++
-
 
 views
 ------
@@ -119,8 +125,10 @@ for whole batch,
 Procedures
 ----------
 
-Give reg no get CA marks for all subject =>  CALL CA_marks_all_sub_by_regNo('TG/2023/001');
-Give reg no get Both CGPA and SGPA CALL individual_SGPA_and_CGPA('TG/2023/003');
+Give reg no get CA marks for all subject =>  
+    CALL CA_marks_all_sub_by_regNo('TG/2023/001');
+Give reg no get Both CGPA and SGPA =>
+    CALL individual_SGPA_and_CGPA('TG/2023/003');
 
 
 
