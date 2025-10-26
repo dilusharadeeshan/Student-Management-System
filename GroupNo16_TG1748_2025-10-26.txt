@@ -10,5 +10,7 @@ GRANT SELECT, INSERT, UPDATE ON faculty_of_technology.vw_eligibi_without_medical
 GRANT SELECT, INSERT, UPDATE ON faculty_of_technology.vw_eligibi_without_medical_with_name_without_s_type TO 'technical_officer'@'localhost';
 GRANT SELECT, INSERT, UPDATE ON faculty_of_technology.vw_end_exam_elig_basedon_ca_and_atten TO 'technical_officer'@'localhost';
 GRANT SELECT, INSERT, UPDATE ON faculty_of_technology.attendance TO 'technical_officer'@'localhost';
+GRANT SELECT, INSERT, UPDATE ON faculty_of_technology.vw_medicalApplyAttendance TO 'technical_officer'@'localhost';
+GRANT SELECT, INSERT, UPDATE ON faculty_of_technology.vw_approvedMedical TO 'technical_officer'@'localhost';
 
 FLUSH PRIVILEGES;
