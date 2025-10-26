@@ -1,0 +1,454 @@
+DROP VIEW IF EXISTS vw_eligibi_without_medical_with_name;
+
+CREATE VIEW vw_eligibi_without_medical_with_name AS
+SELECT
+    u.L_name,
+    a.reg_no,
+    a.course_code,
+    a.session_type,
+    SUM(CASE WHEN a.status = 'Present' THEN a.session_hours ELSE 0 END) AS attended_hours,
+    SUM(a.session_hours) AS total_hours,
+    SUM(CASE WHEN a.status = 'Present' THEN 1 ELSE 0 END) AS attended_sessions,
+    COUNT(*) AS total_sessions,
+    ROUND(
+        (SUM(CASE WHEN a.status = 'Present' THEN a.session_hours ELSE 0 END) / 
+        SUM(a.session_hours)
+    ) * 100, 2
+    ) AS attendance_percentage,
+    CASE 
+	WHEN
+	    ROUND(
+            (SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) / 
+            SUM(session_hours)
+            ) * 100, 2
+    ) >=80 THEN 'Eligible' 
+	   ELSE 'Not Eligible'
+	END AS eligibility
+FROM attendance a
+LEFT JOIN student s ON
+s.reg_no=a.reg_no
+LEFT JOIN user u ON
+u.user_id=s.user_id
+GROUP BY a.reg_no, a.course_code, a.session_type
+ORDER BY a.reg_no, a.course_code, a.session_type;
+
+
+
+
+
+
+DROP VIEW IF EXISTS vw_eligibi_without_medical_with_name_without_S_type;
+
+CREATE VIEW vw_eligibi_without_medical_with_name_without_S_type AS
+SELECT
+    u.L_name,
+    a.reg_no,
+    a.course_code,
+    SUM(CASE WHEN a.status = 'Present' THEN a.session_hours ELSE 0 END) AS attended_hours,
+    SUM(a.session_hours) AS total_hours,
+    SUM(CASE WHEN a.status = 'Present' THEN 1 ELSE 0 END) AS attended_sessions,
+    COUNT(*) AS total_sessions,
+    ROUND(
+        (SUM(CASE WHEN a.status = 'Present' THEN a.session_hours ELSE 0 END) / 
+        SUM(a.session_hours)
+    ) * 100, 2
+    ) AS attendance_percentage,
+    CASE 
+	    WHEN
+	        ROUND(
+                (SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) / 
+                SUM(session_hours)
+                ) * 100, 2) >=80 
+        THEN 'Eligible' 
+	    ELSE 'Not Eligible'
+	END AS eligibility
+FROM attendance a
+LEFT JOIN student s ON
+s.reg_no=a.reg_no
+LEFT JOIN user u ON
+u.user_id=s.user_id
+GROUP BY a.reg_no, a.course_code
+ORDER BY a.reg_no, a.course_code;
+
+
+
+
+
+DROP VIEW IF EXISTS vw_all_SGPA_and_CGPA;
+
+CREATE VIEW vw_all_SGPA_and_CGPA AS
+SELECT 
+    s.Reg_no,
+    s.your_sgpa,
+    c.`your cgpa`,
+    c.class
+FROM vw_all_stu_SGPA s
+JOIN vw_all_stu_CGPA c ON c.Reg_no = s.Reg_no;
+
+DROP VIEW IF EXISTS vw_result_sheet;
+
+CREATE VIEW vw_result_sheet AS
+SELECT 
+    a.Reg_no,
+    (SELECT Grade FROM vw_all_stu_all_course_grade_point 
+        WHERE Reg_no = a.Reg_no AND course = 'ENG1222') AS ENG1222,
+    (SELECT Grade FROM vw_all_stu_all_course_grade_point 
+        WHERE Reg_no = a.Reg_no AND course = 'ICT1212') AS ICT1212,
+    (SELECT Grade FROM vw_all_stu_all_course_grade_point 
+        WHERE Reg_no = a.Reg_no AND course = 'ICT1222') AS ICT1222,
+    (SELECT Grade FROM vw_all_stu_all_course_grade_point 
+        WHERE Reg_no = a.Reg_no AND course = 'ICT1233') AS ICT1233,
+    (SELECT Grade FROM vw_all_stu_all_course_grade_point 
+        WHERE Reg_no = a.Reg_no AND course = 'ICT1242') AS ICT1242,
+    (SELECT Grade FROM vw_all_stu_all_course_grade_point 
+        WHERE Reg_no = a.Reg_no AND course= 'ICT1253') AS ICT1253,
+    (SELECT Grade FROM vw_all_stu_all_course_grade_point 
+        WHERE Reg_no = a.Reg_no AND course = 'TCS1212') AS TCS1212,
+    (SELECT Grade FROM vw_all_stu_all_course_grade_point 
+        WHERE Reg_no = a.Reg_no AND course = 'TMS1233') AS TMS1233,
+    b.your_sgpa,
+    b.`your cgpa`,
+    b.class
+FROM vw_all_sgpa_and_cgpa b
+JOIN vw_all_stu_all_course_grade_point a 
+    ON a.Reg_no = b.Reg_no
+GROUP BY a.Reg_no;
+
+DROP VIEW IF EXISTS vw_total_CA_End_status;
+CREATE VIEW vw_total_CA_End_status AS
+SELECT 
+    e.Reg_no,
+    e.Course_code,
+    ca.CA_Status,
+    e.END_Status
+FROM 
+    vw_end_Status e
+LEFT JOIN 
+    vw_ca_status ca
+ON 
+    e.Reg_no = ca.Reg_no 
+    AND e.Course_code = ca.Course_code;
+
+DROP VIEW IF EXISTS vw_end_exam_elig_basedON_CA_and_Atten;
+
+CREATE VIEW vw_end_exam_elig_basedON_CA_and_Atten AS
+SELECT 
+    cp.Reg_no,
+    cp.Course_code,
+    cp.CA_Status,
+    COALESCE(att.eligibility, 'Not Eligible') AS Attendance_Eligibility,
+    CASE 
+        WHEN cp.CA_Status = 'CA_Pass' AND att.eligibility IN ('Eligible', 'Eligible with medical') THEN 'Eligible'
+        ELSE 'Not Eligible'
+    END AS Final_Eligibility
+FROM vw_CA_Status cp
+LEFT JOIN vw_attend_percen_with_medical_with_elig_without_S_type_with_n att 
+    ON cp.Reg_no = att.reg_no AND cp.Course_code = att.course_code
+ORDER BY cp.Reg_no, cp.Course_code;
+
+
+
+
+
+CREATE VIEW vw_ICT1242_marks AS
+SELECT 
+    e.Reg_no,
+    e.Course_code,
+    CASE 
+        WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
+        WHEN (SELECT Marks_value FROM mark 
+              WHERE Course_code = 'ICT1242'
+                AND Reg_no = e.Reg_no 
+                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_theory', 'Assignment_1', 'End_theory')
+                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        ELSE GREATEST(
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0),
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0),
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_3'), 0)
+        )
+    END AS `Max_Quiz(100%)`,
+    CASE 
+        WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
+        WHEN (SELECT Marks_value FROM mark 
+              WHERE Course_code = 'ICT1242'
+                AND Reg_no = e.Reg_no 
+                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_theory', 'Assignment_1', 'End_theory')
+                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        ELSE (
+            (
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0) +
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0) +
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_3'), 0)
+            )
+            -
+            GREATEST(
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0),
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0),
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_3'), 0)
+            )
+            -
+            LEAST(
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0),
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0),
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_3'), 0)
+            )
+        )
+    END AS `Second_Max_Quiz(100%)`,
+    CASE 
+        WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
+        WHEN (SELECT Marks_value FROM mark 
+              WHERE Course_code = 'ICT1242'
+                AND Reg_no = e.Reg_no 
+                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_theory', 'Assignment_1', 'End_theory')
+                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        ELSE IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Mid_theory'), 0)
+    END AS `Mid_theory(100%)`,
+    CASE 
+        WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
+        WHEN (SELECT Marks_value FROM mark 
+              WHERE Course_code = 'ICT1242'
+                AND Reg_no = e.Reg_no 
+                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_theory', 'Assignment_1', 'End_theory')
+                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        ELSE IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Assignment_1'), 0)
+    END AS `Assignment_1(100%)`,
+    CASE 
+        WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
+        WHEN (SELECT Marks_value FROM mark 
+              WHERE Course_code = 'ICT1242'
+                AND Reg_no = e.Reg_no 
+                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_theory', 'Assignment_1', 'End_theory')
+                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN (SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'End_theory') IS NULL THEN 'E*(Not_eligible)'
+        ELSE IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'End_theory'), 0)
+    END AS `End_theory(100%)`,
+    CASE 
+        WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
+        WHEN (SELECT Marks_value FROM mark 
+              WHERE Course_code = 'ICT1242'
+                AND Reg_no = e.Reg_no 
+                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_theory', 'Assignment_1', 'End_theory')
+                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        ELSE ROUND(((((
+                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0) +
+                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0) +
+                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_3'), 0)
+                )
+                - LEAST(
+                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0),
+                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0),
+                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_3'), 0)
+                ))*0.5)*0.1
+                +
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Mid_theory'), 0)*0.15
+                +
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Assignment_1'), 0)*0.05
+        ),2)
+    END AS `Total_CA_Marks(30%)`,
+    CASE 
+        WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
+        WHEN (SELECT Marks_value FROM mark 
+              WHERE Course_code = 'ICT1242'
+                AND Reg_no = e.Reg_no 
+                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_theory', 'Assignment_1', 'End_theory')
+                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN (SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'End_theory') IS NULL THEN 'E*(Not_eligible)'
+        ELSE ROUND((IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'End_theory'), 0)*0.7),2)
+    END AS `Total_END_Marks(70%)`,
+    CASE 
+        WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
+        WHEN (SELECT Marks_value FROM mark 
+              WHERE Course_code = 'ICT1242'
+                AND Reg_no = e.Reg_no 
+                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_theory', 'Assignment_1', 'End_theory')
+                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN (SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'End_theory') IS NULL THEN 'WH'
+        ELSE ROUND( ((((
+                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0) +
+                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0) +
+                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_3'), 0)
+                )
+                - LEAST(
+                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0),
+                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0),
+                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_3'), 0)
+                ))*0.5)*0.1
+                +
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Mid_theory'), 0)*0.15
+                +
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Assignment_1'), 0)*0.05
+                +
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'End_theory'), 0)*0.7
+        ),2)
+    END AS `Final_Marks(100%)`
+FROM 
+ enrollment e
+WHERE 
+    e.Course_code = 'ICT1242';
+
+
+
+
+CREATE VIEW vw_ICT1233_marks AS
+SELECT 
+    e.Reg_no,
+    e.Course_code,
+    CASE 
+        WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
+        WHEN (SELECT Marks_value FROM mark 
+              WHERE Course_code = 'ICT1233'
+                AND Reg_no = e.Reg_no 
+                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_practical', 'Mini_project', 'End_theory', 'End_practical')
+                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        ELSE GREATEST(
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0),
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0),
+            IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_3'), 0)
+        )
+    END AS `Max_Quiz(100%)`,
+    CASE 
+        WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
+        WHEN (SELECT Marks_value FROM mark 
+              WHERE Course_code = 'ICT1233'
+                AND Reg_no = e.Reg_no 
+                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_practical', 'Mini_project', 'End_theory', 'End_practical')
+                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        ELSE (
+            (
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0) +
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0) +
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_3'), 0)
+            )
+            -
+            GREATEST(
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0),
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0),
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_3'), 0)
+            )
+            -
+            LEAST(
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0),
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0),
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_3'), 0)
+            )
+        )
+    END AS `Second_Max_Quiz(100%)`,
+    CASE 
+        WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
+        WHEN (SELECT Marks_value FROM mark 
+              WHERE Course_code = 'ICT1233'
+                AND Reg_no = e.Reg_no 
+                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_practical', 'Mini_project', 'End_theory', 'End_practical')
+                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        ELSE IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Mid_practical'), 0)
+    END AS `Mid_practical(100%)`,
+    CASE 
+        WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
+        WHEN (SELECT Marks_value FROM mark 
+              WHERE Course_code = 'ICT1233'
+                AND Reg_no = e.Reg_no 
+                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_practical', 'Mini_project', 'End_theory', 'End_practical')
+                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        ELSE IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Mini_project'), 0)
+    END AS `Mini_project(100%)`,
+    CASE 
+        WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
+        WHEN (SELECT Marks_value FROM mark 
+              WHERE Course_code = 'ICT1233'
+                AND Reg_no = e.Reg_no 
+                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_practical', 'Mini_project', 'End_theory', 'End_practical')
+                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN (SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'End_theory') IS NULL 
+             OR (SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'End_practical') IS NULL 
+        THEN 'E*(Not_eligible)'
+        ELSE IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'End_theory'), 0)
+    END AS `End_theory(100%)`,
+    CASE 
+        WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
+        WHEN (SELECT Marks_value FROM mark 
+              WHERE Course_code = 'ICT1233'
+                AND Reg_no = e.Reg_no 
+                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_practical', 'Mini_project', 'End_theory', 'End_practical')
+                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN (SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'End_theory') IS NULL 
+             OR (SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'End_practical') IS NULL 
+        THEN 'E*(Not_eligible)'
+        ELSE IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'End_practical'), 0)
+    END AS `End_practical(100%)`,
+    CASE 
+        WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
+        WHEN (SELECT Marks_value FROM mark 
+              WHERE Course_code = 'ICT1233'
+                AND Reg_no = e.Reg_no 
+                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_practical', 'Mini_project', 'End_theory', 'End_practical')
+                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        ELSE ROUND( ((((
+                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0) +
+                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0) +
+                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_3'), 0)
+                )
+                - LEAST(
+                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0),
+                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0),
+                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_3'), 0)
+                ))*0.5)*0.1
+                +
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Mid_practical'), 0)*0.1
+                +
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Mini_project'), 0)*0.2
+        ),2)
+    END AS `Total_CA_marks(40%)`,
+    CASE 
+        WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
+        WHEN (SELECT Marks_value FROM mark 
+              WHERE Course_code = 'ICT1233'
+                AND Reg_no = e.Reg_no 
+                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_practical', 'Mini_project', 'End_theory', 'End_practical')
+                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN (SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'End_theory') IS NULL 
+             OR (SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'End_practical') IS NULL 
+        THEN 'E*(Not_eligible)'
+        ELSE ROUND((((IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'End_theory'), 0)
+                +                 
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'End_practical'), 0))*0.5)*0.6),2)
+    END AS `Total_End_marks(60%)`,
+    CASE 
+        WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
+        WHEN (SELECT Marks_value FROM mark 
+              WHERE Course_code = 'ICT1233'
+                AND Reg_no = e.Reg_no 
+                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_practical', 'Mini_project', 'End_theory', 'End_practical')
+                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN (SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'End_theory') IS NULL 
+             OR (SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'End_practical') IS NULL 
+        THEN 'WH'
+        ELSE ROUND( (
+                (((
+                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0) +
+                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0) +
+                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_3'), 0)
+                )
+                - LEAST(
+                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0),
+                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0),
+                    IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_3'), 0)
+                ))*0.5)*0.1
+                +
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Mid_practical'), 0)*0.1
+                +
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Mini_project'), 0)*0.2
+                +
+                ((IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'End_theory'), 0)
+                 +
+                IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'End_practical'), 0))*0.5)*0.6
+            ),2)
+    END AS `Final_Marks(100%)`
+FROM 
+     enrollment e
+WHERE 
+    e.Course_code = 'ICT1233';
+
+
+
+
+
