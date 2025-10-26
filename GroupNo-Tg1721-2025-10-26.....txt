@@ -1,0 +1,22 @@
+
+
+DROP USER IF EXISTS 'lecturer'@'localhost';
+DROP USER IF EXISTS 'dean'@'localhost';
+DROP USER IF EXISTS 'admin'@'localhost';
+
+CREATE USER 'admin'@'localhost' IDENTIFIED BY 'admin123';
+GRANT ALL PRIVILEGES ON faculty_of_technology.* TO 'admin'@'localhost' WITH GRANT OPTION;
+GRANT EXECUTE ON faculty_of_technology.* TO 'admin'@'localhost';
+FLUSH PRIVILEGES;
+
+
+CREATE USER 'dean'@'localhost' IDENTIFIED BY 'dean123';
+GRANT ALL PRIVILEGES ON faculty_of_technology.* TO 'dean'@'localhost' WITH GRANT OPTION;
+GRANT EXECUTE ON faculty_of_technology.* TO 'dean'@'localhost';
+FLUSH PRIVILEGES;
+
+
+CREATE USER 'lecturer'@'localhost' IDENTIFIED BY 'lecturer123';
+GRANT ALL PRIVILEGES ON faculty_of_technology.* TO 'lecturer'@'localhost';
+GRANT EXECUTE ON faculty_of_technology.* TO 'dean'@'localhost';
+FLUSH PRIVILEGES;
