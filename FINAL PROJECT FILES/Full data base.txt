@@ -6817,3 +6817,65 @@ BEGIN
 END //
 
 DELIMITER ;
+
+
+
+DROP USER IF EXISTS 'student'@'localhost';
+DROP USER IF EXISTS 'lecturer'@'localhost';
+DROP USER IF EXISTS 'technical_officer'@'localhost';
+DROP USER IF EXISTS 'dean'@'localhost';
+DROP USER IF EXISTS 'admin'@'localhost';
+
+
+CREATE USER 'admin'@'localhost' IDENTIFIED BY 'admin123';
+GRANT ALL PRIVILEGES ON faculty_of_technology.* TO 'admin'@'localhost' WITH GRANT OPTION;
+GRANT EXECUTE ON faculty_of_technology.* TO 'admin'@'localhost';
+FLUSH PRIVILEGES;
+
+
+CREATE USER 'dean'@'localhost' IDENTIFIED BY 'dean123';
+GRANT ALL PRIVILEGES ON faculty_of_technology.* TO 'dean'@'localhost' WITH GRANT OPTION;
+GRANT EXECUTE ON faculty_of_technology.* TO 'dean'@'localhost';
+FLUSH PRIVILEGES;
+
+
+CREATE USER 'lecturer'@'localhost' IDENTIFIED BY 'lecturer123';
+GRANT ALL PRIVILEGES ON faculty_of_technology.* TO 'lecturer'@'localhost';
+GRANT EXECUTE ON faculty_of_technology.* TO 'dean'@'localhost';
+FLUSH PRIVILEGES;
+
+
+
+CREATE USER 'technical_officer'@'localhost' IDENTIFIED BY 'technical_officer123';
+
+GRANT SELECT, INSERT, UPDATE ON faculty_of_technology.vw_attend_percen_with_medical_with_elig_without_s_type_with_n TO 'technical_officer'@'localhost';
+GRANT SELECT, INSERT, UPDATE ON faculty_of_technology.vw_attend_percentage_with_medical_with_eligibility_with_name TO 'technical_officer'@'localhost';
+GRANT SELECT, INSERT, UPDATE ON faculty_of_technology.vw_attend_with_medical_approval TO 'technical_officer'@'localhost';
+GRANT SELECT, INSERT, UPDATE ON faculty_of_technology.vw_eligibi_without_medical_with_name TO 'technical_officer'@'localhost';
+GRANT SELECT, INSERT, UPDATE ON faculty_of_technology.vw_eligibi_without_medical_with_name_without_s_type TO 'technical_officer'@'localhost';
+GRANT SELECT, INSERT, UPDATE ON faculty_of_technology.vw_end_exam_elig_basedon_ca_and_atten TO 'technical_officer'@'localhost';
+GRANT SELECT, INSERT, UPDATE ON faculty_of_technology.attendance TO 'technical_officer'@'localhost';
+
+FLUSH PRIVILEGES;
+
+
+CREATE USER 'student'@'localhost' IDENTIFIED BY 'student123';
+GRANT SELECT ON faculty_of_technology.mark TO 'student'@'localhost';  
+GRANT SELECT ON faculty_of_technology.attendance TO 'student'@'localhost';  
+GRANT EXECUTE ON PROCEDURE faculty_of_technology.GetStudentFinalMarks TO 'student'@'localhost'; 
+GRANT EXECUTE ON PROCEDURE faculty_of_technology.CA_marks_all_sub_by_regNo TO 'student'@'localhost';   
+GRANT EXECUTE ON PROCEDURE faculty_of_technology.GetFinalMarksByCourseCode TO 'student'@'localhost';  
+GRANT SELECT ON faculty_of_technology.vw_result_sheet TO 'student'@'localhost';  
+GRANT SELECT ON faculty_of_technology.vw_end_status TO 'student'@'localhost';  
+GRANT SELECT ON faculty_of_technology.vw_ca_status TO 'student'@'localhost';  
+GRANT SELECT ON faculty_of_technology.vw_attend_percentage_with_medical_with_eligibility_with_name TO 'student'@'localhost';  
+GRANT SELECT ON faculty_of_technology.vw_all_stu_all_course_grade_point  TO 'student'@'localhost';    
+
+
+FLUSH PRIVILEGES;
+
+ 
+
+
+ 
+
