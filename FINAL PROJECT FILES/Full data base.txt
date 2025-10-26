@@ -4071,6 +4071,29 @@ INSERT INTO MARK (Reg_no, Course_code, Marks_type, Marks_value) VALUES
 
 -- views
 
+
+DROP VIEW IF EXISTS vw_medicalApplyAttendance;
+
+CREATE VIEW vw_medicalApplyAttendance AS 
+SELECT attendance_id,reg_no,course_code,session_date,session_type,session_hours,status 
+FROM attendance 
+WHERE status='Medical';
+
+
+
+DROP VIEW IF EXISTS vw_approvedMedical;
+
+CREATE VIEW vw_approvedMedical AS 
+SELECT Medical_id,Reg_no,session_date,Reason,approved 
+FROM medical_record
+WHERE Approved=TRUE;
+
+
+
+
+
+
+
 DROP VIEW IF EXISTS vw_attend_with_medical_approval;
 
 CREATE VIEW vw_attend_with_medical_approval AS

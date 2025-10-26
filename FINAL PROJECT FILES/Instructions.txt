@@ -5,7 +5,11 @@ Attendance Related
 
 views
 -----
+==> to see medical apllied attendance
+        SELECT * FROM vw_medicalApplyAttendance;
 
+==> to see approved medicals
+        SELECT * FROM vw_approvedMedical;
 
 ==> full attendance table with medical approvel--> (Line 4072)
         SELECT * FROM vw_attend_with_medical_approval;
