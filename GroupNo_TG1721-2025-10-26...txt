@@ -1,0 +1,153 @@
+DELIMITER //
+
+CREATE PROCEDURE GetFinalMarksByCourseCode(IN course_code VARCHAR(20))
+BEGIN
+    SELECT 
+        g.Course AS CourseCode,
+        g.Reg_no,
+        g.Final_marks AS FinalMark,
+        g.Grade,
+        CASE 
+            WHEN g.Grade IN ('A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D') THEN 'Pass'
+            WHEN g.Grade = 'WH' THEN 'Withheld'
+            WHEN g.Grade LIKE 'E(%' THEN 'Fail'
+            WHEN g.Grade = '_' THEN 'Not Eligible for End Exam'
+            ELSE 'Fail'
+        END AS FinalStatus
+    FROM vw_all_stu_all_course_grade_point g
+    WHERE g.Course = course_code
+    ORDER BY g.Reg_no;
+END //
+
+DELIMITER ;
+
+
+
+DROP PROCEDURE IF EXISTS get_attend_by_regno_and_coursecode_without_stype;
+
+DELIMITER //
+
+CREATE PROCEDURE get_attend_by_regno_and_coursecode_without_stype(IN TG CHAR(20),IN cid CHAR(10))
+BEGIN
+SELECT * FROM vw_attend_percen_with_medical_with_elig_without_S_type_with_n  WHERE Reg_no = TG AND 
+course_code = cid;
+END //
+
+DELIMITER ;
+
+
+
+
+DROP PROCEDURE IF EXISTS CA_marks_all_sub_by_regNo;
+
+DELIMITER //
+
+CREATE PROCEDURE CA_marks_all_sub_by_regNo (IN TG CHAR(20))
+BEGIN 
+    SELECT Reg_no, 'ENG1222' AS Course,`Total_CA_marks(30%)` AS CA_marks FROM vw_ENG1222_marks WHERE Reg_no = TG
+    UNION ALL
+    SELECT Reg_no, 'ICT1212' AS Course,`Total_CA_marks(30%)` AS CA_marks FROM vw_ICT1212_marks WHERE Reg_no = TG
+    UNION ALL
+    SELECT Reg_no, 'ICT1222' AS Course,`Total_CA_Marks(40%)` AS CA_marks FROM vw_ICT1222_marks WHERE Reg_no = TG
+    UNION ALL
+    SELECT Reg_no, 'ICT1233' AS Course,`Total_CA_Marks(40%)` AS CA_marks FROM vw_ICT1233_marks WHERE Reg_no = TG
+    UNION ALL
+    SELECT Reg_no, 'ICT1242' AS Course,`Total_CA_marks(30%)` AS CA_marks FROM vw_ICT1242_marks WHERE Reg_no = TG
+    UNION ALL
+    SELECT Reg_no, 'ICT1253' AS Course,`Total_CA_marks(40%)` AS CA_marks FROM vw_ICT1253_marks WHERE Reg_no = TG
+    UNION ALL
+    SELECT Reg_no, 'TCS1212' AS Course,`Total_CA_marks(30%)` AS CA_marks FROM vw_TCS1212_marks WHERE Reg_no = TG
+    UNION ALL
+    SELECT Reg_no, 'TMS1233' AS Course,`Total_CA_marks(40%)` AS CA_marks FROM vw_TMS1233_marks WHERE Reg_no = TG;
+END //
+
+DELIMITER ;
+
+
+
+
+DROP PROCEDURE IF EXISTS GetAttendanceByCourseCodeWithSTypeWithMedical;
+
+DELIMITER //
+
+CREATE PROCEDURE GetAttendanceByCourseCodeWithSTypeWithMedical(IN course_code_param VARCHAR(10))
+BEGIN
+SELECT 
+    a.reg_no,
+    a.course_code,
+    a.session_type,
+    SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END) AS attended_hours,
+    SUM(session_hours) AS total_hours,
+    SUM(CASE WHEN a.status = 'Present' THEN 1  WHEN a.status='Medical' AND m.approved=TRUE THEN 1 ELSE 0 END) AS attended_sessions,
+    COUNT(*) AS total_sessions,
+    ROUND( (
+ SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END)/ SUM(a.session_hours)
+    ) * 100, 2
+    ) AS attendance_percentage,
+    CASE WHEN    
+        SUM(CASE WHEN a.status = 'Present' THEN a.session_hours  WHEN a.status='Medical' AND m.approved=TRUE THEN a.session_hours ELSE 0 END)/ SUM(a.session_hours)
+     >= 0.8 AND SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) / SUM(session_hours) < 0.8 THEN 'Eligible with medical' 
+ WHEN (SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) / SUM(session_hours)) >= 0.8 
+            	THEN 'Eligible' 
+                ELSE 'Not Eligible'
+    END AS eligibility
+FROM attendance a 
+LEFT JOIN medical_record m ON
+a.medical_id=m.medical_id
+WHERE course_code = course_code_param
+GROUP BY reg_no, course_code,session_type
+ORDER BY course_code,reg_no, session_type;
+
+END //
+
+DELIMITER ;
+
+
+
+DROP PROCEDURE IF EXISTS GetAttendanceByCourseCodeWithSTypeWithoutMedical;
+
+DELIMITER //
+
+CREATE PROCEDURE GetAttendanceByCourseCodeWithSTypeWithoutMedical(IN course_code_param VARCHAR(10))
+BEGIN
+    SELECT 
+	course_code,
+        reg_no,
+	session_type,
+        SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) AS attended_hours,
+        SUM(session_hours) AS total_hours,
+        SUM(CASE WHEN status = 'Present' THEN 1 ELSE 0 END) AS attended_sessions,
+	COUNT(*) AS total_sessions,
+        ROUND(
+            (SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) / 
+             SUM(session_hours)) * 100, 2
+        ) AS attendance_percentage,
+	CASE 
+            WHEN (SUM(CASE WHEN status = 'Present' THEN session_hours ELSE 0 END) / SUM(session_hours)) >= 0.8 
+            	THEN 'Eligible' 
+            	ELSE 'Not Eligible' 
+        END AS eligibility
+    FROM attendance
+    WHERE course_code = course_code_param
+    GROUP BY reg_no, course_code,session_type
+    ORDER BY course_code,reg_no, session_type;
+END //
+
+DELIMITER ;
+
+
+
+DROP PROCEDURE IF EXISTS get_attend_by_regno_and_coursecode_with_stype ;
+
+DELIMITER //
+CREATE PROCEDURE get_attend_by_regno_and_coursecode_with_stype(IN TG CHAR(20),IN cid CHAR(10))
+
+BEGIN
+SELECT * FROM vw_attend_percentage_with_medical_with_eligibility_with_name  WHERE Reg_no = TG AND 
+course_code = cid;
+END //
+
+DELIMITER ;
+
+DROP VIEW IF EXISTS vw_eligibi_without_medical_with_name_without_S_type;
+
