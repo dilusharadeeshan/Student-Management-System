@@ -86,10 +86,11 @@ CREATE TABLE MARK (
 
 CREATE TABLE medical_record (
     Medical_id INT AUTO_INCREMENT  PRIMARY KEY,
-    Reg_no CHAR(20),
-    Session_date DATE,
+    Reg_no CHAR(20) NOT NULL,
+    Session_date DATE NOT NULL,
     Reason VARCHAR(255),
-    Approved BOOLEAN,
+    Session_type VARCHAR(50) CHECK (Session_type IN ('NormalDay', 'ExamENG1222','ExamICT1212','ExamICT1222','ExamICT1233','ExamICT1242','ExamTCS1212','ExamICT1253','ExamTMS1233')) DEFAULT 'NormalDay',
+    Approved BOOLEAN DEFAULT FALSE,
     FOREIGN KEY (Reg_no) REFERENCES STUDENT(Reg_no)
 );
 
@@ -428,251 +429,252 @@ INSERT INTO enrollment (Reg_no, Course_code) VALUES
 ('TG/2022/008', 'ICT1253'),
 ('TG/2022/008', 'TCS1212');
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/003', '2025-08-04', 'Fever', TRUE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/007', '2025-08-04', 'Headache', TRUE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/010', '2025-08-04', 'Stomach ache', TRUE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/014', '2025-08-04', 'Cold and cough', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/006', '2025-08-04', 'Dizziness', TRUE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/011', '2025-08-04', 'Fever', TRUE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/015', '2025-08-04', 'Migraine', TRUE);
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/005', '2025-08-05', 'Sore throat', TRUE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-08-05', 'Back pain', TRUE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/012', '2025-08-05', 'Nausea', TRUE);
+INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES 
+  ('TG/2023/003', '2025-08-04', 'Fever', TRUE),
+ ('TG/2023/007', '2025-08-04', 'Headache', TRUE),
+ ('TG/2023/010', '2025-08-04', 'Stomach ache', TRUE),
+ ('TG/2023/014', '2025-08-04', 'Cold and cough', FALSE),
+ ('TG/2023/006', '2025-08-04', 'Dizziness', TRUE),
+ ('TG/2023/011', '2025-08-04', 'Fever', TRUE),
+ ('TG/2023/015', '2025-08-04', 'Migraine', TRUE),
+
+ ('TG/2023/005', '2025-08-05', 'Sore throat', TRUE),
+ ('TG/2023/008', '2025-08-05', 'Back pain', TRUE),
+ ('TG/2023/012', '2025-08-05', 'Nausea', TRUE),
+ ('TG/2023/008', '2025-08-06', 'Toothache', TRUE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-08-06', 'Toothache', TRUE);
+('TG/2023/003', '2025-08-07', 'Flu symptoms', TRUE),
+ ('TG/2023/007', '2025-08-07', 'Body ache', TRUE),
+ ('TG/2023/010', '2025-08-07', 'Fever', TRUE),
+ ('TG/2023/014', '2025-08-07', 'Headache', TRUE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/003', '2025-08-07', 'Flu symptoms', TRUE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/007', '2025-08-07', 'Body ache', TRUE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/010', '2025-08-07', 'Fever', TRUE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/014', '2025-08-07', 'Headache', TRUE);
+ ('TG/2023/005', '2025-08-08', 'Cold', TRUE),
+ ('TG/2023/008', '2025-08-08', 'Allergic reaction', FALSE),
+('TG/2023/011', '2025-08-08', 'Stomach upset', TRUE),
+ ('TG/2023/015', '2025-08-08', 'Eye irritation', TRUE),
+ ('TG/2023/004', '2025-08-11', 'Fever', TRUE),
+ ('TG/2023/007', '2025-08-11', 'Sore throat', FALSE),
+ ('TG/2023/012', '2025-08-11', 'Headache', TRUE),
+ ('TG/2023/015', '2025-08-11', 'Cough', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/005', '2025-08-08', 'Cold', TRUE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-08-08', 'Allergic reaction', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/011', '2025-08-08', 'Stomach upset', TRUE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/015', '2025-08-08', 'Eye irritation', TRUE);
+ ('TG/2023/002', '2025-08-12', 'Cold and fever', TRUE),
+ ('TG/2023/008', '2025-08-12', 'Diarrhea', FALSE),
+ ('TG/2023/011', '2025-08-12', 'Dizziness', TRUE),
+ ('TG/2023/015', '2025-08-12', 'Fatigue', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/004', '2025-08-11', 'Fever', TRUE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/007', '2025-08-11', 'Sore throat', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/012', '2025-08-11', 'Headache', TRUE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/015', '2025-08-11', 'Cough', FALSE);
+ ('TG/2023/007', '2025-08-13', 'Muscle pain', FALSE),
+ ('TG/2023/015', '2025-08-13', 'Vomiting', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/002', '2025-08-12', 'Cold and fever', TRUE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-08-12', 'Diarrhea', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/011', '2025-08-12', 'Dizziness', TRUE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/015', '2025-08-12', 'Fatigue', FALSE);
+ ('TG/2023/005', '2025-08-14', 'Fever', FALSE),
+ ('TG/2023/008', '2025-08-14', 'Joint pain', FALSE),
+ ('TG/2023/012', '2025-08-14', 'Cold', TRUE),
+ ('TG/2023/015', '2025-08-14', 'Chest pain', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/007', '2025-08-13', 'Muscle pain', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/015', '2025-08-13', 'Vomiting', FALSE);
+ ('TG/2023/007', '2025-08-15', 'Headache', FALSE),
+ ('TG/2023/008', '2025-08-15', 'Fever', FALSE),
+ ('TG/2023/014', '2025-08-15', 'Stomach ache', FALSE),
+ ('TG/2023/015', '2025-08-15', 'Nausea', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/005', '2025-08-14', 'Fever', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-08-14', 'Joint pain', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/012', '2025-08-14', 'Cold', TRUE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/015', '2025-08-14', 'Chest pain', FALSE);
+ ('TG/2023/002', '2025-08-18', 'Sore throat', TRUE),
+ ('TG/2023/007', '2025-08-18', 'Cough', FALSE),
+ ('TG/2023/009', '2025-08-18', 'Fever', TRUE),
+ ('TG/2023/014', '2025-08-18', 'Back pain', TRUE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/007', '2025-08-15', 'Headache', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-08-15', 'Fever', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/014', '2025-08-15', 'Stomach ache', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/015', '2025-08-15', 'Nausea', FALSE);
+ ('TG/2023/004', '2025-08-19', 'Headache', TRUE),
+ ('TG/2023/008', '2025-08-19', 'Indigestion', FALSE),
+ ('TG/2023/011', '2025-08-19', 'Cold', FALSE),
+ ('TG/2023/002', '2025-08-19', 'Migraine', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/002', '2025-08-18', 'Sore throat', TRUE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/007', '2025-08-18', 'Cough', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-08-18', 'Fever', TRUE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/014', '2025-08-18', 'Back pain', TRUE);
+ ('TG/2023/007', '2025-08-20', 'Fever', FALSE),
+ ('TG/2023/015', '2025-08-20', 'Weakness', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/004', '2025-08-19', 'Headache', TRUE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-08-19', 'Indigestion', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/011', '2025-08-19', 'Cold', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/002', '2025-08-19', 'Migraine', FALSE);
+ ('TG/2023/005', '2025-08-21', 'Stomach flu', FALSE),
+ ('TG/2023/008', '2025-08-21', 'Runny nose', FALSE),
+ ('TG/2023/011', '2025-08-21', 'Sore throat', FALSE),
+ ('TG/2023/014', '2025-08-21', 'Fever', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/007', '2025-08-20', 'Fever', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/015', '2025-08-20', 'Weakness', FALSE);
+ ('TG/2023/008', '2025-08-22', 'Headache', FALSE),
+ ('TG/2023/009', '2025-08-22', 'Body pain', TRUE),
+ ('TG/2023/015', '2025-08-22', 'Cold', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/005', '2025-08-21', 'Stomach flu', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-08-21', 'Runny nose', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/011', '2025-08-21', 'Sore throat', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/014', '2025-08-21', 'Fever', FALSE);
+ ('TG/2023/002', '2025-08-25', 'Cough', FALSE),
+ ('TG/2023/011', '2025-08-25', 'Fever', FALSE),
+ ('TG/2023/014', '2025-08-25', 'Dizziness', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-08-22', 'Headache', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-08-22', 'Body pain', TRUE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/015', '2025-08-22', 'Cold', FALSE);
+ ('TG/2023/008', '2025-08-26', 'Stomach ache', FALSE),
+ ('TG/2023/009', '2025-08-26', 'Cold', TRUE),
+ ('TG/2023/011', '2025-08-26', 'Nausea', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/002', '2025-08-25', 'Cough', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/011', '2025-08-25', 'Fever', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/014', '2025-08-25', 'Dizziness', FALSE);
+ ('TG/2023/008', '2025-08-27', 'Fatigue', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-08-26', 'Stomach ache', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-08-26', 'Cold', TRUE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/011', '2025-08-26', 'Nausea', FALSE);
+ ('TG/2023/009', '2025-08-28', 'Headache', FALSE),
+ ('TG/2023/011', '2025-08-28', 'Sore throat', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-08-27', 'Fatigue', FALSE);
+ ('TG/2023/008', '2025-08-29', 'Fever', FALSE),
+ ('TG/2023/009', '2025-08-29', 'Vomiting', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-08-28', 'Headache', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/011', '2025-08-28', 'Sore throat', FALSE);
+ ('TG/2023/009', '2025-09-01', 'Back pain', FALSE),
+ ('TG/2023/011', '2025-09-01', 'Chest cold', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-08-29', 'Fever', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-08-29', 'Vomiting', FALSE);
+ ('TG/2023/008', '2025-09-02', 'Migraine', FALSE),
+ ('TG/2023/009', '2025-09-02', 'Diarrhea', FALSE),
+ ('TG/2023/011', '2025-09-02', 'Toothache', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-09-01', 'Back pain', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/011', '2025-09-01', 'Chest cold', FALSE);
+ ('TG/2023/008', '2025-09-03', 'Body ache', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-09-02', 'Migraine', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-09-02', 'Diarrhea', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/011', '2025-09-02', 'Toothache', FALSE);
+ ('TG/2023/009', '2025-09-04', 'Fever', FALSE),
+ ('TG/2023/011', '2025-09-04', 'Weakness', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-09-03', 'Body ache', FALSE);
+ ('TG/2023/008', '2025-09-05', 'Cold', FALSE),
+ ('TG/2023/009', '2025-09-05', 'Headache', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-09-04', 'Fever', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/011', '2025-09-04', 'Weakness', FALSE);
+ ('TG/2023/002', '2025-09-08', 'Stomach upset', FALSE),
+ ('TG/2023/011', '2025-09-08', 'Cough', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-09-05', 'Cold', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-09-05', 'Headache', FALSE);
+ ('TG/2023/008', '2025-09-09', 'Sore throat', FALSE),
+ ('TG/2023/009', '2025-09-09', 'Fever', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/002', '2025-09-08', 'Stomach upset', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/011', '2025-09-08', 'Cough', FALSE);
+ ('TG/2023/008', '2025-09-10', 'Nausea', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-09-09', 'Sore throat', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-09-09', 'Fever', FALSE);
+ ('TG/2023/009', '2025-09-11', 'Joint pain', FALSE),
+ ('TG/2023/011', '2025-09-11', 'Dizziness', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-09-10', 'Nausea', FALSE);
+ ('TG/2023/008', '2025-09-12', 'Headache', FALSE),
+ ('TG/2023/009', '2025-09-12', 'Back pain', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-09-11', 'Joint pain', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/011', '2025-09-11', 'Dizziness', FALSE);
+ ('TG/2023/009', '2025-09-15', 'Fever', FALSE),
+ ('TG/2023/011', '2025-09-15', 'Cold', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-09-12', 'Headache', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-09-12', 'Back pain', FALSE);
+ ('TG/2023/008', '2025-09-16', 'Stomach ache', FALSE),
+ ('TG/2023/009', '2025-09-16', 'Fatigue', FALSE),
+ ('TG/2023/011', '2025-09-16', 'Sore throat', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-09-15', 'Fever', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/011', '2025-09-15', 'Cold', FALSE);
+ ('TG/2023/008', '2025-09-17', 'Cough', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-09-16', 'Stomach ache', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-09-16', 'Fatigue', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/011', '2025-09-16', 'Sore throat', FALSE);
+ ('TG/2023/009', '2025-09-18', 'Migraine', FALSE),
+ ('TG/2023/011', '2025-09-18', 'Body pain', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-09-17', 'Cough', FALSE);
+ ('TG/2023/008', '2025-09-19', 'Vomiting', FALSE),
+ ('TG/2023/009', '2025-09-19', 'Weakness', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-09-18', 'Migraine', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/011', '2025-09-18', 'Body pain', FALSE);
+ ('TG/2023/002', '2025-09-22', 'Fever', FALSE),
+ ('TG/2023/011', '2025-09-22', 'Headache', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-09-19', 'Vomiting', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-09-19', 'Weakness', FALSE);
+ ('TG/2023/009', '2025-09-23', 'Cold', FALSE),
+ ('TG/2023/011', '2025-09-23', 'Nausea', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/002', '2025-09-22', 'Fever', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/011', '2025-09-22', 'Headache', FALSE);
+ ('TG/2023/008', '2025-09-24', 'Dizziness', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-09-23', 'Cold', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/011', '2025-09-23', 'Nausea', FALSE);
+ ('TG/2023/009', '2025-09-25', 'Stomach upset', FALSE),
+ ('TG/2023/011', '2025-09-25', 'Chest cold', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-09-24', 'Dizziness', FALSE);
+ ('TG/2023/008', '2025-09-26', 'Back pain', FALSE),
+ ('TG/2023/009', '2025-09-26', 'Toothache', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-09-25', 'Stomach upset', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/011', '2025-09-25', 'Chest cold', FALSE);
+ ('TG/2023/009', '2025-09-29', 'Fever', FALSE),
+ ('TG/2023/011', '2025-09-29', 'Sore throat', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-09-26', 'Back pain', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-09-26', 'Toothache', FALSE);
+ ('TG/2023/008', '2025-09-30', 'Runny nose', FALSE),
+ ('TG/2023/009', '2025-09-30', 'Body ache', FALSE),
+ ('TG/2023/011', '2025-09-30', 'Headache', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-09-29', 'Fever', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/011', '2025-09-29', 'Sore throat', FALSE);
+ ('TG/2023/008', '2025-10-01', 'Flu symptoms', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-09-30', 'Runny nose', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-09-30', 'Body ache', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/011', '2025-09-30', 'Headache', FALSE);
+ ('TG/2023/009', '2025-10-02', 'Cold', FALSE),
+ ('TG/2023/011', '2025-10-02', 'Cough', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-10-01', 'Flu symptoms', FALSE);
+ ('TG/2023/009', '2025-10-03', 'Fatigue', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-10-02', 'Cold', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/011', '2025-10-02', 'Cough', FALSE);
+ ('TG/2023/002', '2025-10-06', 'Headache', FALSE),
+ ('TG/2023/011', '2025-10-06', 'Stomach ache', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-10-03', 'Fatigue', FALSE);
+ ('TG/2023/008', '2025-10-07', 'Fever', FALSE),
+ ('TG/2023/009', '2025-10-07', 'Nausea', FALSE),
+ ('TG/2023/011', '2025-10-07', 'Dizziness', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/002', '2025-10-06', 'Headache', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/011', '2025-10-06', 'Stomach ache', FALSE);
+ ('TG/2023/008', '2025-10-08', 'Sore throat', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-10-07', 'Fever', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-10-07', 'Nausea', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/011', '2025-10-07', 'Dizziness', FALSE);
+ ('TG/2023/009', '2025-10-09', 'Back pain', FALSE),
+ ('TG/2023/011', '2025-10-09', 'Cold', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-10-08', 'Sore throat', FALSE);
+ ('TG/2023/008', '2025-10-10', 'Migraine', FALSE),
+ ('TG/2023/009', '2025-10-10', 'Vomiting', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-10-09', 'Back pain', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/011', '2025-10-09', 'Cold', FALSE);
+ ('TG/2023/009', '2025-10-13', 'Joint pain', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-10-10', 'Migraine', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-10-10', 'Vomiting', FALSE);
+ ('TG/2023/008', '2025-10-14', 'Weakness', FALSE),
+ ('TG/2023/009', '2025-10-14', 'Chest pain', FALSE),
+ ('TG/2023/011', '2025-10-14', 'Fever', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-10-13', 'Joint pain', FALSE);
+ ('TG/2023/008', '2025-10-15', 'Body ache', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-10-14', 'Weakness', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-10-14', 'Chest pain', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/011', '2025-10-14', 'Fever', FALSE);
+ ('TG/2023/009', '2025-10-16', 'Headache', FALSE),
+ ('TG/2023/011', '2025-10-16', 'Stomach upset', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-10-15', 'Body ache', FALSE);
+ ('TG/2023/008', '2025-10-17', 'Cold', FALSE),
+ ('TG/2023/009', '2025-10-17', 'Cough', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-10-16', 'Headache', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/011', '2025-10-16', 'Stomach upset', FALSE);
+ ('TG/2023/002', '2025-10-20', 'Sore throat', FALSE),
+ ('TG/2023/011', '2025-10-20', 'Fatigue', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-10-17', 'Cold', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-10-17', 'Cough', FALSE);
+ ('TG/2023/008', '2025-10-21', 'Nausea', FALSE),
+ ('TG/2023/009', '2025-10-21', 'Fever', FALSE),
+ ('TG/2023/011', '2025-10-21', 'Dizziness', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/002', '2025-10-20', 'Sore throat', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/011', '2025-10-20', 'Fatigue', FALSE);
+ ('TG/2023/008', '2025-10-22', 'Back pain', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-10-21', 'Nausea', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-10-21', 'Fever', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/011', '2025-10-21', 'Dizziness', FALSE);
+ ('TG/2023/009', '2025-10-23', 'Stomach ache', FALSE),
+ ('TG/2023/011', '2025-10-23', 'Toothache', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-10-22', 'Back pain', FALSE);
+ ('TG/2023/008', '2025-10-24', 'Migraine', FALSE),
+ ('TG/2023/009', '2025-10-24', 'Body pain', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-10-23', 'Stomach ache', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/011', '2025-10-23', 'Toothache', FALSE);
+ ('TG/2023/009', '2025-10-27', 'Weakness', FALSE),
+ ('TG/2023/011', '2025-10-27', 'Cold', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-10-24', 'Migraine', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-10-24', 'Body pain', FALSE);
+ ('TG/2023/008', '2025-10-28', 'Vomiting', FALSE),
+ ('TG/2023/009', '2025-10-28', 'Headache', FALSE),
+ ('TG/2023/011', '2025-10-28', 'Sore throat', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-10-27', 'Weakness', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/011', '2025-10-27', 'Cold', FALSE);
+ ('TG/2023/008', '2025-10-29', 'Runny nose', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-10-28', 'Vomiting', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-10-28', 'Headache', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/011', '2025-10-28', 'Sore throat', FALSE);
+ ('TG/2023/009', '2025-10-30', 'Fever', FALSE),
+ ('TG/2023/011', '2025-10-30', 'Cough', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-10-29', 'Runny nose', FALSE);
+ ('TG/2023/008', '2025-10-31', 'Chest cold', FALSE),
+ ('TG/2023/009', '2025-10-31', 'Nausea', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-10-30', 'Fever', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/011', '2025-10-30', 'Cough', FALSE);
+ ('TG/2023/002', '2025-11-03', 'Dizziness', FALSE),
+ ('TG/2023/011', '2025-11-03', 'Joint pain', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-10-31', 'Chest cold', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-10-31', 'Nausea', FALSE);
+ ('TG/2023/009', '2025-11-04', 'Back pain', FALSE),
+ ('TG/2023/011', '2025-11-04', 'Stomach upset', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/002', '2025-11-03', 'Dizziness', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/011', '2025-11-03', 'Joint pain', FALSE);
+ ('TG/2023/008', '2025-11-05', 'Fatigue', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-11-04', 'Back pain', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/011', '2025-11-04', 'Stomach upset', FALSE);
+ ('TG/2023/009', '2025-11-06', 'Headache', FALSE),
+ ('TG/2023/011', '2025-11-06', 'Fever', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-11-05', 'Fatigue', FALSE);
+ ('TG/2023/008', '2025-11-07', 'Cold', FALSE),
+ ('TG/2023/009', '2025-11-07', 'Sore throat', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-11-06', 'Headache', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/011', '2025-11-06', 'Fever', FALSE);
+ ('TG/2023/009', '2025-11-10', 'Body ache', FALSE),
+ ('TG/2023/011', '2025-11-10', 'Migraine', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-11-07', 'Cold', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-11-07', 'Sore throat', FALSE);
+ ('TG/2023/008', '2025-11-11', 'Stomach ache', FALSE),
+ ('TG/2023/009', '2025-11-11', 'Vomiting', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-11-10', 'Body ache', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/011', '2025-11-10', 'Migraine', FALSE);
+ ('TG/2023/008', '2025-11-12', 'Weakness', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-11-11', 'Stomach ache', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-11-11', 'Vomiting', FALSE);
+ ('TG/2023/009', '2025-11-13', 'Dizziness', FALSE),
+ ('TG/2023/011', '2025-11-13', 'Chest pain', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-11-12', 'Weakness', FALSE);
+ ('TG/2023/008', '2025-11-14', 'Toothache', FALSE),
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-11-13', 'Dizziness', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/011', '2025-11-13', 'Chest pain', FALSE);
+ ('TG/2023/009', '2025-11-15', 'Cough', FALSE),
+ ('TG/2023/008', '2025-11-15', 'Fever', FALSE);
 
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-11-14', 'Toothache', FALSE);
-
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/009', '2025-11-15', 'Cough', FALSE);
-INSERT INTO medical_record (Reg_no, Session_date, Reason, Approved) VALUES ('TG/2023/008', '2025-11-15', 'Fever', FALSE);
 
 INSERT INTO attendance (Attendance_id, Reg_no, Course_code, Session_date, Session_type, Session_hours, Status, Medical_id) VALUES
 (1, 'TG/2023/001', 'ICT1233', '2025-08-04', 'Theory', 2.0, 'Present', NULL),
@@ -4268,11 +4270,10 @@ SELECT DISTINCT
     m.Course_code,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = m.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'TMS1233'
-                AND Reg_no = m.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Mid_theory', 'End_theory')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = m.Reg_no 
+               AND Session_type = 'ExamTMS1233'
+               AND Approved = TRUE) THEN 'MC'
         ELSE IFNULL((SELECT Marks_value FROM mark 
                     WHERE Course_code = 'TMS1233'
                       AND Reg_no = m.Reg_no 
@@ -4280,11 +4281,10 @@ SELECT DISTINCT
     END AS `Quiz_1(100%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = m.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'TMS1233'
-                AND Reg_no = m.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Mid_theory', 'End_theory')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = m.Reg_no 
+               AND Session_type = 'ExamTMS1233'
+               AND Approved = TRUE) THEN 'MC'
         ELSE IFNULL((SELECT Marks_value FROM mark 
                     WHERE Course_code = 'TMS1233'
                       AND Reg_no = m.Reg_no 
@@ -4292,11 +4292,10 @@ SELECT DISTINCT
     END AS `Quiz_2(100%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = m.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'TMS1233'
-                AND Reg_no = m.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Mid_theory', 'End_theory')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+       WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = m.Reg_no 
+               AND Session_type = 'ExamTMS1233'
+               AND Approved = TRUE) THEN 'MC'
         ELSE IFNULL((SELECT Marks_value FROM mark 
                     WHERE Course_code = 'TMS1233'
                       AND Reg_no = m.Reg_no 
@@ -4304,11 +4303,10 @@ SELECT DISTINCT
     END AS `Mid_theory(100%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = m.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'TMS1233'
-                AND Reg_no = m.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Mid_theory', 'End_theory')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = m.Reg_no 
+               AND Session_type = 'ExamTMS1233'
+               AND Approved = TRUE) THEN 'MC'
         WHEN (SELECT Marks_value FROM mark 
               WHERE Course_code = 'TMS1233'
                 AND Reg_no = m.Reg_no 
@@ -4321,11 +4319,10 @@ SELECT DISTINCT
     END AS `End_theory(100%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = m.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'TMS1233'
-                AND Reg_no = m.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Mid_theory', 'End_theory')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = m.Reg_no 
+               AND Session_type = 'ExamTMS1233'
+               AND Approved = TRUE) THEN 'MC'
         ELSE ROUND((
             IFNULL((SELECT Marks_value FROM mark 
                     WHERE Course_code = 'TMS1233'
@@ -4343,11 +4340,10 @@ SELECT DISTINCT
     END AS `Total_CA_Marks(40%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = m.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'TMS1233'
-                AND Reg_no = m.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Mid_theory', 'End_theory')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = m.Reg_no 
+               AND Session_type = 'ExamTMS1233'
+               AND Approved = TRUE) THEN 'MC'
         WHEN (SELECT Marks_value FROM mark 
               WHERE Course_code = 'TMS1233'
                 AND Reg_no = m.Reg_no 
@@ -4360,11 +4356,10 @@ SELECT DISTINCT
     END AS `Total_End_Marks(60%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = m.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'TMS1233'
-                AND Reg_no = m.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Mid_theory', 'End_theory')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = m.Reg_no 
+               AND Session_type = 'ExamTMS1233'
+               AND Approved = TRUE) THEN 'MC'
         WHEN (SELECT Marks_value FROM mark 
               WHERE Course_code = 'TMS1233'
                 AND Reg_no = m.Reg_no 
@@ -4403,11 +4398,10 @@ SELECT DISTINCT
     m.Course_code,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = m.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'TCS1212'
-                AND Reg_no = m.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Assignment_1', 'Mid_theory', 'End_theory')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = m.Reg_no 
+               AND Session_type = 'ExamTCS1212'
+               AND Approved = TRUE) THEN 'MC'
         ELSE IFNULL((SELECT Marks_value FROM mark 
                     WHERE Course_code = 'TCS1212'
                       AND Reg_no = m.Reg_no 
@@ -4415,11 +4409,10 @@ SELECT DISTINCT
     END AS `Quiz_1(100%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = m.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'TCS1212'
-                AND Reg_no = m.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Assignment_1', 'Mid_theory', 'End_theory')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = m.Reg_no 
+               AND Session_type = 'ExamTCS1212'
+               AND Approved = TRUE) THEN 'MC'
         ELSE IFNULL((SELECT Marks_value FROM mark 
                     WHERE Course_code = 'TCS1212'
                       AND Reg_no = m.Reg_no 
@@ -4427,11 +4420,10 @@ SELECT DISTINCT
     END AS `Assignment_1(100%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = m.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'TCS1212'
-                AND Reg_no = m.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Assignment_1', 'Mid_theory', 'End_theory')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = m.Reg_no 
+               AND Session_type = 'ExamTCS1212'
+               AND Approved = TRUE) THEN 'MC'
         ELSE IFNULL((SELECT Marks_value FROM mark 
                     WHERE Course_code = 'TCS1212'
                       AND Reg_no = m.Reg_no 
@@ -4439,11 +4431,10 @@ SELECT DISTINCT
     END AS `Mid_theory(100%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = m.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'TCS1212'
-                AND Reg_no = m.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Assignment_1', 'Mid_theory', 'End_theory')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = m.Reg_no 
+               AND Session_type = 'ExamTCS1212'
+               AND Approved = TRUE) THEN 'MC'
         WHEN (SELECT Marks_value FROM mark 
               WHERE Course_code = 'TCS1212'
                 AND Reg_no = m.Reg_no 
@@ -4456,11 +4447,10 @@ SELECT DISTINCT
     END AS `End_theory(100%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = m.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'TCS1212'
-                AND Reg_no = m.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Assignment_1', 'Mid_theory', 'End_theory')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = m.Reg_no 
+               AND Session_type = 'ExamTCS1212'
+               AND Approved = TRUE) THEN 'MC'
         ELSE ROUND((
             IFNULL((SELECT Marks_value FROM mark 
                     WHERE Course_code = 'TCS1212'
@@ -4478,11 +4468,10 @@ SELECT DISTINCT
     END AS `Total_CA_Marks(30%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = m.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'TCS1212'
-                AND Reg_no = m.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Assignment_1', 'Mid_theory', 'End_theory')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = m.Reg_no 
+               AND Session_type = 'ExamTCS1212'
+               AND Approved = TRUE) THEN 'MC'
         WHEN (SELECT Marks_value FROM mark 
               WHERE Course_code = 'TCS1212'
                 AND Reg_no = m.Reg_no 
@@ -4495,11 +4484,10 @@ SELECT DISTINCT
     END AS `Total_End_Marks(70%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = m.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'TCS1212'
-                AND Reg_no = m.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Assignment_1', 'Mid_theory', 'End_theory')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = m.Reg_no 
+               AND Session_type = 'ExamTCS1212'
+               AND Approved = TRUE) THEN 'MC'
         WHEN (SELECT Marks_value FROM mark 
               WHERE Course_code = 'TCS1212'
                 AND Reg_no = m.Reg_no 
@@ -4538,11 +4526,10 @@ SELECT DISTINCT
     m.Course_code,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = m.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ICT1253'
-                AND Reg_no = m.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Assignment_1', 'Mid_practical', 'End_theory', 'End_Practical')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+         WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = m.Reg_no 
+               AND Session_type = 'ExamICT1253'
+               AND Approved = TRUE) THEN 'MC'
         ELSE GREATEST(
             IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1253' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_1'), 0),
             IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1253' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_2'), 0),
@@ -4551,11 +4538,10 @@ SELECT DISTINCT
     END AS `Max_Quiz(100%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = m.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ICT1253'
-                AND Reg_no = m.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Assignment_1', 'Mid_practical', 'End_theory', 'End_Practical')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = m.Reg_no 
+               AND Session_type = 'ExamICT1253'
+               AND Approved = TRUE) THEN 'MC'
         ELSE (
             (
                 IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1253' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_1'), 0) +
@@ -4578,29 +4564,26 @@ SELECT DISTINCT
     END AS `Second_Max_Quiz(100%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = m.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ICT1253'
-                AND Reg_no = m.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Assignment_1', 'Mid_practical', 'End_theory', 'End_Practical')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+         WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = m.Reg_no 
+               AND Session_type = 'ExamICT1253'
+               AND Approved = TRUE) THEN 'MC'
         ELSE IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1253' AND Reg_no = m.Reg_no AND Marks_type = 'Assignment_1'), 0)
     END AS `Assignment_1(100%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = m.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ICT1253'
-                AND Reg_no = m.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Assignment_1', 'Mid_practical', 'End_theory', 'End_Practical')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+         WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = m.Reg_no 
+               AND Session_type = 'ExamICT1253'
+               AND Approved = TRUE) THEN 'MC'
         ELSE IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1253' AND Reg_no = m.Reg_no AND Marks_type = 'Mid_practical'), 0)
     END AS `Mid_practical(100%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = m.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ICT1253'
-                AND Reg_no = m.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Assignment_1', 'Mid_practical', 'End_theory', 'End_Practical')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+         WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = m.Reg_no 
+               AND Session_type = 'ExamICT1253'
+               AND Approved = TRUE) THEN 'MC'
         WHEN (SELECT Marks_value FROM mark 
               WHERE Course_code = 'ICT1253'
                 AND Reg_no = m.Reg_no 
@@ -4610,11 +4593,10 @@ SELECT DISTINCT
     END AS `End_theory(100%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = m.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ICT1253'
-                AND Reg_no = m.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Assignment_1', 'Mid_practical', 'End_theory', 'End_Practical')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+         WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = m.Reg_no 
+               AND Session_type = 'ExamICT1253'
+               AND Approved = TRUE) THEN 'MC'
         WHEN (SELECT Marks_value FROM mark 
               WHERE Course_code = 'ICT1253'
                 AND Reg_no = m.Reg_no 
@@ -4624,11 +4606,10 @@ SELECT DISTINCT
     END AS `End_practical(100%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = m.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ICT1253'
-                AND Reg_no = m.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Assignment_1', 'Mid_practical', 'End_theory', 'End_Practical')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+         WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = m.Reg_no 
+               AND Session_type = 'ExamICT1253'
+               AND Approved = TRUE) THEN 'MC'
         ELSE ROUND( (
             (((
                 IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1253' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_1'), 0) +
@@ -4646,11 +4627,10 @@ SELECT DISTINCT
     END AS `Total_CA_Marks(40%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = m.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ICT1253'
-                AND Reg_no = m.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Assignment_1', 'Mid_practical', 'End_theory', 'End_Practical')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+         WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = m.Reg_no 
+               AND Session_type = 'ExamICT1253'
+               AND Approved = TRUE) THEN 'MC'
         WHEN (SELECT Marks_value FROM mark 
               WHERE Course_code = 'ICT1253'
                 AND Reg_no = m.Reg_no 
@@ -4667,11 +4647,10 @@ SELECT DISTINCT
     END AS `Total_End_Marks(60%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = m.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ICT1253'
-                AND Reg_no = m.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Assignment_1', 'Mid_practical', 'End_theory', 'End_Practical')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+         WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = m.Reg_no 
+               AND Session_type = 'ExamICT1253'
+               AND Approved = TRUE) THEN 'MC'
         WHEN (SELECT Marks_value FROM mark 
               WHERE Course_code = 'ICT1253'
                 AND Reg_no = m.Reg_no 
@@ -4712,11 +4691,10 @@ SELECT DISTINCT
     m.Course_code,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = m.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ICT1222'
-                AND Reg_no = m.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_practical', 'Mini_project', 'End_practical')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+         WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = m.Reg_no 
+               AND Session_type = 'ExamICT1222'
+               AND Approved = TRUE) THEN 'MC'
         ELSE GREATEST(
             IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1222' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_1'), 0),
             IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1222' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_2'), 0),
@@ -4725,11 +4703,10 @@ SELECT DISTINCT
     END AS `Max_Quiz(100%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = m.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ICT1222'
-                AND Reg_no = m.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_practical', 'Mini_project', 'End_practical')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = m.Reg_no 
+               AND Session_type = 'ExamICT1222'
+               AND Approved = TRUE) THEN 'MC'
         ELSE (
             (
                 IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1222' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_1'), 0) +
@@ -4752,29 +4729,26 @@ SELECT DISTINCT
     END AS `Second_Max_Quiz(100%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = m.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ICT1222'
-                AND Reg_no = m.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_practical', 'Mini_project', 'End_practical')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = m.Reg_no 
+               AND Session_type = 'ExamICT1222'
+               AND Approved = TRUE) THEN 'MC'
         ELSE IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1222' AND Reg_no = m.Reg_no AND Marks_type = 'Mid_practical'), 0)
     END AS `Mid_practical(100%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = m.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ICT1222'
-                AND Reg_no = m.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_practical', 'Mini_project', 'End_practical')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = m.Reg_no 
+               AND Session_type = 'ExamICT1222'
+               AND Approved = TRUE) THEN 'MC'
         ELSE IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1222' AND Reg_no = m.Reg_no AND Marks_type = 'Mini_project'), 0)
     END AS `Mini_project(100%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = m.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ICT1222'
-                AND Reg_no = m.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_practical', 'Mini_project', 'End_practical')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = m.Reg_no 
+               AND Session_type = 'ExamICT1222'
+               AND Approved = TRUE) THEN 'MC'
         WHEN (SELECT Marks_value FROM mark 
               WHERE Course_code = 'ICT1222'
                 AND Reg_no = m.Reg_no 
@@ -4784,11 +4758,10 @@ SELECT DISTINCT
     END AS `End_practical(100%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = m.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ICT1222'
-                AND Reg_no = m.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_practical', 'Mini_project', 'End_practical')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = m.Reg_no 
+               AND Session_type = 'ExamICT1222'
+               AND Approved = TRUE) THEN 'MC'
         ELSE ROUND( (
             (((
                 IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1222' AND Reg_no = m.Reg_no AND Marks_type = 'Quiz_1'), 0) +
@@ -4806,11 +4779,10 @@ SELECT DISTINCT
     END AS `Total_CA_marks(40%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = m.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ICT1222'
-                AND Reg_no = m.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_practical', 'Mini_project', 'End_practical')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = m.Reg_no 
+               AND Session_type = 'ExamICT1222'
+               AND Approved = TRUE) THEN 'MC'
         WHEN (SELECT Marks_value FROM mark 
               WHERE Course_code = 'ICT1222'
                 AND Reg_no = m.Reg_no 
@@ -4820,11 +4792,10 @@ SELECT DISTINCT
     END AS `Total_End_marks(60%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = m.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ICT1222'
-                AND Reg_no = m.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_practical', 'Mini_project', 'End_practical')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = m.Reg_no 
+               AND Session_type = 'ExamICT1222'
+               AND Approved = TRUE) THEN 'MC'
         WHEN (SELECT Marks_value FROM mark 
               WHERE Course_code = 'ICT1222'
                 AND Reg_no = m.Reg_no 
@@ -4860,11 +4831,10 @@ SELECT
     e.Course_code,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ENG1222'
-                AND Reg_no = e.Reg_no 
-                AND Marks_type IN ('Assignment_1', 'Assignment_2', 'Mid_theory', 'End_theory')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = e.Reg_no 
+               AND Session_type = 'ExamENG1222'
+               AND Approved = TRUE) THEN 'MC'
         ELSE IFNULL((SELECT Marks_value FROM mark 
                     WHERE Course_code = 'ENG1222'
                       AND Reg_no = e.Reg_no 
@@ -4872,11 +4842,10 @@ SELECT
     END AS `Assignment_1(100%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ENG1222'
-                AND Reg_no = e.Reg_no 
-                AND Marks_type IN ('Assignment_1', 'Assignment_2', 'Mid_theory', 'End_theory')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = e.Reg_no 
+               AND Session_type = 'ExamENG1222'
+               AND Approved = TRUE) THEN 'MC'
         ELSE IFNULL((SELECT Marks_value FROM mark 
                     WHERE Course_code = 'ENG1222'
                       AND Reg_no = e.Reg_no 
@@ -4884,11 +4853,10 @@ SELECT
     END AS `Assignment_2(100%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ENG1222'
-                AND Reg_no = e.Reg_no 
-                AND Marks_type IN ('Assignment_1', 'Assignment_2', 'Mid_theory', 'End_theory')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = e.Reg_no 
+               AND Session_type = 'ExamENG1222'
+               AND Approved = TRUE) THEN 'MC'
         ELSE IFNULL((SELECT Marks_value FROM mark 
                     WHERE Course_code = 'ENG1222'
                       AND Reg_no = e.Reg_no  
@@ -4896,11 +4864,10 @@ SELECT
     END AS `Mid_theory(100%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ENG1222'
-                AND Reg_no = e.Reg_no 
-                AND Marks_type IN ('Assignment_1', 'Assignment_2', 'Mid_theory', 'End_theory')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = e.Reg_no 
+               AND Session_type = 'ExamENG1222'
+               AND Approved = TRUE) THEN 'MC'
         WHEN (SELECT Marks_value FROM mark 
               WHERE Course_code = 'ENG1222'
                 AND Reg_no = e.Reg_no  
@@ -4912,11 +4879,10 @@ SELECT
     END AS `End_theory(100%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ENG1222'
-                AND Reg_no = e.Reg_no 
-                AND Marks_type IN ('Assignment_1', 'Assignment_2', 'Mid_theory', 'End_theory')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = e.Reg_no 
+               AND Session_type = 'ExamENG1222'
+               AND Approved = TRUE) THEN 'MC'
         ELSE ROUND( (
             IFNULL((SELECT Marks_value FROM mark 
                     WHERE Course_code = 'ENG1222'
@@ -4936,11 +4902,10 @@ SELECT
     END AS `Total_CA_marks(30%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ENG1222'
-                AND Reg_no = e.Reg_no 
-                AND Marks_type IN ('Assignment_1', 'Assignment_2', 'Mid_theory', 'End_theory')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = e.Reg_no 
+               AND Session_type = 'ExamENG1222'
+               AND Approved = TRUE) THEN 'MC'
         WHEN (SELECT Marks_value FROM mark 
               WHERE Course_code = 'ENG1222'
                 AND Reg_no = e.Reg_no  
@@ -4952,11 +4917,10 @@ SELECT
     END AS `Total_End_marks(70%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ENG1222'
-                AND Reg_no = e.Reg_no 
-                AND Marks_type IN ('Assignment_1', 'Assignment_2', 'Mid_theory', 'End_theory')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = e.Reg_no 
+               AND Session_type = 'ExamENG1222'
+               AND Approved = TRUE) THEN 'MC'
         WHEN (SELECT Marks_value FROM mark 
               WHERE Course_code = 'ENG1222'
                 AND Reg_no = e.Reg_no  
@@ -4997,11 +4961,10 @@ SELECT
     e.Course_code,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ICT1212'
-                AND Reg_no = e.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_theory', 'End_theory')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = e.Reg_no 
+               AND Session_type = 'ExamICT1212'
+               AND Approved = TRUE) THEN 'MC'
         ELSE GREATEST(
             IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1212' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0),
             IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1212' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0),
@@ -5010,11 +4973,10 @@ SELECT
     END AS `Max_Quiz(100%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ICT1212'
-                AND Reg_no = e.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_theory', 'End_theory')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = e.Reg_no 
+               AND Session_type = 'ExamICT1212'
+               AND Approved = TRUE) THEN 'MC'
         ELSE (
             (
                 IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1212' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0) +
@@ -5037,30 +4999,27 @@ SELECT
     END AS `Second_Max_Quiz(100%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ICT1212'
-                AND Reg_no = e.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_theory', 'End_theory')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = e.Reg_no 
+               AND Session_type = 'ExamICT1212'
+               AND Approved = TRUE) THEN 'MC'
         ELSE IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1212' AND Reg_no = e.Reg_no AND Marks_type = 'Mid_theory'), 0)
     END AS `Mid_theory(100%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ICT1212'
-                AND Reg_no = e.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_theory', 'End_theory')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = e.Reg_no 
+               AND Session_type = 'ExamICT1212'
+               AND Approved = TRUE) THEN 'MC'
         WHEN (SELECT Marks_value FROM mark WHERE Course_code = 'ICT1212' AND Reg_no = e.Reg_no AND Marks_type = 'End_theory') IS NULL THEN 'E*(Not_eligible)'
         ELSE IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1212' AND Reg_no = e.Reg_no AND Marks_type = 'End_theory'), 0)
     END AS `End_theory(100%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ICT1212'
-                AND Reg_no = e.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_theory', 'End_theory')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = e.Reg_no 
+               AND Session_type = 'ExamICT1212'
+               AND Approved = TRUE) THEN 'MC'
         ELSE ROUND( ((((
                     IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1212' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0) +
                     IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1212' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0) +
@@ -5076,21 +5035,19 @@ SELECT
     END AS `Total_CA_marks(30%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ICT1212'
-                AND Reg_no = e.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_theory', 'End_theory')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = e.Reg_no 
+               AND Session_type = 'ExamICT1212'
+               AND Approved = TRUE) THEN 'MC'
         WHEN (SELECT Marks_value FROM mark WHERE Course_code = 'ICT1212' AND Reg_no = e.Reg_no AND Marks_type = 'End_theory') IS NULL THEN 'E*(Not_eligible)'
         ELSE ROUND(( IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1212' AND Reg_no = e.Reg_no AND Marks_type = 'End_theory'), 0)*0.7),2)
     END AS `Total_End_marks(70%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ICT1212'
-                AND Reg_no = e.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_theory', 'End_theory')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = e.Reg_no 
+               AND Session_type = 'ExamICT1212'
+               AND Approved = TRUE) THEN 'MC'
         WHEN (SELECT Marks_value FROM mark WHERE Course_code = 'ICT1212' AND Reg_no = e.Reg_no AND Marks_type = 'End_theory') IS NULL THEN 'WH'
         ELSE ROUND( (
                 (((
@@ -5124,11 +5081,10 @@ SELECT
     e.Course_code,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ICT1233'
-                AND Reg_no = e.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_practical', 'Mini_project', 'End_theory', 'End_practical')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = e.Reg_no 
+               AND Session_type = 'ExamICT1233'
+               AND Approved = TRUE) THEN 'MC'
         ELSE GREATEST(
             IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0),
             IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0),
@@ -5137,11 +5093,10 @@ SELECT
     END AS `Max_Quiz(100%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ICT1233'
-                AND Reg_no = e.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_practical', 'Mini_project', 'End_theory', 'End_practical')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = e.Reg_no 
+               AND Session_type = 'ExamICT1233'
+               AND Approved = TRUE) THEN 'MC'
         ELSE (
             (
                 IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0) +
@@ -5164,29 +5119,26 @@ SELECT
     END AS `Second_Max_Quiz(100%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ICT1233'
-                AND Reg_no = e.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_practical', 'Mini_project', 'End_theory', 'End_practical')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = e.Reg_no 
+               AND Session_type = 'ExamICT1233'
+               AND Approved = TRUE) THEN 'MC'
         ELSE IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Mid_practical'), 0)
     END AS `Mid_practical(100%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ICT1233'
-                AND Reg_no = e.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_practical', 'Mini_project', 'End_theory', 'End_practical')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = e.Reg_no 
+               AND Session_type = 'ExamICT1233'
+               AND Approved = TRUE) THEN 'MC'
         ELSE IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Mini_project'), 0)
     END AS `Mini_project(100%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ICT1233'
-                AND Reg_no = e.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_practical', 'Mini_project', 'End_theory', 'End_practical')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = e.Reg_no 
+               AND Session_type = 'ExamICT1233'
+               AND Approved = TRUE) THEN 'MC'
         WHEN (SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'End_theory') IS NULL 
              OR (SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'End_practical') IS NULL 
         THEN 'E*(Not_eligible)'
@@ -5194,11 +5146,10 @@ SELECT
     END AS `End_theory(100%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ICT1233'
-                AND Reg_no = e.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_practical', 'Mini_project', 'End_theory', 'End_practical')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = e.Reg_no 
+               AND Session_type = 'ExamICT1233'
+               AND Approved = TRUE) THEN 'MC'
         WHEN (SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'End_theory') IS NULL 
              OR (SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'End_practical') IS NULL 
         THEN 'E*(Not_eligible)'
@@ -5206,11 +5157,10 @@ SELECT
     END AS `End_practical(100%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ICT1233'
-                AND Reg_no = e.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_practical', 'Mini_project', 'End_theory', 'End_practical')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = e.Reg_no 
+               AND Session_type = 'ExamICT1233'
+               AND Approved = TRUE) THEN 'MC'
         ELSE ROUND( ((((
                     IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0) +
                     IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0) +
@@ -5229,11 +5179,10 @@ SELECT
     END AS `Total_CA_marks(40%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ICT1233'
-                AND Reg_no = e.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_practical', 'Mini_project', 'End_theory', 'End_practical')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = e.Reg_no 
+               AND Session_type = 'ExamICT1233'
+               AND Approved = TRUE) THEN 'MC'
         WHEN (SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'End_theory') IS NULL 
              OR (SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'End_practical') IS NULL 
         THEN 'E*(Not_eligible)'
@@ -5243,11 +5192,10 @@ SELECT
     END AS `Total_End_marks(60%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ICT1233'
-                AND Reg_no = e.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_practical', 'Mini_project', 'End_theory', 'End_practical')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = e.Reg_no 
+               AND Session_type = 'ExamICT1233'
+               AND Approved = TRUE) THEN 'MC'
         WHEN (SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'End_theory') IS NULL 
              OR (SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'End_practical') IS NULL 
         THEN 'WH'
@@ -5287,11 +5235,10 @@ SELECT
     e.Course_code,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ICT1242'
-                AND Reg_no = e.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_theory', 'Assignment_1', 'End_theory')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = e.Reg_no 
+               AND Session_type = 'ExamICT1242'
+               AND Approved = TRUE) THEN 'MC'
         ELSE GREATEST(
             IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0),
             IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0),
@@ -5300,11 +5247,10 @@ SELECT
     END AS `Max_Quiz(100%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ICT1242'
-                AND Reg_no = e.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_theory', 'Assignment_1', 'End_theory')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = e.Reg_no 
+               AND Session_type = 'ExamICT1242'
+               AND Approved = TRUE) THEN 'MC'
         ELSE (
             (
                 IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0) +
@@ -5327,39 +5273,35 @@ SELECT
     END AS `Second_Max_Quiz(100%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ICT1242'
-                AND Reg_no = e.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_theory', 'Assignment_1', 'End_theory')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = e.Reg_no 
+               AND Session_type = 'ExamICT1242'
+               AND Approved = TRUE) THEN 'MC'
         ELSE IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Mid_theory'), 0)
     END AS `Mid_theory(100%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ICT1242'
-                AND Reg_no = e.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_theory', 'Assignment_1', 'End_theory')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = e.Reg_no 
+               AND Session_type = 'ExamICT1242'
+               AND Approved = TRUE) THEN 'MC'
         ELSE IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Assignment_1'), 0)
     END AS `Assignment_1(100%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ICT1242'
-                AND Reg_no = e.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_theory', 'Assignment_1', 'End_theory')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = e.Reg_no 
+               AND Session_type = 'ExamICT1242'
+               AND Approved = TRUE) THEN 'MC'
         WHEN (SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'End_theory') IS NULL THEN 'E*(Not_eligible)'
         ELSE IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'End_theory'), 0)
     END AS `End_theory(100%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ICT1242'
-                AND Reg_no = e.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_theory', 'Assignment_1', 'End_theory')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = e.Reg_no 
+               AND Session_type = 'ExamICT1242'
+               AND Approved = TRUE) THEN 'MC'
         ELSE ROUND(((((
                     IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0) +
                     IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_2'), 0) +
@@ -5378,21 +5320,19 @@ SELECT
     END AS `Total_CA_Marks(30%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ICT1242'
-                AND Reg_no = e.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_theory', 'Assignment_1', 'End_theory')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = e.Reg_no 
+               AND Session_type = 'ExamICT1242'
+               AND Approved = TRUE) THEN 'MC'
         WHEN (SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'End_theory') IS NULL THEN 'E*(Not_eligible)'
         ELSE ROUND((IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'End_theory'), 0)*0.7),2)
     END AS `Total_END_Marks(70%)`,
     CASE 
         WHEN (SELECT Student_type FROM student WHERE Reg_no = e.Reg_no) = 'Suspend' THEN 'WH'
-        WHEN (SELECT Marks_value FROM mark 
-              WHERE Course_code = 'ICT1242'
-                AND Reg_no = e.Reg_no 
-                AND Marks_type IN ('Quiz_1', 'Quiz_2', 'Quiz_3', 'Mid_theory', 'Assignment_1', 'End_theory')
-                AND Marks_value = 'MC') IS NOT NULL THEN 'MC'
+        WHEN EXISTS (SELECT 1 FROM medical_record 
+             WHERE Reg_no = e.Reg_no 
+               AND Session_type = 'ExamICT1242'
+               AND Approved = TRUE) THEN 'MC'
         WHEN (SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'End_theory') IS NULL THEN 'WH'
         ELSE ROUND( ((((
                     IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0) +
@@ -5427,6 +5367,8 @@ SELECT
     Course_code,
     CA_marks,
     CASE 
+	WHEN CA_marks = 'MC' THEN 'MC' 
+	WHEN CA_marks = 'WH' THEN 'WH'
         WHEN Course_code IN ('ICT1222', 'ICT1233', 'ICT1253', 'TMS1233') THEN 
             CASE WHEN CA_marks >= 16 THEN 'CA_Pass' ELSE 'CA_Fail' END
         WHEN Course_code IN ('ENG1222', 'ICT1212', 'ICT1242', 'TCS1212') THEN 
@@ -5500,7 +5442,6 @@ ORDER BY reg_no, course_code;
 
 
 
-
 DROP VIEW IF EXISTS vw_end_exam_elig_basedON_CA_and_Atten;
 
 CREATE VIEW vw_end_exam_elig_basedON_CA_and_Atten AS
@@ -5508,8 +5449,11 @@ SELECT
     cp.Reg_no,
     cp.Course_code,
     cp.CA_Status,
-    COALESCE(att.eligibility, 'Not Eligible') AS Attendance_Eligibility,
+    CASE WHEN att.eligibility IS NULL THEN 'Repeat student' ELSE 
+    att.eligibility END AS Attendance_Eligibility,
     CASE 
+    WHEN att.eligibility IS NULL THEN 'Eligible'
+	 WHEN 'MC' THEN 'MC'
         WHEN cp.CA_Status = 'CA_Pass' AND att.eligibility IN ('Eligible', 'Eligible with medical') THEN 'Eligible'
         ELSE 'Not Eligible'
     END AS Final_Eligibility
@@ -5528,6 +5472,8 @@ SELECT
     Course_code,
     end_marks,
     CASE 
+	WHEN END_marks = 'MC' THEN 'MC' 
+	WHEN END_marks = 'WH' THEN 'WH'
         WHEN end_marks = 'E*(Not_eligible)' THEN 'E*(Not_eligible)' 
         WHEN Course_code IN ('ICT1222', 'ICT1233', 'ICT1253', 'TMS1233') THEN 
             CASE WHEN end_marks >= 21 THEN 'END_Pass' ELSE 'END_Fail' END
@@ -5639,6 +5585,7 @@ SELECT
         WHEN ca_end.CA_Status = 'CA_Fail' THEN 'E(CA)'
         WHEN ca_end.END_Status = 'END_Fail' THEN 'E(ESA)'
         WHEN m.`Final_Marks(100%)` = 'WH' THEN 'WH'
+	WHEN m.`Final_Marks(100%)` = 'MC' THEN 'MC' 
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 45 THEN 'C'
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 40 THEN 'C-'
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 35 THEN 'D'
@@ -5658,6 +5605,7 @@ SELECT
     CASE  
         WHEN ca_end.CA_Status = 'CA_Fail' OR ca_end.END_Status = 'END_Fail' THEN 0.0
         WHEN m.`Final_Marks(100%)` = 'WH' THEN 'WH'
+	WHEN m.`Final_Marks(100%)` = 'MC' THEN 'MC' 
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 45 THEN 2.0
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 40 THEN 1.7
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 35 THEN 1.3
@@ -5695,6 +5643,7 @@ SELECT
         WHEN ca_end.CA_Status = 'CA_Fail' THEN 'E(CA)'
         WHEN ca_end.END_Status = 'END_Fail' THEN 'E(ESA)'
         WHEN m.`Final_Marks(100%)` = 'WH' THEN 'WH'
+	WHEN m.`Final_Marks(100%)` = 'MC' THEN 'MC' 
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 45 THEN 'C'
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 40 THEN 'C-'
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 35 THEN 'D'
@@ -5714,6 +5663,7 @@ SELECT
     CASE  
         WHEN ca_end.CA_Status = 'CA_Fail' OR ca_end.END_Status = 'END_Fail' THEN 0.0
         WHEN m.`Final_Marks(100%)` = 'WH' THEN 'WH'
+	WHEN m.`Final_Marks(100%)` = 'MC' THEN 'MC' 
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 45 THEN 2.0
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 40 THEN 1.7
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 35 THEN 1.3
@@ -5751,6 +5701,7 @@ SELECT
         WHEN ca_end.CA_Status = 'CA_Fail' THEN 'E(CA)'
         WHEN ca_end.END_Status = 'END_Fail' THEN 'E(ESA)'
         WHEN m.`Final_Marks(100%)` = 'WH' THEN 'WH'
+	WHEN m.`Final_Marks(100%)` = 'MC' THEN 'MC'
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 45 THEN 'C'
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 40 THEN 'C-'
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 35 THEN 'D'
@@ -5770,6 +5721,7 @@ SELECT
     CASE  
         WHEN ca_end.CA_Status = 'CA_Fail' OR ca_end.END_Status = 'END_Fail' THEN 0.0
         WHEN m.`Final_Marks(100%)` = 'WH' THEN 'WH'
+	WHEN m.`Final_Marks(100%)` = 'MC' THEN 'MC'
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 45 THEN 2.0
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 40 THEN 1.7
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 35 THEN 1.3
@@ -5807,6 +5759,7 @@ SELECT
         WHEN ca_end.CA_Status = 'CA_Fail' THEN 'E(CA)'
         WHEN ca_end.END_Status = 'END_Fail' THEN 'E(ESA)'
         WHEN m.`Final_Marks(100%)` = 'WH' THEN 'WH'
+	WHEN m.`Final_Marks(100%)` = 'MC' THEN 'MC'
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 45 THEN 'C'
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 40 THEN 'C-'
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 35 THEN 'D'
@@ -5826,6 +5779,7 @@ SELECT
     CASE  
         WHEN ca_end.CA_Status = 'CA_Fail' OR ca_end.END_Status = 'END_Fail' THEN 0.0
         WHEN m.`Final_Marks(100%)` = 'WH' THEN 'WH'
+	WHEN m.`Final_Marks(100%)` = 'MC' THEN 'MC'
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 45 THEN 2.0
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 40 THEN 1.7
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 35 THEN 1.3
@@ -5863,6 +5817,7 @@ SELECT
         WHEN ca_end.CA_Status = 'CA_Fail' THEN 'E(CA)'
         WHEN ca_end.END_Status = 'END_Fail' THEN 'E(ESA)'
         WHEN m.`Final_Marks(100%)` = 'WH' THEN 'WH'
+	WHEN m.`Final_Marks(100%)` = 'MC' THEN 'MC'
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 45 THEN 'C'
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 40 THEN 'C-'
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 35 THEN 'D'
@@ -5882,6 +5837,7 @@ SELECT
     CASE  
         WHEN ca_end.CA_Status = 'CA_Fail' OR ca_end.END_Status = 'END_Fail' THEN 0.0
         WHEN m.`Final_Marks(100%)` = 'WH' THEN 'WH'
+	WHEN m.`Final_Marks(100%)` = 'MC' THEN 'MC'
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 45 THEN 2.0
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 40 THEN 1.7
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 35 THEN 1.3
@@ -5919,6 +5875,7 @@ SELECT
         WHEN ca_end.CA_Status = 'CA_Fail' THEN 'E(CA)'
         WHEN ca_end.END_Status = 'END_Fail' THEN 'E(ESA)'
         WHEN m.`Final_Marks(100%)` = 'WH' THEN 'WH'
+	WHEN m.`Final_Marks(100%)` = 'MC' THEN 'MC'
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 45 THEN 'C'
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 40 THEN 'C-'
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 35 THEN 'D'
@@ -5938,6 +5895,7 @@ SELECT
     CASE  
         WHEN ca_end.CA_Status = 'CA_Fail' OR ca_end.END_Status = 'END_Fail' THEN 0.0
         WHEN m.`Final_Marks(100%)` = 'WH' THEN 'WH'
+	WHEN m.`Final_Marks(100%)` = 'MC' THEN 'MC'
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 45 THEN 2.0
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 40 THEN 1.7
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 35 THEN 1.3
@@ -5975,6 +5933,7 @@ SELECT
         WHEN ca_end.CA_Status = 'CA_Fail' THEN 'E(CA)'
         WHEN ca_end.END_Status = 'END_Fail' THEN 'E(ESA)'
         WHEN m.`Final_Marks(100%)` = 'WH' THEN 'WH'
+	WHEN m.`Final_Marks(100%)` = 'MC' THEN 'MC'
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 45 THEN 'C'
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 40 THEN 'C-'
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 35 THEN 'D'
@@ -5994,6 +5953,7 @@ SELECT
     CASE  
         WHEN ca_end.CA_Status = 'CA_Fail' OR ca_end.END_Status = 'END_Fail' THEN 0.0
         WHEN m.`Final_Marks(100%)` = 'WH' THEN 'WH'
+	WHEN m.`Final_Marks(100%)` = 'MC' THEN 'MC'
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 45 THEN 2.0
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 40 THEN 1.7
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 35 THEN 1.3
@@ -6031,6 +5991,7 @@ SELECT
         WHEN ca_end.CA_Status = 'CA_Fail' THEN 'E(CA)'
         WHEN ca_end.END_Status = 'END_Fail' THEN 'E(ESA)'
         WHEN m.`Final_Marks(100%)` = 'WH' THEN 'WH'
+	WHEN m.`Final_Marks(100%)` = 'MC' THEN 'MC'
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 45 THEN 'C'
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 40 THEN 'C-'
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 35 THEN 'D'
@@ -6050,6 +6011,7 @@ SELECT
     CASE  
         WHEN ca_end.CA_Status = 'CA_Fail' OR ca_end.END_Status = 'END_Fail' THEN 0.0
         WHEN m.`Final_Marks(100%)` = 'WH' THEN 'WH'
+	WHEN m.`Final_Marks(100%)` = 'MC' THEN 'MC'
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 45 THEN 2.0
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 40 THEN 1.7
         WHEN s.Student_type = 'Repeat' AND m.`Final_Marks(100%)` >= 35 THEN 1.3
@@ -6079,7 +6041,9 @@ DROP VIEW IF EXISTS vw_all_stu_CGPA;
 CREATE VIEW vw_all_stu_CGPA AS
     SELECT 
         Reg_no,
-        CASE 
+        CASE
+            WHEN has_mc > 0  THEN 'MC'
+            WHEN has_wh > 0 THEN 'WH' 
             WHEN course_count = 8 AND total_credits > 0 THEN 
                 ROUND(total_grade_points / total_credits, 2)
             ELSE 'No CGPA [repeat stu]'
@@ -6088,6 +6052,8 @@ CREATE VIEW vw_all_stu_CGPA AS
         CASE 
             WHEN course_count < 8 THEN 'Incomplete [repeat stu]'
             WHEN total_credits = 0 THEN 'No Valid Courses'
+            WHEN has_mc > 0  THEN 'Incomplete(Medical Applied)'
+            WHEN has_wh > 0 THEN 'WH'
             WHEN ROUND(total_grade_points / total_credits, 2) >= 3.70 THEN 'First Class'
             WHEN ROUND(total_grade_points / total_credits, 2) >= 3.30 THEN 'Second Class (Upper)'
             WHEN ROUND(total_grade_points / total_credits, 2) >= 3.00 THEN 'Second Class (Lower)'
@@ -6098,6 +6064,8 @@ CREATE VIEW vw_all_stu_CGPA AS
         SELECT 
             Reg_no,
             COUNT(DISTINCT course) as course_count,
+            SUM(CASE WHEN Grade = 'MC' THEN 1 ELSE 0 END) as has_mc,
+        SUM(CASE WHEN Grade = 'WH' THEN 1 ELSE 0 END) as has_wh,
             SUM(CASE WHEN course != 'ENG1222' THEN credit * Grade_Point ELSE 0 END) as total_grade_points,
             SUM(CASE WHEN course != 'ENG1222' THEN credit ELSE 0 END) as total_credits
         FROM vw_all_stu_all_course_grade_point
@@ -6109,15 +6077,26 @@ CREATE VIEW vw_all_stu_CGPA AS
 
 DROP VIEW IF EXISTS vw_all_stu_SGPA;
 CREATE VIEW vw_all_stu_SGPA AS
-SELECT 
+SELECT
     Reg_no,
-    CASE 
-        WHEN COUNT(DISTINCT course) = 8 AND SUM(credit) > 0 THEN 
-            ROUND(SUM(credit * Grade_Point) / SUM(credit), 2)
+    CASE
+        WHEN has_mc > 0 THEN 'MC'
+        WHEN has_wh > 0 THEN 'WH'
+        WHEN course_count = 8 AND total_credits > 0 THEN
+            ROUND(total_grade_points / total_credits, 2)
         ELSE 'No SGPA [repeat stu]'
     END AS Your_SGPA
-FROM vw_all_stu_all_course_grade_point
-GROUP BY Reg_no;
+FROM (
+    SELECT 
+        Reg_no,
+        COUNT(DISTINCT course) as course_count,
+        SUM(credit) as total_credits,
+        SUM(credit * Grade_Point) as total_grade_points,
+        SUM(CASE WHEN Grade = 'MC' THEN 1 ELSE 0 END) as has_mc,
+        SUM(CASE WHEN Grade = 'WH' THEN 1 ELSE 0 END) as has_wh
+    FROM vw_all_stu_all_course_grade_point
+    GROUP BY Reg_no
+) AS student_stats;
 
 
 
@@ -6699,7 +6678,7 @@ BEGIN
             m.`Second_Max_Quiz(100%)`,
             m.`Mid_theory(100%)`,
             m.`Total_CA_Marks(30%)`,
-            c.CA_Status  -- Fixed: removed c.CA_marks as it wasn't in other queries
+            c.CA_Status  
         FROM vw_ICT1212_marks m
         JOIN vw_CA_Status c ON m.Reg_no = c.Reg_no AND m.Course_code = c.Course_code
         WHERE m.Reg_no = p_reg_no;
@@ -6755,7 +6734,7 @@ BEGIN
             m.`Mid_theory(100%)`,
             m.`Total_CA_Marks(30%)`,
             c.CA_Status
-        FROM vw_ICT1242_marks m  -- Fixed: changed from vw_ICT1233_marks to vw_ICT1242_marks
+        FROM vw_ICT1242_marks m 
         JOIN vw_CA_Status c ON m.Reg_no = c.Reg_no AND m.Course_code = c.Course_code
         WHERE m.Reg_no = p_reg_no;
 
@@ -6763,7 +6742,6 @@ BEGIN
 END //
 
 DELIMITER ;
-
 
 
 
@@ -6779,6 +6757,7 @@ BEGIN
         CASE 
             WHEN g.Grade IN ('A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D') THEN 'Pass'
             WHEN g.Grade = 'WH' THEN 'Withheld'
+            WHEN g.Grade = 'MC' THEN 'MC' 
             WHEN g.Grade LIKE 'E(%' THEN 'Fail'
             WHEN g.Grade = '_' THEN 'Not Eligible for End Exam'
             ELSE 'Fail'
@@ -6789,9 +6768,6 @@ BEGIN
 END //
 
 DELIMITER ;
-
-
-
 
 
 DELIMITER //
@@ -6806,7 +6782,8 @@ BEGIN
         CASE 
             WHEN g.Grade IN ('A+', 'A', 'A-', 'B+', 'B', 'B-', 'C+', 'C', 'C-', 'D') THEN 'Pass'
             WHEN g.Grade = 'WH' THEN 'Withheld'
-            WHEN g.Grade LIKE 'E%' THEN 'Fail'
+            WHEN g.Grade = 'MC' THEN 'MC' 
+            WHEN g.Grade LIKE 'E%' THEN 'Fail'  
             WHEN g.Grade = '_' THEN 'Not Eligible'
             ELSE 'Pending'
         END AS FinalStatus
@@ -6816,5 +6793,3 @@ BEGIN
 END //
 
 DELIMITER ;
-
-
