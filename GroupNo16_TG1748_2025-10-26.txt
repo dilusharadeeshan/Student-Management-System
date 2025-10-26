@@ -1,0 +1,14 @@
+DROP USER IF EXISTS 'technical_officer'@'localhost';
+
+
+CREATE USER 'technical_officer'@'localhost' IDENTIFIED BY 'technical_officer123';
+
+GRANT SELECT, INSERT, UPDATE ON faculty_of_technology.vw_attend_percen_with_medical_with_elig_without_s_type_with_name TO 'technical_officer'@'localhost';
+GRANT SELECT, INSERT, UPDATE ON faculty_of_technology.vw_attend_percentage_with_medical_with_eligibility_with_name TO 'technical_officer'@'localhost';
+GRANT SELECT, INSERT, UPDATE ON faculty_of_technology.vw_attend_with_medical_approval TO 'technical_officer'@'localhost';
+GRANT SELECT, INSERT, UPDATE ON faculty_of_technology.vw_eligibi_without_medical_with_name TO 'technical_officer'@'localhost';
+GRANT SELECT, INSERT, UPDATE ON faculty_of_technology.vw_eligibi_without_medical_with_name_without_s_type TO 'technical_officer'@'localhost';
+GRANT SELECT, INSERT, UPDATE ON faculty_of_technology.vw_end_exam_elig_basedon_ca_and_atten TO 'technical_officer'@'localhost';
+GRANT SELECT, INSERT, UPDATE ON faculty_of_technology.attendance TO 'technical_officer'@'localhost';
+
+FLUSH PRIVILEGES;
