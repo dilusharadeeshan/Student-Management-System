@@ -4359,7 +4359,7 @@ SELECT DISTINCT
         WHEN EXISTS (SELECT 1 FROM medical_record 
              WHERE Reg_no = m.Reg_no 
                AND Session_type = 'ExamTMS1233'
-               AND Approved = TRUE) THEN 'MC'
+               AND Approved = TRUE) THEN 'WH'
         WHEN (SELECT Marks_value FROM mark 
               WHERE Course_code = 'TMS1233'
                 AND Reg_no = m.Reg_no 
@@ -4487,7 +4487,7 @@ SELECT DISTINCT
         WHEN EXISTS (SELECT 1 FROM medical_record 
              WHERE Reg_no = m.Reg_no 
                AND Session_type = 'ExamTCS1212'
-               AND Approved = TRUE) THEN 'MC'
+               AND Approved = TRUE) THEN 'WH'
         WHEN (SELECT Marks_value FROM mark 
               WHERE Course_code = 'TCS1212'
                 AND Reg_no = m.Reg_no 
@@ -4650,7 +4650,7 @@ SELECT DISTINCT
          WHEN EXISTS (SELECT 1 FROM medical_record 
              WHERE Reg_no = m.Reg_no 
                AND Session_type = 'ExamICT1253'
-               AND Approved = TRUE) THEN 'MC'
+               AND Approved = TRUE) THEN 'WH'
         WHEN (SELECT Marks_value FROM mark 
               WHERE Course_code = 'ICT1253'
                 AND Reg_no = m.Reg_no 
@@ -4795,7 +4795,7 @@ SELECT DISTINCT
         WHEN EXISTS (SELECT 1 FROM medical_record 
              WHERE Reg_no = m.Reg_no 
                AND Session_type = 'ExamICT1222'
-               AND Approved = TRUE) THEN 'MC'
+               AND Approved = TRUE) THEN 'WH'
         WHEN (SELECT Marks_value FROM mark 
               WHERE Course_code = 'ICT1222'
                 AND Reg_no = m.Reg_no 
@@ -4920,7 +4920,7 @@ SELECT
         WHEN EXISTS (SELECT 1 FROM medical_record 
              WHERE Reg_no = e.Reg_no 
                AND Session_type = 'ExamENG1222'
-               AND Approved = TRUE) THEN 'MC'
+               AND Approved = TRUE) THEN 'WH'
         WHEN (SELECT Marks_value FROM mark 
               WHERE Course_code = 'ENG1222'
                 AND Reg_no = e.Reg_no  
@@ -5047,7 +5047,7 @@ SELECT
         WHEN EXISTS (SELECT 1 FROM medical_record 
              WHERE Reg_no = e.Reg_no 
                AND Session_type = 'ExamICT1212'
-               AND Approved = TRUE) THEN 'MC'
+               AND Approved = TRUE) THEN 'WH'
         WHEN (SELECT Marks_value FROM mark WHERE Course_code = 'ICT1212' AND Reg_no = e.Reg_no AND Marks_type = 'End_theory') IS NULL THEN 'WH'
         ELSE ROUND( (
                 (((
@@ -5195,7 +5195,7 @@ SELECT
         WHEN EXISTS (SELECT 1 FROM medical_record 
              WHERE Reg_no = e.Reg_no 
                AND Session_type = 'ExamICT1233'
-               AND Approved = TRUE) THEN 'MC'
+               AND Approved = TRUE) THEN 'WH'
         WHEN (SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'End_theory') IS NULL 
              OR (SELECT Marks_value FROM mark WHERE Course_code = 'ICT1233' AND Reg_no = e.Reg_no AND Marks_type = 'End_practical') IS NULL 
         THEN 'WH'
@@ -5332,7 +5332,7 @@ SELECT
         WHEN EXISTS (SELECT 1 FROM medical_record 
              WHERE Reg_no = e.Reg_no 
                AND Session_type = 'ExamICT1242'
-               AND Approved = TRUE) THEN 'MC'
+               AND Approved = TRUE) THEN 'WH'
         WHEN (SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'End_theory') IS NULL THEN 'WH'
         ELSE ROUND( ((((
                     IFNULL((SELECT Marks_value FROM mark WHERE Course_code = 'ICT1242' AND Reg_no = e.Reg_no AND Marks_type = 'Quiz_1'), 0) +
@@ -5455,6 +5455,7 @@ SELECT
     WHEN att.eligibility IS NULL THEN 'Eligible'
 	 WHEN 'MC' THEN 'MC'
         WHEN cp.CA_Status = 'CA_Pass' AND att.eligibility IN ('Eligible', 'Eligible with medical') THEN 'Eligible'
+        WHEN cp.CA_Status = 'MC' AND att.eligibility IN ('Eligible', 'Eligible with medical') THEN 'Eligible'
         ELSE 'Not Eligible'
     END AS Final_Eligibility
 FROM vw_CA_Status cp
